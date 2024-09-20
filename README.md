@@ -1,1 +1,1 @@
-# Shoes-Strore-Website
+# Shoes-Store-Website
