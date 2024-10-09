@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +17,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
         {
             _db = db;
         }
-        public CategoryController   () : this(new ApplicationDbContext())
+        public CategoryController() : this(new ApplicationDbContext())
         {
 
         }
@@ -31,11 +30,38 @@ namespace ShoeWeb.Areas.Admin.Controllers
             };
 
         }
+
+        [HttpGet]
         public async Task<ActionResult> Index()
         {
 
             var cate = await GetCategoriese();
             return View(cate);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                var category = await _db.categories.Where(c => c.cateId == id).FirstOrDefaultAsync();
+                if (category != null)
+                {
+                    _db.categories.Remove(category);
+                    await _db.SaveChangesAsync();
+                    var updatedCategories = await _db.categories.ToListAsync(); 
+                    return Json(new { success = true, categories = updatedCategories });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return Json(new { success = false });
+
+        }
+
+
     }
 }
