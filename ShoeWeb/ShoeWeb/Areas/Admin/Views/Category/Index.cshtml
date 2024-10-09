@@ -1,4 +1,4 @@
-﻿
+
 @{
     ViewBag.Title = "Index";
 }
@@ -29,12 +29,17 @@
                 <td>@item.cateName</td>
                 <td>@item.cateDescription</td>
                 <td scope="col">
-                    <a class="btn btn-warning m-1">
+                    <button type="button" class="btn btn-secondary">
                         <i class="bi bi-pencil-square"></i> Sửa
-                    </a>
-                    <a class="btn btn-danger m-1 confirmDeletion">
+
+                    </button>
+
+                    <button type="button" class="btn btn-danger" onclick="deleteItem(@item.cateId)">
                         <i class="bi bi-trash"></i> Xóa
-                    </a>
+                    </button>
+
+
+
                 </td>
 
             </tr>
@@ -43,4 +48,50 @@
 
     </tbody>
 </table>
+<script>
+    function deleteItem(id) {
+        if (confirm("Bạn có chắc muốn xóa mục này không?")) {
+            $.ajax({
+                url: '/Category/Delete', 
+                type: 'POST',
+                data: { id: id },
+                success: function (result) {
+                    if (result.success) {
+                       
+                        updateCategoryList(result.categories);
+                    } else {
+                        alert("Không tìm thấy mục cần xóa!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
 
+    function updateCategoryList(categories) {
+        var categoryTableBody = $('tbody'); 
+        categoryTableBody.empty(); 
+
+        $.each(categories, function (index, category) {
+            categoryTableBody.append(`
+            <tr>
+                <th scope="row">${category.cateId}</th>
+                <td>${category.cateName}</td>
+                <td>${category.cateDescription}</td>
+                <td scope="col">
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-pencil-square"></i> Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="deleteItem(${category.cateId})">
+                        <i class="bi bi-trash"></i> Xóa
+                    </button>
+                </td>
+            </tr>
+        `);
+        });
+    }
+
+
+</script>
