@@ -1,16 +1,150 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 @model ShoeWeb.Areas.Admin.Admin_ViewModel.CategoryVM
+<style>
+    /* Tạo không gian cho phần chứa tiêu đề và nút tạo danh mục mới */
+    .table .p-3 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
 
+    /* Định dạng cho bảng */
+    table.table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        table.table th,
+        table.table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+
+        /* Định dạng cho tiêu đề bảng */
+        table.table thead th {
+            background-color: #007bff;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+    /* Định dạng cho các nút sửa và xóa */
+    button.btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    button.btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+        button.btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    button.btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        button.btn-danger:hover {
+            background-color: #c82333;
+        }
+
+    /* Định dạng cho hàng đang được chỉnh sửa */
+    #editRow {
+        background-color: #f0f0f0;
+    }
+
+        /* Các input trong hàng chỉnh sửa */
+        #editRow input.form-control {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            margin-bottom: 5px;
+        }
+
+        /* Định dạng cho nút lưu và hủy */
+        #editRow button#save {
+            background-color: #28a745;
+            color: white;
+        }
+
+            #editRow button#save:hover {
+                background-color: #218838;
+            }
+
+        #editRow button#cancel {
+            background-color: #ffc107;
+            color: white;
+        }
+
+            #editRow button#cancel:hover {
+                background-color: #e0a800;
+            }
+
+    /* Tạo khoảng cách cho các nút */
+    button {
+        margin-right: 10px;
+    }
+
+    /* Định dạng khoảng cách dòng */
+    tbody tr {
+        line-height: 1.5;
+    }
+</style>
 <table class="table">
     <div class="p-3">
-        <h4>Quản lý danh mục sản phẩm</h4>
-        <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
             <i class="bi bi-plus-circle-fill"></i> Tạo danh mục mới
-        </a>
+        </button>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Thêm danh mục mới</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form >
+                            <div class="mb-3">
+                                <label for="InputName" class="form-label">Tên danh mục</label>
+                                <input name="name" type="text" class="form-control" id="InputName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputDescription" class="form-label">Mô tả</label>
+                                <input name="description" type="text" class="form-control" id="InputDescription">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-primary" onclick="Add()">Thêm</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
     <thead>
         <tr>
@@ -20,27 +154,161 @@
             <th scope="col">Quản lý danh mục</th>
         </tr>
     </thead>
-
     <tbody>
         @foreach (var item in Model.categories)
         {
-            <tr>
+            <tr id="viewRow-@item.cateId">
                 <th scope="row">@item.cateId</th>
                 <td>@item.cateName</td>
                 <td>@item.cateDescription</td>
                 <td scope="col">
-                    <a class="btn btn-warning m-1">
+                    <button id="edit" type="button" class="btn btn-secondary" onclick="editItem(@item.cateId)">
                         <i class="bi bi-pencil-square"></i> Sửa
-                    </a>
-                    <a class="btn btn-danger m-1 confirmDeletion">
+                    </button>
+                    <button id="delete" type="button" class="btn btn-danger" onclick="deleteItem(@item.cateId)">
                         <i class="bi bi-trash"></i> Xóa
-                    </a>
+                    </button>
                 </td>
-
+            </tr>
+            <tr id="editRow-@item.cateId" style="display:none;">
+                <th scope="row">@item.cateId</th>
+                <td>
+                    <input type="text" id="categoryName-@item.cateId" value="@item.cateName" class="form-control">
+                </td>
+                <td>
+                    <input type="text" id="categoryDescription-@item.cateId" value="@item.cateDescription" class="form-control">
+                </td>
+                <td scope="col">
+                    <button type="button" id="save" class="btn btn-secondary" onclick="updateItem(@item.cateId)">
+                        <i class="bi bi-save"></i> Lưu
+                    </button>
+                    <button type="button" id="cancel" class="btn btn-danger" onclick="cancelEdit(@item.cateId)">
+                        <i class="bi bi-x-circle"></i> Hủy
+                    </button>
+                </td>
             </tr>
         }
-
-
     </tbody>
 </table>
 
+<script>
+    @*DELETE METHOD*@
+    function deleteItem(id) {
+        if (confirm("Bạn có chắc muốn xóa mục này không?")) {
+            $.ajax({
+                url: '/Category/Delete',
+                type: 'POST',
+                data: { id: id },
+                success: function (result) {
+                    if (result.success) {
+                        updateCategoryList(result.categories);
+                    } else {
+                        alert("Không tìm thấy mục cần xóa!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
+
+    @* ADD METHOD *@
+    function Add() {
+        var Name = document.getElementById(`InputName`).value;
+        var Description = document.getElementById(`InputDescription`).value;
+
+        if (confirm("Bạn có chắc muốn thêm mục này không?")) {
+            $.ajax({
+                url: '/Category/AddCategory',
+                type: 'POST',
+                data: {
+                    description: Description,
+                    name: Name
+                },
+                success: function (result) {
+                    if (result.success) {
+                        updateCategoryList(result.categories);
+                        $('#exampleModalCenter').modal('hide');
+                        $('.modal-backdrop').remove();
+                    } else {
+                        alert("Thêm thất bại!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
+
+
+    @* UPDATE METHOD *@
+    function updateItem(id) {
+        var updatedName = document.getElementById(`categoryName-${id}`).value;
+        var updatedDescription = document.getElementById(`categoryDescription-${id}`).value;
+
+        if (confirm("Bạn có chắc muốn cập nhật mục này không?")) {
+            $.ajax({
+                url: '/Category/Update',
+                type: 'POST',
+                data: {
+                    id: id,
+                    descriptionCate: updatedDescription,
+                    nameCate: updatedName
+                },
+                success: function (result) {
+                    if (result.success) {
+                        updateCategoryList(result.categories);
+                    } else {
+                        alert("Không tìm thấy mục cần cập nhật!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
+
+    @* LOAD TABLE *@
+
+    function updateCategoryList(categories) {
+        var categoryTableBody = $('tbody');
+        categoryTableBody.empty();
+
+        $.each(categories, function (index, category) {
+            categoryTableBody.append(`
+             <tr>
+                 <th scope="row">${category.cateId}</th>
+                 <td>${category.cateName}</td>
+                 <td>${category.cateDescription}</td>
+                 <td scope="col">
+                     <button type="button" class="btn btn-secondary">
+                         <i class="bi bi-pencil-square"></i> Sửa
+                     </button>
+                     <button type="button" class="btn btn-danger" onclick="deleteItem(${category.cateId})">
+                         <i class="bi bi-trash"></i> Xóa
+                     </button>
+                 </td>
+             </tr>
+         `);
+        });
+    }
+
+</script>
+
+<script>
+    function editItem(cateId) {
+        document.getElementById(`viewRow-${cateId}`).style.display = 'none';
+        document.getElementById(`editRow-${cateId}`).style.display = '';
+    }
+
+    function cancelEdit(cateId) {
+        document.getElementById(`viewRow-${cateId}`).style.display = '';
+        document.getElementById(`editRow-${cateId}`).style.display = 'none';
+    }
+
+
+
+</script>
