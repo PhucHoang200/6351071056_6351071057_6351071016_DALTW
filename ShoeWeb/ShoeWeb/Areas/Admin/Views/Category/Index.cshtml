@@ -130,7 +130,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form >
+                        <form>
                             <div class="mb-3">
                                 <label for="InputName" class="form-label">Tên danh mục</label>
                                 <input name="name" type="text" class="form-control" id="InputName">
@@ -306,12 +306,12 @@
 
         $.each(categories, function (index, category) {
             categoryTableBody.append(`
-             <tr>
+             <tr id="viewRow-${category.cateId}">
                  <th scope="row">${category.cateId}</th>
                  <td>${category.cateName}</td>
                  <td>${category.cateDescription}</td>
                  <td scope="col">
-                     <button type="button" class="btn btn-secondary">
+                     <button type="button" class="btn btn-secondary"  onclick="editItem(${category.cateId})">
                          <i class="bi bi-pencil-square"></i> Sửa
                      </button>
                      <button type="button" class="btn btn-danger" onclick="deleteItem(${category.cateId})">
@@ -319,8 +319,26 @@
                      </button>
                  </td>
              </tr>
+              <tr id="editRow-${category.cateId}" style="display:none;">
+                 <th scope="row">${category.cateId}</th>
+                 <td>
+                     <input type="text" id="categoryName-${category.cateId}" value="${category.cateName}" class="form-control">
+                 </td>
+                 <td>
+                     <input type="text" id="categoryDescription-${category.cateId}" value="${category.cateDescription}" class="form-control">
+                 </td>
+                 <td scope="col">
+                     <button type="button" id="save" class="btn btn-secondary" onclick="updateItem(${category.cateId})">
+                         <i class="bi bi-save"></i> Lưu
+                     </button>
+                     <button type="button" id="cancel" class="btn btn-danger" onclick="cancelEdit(${category.cateId})">
+                         <i class="bi bi-x-circle"></i> Hủy
+                     </button>
+                 </td>
+             </tr>
          `);
         });
+
     }
 
 </script>
