@@ -25,6 +25,10 @@ namespace ShoeWeb.Models
         [Required]
         public string image {  get; set; }
         [Required]
+        public DateTime? createdDate { get; set; }
+        [Required]
+        public DateTime? updatedDate { get; set; }
+        [Required]
         public int cateId { get; set; }
         [Required]
         public int brandId { get; set; }
@@ -32,5 +36,8 @@ namespace ShoeWeb.Models
         public Category Category { get; set; }
         [ForeignKey("brandId")]
         public Brand Brand { get; set; }
+        public int idOrigin { get; set; }
+        [ForeignKey("idOrigin")]
+        public Origin Origin { get; set; }
     }
 }

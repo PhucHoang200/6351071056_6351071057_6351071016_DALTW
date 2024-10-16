@@ -83,3 +83,4 @@ D:\C#\ASP.NET MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.xml
 D:\C#\ASP.NET MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.xml
 D:\C#\ASP.NET MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.addProductToDb.resources
 D:\C#\ASP.NET MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache
+D:\C#\ASP.NET MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.addSizeToDb.resources

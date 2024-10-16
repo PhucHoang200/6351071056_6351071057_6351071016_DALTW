@@ -130,7 +130,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\CategoryVM.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Areas\Customer\Controllers\HomeController.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
@@ -141,10 +143,17 @@
     <Compile Include="Migrations\202409210856470_addProductToDb.Designer.cs">
       <DependentUpon>202409210856470_addProductToDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410160909009_addSizeToDb.cs" />
+    <Compile Include="Migrations\202410160909009_addSizeToDb.Designer.cs">
+      <DependentUpon>202410160909009_addSizeToDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Origin.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Size.cs" />
+    <Compile Include="Models\SizeOfProduct.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -411,6 +420,8 @@
     <Content Include="Content\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="Content\scss\bootstrap\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -472,6 +483,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202409210856470_addProductToDb.resx">
       <DependentUpon>202409210856470_addProductToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410160909009_addSizeToDb.resx">
+      <DependentUpon>202410160909009_addSizeToDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

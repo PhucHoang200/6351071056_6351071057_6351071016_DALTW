@@ -76,10 +76,10 @@
                         <i class="bi bi-card-list me-2"></i> Danh mục
                     </a>
 
-                    <a asp-controller="Product" asp-action="Index" class="nav-item nav-link">
+                    <a asp-controller="Product"  href="@Url.Action("Index", "Product")" class="nav-item nav-link">
                         <i class="fa fa-th me-2"></i> Sản phẩm
                     </a>
-                    <a asp-controller="Brand" asp-action="Index" class="nav-item nav-link">
+                    <a asp-controller="Brand"  href="@Url.Action("Index", "Brand")" class="nav-item nav-link">
                         <i class="far fa-file-alt me-2"></i> Nhãn hàng
                     </a>
                     <div class="nav-item dropdown">
