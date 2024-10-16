@@ -18,6 +18,9 @@ namespace ShoeWeb.Data
         public DbSet<Category> categories { get; set; }
         public DbSet<Brand> brands { get; set; }
         public DbSet<User> users { get; set; }
+        public DbSet<Size> sizes { get; set; }
+        public DbSet<Origin> origin { get; set; }
+        public DbSet<SizeOfProduct> sizeOfProducts { get; set; }
 
     }
 }
