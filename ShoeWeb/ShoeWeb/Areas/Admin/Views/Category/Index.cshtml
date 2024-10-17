@@ -1,0 +1,97 @@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@model ShoeWeb.Areas.Admin.Admin_ViewModel.CategoryVM
+
+<table class="table">
+    <div class="p-3">
+        <h4>Quản lý danh mục sản phẩm</h4>
+        <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle-fill"></i> Tạo danh mục mới
+        </a>
+    </div>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tên danh mục</th>
+            <th scope="col">Mô tả danh mục</th>
+            <th scope="col">Quản lý danh mục</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.categories)
+        {
+            <tr>
+                <th scope="row">@item.cateId</th>
+                <td>@item.cateName</td>
+                <td>@item.cateDescription</td>
+                <td scope="col">
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-pencil-square"></i> Sửa
+
+                    </button>
+
+                    <button type="button" class="btn btn-danger" onclick="deleteItem(@item.cateId)">
+                        <i class="bi bi-trash"></i> Xóa
+                    </button>
+
+
+
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<script>
+    function deleteItem(id) {
+        if (confirm("Bạn có chắc muốn xóa mục này không?")) {
+            $.ajax({
+                url: '/Category/Delete', 
+                type: 'POST',
+                data: { id: id },
+                success: function (result) {
+                    if (result.success) {
+                       
+                        updateCategoryList(result.categories);
+                    } else {
+                        alert("Không tìm thấy mục cần xóa!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
+
+    function updateCategoryList(categories) {
+        var categoryTableBody = $('tbody'); 
+        categoryTableBody.empty(); 
+
+        $.each(categories, function (index, category) {
+            categoryTableBody.append(`
+            <tr>
+                <th scope="row">${category.cateId}</th>
+                <td>${category.cateName}</td>
+                <td>${category.cateDescription}</td>
+                <td scope="col">
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-pencil-square"></i> Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="deleteItem(${category.cateId})">
+                        <i class="bi bi-trash"></i> Xóa
+                    </button>
+                </td>
+            </tr>
+        `);
+        });
+    }
+
+
+</script>
