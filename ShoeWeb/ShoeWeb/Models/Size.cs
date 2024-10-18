@@ -15,5 +15,7 @@ namespace ShoeWeb.Models
         [Required]
         [Range(0.01, float.MaxValue, ErrorMessage = "Size phải lớn hơn 0")]
         public float numberSize { get; set; }
+        [Required]
+        public bool gender { get; set; }
     }
 }
