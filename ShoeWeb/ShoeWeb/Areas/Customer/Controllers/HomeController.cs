@@ -37,5 +37,33 @@ namespace ShoeWeb.Controllers
 
             return View();
         }
-    }
+
+        public ActionResult Account()
+        {
+            ViewBag.Message = "Your account page.";
+
+            return View();
+        }
+
+        public ActionResult Product()
+        {
+            ViewBag.Message = "Your product page.";
+
+            return View();
+        }
+
+        public ActionResult Cart()
+        {
+            ViewBag.Message = "You cart page.";
+
+            return View();
+        }
+
+        public ActionResult ProductDetails()
+        {
+            ViewBag.Message = "Your productdetial page.";
+
+            return View();
+        }
+     }
 }
