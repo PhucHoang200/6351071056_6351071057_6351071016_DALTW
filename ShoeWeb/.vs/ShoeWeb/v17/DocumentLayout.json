@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\C#\\ASP.NET MVC\\Shoes-Strore-Website\\ShoeWeb\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoestoreweb\\shoes-strore-website\\shoeweb\\shoeweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoestoreweb\\shoes-strore-website\\shoeweb\\shoeweb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoestoreweb\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\customerarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\customerarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoestoreweb\\shoes-strore-website\\shoeweb\\shoeweb\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoestoreweb\\shoes-strore-website\\shoeweb\\shoeweb\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoestoreweb\\shoes-strore-website\\shoeweb\\shoeweb\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +34,105 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-18T08:14:51.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Web.config",
+              "RelativeDocumentMoniker": "ShoeWeb\\Views\\Web.config",
+              "ToolTip": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Web.config",
+              "RelativeToolTip": "ShoeWeb\\Views\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-18T08:14:47.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomerAreaRegistration.cs",
+              "DocumentMoniker": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "ToolTip": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:08:27.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Global.asax.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Global.asax.cs",
+              "ToolTip": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Global.asax.cs",
+              "RelativeToolTip": "ShoeWeb\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:06:45.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-18T08:05:14.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\App_Start\\RouteConfig.cs",
+              "ToolTip": "D:\\ShoeStoreWeb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "ShoeWeb\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:04:50.226Z",
+              "EditorCaption": ""
             }
           ]
         },
