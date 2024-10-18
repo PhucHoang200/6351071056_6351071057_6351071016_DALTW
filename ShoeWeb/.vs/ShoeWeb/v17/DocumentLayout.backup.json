@@ -53,20 +53,6 @@
           "SelectedChildIndex": 11,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\C#\\ASP.NET MVC\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
-              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
-              "ToolTip": "D:\\C#\\ASP.NET MVC\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
-              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAwwG4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-18T01:04:21.541Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
@@ -85,6 +71,20 @@
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\C#\\ASP.NET MVC\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "ToolTip": "D:\\C#\\ASP.NET MVC\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAwwG4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-18T01:04:21.541Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -159,7 +159,7 @@
               "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "ToolTip": "D:\\C#\\ASP.NET MVC\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\Product\\Index.cshtml",
-              "ViewState": "AgIAALEAAAAAAAAAAAAAAMUAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAKkAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-18T01:19:46.961Z",
               "EditorCaption": ""

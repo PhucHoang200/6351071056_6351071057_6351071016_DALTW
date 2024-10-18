@@ -148,6 +148,10 @@
     <Compile Include="Migrations\202410160909009_addSizeToDb.Designer.cs">
       <DependentUpon>202410160909009_addSizeToDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410180146279_updateSizeToDb.cs" />
+    <Compile Include="Migrations\202410180146279_updateSizeToDb.Designer.cs">
+      <DependentUpon>202410180146279_updateSizeToDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
@@ -433,6 +437,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\admin.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -487,6 +492,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410160909009_addSizeToDb.resx">
       <DependentUpon>202410160909009_addSizeToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410180146279_updateSizeToDb.resx">
+      <DependentUpon>202410180146279_updateSizeToDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
