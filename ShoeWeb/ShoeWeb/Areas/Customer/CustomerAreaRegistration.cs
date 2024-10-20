@@ -15,7 +15,7 @@ namespace ShoeWeb.Areas.Customer
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Customer_default",
+                 "Customer_default",
                 "Customer/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
