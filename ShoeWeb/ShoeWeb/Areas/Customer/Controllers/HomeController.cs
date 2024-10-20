@@ -21,6 +21,7 @@ namespace ShoeWeb.Controllers
         }
         public ActionResult Index()
         {
+
             return View();
         }
 
