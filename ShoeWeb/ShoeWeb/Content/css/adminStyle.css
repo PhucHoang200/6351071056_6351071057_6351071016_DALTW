@@ -1,0 +1,112 @@
+﻿.table .p-3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* Định dạng cho bảng */
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    table.table th,
+    table.table td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #dee2e6;
+        vertical-align: middle;
+    }
+
+    /* Định dạng cho tiêu đề bảng */
+    table.table thead th {
+        background-color: #007bff;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+/* Định dạng cho các nút sửa và xóa */
+button.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+    button.btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+button.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+    button.btn-danger:hover {
+        background-color: #c82333;
+    }
+
+/* Định dạng cho hàng đang được chỉnh sửa */
+#editRow {
+    background-color: #f0f0f0;
+}
+
+    /* Các input trong hàng chỉnh sửa */
+    #editRow input.form-control {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        margin-bottom: 5px;
+    }
+
+    /* Định dạng cho nút lưu và hủy */
+    #editRow button#save {
+        background-color: #28a745;
+        color: white;
+    }
+
+        #editRow button#save:hover {
+            background-color: #218838;
+        }
+
+    #editRow button#cancel {
+        background-color: #ffc107;
+        color: white;
+    }
+
+        #editRow button#cancel:hover {
+            background-color: #e0a800;
+        }
+
+/* Tạo khoảng cách cho các nút */
+button {
+    margin-right: 10px;
+}
+
+/* Định dạng khoảng cách dòng */
+tbody tr {
+    line-height: 1.5;
+}
+
+
+.modal-header{
+    justify-content:space-between;
+}
+
+#manage {
+    text-align: center;
+}

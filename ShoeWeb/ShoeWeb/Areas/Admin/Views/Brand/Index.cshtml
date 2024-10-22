@@ -2,6 +2,84 @@
 @{
     ViewBag.Title = "Index";
 }
+@model ShoeWeb.Areas.Admin.Admin_ViewModel.BrandVM
 
-<h2>Index</h2>
+<div class="p-3">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+        <i class="bi bi-plus-circle-fill"></i> Thêm nhãn hàng mới
+    </button>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Thêm nhãn hàng mới</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="InputName" class="form-label">Tên danh mục</label>
+                            <input name="name" type="text" class="form-control" id="InputName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="InputDescription" class="form-label">Mô tả</label>
+                            <input name="description" type="text" class="form-control" id="InputDescription">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary" onclick="AddBrand()">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tên nhãn hàng</th>
+            <th scope="col">Sửa thông tin</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.brands)
+        {
+            <tr id="viewRow-@item.brandId">
+                <th scope="row">@item.brandId</th>
+                <td>@item.brandName</td>
+               
+                <td scope="col" id="manage">
+
+                    <button id="edit" type="button" class="btn btn-secondary" onclick="editItem(@item.brandId)">
+                        <i class="bi bi-pencil-square"></i> Sửa
+                    </button>
+                  
+                </td>
+            </tr>
+            <tr id="editRow-@item.brandId" style="display:none;" >
+                <th scope="row">@item.brandId</th>
+                <td>
+                    <input type="text" id="BrandName-@item.brandId" value="@item.brandName" class="form-control">
+                </td>
+                <td scope="col" id="manage">
+                    <button type="button" id="save" class="btn btn-secondary" onclick="updateBrand(@item.brandId)">
+                        <i class="bi bi-save"></i> Lưu
+                    </button>
+                    <button type="button" id="cancel" class="btn btn-danger" onclick="cancelEdit(@item.brandId)">
+                        <i class="bi bi-x-circle"></i> Hủy
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 
