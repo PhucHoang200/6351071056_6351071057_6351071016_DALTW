@@ -8,30 +8,30 @@ function cancelEdit(cateId) {
     document.getElementById(`editRow-${cateId}`).style.display = 'none';
 }
 
-    //@*DELETE METHOD*@
-    //function deleteItem(id) {
-    //    if (confirm("Bạn có chắc muốn xóa mục này không?")) {
-    //    $.ajax({
-    //        url: '/Category/Delete',
-    //        type: 'POST',
-    //        data: { id: id },
-    //        success: function (result) {
-    //            if (result.success) {
-    //                updateCategoryList(result.categories);
-    //            } else {
-    //                alert("Không tìm thấy mục cần xóa!");
-    //            }
-    //        },
-    //        error: function (xhr, status, error) {
-    //            alert("Có lỗi xảy ra!");
-    //        }
-    //    });
-    //    }
-    //}
+//@*DELETE METHOD*@
+//function deleteItem(id) {
+//    if (confirm("Bạn có chắc muốn xóa mục này không?")) {
+//    $.ajax({
+//        url: '/Category/Delete',
+//        type: 'POST',
+//        data: { id: id },
+//        success: function (result) {
+//            if (result.success) {
+//                updateCategoryList(result.categories);
+//            } else {
+//                alert("Không tìm thấy mục cần xóa!");
+//            }
+//        },
+//        error: function (xhr, status, error) {
+//            alert("Có lỗi xảy ra!");
+//        }
+//    });
+//    }
+//}
 
-    {/*@* ADD METHOD *@*/}
-    function Add() {
-        var Name = document.getElementById(`InputName`).value;
+{/*@* ADD METHOD *@*/ }
+function Add() {
+    var Name = document.getElementById(`InputName`).value;
     var Description = document.getElementById(`InputDescription`).value;
 
     if (confirm("Bạn có chắc muốn thêm mục này không?")) {
@@ -55,13 +55,13 @@ function cancelEdit(cateId) {
                 alert("Có lỗi xảy ra!");
             }
         });
-        }
     }
+}
 
 
-    //@* UPDATE METHOD *@
-    function updateItem(id) {
-        var updatedName = document.getElementById(`categoryName-${id}`).value;
+//@* UPDATE METHOD *@
+function updateItem(id) {
+    var updatedName = document.getElementById(`categoryName-${id}`).value;
     var updatedDescription = document.getElementById(`categoryDescription-${id}`).value;
 
     if (confirm("Bạn có chắc muốn cập nhật mục này không?")) {
@@ -84,13 +84,13 @@ function cancelEdit(cateId) {
                 alert("Có lỗi xảy ra!");
             }
         });
-        }
     }
+}
 
-    //@* LOAD TABLE *@
+//@* LOAD TABLE *@
 
-    function updateCategoryList(categories) {
-        var categoryTableBody = $('tbody');
+function updateCategoryList(categories) {
+    var categoryTableBody = $('tbody');
     categoryTableBody.empty();
 
     $.each(categories, function (index, category) {
@@ -126,7 +126,7 @@ function cancelEdit(cateId) {
                  </td>
              </tr>
          `);
-        });
+    });
 
 }
 
@@ -134,21 +134,21 @@ function cancelEdit(cateId) {
 //DELETE PRODUCT
 function deleteProduct(id) {
     if (confirm("Bạn có chắc muốn xóa mục này không?")) {
-    $.ajax({
-        url: '/Product/Delete',
-        type: 'POST',
-        data: { id: id },
-        success: function (result) {
-            if (result.success) {
-                updateProductList(result.products);
-            } else {
-                alert("Không tìm thấy mục cần xóa!");
+        $.ajax({
+            url: '/Product/Delete',
+            type: 'POST',
+            data: { id: id },
+            success: function (result) {
+                if (result.success) {
+                    updateProductList(result.products);
+                } else {
+                    alert("Không tìm thấy mục cần xóa!");
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Có lỗi xảy ra!");
             }
-        },
-        error: function (xhr, status, error) {
-            alert("Có lỗi xảy ra!");
-        }
-    });
+        });
     }
 }
 
@@ -167,13 +167,13 @@ function updateProduct(id) {
     }
 
     $.ajax({
-        url: '/Product/Update', 
+        url: '/Product/Update',
         type: 'POST',
         data: formData,
         contentType: false,
         processData: false,
 
-        
+
         success: function (result) {
             console.log(result.products);
             if (result.success) {
@@ -197,19 +197,19 @@ function AddProduct() {
     var quantity = document.getElementById(`InputQuantity`).value;
     var imageFile = document.getElementById(`InputImage`).files[0];
 
-    var categoryId = document.getElementById(`categorySelect`).value; 
-    var brandId = document.getElementById(`brandSelect`).value; 
-    var sizeId = document.getElementById(`sizeSelect`).value; 
-    var originId = document.getElementById(`originSelect`).value; 
+    var categoryId = document.getElementById(`categorySelect`).value;
+    var brandId = document.getElementById(`brandSelect`).value;
+    var sizeId = document.getElementById(`sizeSelect`).value;
+    var originId = document.getElementById(`originSelect`).value;
 
     formData.append('name', name);
     formData.append('description', description);
     formData.append('price', parseFloat(price));
     formData.append('quantity', parseInt(quantity));
-    formData.append('categoryId', categoryId); 
-    formData.append('brandId', brandId); 
-    formData.append('sizeId', sizeId); 
-    formData.append('originId', originId); 
+    formData.append('categoryId', categoryId);
+    formData.append('brandId', brandId);
+    formData.append('sizeId', sizeId);
+    formData.append('originId', originId);
 
     if (imageFile) {
         formData.append('image', imageFile);
@@ -316,10 +316,12 @@ function updateBrand(id) {
     }
 }
 
-function updateBrandList(brands) {
+
+
+
+function updateBrandList() {
     var brandTableBody = $('tbody');
     brandTableBody.empty(); // Xóa tất cả các dòng hiện tại trong bảng
-
     $.each(brands, function (index, brand) {
         brandTableBody.append(`
             <tr id="viewRow-${brand.brandId}">

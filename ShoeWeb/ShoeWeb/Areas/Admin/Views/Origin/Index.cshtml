@@ -1,0 +1,164 @@
+﻿
+@model ShoeWeb.Areas.Admin.Admin_ViewModel.OriginVM
+
+<div class="p-3">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+        <i class="bi bi-plus-circle-fill"></i> Thêm nhãn hàng mới
+    </button>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Thêm nhãn hàng mới</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="InputCountry" class="form-label">Tên Nước</label>
+                            <select name="name" class="form-control" id="InputCountry">
+                                <option value="">-- Chọn Nước --</option>
+                                @if (ViewData["Countries"] != null)
+                                {
+                                    var countries = ViewData["Countries"] as List<string>;
+                                    foreach (var country in countries)
+                                    {
+                                        <option value="@country">@country</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option value="">Không có dữ liệu</option>
+                                }
+                            </select>
+                        </div>
+
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary" onclick="AddOrigin()">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<form method="post">
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Tên nước</th>
+                <th scope="col">Sửa thông tin</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.origins)
+            {
+                <tr id="viewRow-@item.idOrigin">
+                    <th scope="row">@item.idOrigin</th>
+                    <td>@item.nameCountry</td>
+
+                    <td scope="col" id="manage">
+
+                        <button id="edit" type="button" class="btn btn-secondary" onclick="editItem(@item.idOrigin)">
+                            <i class="bi bi-pencil-square"></i> Sửa
+                        </button>
+
+                    </td>
+                </tr>
+                <tr id="editRow-@item.idOrigin" style="display:none;">
+                    <th scope="row">@item.idOrigin</th>
+                    <td>
+                        <input type="text" id="OriginName-@item.idOrigin" value="@item.nameCountry" class="form-control">
+                    </td>
+                    <td scope="col" id="manage">
+                        <button type="button" id="save" class="btn btn-secondary" onclick="updateOrigin(@item.idOrigin)">
+                            <i class="bi bi-save"></i> Lưu
+                        </button>
+                        <button type="button" id="cancel" class="btn btn-danger" onclick="cancelEdit(@item.idOrigin)">
+                            <i class="bi bi-x-circle"></i> Hủy
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
+<script>
+    function updateOrigin(id) {
+
+        var formData = new FormData();
+        var country = document.getElementById(`OriginName-${id}`).value;
+        formData.append('country', country);
+        formData.append('id', id);
+        if (confirm("Bạn có chắc muốn cập nhật mục này không?")) {
+            $.ajax({
+                url: '/Origin/UpdateOrigin',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    if (result.success) {
+                        updateOriginList(result.origins);
+                    } else {
+                        alert("Không tìm thấy mục cần cập nhật!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
+
+
+
+
+    function updateOriginList(origins) {
+        var originTableBody = $('tbody');
+        originTableBody.empty(); 
+        $.each(origins, function (index, origin) {
+            originTableBody.append(`
+            <tr id="viewRow-${origin.idOrigin}">
+                <th scope="row">${origin.idOrigin}</th>
+                <td>${origin.nameCountry}</td>
+                <td scope="col" id="manage">
+                    <button id="edit" type="button" class="btn btn-secondary" onclick="editItem(${origin.idOrigin})">
+                        <i class="bi bi-pencil-square"></i> Sửa
+                    </button>
+                </td>
+            </tr>
+            <tr id="editRow-${origin.idOrigin}" style="display:none;">
+                <th scope="row">${origin.idOrigin}</th>
+                <td>
+                    <input type="text" id="OriginName-${origin.idOrigin}" value="${origin.nameCountry}" class="form-control">
+                </td>
+                <td scope="col" id="manage">
+                    <button type="button" id="save" class="btn btn-secondary" onclick="updateOrigin(${origin.idOrigin})">
+                        <i class="bi bi-save"></i> Lưu
+                    </button>
+                    <button type="button" id="cancel" class="btn btn-danger" onclick="cancelEdit(${origin.idOrigin})">
+                        <i class="bi bi-x-circle"></i> Hủy
+                    </button>
+                </td>
+            </tr>
+        `);
+        });
+
+
+    }
+</script>
+
+
+
