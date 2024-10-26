@@ -1,8 +1,6 @@
-﻿@model IEnumerable<ShoeWeb.Models.Product>
+﻿@model ShoeWeb.Areas.Customer.CustomertVM.HomeVM
 
-@{
-    ViewBag.Title = "Home Page";
-}
+
 
 <div class="header">
     <div class="container">
@@ -23,34 +21,29 @@
 
 <!------------------------------ Featured Products ------------------------------>
 <div class="small-container">
-    <h2 class="title">Featured Products</h2>
+    @foreach (var itemCate in Model.Categories)
+    {
+        <h2 class="title">@itemCate.cateName</h2>
 
-    <!-- Button Container -->
-    <div class="button-container">
-        <div class="row">
-            <button class="filter-button" data-filter="all">All</button>
-            @foreach (var category in ViewBag.Categories)
+        // Lấy sản phẩm theo danh mục
+        var productsInCategory = Model.Products.ElementAt(Model.Categories.ToList().IndexOf(itemCate));
+
+        <div class="row product-container">
+            @foreach (var product in productsInCategory)
             {
-                <button class="filter-button" data-filter="@category.cateId">@category.cateName</button>
+                <div class="col-4 filter-item cate-@product.cateId">
+                    <a href="@Url.Action("ProductDetails", "Home", new { id = product.productId })">
+                        <img src="@Url.Content(product.image)" alt="@product.productName" />
+                    </a>
+                    <a href="@Url.Action("ProductDetails", "Home", new { id = product.productId })">
+                        <h4>@product.productName</h4>
+                    </a>
+                    <p>@product.price.ToString("C")</p>
+                </div>
             }
         </div>
-    </div>
+    }
 
-    <!-- Product Container -->
-    <div class="row product-container">
-        @foreach (var product in Model)
-        {
-            <div class="col-4 filter-item cate-@product.cateId">
-                <a href="@Url.Action("ProductDetails", "Home", new { id = product.productId })">
-                    <img src="@Url.Content(product.image)" alt="@product.productName" />
-                </a>
-                <a href="@Url.Action("ProductDetails", "Home", new { id = product.productId })">
-                    <h4>@product.productName</h4>
-                </a>
-                <p>@product.price.ToString("C")</p>
-            </div>
-        }
-    </div>
 </div>
 
 <!--------------------------`   offer   --------------------------------->
@@ -144,7 +137,7 @@
 
 <!-- Thêm JavaScript để lọc sản phẩm -->
 <script>
-document.querySelectorAll('.filter-button').forEach(button => {
+    document.querySelectorAll('.filter-button').forEach(button => {
         button.addEventListener('click', () => {
             const filterValue = button.getAttribute('data-filter');
             const items = document.querySelectorAll('.filter-item');
