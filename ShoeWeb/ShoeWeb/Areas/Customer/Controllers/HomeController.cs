@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using ShoeWeb.Data;
 using ShoeWeb.Models;
+using ShoeWeb.Areas.Customer.CustomertVM;
+
 
 namespace ShoeWeb.Controllers
 {
@@ -15,6 +17,8 @@ namespace ShoeWeb.Controllers
         {
             _db = db;
         }
+
+        
         public HomeController() : this(new ApplicationDbContext())
         {
             
@@ -22,13 +26,29 @@ namespace ShoeWeb.Controllers
         public ActionResult Index()
         {
 
-            // Lấy danh sách các sản phẩm từ cơ sở dữ liệu
-            var products = _db.products.ToList();
+            List<List<Product>> products = new List<List<Product>>();
             var categories = _db.categories.ToList();
+            foreach (var item in categories)
+            {
+                var productByCate = _db.products
+                    .Where(p => p.cateId == item.cateId)
+                    .Take(4) // Lấy tối đa 4 sản phẩm
+                    .ToList();
+                products.Add(productByCate);
+            }
+
+            var brands = _db.brands.ToList();
+
+            HomeVM homeVM = new HomeVM()
+            {
+                Products = products,
+                Categories = categories,
+                Brands = brands
+            };
 
             // Truyền dữ liệu vào View thông qua ViewBag
-            ViewBag.Categories = categories;
-            return View(products); // Truyền danh sách sản phẩm vào View
+            //ViewBag.Categories = categories;
+            return View(homeVM); // Truyền danh sách sản phẩm vào View
         }
         public ActionResult About()
         {
@@ -44,18 +64,21 @@ namespace ShoeWeb.Controllers
             return View();
         }
 
-        public ActionResult Account()
-        {
-            ViewBag.Message = "Your account page.";
-
-            return View();
-        }
-
+    
         public ActionResult Product()
         {
             ViewBag.Message = "Your product page.";
+            var products = _db.products.ToList();
+            var categories = _db.categories.ToList();
 
-            return View();
+            ProductVM productVM = new ProductVM()
+            {
+                Products = products,
+                Categories = categories
+            };
+            ViewBag.Categories = categories;
+
+            return View(productVM);
         }
 
         public ActionResult Cart()

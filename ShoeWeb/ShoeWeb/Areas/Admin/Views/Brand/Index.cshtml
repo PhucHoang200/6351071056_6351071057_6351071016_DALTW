@@ -24,10 +24,6 @@
                             <label for="InputName" class="form-label">Tên danh mục</label>
                             <input name="name" type="text" class="form-control" id="InputName">
                         </div>
-                        <div class="mb-3">
-                            <label for="InputDescription" class="form-label">Mô tả</label>
-                            <input name="description" type="text" class="form-control" id="InputDescription">
-                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                             <button type="button" class="btn btn-primary" onclick="AddBrand()">Thêm</button>
@@ -82,4 +78,31 @@
     </tbody>
 </table>
 
+
+<script>
+    function AddBrand() {
+        var name = document.getElementById(`InputName`).value;
+        if (confirm("Bạn có chắc muốn thêm không?")) {
+            $.ajax({
+                url: '/Brand/AddBrand',
+                type: 'POST',
+                data: {
+                    name: name,
+                },
+                success: function (result) {
+                    if (result.success) {
+                        $('#exampleModalCenter').modal('hide');
+                        $('.modal-backdrop').remove();
+                        updateBrandList(result.brands);
+                    } else {
+                        alert(result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
+</script>
 

@@ -59,8 +59,32 @@ namespace ShoeWeb.Areas.Admin.Controllers
             {
                 return Json(new { success = false });
             }
-            return Json(new { success = false });
         }
+
+        [HttpPost]
+        public async Task<ActionResult> AddBrand(string name)
+        {
+            Brand brand = new Brand()
+            {
+                brandName = name
+            };
+
+            try
+            {
+                _db.brands.Add(brand);
+                await _db.SaveChangesAsync();
+
+                var brands = await GetBrandVM();
+
+                return Json(new { success = true, brands = brands.brands });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+
 
     }
 }

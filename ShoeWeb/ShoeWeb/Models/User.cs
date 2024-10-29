@@ -13,21 +13,24 @@ namespace ShoeWeb.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userId { get; set; }
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "User name is required.")]
+        [StringLength(100, ErrorMessage = "User name cannot exceed 100 characters.")]
+        [Index(IsUnique = true)]
+        public string userName { get; set; }
+        [Required(ErrorMessage = "User name is required.")]
+        [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters.")]
         public string name { get; set; }
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "User name is required.")]
+        [StringLength(100, ErrorMessage = "Email cannot exceed 100 characters.")]
         public string email { get; set; }
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "User name is required.")]
+        [StringLength(100, ErrorMessage = "Password cannot exceed 100 characters.")]
         public string password { get; set; }
-        [Required]
-        [StringLength(30)]
+        [Required(ErrorMessage = "Phone number is required.")]
+        [StringLength(30, ErrorMessage = "User name cannot exceed 30 characters.")]
         public string phoneNumber { get; set; }
         [Required]
         public string randomKey { get; set; }
-        [Required]
-        public string role { get; set; }
+        
     }
 }
