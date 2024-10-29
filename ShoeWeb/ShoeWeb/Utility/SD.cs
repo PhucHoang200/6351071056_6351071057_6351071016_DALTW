@@ -7,6 +7,9 @@ namespace ShoeWeb.Utility
 {
     public class SD
     {
-        public static int CountFileImage { get; set; } = 0;
+        public static string AdminRole = "Admin";
+        public static string CustomerRole = "Customer";
+        public static string CompanyRole = "Company";
+        public static string EmployeeRole = "Employee";
     }
 }

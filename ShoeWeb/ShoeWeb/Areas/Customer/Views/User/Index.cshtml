@@ -1,0 +1,118 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!------------------------------ account-page details------------------------------>
+
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/Content/images/image1.png" width="100%">
+            </div>
+            <div class="col-2">
+                <div class="form-container" style="height: 500px !important;">
+                    <div class="form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register</span>
+                        <hr id="Indicator">
+                    </div>
+
+                    <!-- Form Login -->
+                    <form id="LoginForm" action="@Url.Action("Login", "User", new { area = "Customer" })" method="post">
+                        <input id="userName_login" type="text" placeholder="User name" required>
+                        <input id="password_login" type="password" placeholder="Password" required>
+                        <button type="submit" class="btn" onclick="SubmitLogin(event)">Login</button>
+                    </form>
+
+                    <!-- Form Register -->
+                    <form id="RegForm" action="@Url.Action("Register", "User", new { area = "Customer" })" method="post">
+                        <input id="userName_register" type="text" placeholder="User Name" required>
+                        <input id="name_register" type="text" placeholder="Name" required>
+                        <input id="phoneNumber_register" type="text" placeholder="Phone" required>
+                        <input id="email_register" type="email" placeholder="Email" required>
+                        <input id="password_register" type="password" placeholder="Password" required>
+                        <button type="submit" class="btn" onclick="SubmitRegister(event)">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------------------------------js for toggle form-------------------------------------->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var LoginForm = document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+    var Indicator = document.getElementById("Indicator");
+
+    function register() {
+        RegForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(100px)";
+    }
+
+    function login() {
+        RegForm.style.transform = "translateX(300px)";
+        LoginForm.style.transform = "translateX(300px)";
+        Indicator.style.transform = "translateX(0px)";
+    }
+
+    function SubmitRegister(event) {
+        event.preventDefault();
+
+        var formData = {
+            userName: $('#userName_register').val(),
+            name: $('#name_register').val(),
+            phoneNumber: $('#phoneNumber_register').val(),
+            email: $('#email_register').val(),
+            password: $('#password_register').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Register", "User", new { area = "Customer" })',
+            data: formData,
+            success: function (response) {
+                if (response.success) {
+                    alert(response.Message);
+                    window.location.href = '@Url.Action("Index", "User")';
+                } else {
+                    alert(response.Message);
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Error: " + xhr.responseText);
+            }
+        });
+    }
+
+    function SubmitLogin(event) {
+    event.preventDefault();
+
+    var formData = {
+        userName: $('#userName_login').val(),
+        password: $('#password_login').val()
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("Login", "User", new { area = "Customer" })',
+        data: formData,
+        success: function (response) {
+            if (response.success) {
+                alert(response.Message);
+            } else {
+                alert(response.error);
+            }
+        },
+        error: function (xhr, status, error) {
+            alert("Error: " + xhr.responseText);
+        }
+    });
+}
+
+</script>

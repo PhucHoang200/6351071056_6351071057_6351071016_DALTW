@@ -22,9 +22,14 @@ namespace ShoeWeb.Controllers
         public ActionResult Index()
         {
 
-            return View();
-        }
+            // Lấy danh sách các sản phẩm từ cơ sở dữ liệu
+            var products = _db.products.ToList();
+            var categories = _db.categories.ToList();
 
+            // Truyền dữ liệu vào View thông qua ViewBag
+            ViewBag.Categories = categories;
+            return View(products); // Truyền danh sách sản phẩm vào View
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -39,13 +44,7 @@ namespace ShoeWeb.Controllers
             return View();
         }
 
-        public ActionResult Account()
-        {
-            ViewBag.Message = "Your account page.";
-
-            return View();
-        }
-
+    
         public ActionResult Product()
         {
             ViewBag.Message = "Your product page.";

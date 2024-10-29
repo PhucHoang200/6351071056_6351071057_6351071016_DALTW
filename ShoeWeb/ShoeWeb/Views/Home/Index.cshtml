@@ -1,4 +1,4 @@
-﻿﻿
+﻿@model IEnumerable<ShoeWeb.Models.Product>
 
 @{
     ViewBag.Title = "Home Page";
@@ -21,195 +21,35 @@
     </div>
 </div>
 
-
-<!------------------------------ featured categories------------------------------>
-<div class="categories">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-                <img src="~/Content/images/category-1.jpg">
-            </div>
-            <div class="col-3">
-                <img src="~/Content/images/category-2.jpg">
-            </div>
-            <div class="col-3">
-                <img src="~/Content/images/category-3 (2).jpg">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!------------------------------ featured Products------------------------------>
+<!------------------------------ Featured Products ------------------------------>
 <div class="small-container">
     <h2 class="title">Featured Products</h2>
-    <div class="row">
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-11.jpg"></a>
-            <a href="~/Views/Home/ProductDetails.cshtml"><h4>Downshifter Sports Shoes</h4></a>
 
-            <div class="rating">
-                <!--(before this added awesome4 cdn font link to the head)added a cdn link by searching font awesome4 icon and from the site  search the star entering the first option and getting a link of this fa-star*-->
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-2.jpg"></a>
-            <h4>Lace-Up Running Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-            </div>
-            <p>$35.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-3.jpg"></a>
-
-            <h4>Lace Fastening Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$15.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-10.jpg"></a>
-
-            <h4>Flat Lace-Fastening Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$48.00</p>
+    <!-- Button Container -->
+    <div class="button-container">
+        <div class="row">
+            <button class="filter-button" data-filter="all">All</button>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <button class="filter-button" data-filter="@category.cateId">@category.cateName</button>
+            }
         </div>
     </div>
 
-
-    <h2 class="title">Latest Products</h2>
-    <div class="row">
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-5.jpg"></a>
-
-            <h4>Flat Heel gray hoes</h4>
-            <div class="rating">
-                <!--(before this added awesome4 cdn font link to the head)added a cdn link by searching font awesome4 icon and from the site  search the star entering the first option and getting a link of this fa-star*-->
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
+    <!-- Product Container -->
+    <div class="row product-container">
+        @foreach (var product in Model)
+        {
+            <div class="col-4 filter-item cate-@product.cateId">
+                <a href="@Url.Action("ProductDetails", "Home", new { id = product.productId })">
+                    <img src="@Url.Content(product.image)" alt="@product.productName" />
+                </a>
+                <a href="@Url.Action("ProductDetails", "Home", new { id = product.productId })">
+                    <h4>@product.productName</h4>
+                </a>
+                <p>@product.price.ToString("C")</p>
             </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-3.jpg"></a>
-
-            <h4>Lace-Fastening black Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-            </div>
-            <p>$21.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-7.jpg"></a>
-
-            <h4>HRX Men's cotton socks</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$09.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-2.jpg"></a>
-
-            <h4>Lace-Up Running Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$35.00</p>
-        </div>
-    </div>
-    <!--new row for the latest product-->
-    <div class="row">
-        <div class="col-4">
-            <a href="@Url.Action("ProductDetails", "Home")"><img src="~/Content/images/product-7.jpg"></a>
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-7.jpg"></a>
-
-            <h4>HRX cotton socks</h4>
-            <div class="rating">
-                <!--(before this added awesome4 cdn font link to the head)added a cdn link by searching font awesome4 icon and from the site  search the star entering the first option and getting a link of this fa-star*-->
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$10.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-10.jpg"></a>
-
-            <h4>Flat Lace-Fastening Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-            </div>
-            <p>$48.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-11.jpg"></a>
-
-            <h4>Loafers Men (Gray)</h4>
-            <div class="rating">
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$15.00</p>
-        </div>
-        <div class="col-4">
-            <a href="~/Views/Home/ProductDetails.cshtml"><img src="~/Content/images/product-12.jpg"></a>
-
-            <h4>Lace-Fastening white Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$21.00</p>
-        </div>
+        }
     </div>
 </div>
 
@@ -218,7 +58,7 @@
     <div class="small-container">
         <div class="row">
             <div class="col-2">
-                <img src="~/Content/images/image1.png" />
+                <img src="@Url.Content("~/Content/images/image1.png")" />
             </div>
             <div class="col-2">
                 <p>Exclusively Available on RedStore</p>
@@ -301,3 +141,20 @@
         </div>
     </div>
 </div>
+
+<!-- Thêm JavaScript để lọc sản phẩm -->
+<script>
+document.querySelectorAll('.filter-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const filterValue = button.getAttribute('data-filter');
+            const items = document.querySelectorAll('.filter-item');
+
+            items.forEach(item => {
+                if (filterValue === 'all' || item.classList.contains('cate-' + filterValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });</script>

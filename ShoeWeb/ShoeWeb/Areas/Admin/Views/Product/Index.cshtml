@@ -142,7 +142,7 @@
                     <td>@item.quantity</td>
                     <td>@item.price.ToString("#,##0.##")</td>
                     <td>
-                        <input type="file" id="ProductImage-@item.productId" value="@item.image" class="form-control">
+                        <input type="file"   id="ProductImage-@item.productId" value="@item.image" class="form-control">
                     </td>
                     <td scope="col">
                         <button type="button" id="save" class="btn btn-secondary" onclick="updateProduct(@item.productId)">

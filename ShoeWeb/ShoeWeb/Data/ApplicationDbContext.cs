@@ -21,6 +21,8 @@ namespace ShoeWeb.Data
         public DbSet<Size> sizes { get; set; }
         public DbSet<Origin> origin { get; set; }
         public DbSet<SizeOfProduct> sizeOfProducts { get; set; }
+        public DbSet<Role> roles { get; set; }
+        public DbSet<UserRole> userRoles { get; set; }
 
     }
 }

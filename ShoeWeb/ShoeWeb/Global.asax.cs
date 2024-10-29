@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ShoeWeb.Helper;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,10 +16,11 @@ namespace ShoeWeb
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);           
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-
+            string secretKey = ConfigurationManager.AppSettings["JwtSecretKey"];
+            JwtAuthManagerProvider.Initialize(secretKey);
         }
     }
 }
