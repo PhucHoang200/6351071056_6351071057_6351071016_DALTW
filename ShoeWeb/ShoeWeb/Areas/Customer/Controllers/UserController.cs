@@ -11,6 +11,7 @@ using System.Data.Entity;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
+
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -37,6 +38,11 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             try
             {
+                var checkUser = await _db.users.FirstOrDefaultAsync(u => u.userName == userName);
+                if (checkUser != null) {
+                    return Json(new {success = false, Message = "Tên người dùng đã tồn tại!"});
+                }
+
                 var user = new User
                 {
                     userName = userName,
@@ -45,7 +51,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     email = email,
                     password = hashedPassword,
                     randomKey = salt
-                };
+                };  
 
                 _db.users.Add(user);
                 await _db.SaveChangesAsync();
@@ -107,7 +113,6 @@ namespace ShoeWeb.Areas.Customer.Controllers
         {
             try
             {
-                // Băm mật khẩu với muối
                 var hashedPassword = PasswordHasher.HashPasswordWithSalt(password, user.randomKey);
 
                 // In ra thông tin
