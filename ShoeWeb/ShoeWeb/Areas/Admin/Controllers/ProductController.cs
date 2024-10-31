@@ -11,11 +11,14 @@ using ShoeWeb.Areas.Admin.Admin_ViewModel;
 using System.Web.Services.Description;
 using System.Net.Http;
 using ShoeWeb.Models;
+using ShoeWeb.Utility;
+using ShoeWeb.Helper;
 
 
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
+    [JwtAuthorize(SD.AdminRole)]
 
     public class ProductController : Controller
     {
@@ -55,12 +58,8 @@ namespace ShoeWeb.Areas.Admin.Controllers
                 var product = await _db.products.Where(c => c.productId == id).FirstOrDefaultAsync();
                 if (product != null)
                 {
-
-
-
                     _db.products.Remove(product);
                     await _db.SaveChangesAsync();
-
 
                     var updatedProduct = await GetProductVM();
                     return Json(new { success = true, products = updatedProduct.Products });
@@ -68,7 +67,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
 
             return Json(new { success = false });

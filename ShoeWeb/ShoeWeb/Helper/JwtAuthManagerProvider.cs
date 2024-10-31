@@ -9,6 +9,7 @@ namespace ShoeWeb.Helper
     {
         public static JwtAuthenticationManager JwtAuthManager { get; private set; }
 
+
         public static void Initialize(string secretKey)
         {
             JwtAuthManager = new JwtAuthenticationManager(secretKey);

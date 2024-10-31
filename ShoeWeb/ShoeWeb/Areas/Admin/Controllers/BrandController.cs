@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using ShoeWeb.Models;
 using System.Runtime.InteropServices;
+using ShoeWeb.Utility;
+using ShoeWeb.Helper;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
+    [JwtAuthorize(SD.AdminRole)]
     public class BrandController : Controller
     {
         private readonly ApplicationDbContext _db;

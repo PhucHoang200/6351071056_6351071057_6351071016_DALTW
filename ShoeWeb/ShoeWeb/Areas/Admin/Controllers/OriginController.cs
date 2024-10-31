@@ -1,6 +1,8 @@
 ﻿using Antlr.Runtime.Tree;
 using ShoeWeb.Areas.Admin.Admin_ViewModel;
 using ShoeWeb.Data;
+using ShoeWeb.Helper;
+using ShoeWeb.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,8 +14,11 @@ using System.Web.Mvc;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
+    [JwtAuthorize(SD.AdminRole)]
+
     public class OriginController : Controller
     {
+
 
         private readonly ApplicationDbContext _db;
         public OriginController(ApplicationDbContext db)

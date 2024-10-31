@@ -291,3 +291,12 @@ D:\WEB_MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.Up2Date
 D:\WEB_MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
 D:\WEB_MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
 >>>>>>> c943bcbc44a39f00d3398a16c02329356802b786
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.dll
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.dll
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.dll
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.dll
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Owin.dll
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.xml
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.xml
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.xml
+D:\C#\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.xml

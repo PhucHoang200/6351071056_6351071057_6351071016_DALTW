@@ -21,6 +21,7 @@ namespace ShoeWeb
 
             string secretKey = ConfigurationManager.AppSettings["JwtSecretKey"];
             JwtAuthManagerProvider.Initialize(secretKey);
+
         }
     }
 }
