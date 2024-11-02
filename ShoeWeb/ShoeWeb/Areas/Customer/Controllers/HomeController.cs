@@ -18,11 +18,28 @@ namespace ShoeWeb.Controllers
             _db = db;
         }
 
-        
+
         public HomeController() : this(new ApplicationDbContext())
         {
-            
+
         }
+
+        public ActionResult Search(string searchTerm)
+        {
+            // Tìm kiếm sản phẩm dựa trên từ khóa
+            var products = _db.products
+                .Where(p => p.productName.ToLower().Contains(searchTerm.ToLower()) ||
+                            p.productDescription.ToLower().Contains(searchTerm.ToLower()))
+                .ToList();
+
+            // Lưu trữ kết quả tìm kiếm trong TempData để truyền sang View Product
+            TempData["SearchResults"] = products;
+            TempData["SearchTerm"] = searchTerm;
+
+            // Chuyển hướng đến Action Product để hiển thị kết quả
+            return RedirectToAction("Product");
+        }
+
         public ActionResult Index()
         {
 
@@ -64,11 +81,17 @@ namespace ShoeWeb.Controllers
             return View();
         }
 
-    
+        public ActionResult Account()
+        {
+            ViewBag.Message = "Your account page.";
+
+            return View();
+        }
+
         public ActionResult Product()
         {
-            ViewBag.Message = "Your product page.";
-            var products = _db.products.ToList();
+            // Lấy danh sách sản phẩm từ TempData nếu có, nếu không lấy tất cả sản phẩm
+            var products = TempData["SearchResults"] as List<Product> ?? _db.products.ToList();
             var categories = _db.categories.ToList();
 
             ProductVM productVM = new ProductVM()
@@ -76,7 +99,8 @@ namespace ShoeWeb.Controllers
                 Products = products,
                 Categories = categories
             };
-            ViewBag.Categories = categories;
+
+            ViewBag.SearchTerm = TempData["SearchTerm"]; // Để hiển thị từ khóa đã tìm kiếm (nếu có)
 
             return View(productVM);
         }
@@ -94,5 +118,5 @@ namespace ShoeWeb.Controllers
 
             return View();
         }
-     }
+    }
 }
