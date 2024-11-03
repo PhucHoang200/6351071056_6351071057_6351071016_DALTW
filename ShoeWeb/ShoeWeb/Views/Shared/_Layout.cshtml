@@ -13,45 +13,13 @@
     
 </head>
 
-<style>
-    .search-form {
-        position: relative; /* Để nút tìm kiếm nằm bên trong thanh tìm kiếm */
-        max-width: 500px;
-        margin: 0 auto;
-        margin-left: 100px;
-    }
-
-        .search-form input[type="text"] {
-            width: 100%;
-            padding: 8px 40px 8px 12px; /* Chừa khoảng trống bên phải cho nút tìm kiếm */
-            border: 2px solid #ccc;
-            border-radius: 20px;
-            outline: none;
-            font-size: 16px;
-        }
-
-        .search-form button {
-            position: absolute; /* Đặt nút tìm kiếm trong thanh tìm kiếm */
-            right: 5px; /* Canh lề phải bên trong thanh tìm kiếm */
-            top: 50%;
-            transform: translateY(-50%); /* Căn chỉnh nút tìm kiếm theo chiều dọc */
-            background-color: transparent; /* Làm nền nút trong suốt */
-            border: none;
-            cursor: pointer;
-        }
-
-            .search-form button i {
-                color: #007bff; /* Màu sắc biểu tượng kính lúp */
-                font-size: 18px;
-            }
-</style>
 
 <body>
     <div class="header">
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="index.html"><img src="~/Content/images/logo.png" width="125px"></a>
+                    <a href="index.html"><img src="~/Content/images/logo.png" width="125"></a>
                 </div>
                 <!-- Thanh tìm kiếm với AJAX -->
                 <!-- Form tìm kiếm -->
@@ -69,7 +37,7 @@
                     </ul>
 
                 </nav>
-                <a href="@Url.Action("Cart", "Home")"><img src="~/Content/images/cart.png" width="30px" height="30px"></a>
+                <a href="@Url.Action("Cart", "Home")"><img src="~/Content/images/cart.png" width="30" height="30"></a>
                 <img src="~/Content/images/menu.png" class="menu-icon" onClick="menutoggle()">
             </div>
 
@@ -152,5 +120,39 @@ function searchProducts() {
     });
 }
     </script>
+
+    <style>
+        .search-form {
+            position: relative; /* Để nút tìm kiếm nằm bên trong thanh tìm kiếm */
+            max-width: 500px;
+            margin: 0 auto;
+            margin-left: 100px;
+        }
+
+            .search-form input[type="text"] {
+                width: 100%;
+                padding: 8px 40px 8px 12px; /* Chừa khoảng trống bên phải cho nút tìm kiếm */
+                border: 2px solid #ccc;
+                border-radius: 20px;
+                outline: none;
+                font-size: 16px;
+            }
+
+            .search-form button {
+                position: absolute; /* Đặt nút tìm kiếm trong thanh tìm kiếm */
+                right: 5px; /* Canh lề phải bên trong thanh tìm kiếm */
+                top: 50%;
+                transform: translateY(-50%); /* Căn chỉnh nút tìm kiếm theo chiều dọc */
+                background-color: transparent; /* Làm nền nút trong suốt */
+                border: none;
+                cursor: pointer;
+            }
+
+                .search-form button i {
+                    color: #007bff; /* Màu sắc biểu tượng kính lúp */
+                    font-size: 18px;
+                }
+    </style>
+
 </body>
 </html>
