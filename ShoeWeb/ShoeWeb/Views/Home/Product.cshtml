@@ -70,6 +70,16 @@
             <div id="product-list" class="row">
                 @foreach (var product in Model.Products)
                 {
+                    <div class="product-item">
+                        <h3>@product.productName</h3>
+                        <img src="@product.image" alt="@product.productName" style="width:150px;" />
+                        <p>Giá: @product.price.ToString("C")</p>
+                        <a href="@Url.Action("ProductDetails", "Home", new { productId = product.productId })">Xem chi tiết</a>
+                    </div>
+                }
+
+                @foreach (var product in Model.Products)
+                {
                     using (var applicationDbContext = new ApplicationDbContext())
                     {
                         // Lấy danh sách sizeId từ bảng SizeOfProduct cho sản phẩm hiện tại

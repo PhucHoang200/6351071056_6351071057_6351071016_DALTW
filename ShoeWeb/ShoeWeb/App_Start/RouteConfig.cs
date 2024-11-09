@@ -13,6 +13,14 @@ namespace ShoeWeb
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Cấu hình route cho trang chi tiết sản phẩm
+            routes.MapRoute(
+                name: "ProductDetails",
+                url: "product/details/{productId}",
+                defaults: new { controller = "Home", action = "ProductDetails" },
+                constraints: new { productId = @"\d+" } // Giới hạn productId chỉ nhận giá trị là số
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -21,5 +29,7 @@ namespace ShoeWeb
 
             
         }
+
     }
+
 }

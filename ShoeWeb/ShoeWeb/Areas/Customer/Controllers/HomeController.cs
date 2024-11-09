@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ShoeWeb.Data;
 using ShoeWeb.Models;
 using ShoeWeb.Areas.Customer.CustomertVM;
+using System.Net;
 
 
 namespace ShoeWeb.Controllers
@@ -232,11 +233,34 @@ namespace ShoeWeb.Controllers
             return View();
         }
 
-        public ActionResult ProductDetails()
+        public ActionResult ProductDetails(int? productId)
         {
-            ViewBag.Message = "Your productdetial page.";
+            if (productId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); // Hoặc chuyển hướng tới trang lỗi tùy ý
+            }
 
-            return View();
+            var product = _db.products
+                             .Include("Category")
+                             .Include("Brand")
+                             .Include("Origin")
+                             .FirstOrDefault(p => p.productId == productId);
+
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            var relatedProducts = _db.products
+                                     .Where(p => p.cateId == product.cateId && p.productId != productId)
+                                     .Take(4)
+                                     .ToList();
+
+            ViewBag.RelatedProducts = relatedProducts;
+
+            return View(product);
         }
+
+
     }
 }

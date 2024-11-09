@@ -1,137 +1,91 @@
-﻿
-@{
-    ViewBag.Title = "ProductDetails";
-}
+﻿@model ShoeWeb.Models.Product
 
-<!------------------------------ Single product details------------------------------>
 <div class="small-container single-product">
-
-
-    <!--<h2 class="title" >Featured Products</h2>-->
     <div class="row">
+        <!-- Hình ảnh sản phẩm chính -->
         <div class="col-2">
-            <img src="~/Content/images/product-11.jpg" width="100%" id="productImg">
+            <img src="@Model.image" width="100%" id="productImg" alt="@Model.productName">
 
-
+            <!-- Hình ảnh nhỏ bên dưới -->
             <div class="small-img-row">
-                <div class="small-img-col">
-                    <img src="~/Content/images/product-11.jpg" width="100%" class="small-img">
-                </div>
-                <div class="small-img-col">
-                    <img src="~/Content/images/product-5.jpg" width="100%" class="small-img">
-                </div>
-                <div class="small-img-col">
-                    <img src="~/Content/images/product-11.jpg" width="100%" class="small-img">
-                </div>
-                <div class="small-img-col">
-                    <img src="~/Content/images/product-5.jpg" width="100%" class="small-img">
-                </div>
+                @if (Model.AdditionalImages != null && Model.AdditionalImages.Any())
+                {
+                    foreach (var image in Model.AdditionalImages)
+                    {
+                        <div class="small-img-col">
+                            <img src="@image" width="100%" class="small-img">
+                        </div>
+                    }
+                }
             </div>
+
         </div>
 
+        <!-- Chi tiết sản phẩm -->
         <div class="col-2">
             <p>Home / Shoes</p>
-            <h1>Downshifter Sports Shoes</h1>
-            <h4>$50.00</h4>
+            <h1>@Model.productName</h1>
+            <h4>@Model.price.ToString("C")</h4>
             <select>
-                <option>Select Size</option>
-                <option>6<!--Small (s)--></option>
-                <option>7<!--Medium (M)--></option>
-                <option>8<!--Large (L)--></option>
-                <option>9<!--XL--></option>
-                <option>10<!--XXL--></option>
+                <option>Chọn Kích Cỡ</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
             </select>
-            <input type="number" values="1">
-            <a href="@Url.Action("Cart", "Home")" class="btn">Add to Cart</a>
-            <h3>Product Details <i class="fa fa-indent"></i></h3>
-            <br>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+            <input type="number" value="1">
+            <button onclick="addToCart(@Model.productId)" class="btn">Thêm vào giỏ hàng</button>
+            <h3>Chi tiết sản phẩm <i class="fa fa-indent"></i></h3>
+            <p>@Model.productDescription</p>
         </div>
     </div>
 </div>
 
-
-<!----------------------------------Title------------------------------------->
 <div class="small-container">
+    <!-- Tiêu đề sản phẩm liên quan -->
     <div class="row row-2">
-        <h2>Related Products</h2>
-        <a href="@Url.Action("Product", "Home")"><p>View More</p></a>
+        <h2>Sản phẩm liên quan</h2>
+        <a href="@Url.Action("Product", "Home")"><p>Xem thêm</p></a>
     </div>
-</div>
 
-<!----------------------------------products------------------------------------->
-<div class="small-container">
+    <!-- Sản phẩm liên quan -->
     <div class="row">
-        <div class="col-4">
-            <a href="@Url.Action("ProductDetails", "Home")"><img src="@Url.Content("~/Content/images/product-11.jpg")"></a>
-            <a href="@Url.Action("ProductDetails", "Home")"><h4>Downshifter Sports Shoes</h4></a>
-            <div class="rating">
-
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
+        @foreach (var relatedProduct in ViewBag.RelatedProducts as List<ShoeWeb.Models.Product>)
+        {
+            <div class="col-4">
+                <a href="@Url.Action("ProductDetails", "Home", new { productId = relatedProduct.productId })">
+                    <img src="@relatedProduct.image" alt="@relatedProduct.productName">
+                </a>
+                <a href="@Url.Action("ProductDetails", "Home", new { productId = relatedProduct.productId })">
+                    <h4>@relatedProduct.productName</h4>
+                </a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>@relatedProduct.price.ToString("C")</p>
             </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <a href="@Url.Action("ProductDetails", "Home")"><img src="@Url.Content("~/Content/images/product-2.jpg")""></a>
-            <h4>Lace-Up Running Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-            </div>
-            <p>$35.00</p>
-        </div>
-        <div class="col-4">
-            <a href="@Url.Action("ProductDetails", "Home")"><img src="@Url.Content("~/Content/images/product-3.jpg")"></a>
-            <h4>Lace Fastening Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$15.00</p>
-        </div>
-        <div class="col-4">
-            <a href="@Url.Action("ProductDetails", "Home")"><img src="@Url.Content("~/Content/images/product-10.jpg")"></a>
-            <h4>Flat Lace-Fastening Shoes</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$48.00</p>
-        </div>
+        }
     </div>
 </div>
-
-<!-----------------------js for product gallery-------------------->
 
 <script>
-            var productImg=document.getElementById("productImg");
-            var smallImg=document.getElementsByClassName("small-img");
+    function addToCart(productId) {
+        // Thêm mã AJAX gọi controller để thêm sản phẩm vào giỏ hàng
+        alert("Đã thêm sản phẩm vào giỏ hàng!");
+    }
 
-            smallImg[0].onclick=function(){
-                productImg.src=smallImg[0].src;
-            }
-             smallImg[1].onclick=function(){
-                productImg.src=smallImg[1].src;
-            }
-              smallImg[2].onclick=function(){
-                productImg.src=smallImg[2].src;
-            }
-               smallImg[3].onclick=function(){
-                productImg.src=smallImg[3].src;
-            }
+    // Chuyển đổi ảnh sản phẩm khi nhấn vào hình ảnh nhỏ
+    var productImg = document.getElementById("productImg");
+    var smallImg = document.getElementsByClassName("small-img");
 
-
+    for (let i = 0; i < smallImg.length; i++) {
+        smallImg[i].onclick = function () {
+            productImg.src = smallImg[i].src;
+        };
+    }
 </script>
