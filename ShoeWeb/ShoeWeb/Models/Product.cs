@@ -52,5 +52,7 @@ namespace ShoeWeb.Models
 
         [ForeignKey("idOrigin")]
         public Origin Origin { get; set; }
+        public List<string> AdditionalImages { get; set; } = new List<string>();
+
     }
 }
