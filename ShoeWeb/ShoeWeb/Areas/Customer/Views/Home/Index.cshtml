@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+@model ShoeWeb.Areas.Customer.CustomertVM.HomeVM
+
+
+
+<div class="header">
+    <div class="container">
+        <div class="navbar"></div>
+        <div class="row">
+            <div class="col-2">
+                <h1>Give your Workout <br>A New Style!</h1>
+                <p>Success isn't always about greatness. It's about consistency. Consistent<br>hard work gains success. Greatness will come.</p>
+                <a href="~/Views/Home/Product.cshtml" class="btn">Explore Now &#8594;</a>
+            </div>
+            <div class="col-2">
+                <img src="~/Content/images/image1.png">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!------------------------------ Featured Products ------------------------------>
+<div class="small-container">
+    @foreach (var itemCate in Model.Categories)
+    {
+        <h2 class="title">@itemCate.cateName</h2>
+
+        // Lấy sản phẩm theo danh mục
+        var productsInCategory = Model.Products.ElementAt(Model.Categories.ToList().IndexOf(itemCate));
+
+        <div class="row product-container">
+            @foreach (var product in productsInCategory)
+            {
+                <div class="col-4 filter-item cate-@product.cateId">
+                    <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", id = product.productId })">
+                        <img src="@Url.Content(product.image)" alt="@product.productName" />
+                    </a>
+                    <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", id = product.productId })">
+                        <h4>@product.productName</h4>
+                    </a>
+                    <p>@product.price.ToString("C")</p>
+                </div>
+            }
+        </div>
+    }
+
+</div>
+
+<!--------------------------`   offer   --------------------------------->
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="@Url.Content("~/Content/images/image1.png")" />
+            </div>
+            <div class="col-2">
+                <p>Exclusively Available on RedStore</p>
+                <h1>Sports Shoes</h1>
+                <small> Buy latest collections of sports shoes online on Redstore at best prices from top brands such as Adidas, Nike, Puma, Asics, and Sparx at your leisure at best prices. </small><br>
+                <a href="products.html" class="btn">Buy Now &#8594;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!------------------------------Testimonial---------------------------------->
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="~/Content/images/user-1.png">
+                <h3>Sean Parkar</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="~/Content/images/user-2.png">
+                <h3>Mike Smith</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="~/Content/images/user-3.png">
+                <h3>Mabel Joe</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------------------------Brands------------------------------------>
+<div class="brands">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-5">
+                <img src="~/Content/images/logo-godrej.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-oppo.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-coca-cola.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-paypal.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-philips.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm JavaScript để lọc sản phẩm -->
+<script>
+    document.querySelectorAll('.filter-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const filterValue = button.getAttribute('data-filter');
+            const items = document.querySelectorAll('.filter-item');
+
+            items.forEach(item => {
+                if (filterValue === 'all' || item.classList.contains('cate-' + filterValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });</script>
+
+

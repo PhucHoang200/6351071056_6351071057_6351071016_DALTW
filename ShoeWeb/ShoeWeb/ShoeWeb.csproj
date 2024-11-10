@@ -51,6 +51,15 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.4\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.4\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.4\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -76,8 +85,14 @@
     <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Jwt, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Jwt.4.2.2\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
@@ -190,19 +205,30 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\OriginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Customer\Controllers\HomeController.cs" />
     <Compile Include="Areas\Customer\Controllers\UserController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
-    <Compile Include="Areas\Customer\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Customer\CustomertVM\HomeVM.cs" />
-    <Compile Include="Areas\Customer\CustomertVM\ProductVM.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\HomeVM.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\ProductVM.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AdminAutho.cs" />
     <Compile Include="Helper\JwtAuthenticationManager.cs" />
     <Compile Include="Helper\JwtAuthManagerProvider.cs" />
     <Compile Include="Helper\JwtAuthorizeAttribute.cs" />
+    <Compile Include="Helper\MyAuthenFilter.cs" />
     <Compile Include="Helper\PasswordHasher.cs" />
+    <Compile Include="IdentityMigration\202411070943101_init.cs" />
+    <Compile Include="IdentityMigration\202411070943101_init.Designer.cs">
+      <DependentUpon>202411070943101_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdentityMigration\Configuration.cs" />
+    <Compile Include="Identity\AppDbContext.cs" />
+    <Compile Include="Identity\AppUser.cs" />
+    <Compile Include="Identity\AppUserManager.cs" />
+    <Compile Include="Identity\AppUserStore.cs" />
     <Compile Include="Migrations\202411030948202_addRoleToDb.cs" />
     <Compile Include="Migrations\202411030948202_addRoleToDb.Designer.cs">
       <DependentUpon>202411030948202_addRoleToDb.cs</DependentUpon>
@@ -222,6 +248,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Utility\SD.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -355,7 +382,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
@@ -488,13 +514,21 @@
     <Content Include="Content\scss\bootstrap\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Origin\Index.cshtml" />
-    <Content Include="Areas\Customer\Views\User\Index.cshtml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Customer\Views\web.config" />
+    <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Customer\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\Home\Product.cshtml" />
+    <Content Include="Areas\Customer\Views\Home\Cart.cshtml" />
+    <Content Include="Areas\Customer\Views\Home\ProductDetails.cshtml" />
+    <Content Include="Areas\Customer\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Customer\Views\User\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -514,19 +548,11 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Cart.cshtml" />
-    <Content Include="Views\Home\Product.cshtml" />
-    <Content Include="Views\Home\ProductDetails.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Customer\Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -540,6 +566,9 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="IdentityMigration\202411070943101_init.resx">
+      <DependentUpon>202411070943101_init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411030948202_addRoleToDb.resx">
       <DependentUpon>202411030948202_addRoleToDb.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,6 +1,7 @@
-﻿@inherits System.Web.Mvc.WebViewPage
+﻿
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
 }
 
 <!------------------------------ account-page details------------------------------>
@@ -29,7 +30,6 @@
                     <!-- Form Register -->
                     <form id="RegForm" action="@Url.Action("Register", "User", new { area = "Customer" })" method="post">
                         <input id="userName_register" type="text" placeholder="User Name" required>
-                        <input id="name_register" type="text" placeholder="Name" required>
                         <input id="phoneNumber_register" type="text" placeholder="Phone" required>
                         <input id="email_register" type="email" placeholder="Email" required>
                         <input id="password_register" type="password" placeholder="Password" required>
@@ -66,7 +66,6 @@
 
         var formData = {
             userName: $('#userName_register').val(),
-            name: $('#name_register').val(),
             phoneNumber: $('#phoneNumber_register').val(),
             email: $('#email_register').val(),
             password: $('#password_register').val()
@@ -79,7 +78,7 @@
             success: function (response) {
                 if (response.success) {
                     alert(response.Message);
-                    window.location.href = '@Url.Action("Index", "User")';
+                    window.location.href = '@Url.Action("Index", "User", new { area = "Customer" })';
                 } else {
                     alert(response.Message);
                 }
@@ -90,7 +89,7 @@
         });
     }
 
-    function SubmitLogin(event) {
+   function SubmitLogin(event) {
     event.preventDefault();
 
     var formData = {
@@ -104,9 +103,15 @@
         data: formData,
         success: function (response) {
             if (response.success) {
-                alert(response.Message);
+                alert(response.role);  
+
+                if (response.role === "Admin") {
+                    window.location.href = '@Url.Action("Index", "Admin", new {area = "Admin"})';
+                } else {
+                    window.location.href = '@Url.Action("Index", "Home", new { area = "Customer" })';
+                }
             } else {
-                alert(response.error);
+                alert(response.message);  
             }
         },
         error: function (xhr, status, error) {
@@ -115,4 +120,7 @@
     });
 }
 
+
 </script>
+
+

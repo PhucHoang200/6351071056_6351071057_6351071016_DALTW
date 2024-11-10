@@ -1,26 +1,186 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\",
+  "WorkspaceRootPath": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|c:\\users\\phucp\\downloads\\webmoi\\shoes-strore-website\\shoeweb\\shoeweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|c:\\users\\phucp\\downloads\\webmoi\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\helper\\adminautho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\helper\\adminautho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\csharp\\project_shoeweb\\test\\shoes-strore-website\\shoeweb\\shoeweb\\utility\\sd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\utility\\sd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\admin\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\admin\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\helper\\myauthenfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\helper\\myauthenfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\csharp\\project_shoeweb\\test\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|c:\\users\\phucp\\downloads\\webmoi\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\customertvm\\productvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\customertvm\\productvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|c:\\users\\phucp\\downloads\\webmoi\\shoes-strore-website\\shoeweb\\shoeweb\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\customerarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\customerarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\home\\productdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\home\\productdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\home\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\home\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\home\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\home\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\admin\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\admin\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\identity\\appusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\identity\\appusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\identity\\appuserstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\identity\\appuserstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\identitymigration\\202411070943101_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\identitymigration\\202411070943101_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\identitymigration\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\identitymigration\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\identity\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\identity\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\identity\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\identity\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\admin\\views\\brand\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\admin\\views\\brand\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|c:\\users\\phucp\\downloads\\webmoi\\shoes-strore-website\\shoeweb\\shoeweb\\views\\home\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\views\\home\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Home\\ProductDetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\About.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\HomeVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,12 +190,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 15,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -47,6 +203,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Bookmark",
@@ -69,73 +229,615 @@
               "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Product.cshtml",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Home\\Product.cshtml",
-              "RelativeDocumentMoniker": "ShoeWeb\\Views\\Home\\Product.cshtml",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Home\\Product.cshtml",
-              "RelativeToolTip": "ShoeWeb\\Views\\Home\\Product.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsBAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-03T10:01:10.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "ShoeWeb\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "ShoeWeb\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:00:04.211Z",
+              "WhenOpened": "2024-11-07T10:05:57.788Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAG4AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T04:42:05.015Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ProductVM.cs",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
-              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
-              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABGAAAAAAAAAA==",
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Startup.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Startup.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Startup.cs",
+              "RelativeToolTip": "ShoeWeb\\Startup.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwB0AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T09:59:05.8Z",
+              "WhenOpened": "2024-11-07T09:30:17.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T10:46:48.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAAALYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T11:10:11.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAA1wI0AAAAnAAAAAAAAAA==",
+              "Title": "AdminAutho.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Helper\\AdminAutho.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Helper\\AdminAutho.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Helper\\AdminAutho.cs",
+              "RelativeToolTip": "ShoeWeb\\Helper\\AdminAutho.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T09:56:42.009Z",
+              "WhenOpened": "2024-11-07T12:34:51.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ShoeWeb\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebMoi\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ShoeWeb\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml*",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\User\\Index.cshtml*",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAGsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-03T09:53:30.498Z",
+              "WhenOpened": "2024-11-10T11:11:04.74Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SD.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Utility\\SD.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Utility\\SD.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Utility\\SD.cs",
+              "RelativeToolTip": "ShoeWeb\\Utility\\SD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T13:03:29.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BrandController.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:03:21.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:03:22.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MyAuthenFilter.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Helper\\MyAuthenFilter.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Helper\\MyAuthenFilter.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Helper\\MyAuthenFilter.cs",
+              "RelativeToolTip": "ShoeWeb\\Helper\\MyAuthenFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T12:31:24.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAANMAAAAAAAAAAAAAwOgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T10:35:52.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Global.asax.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Global.asax.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Global.asax.cs",
+              "RelativeToolTip": "ShoeWeb\\Global.asax.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAwwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:26:02.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CustomerAreaRegistration.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T10:35:24.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAOBvwCEAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T10:39:10.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Product.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAAAC8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T10:43:26.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADIAAAAAAAAAAMBdwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T09:05:54.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\App_Start\\RouteConfig.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "ShoeWeb\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T12:27:58.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAswJ8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T10:42:36.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "ViewState": "AgIAACwAAAAAAAAAAAAswE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T10:44:13.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ProductDetails.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\ProductDetails.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Home\\ProductDetails.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\ProductDetails.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Home\\ProductDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T10:44:39.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "web.config",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\web.config",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\web.config",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\web.config",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-10T10:37:02.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_Layout.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_Layout.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_Layout.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T10:06:03.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CustomerAreaRegistration.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomerAreaRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T05:48:01.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ProductDetails.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Home\\ProductDetails.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Home\\ProductDetails.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Home\\ProductDetails.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Home\\ProductDetails.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T09:26:59.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Cart.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T09:12:48.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T09:09:39.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T09:08:33.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T09:53:30.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAAwOkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T09:56:42.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Product.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T09:11:46.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\About.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T09:09:28.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "HomeVM.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\HomeVM.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\HomeVM.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\HomeVM.cs",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\HomeVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T09:09:14.255Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T09:08:45.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "web.config",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\web.config",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\web.config",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\web.config",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-10T09:06:25.252Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ProductVM.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
+              "RelativeToolTip": "..\\..\\..\\project\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\CustomertVM\\ProductVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T09:59:05.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\packages.config",
+              "RelativeDocumentMoniker": "ShoeWeb\\packages.config",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\packages.config",
+              "RelativeToolTip": "ShoeWeb\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-07T09:28:39.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "web.config",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\web.config",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\web.config",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\web.config",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-10T09:06:16.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Web.config",
+              "RelativeDocumentMoniker": "ShoeWeb\\Web.config",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Web.config",
+              "RelativeToolTip": "ShoeWeb\\Web.config",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-07T09:07:32.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AppUserStore.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppUserStore.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Identity\\AppUserStore.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppUserStore.cs",
+              "RelativeToolTip": "ShoeWeb\\Identity\\AppUserStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:47:10.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AppUserManager.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppUserManager.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Identity\\AppUserManager.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppUserManager.cs",
+              "RelativeToolTip": "ShoeWeb\\Identity\\AppUserManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:50:26.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "202411070943101_init.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\IdentityMigration\\202411070943101_init.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\IdentityMigration\\202411070943101_init.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\IdentityMigration\\202411070943101_init.cs",
+              "RelativeToolTip": "ShoeWeb\\IdentityMigration\\202411070943101_init.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:43:16.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\IdentityMigration\\Configuration.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\IdentityMigration\\Configuration.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\IdentityMigration\\Configuration.cs",
+              "RelativeToolTip": "ShoeWeb\\IdentityMigration\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:41:37.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Identity\\AppDbContext.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppDbContext.cs",
+              "RelativeToolTip": "ShoeWeb\\Identity\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:36:25.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppUser.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Identity\\AppUser.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Identity\\AppUser.cs",
+              "RelativeToolTip": "ShoeWeb\\Identity\\AppUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T09:33:15.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T09:10:47.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T09:09:29.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T09:09:57.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ShoeWeb\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\CSharp\\Project_ShoeWeb\\test\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ShoeWeb\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:00:04.211Z"
             }
           ]
         },

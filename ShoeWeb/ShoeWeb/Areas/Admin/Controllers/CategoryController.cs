@@ -14,7 +14,7 @@ using ShoeWeb.Helper;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
-    [JwtAuthorize(SD.AdminRole)]
+    [AdminAutho]
 
     public class CategoryController : Controller
     {

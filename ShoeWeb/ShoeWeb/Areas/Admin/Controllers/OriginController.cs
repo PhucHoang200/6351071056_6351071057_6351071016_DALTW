@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
-    [JwtAuthorize(SD.AdminRole)]
+    [AdminAutho]
 
     public class OriginController : Controller
     {

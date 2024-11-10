@@ -1,0 +1,305 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+@model ShoeWeb.Areas.Customer.CustomertVM.ProductVM
+
+@using ShoeWeb.Data;
+
+<div class="small-container">
+    <div class="row">
+        <!-- Sidebar với các bộ lọc -->
+        <div class="col-1 filters-sidebar">
+            <div>
+                <strong>Danh mục sản phẩm</strong>
+                <ul class="category-list">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <li>
+                            <input type="checkbox" class="filter-checkbox" data-filter="@category.cateId" id="cate-@category.cateId">
+                            <label for="cate-@category.cateId">@category.cateName</label>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Lọc theo nhãn hiệu -->
+            <div>
+                <strong>Nhãn hiệu</strong>
+                <ul class="brand-list">
+                    @foreach (var brand in Model.Brands)
+                    {
+                        <li>
+                            <input type="checkbox" class="filter-checkbox" data-brand="@brand.brandId" id="brand-@brand.brandId">
+                            <label for="brand-@brand.brandId">@brand.brandName</label>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Lọc theo kích thước -->
+            <div>
+                <strong>Kích thước</strong>
+                <ul class="size-list">
+                    @foreach (var size in Model.Sizes)
+                    {
+                        <li>
+                            <input type="checkbox" class="filter-checkbox" data-size="@size.sizeId" id="size-@size.sizeId">
+                            <label for="size-@size.sizeId">@size.numberSize</label>
+                        </li>
+                    }
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- Lọc theo giá -->
+            <div>
+                <strong>Giá</strong>
+                <div class="price-range">
+                    <input type="range" id="minPriceRange" min="0" max="2000000" value="0" step="100000">
+                    <input type="range" id="maxPriceRange" min="0" max="2000000" value="2000000" step="100000">
+                    <div>
+                        <span id="minPriceDisplay">0</span> - <span id="maxPriceDisplay">2000000</span> VND
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Container chứa sản phẩm -->
+        <div class="col-2 product-container">
+            <div id="product-list" class="row">
+                @foreach (var product in Model.Products)
+                {
+                    using (var applicationDbContext = new ApplicationDbContext())
+                    {
+                        // Lấy danh sách sizeId từ bảng SizeOfProduct cho sản phẩm hiện tại
+                        var sizeIds = string.Join(",", applicationDbContext.sizeOfProducts
+                            .Where(sop => sop.productId == product.productId)
+                            .Select(sop => sop.sizeId));
+
+
+
+                        <div class="col-4 filter-item" data-filter="@product.cateId" data-brand="@product.brandId" data-size="@sizeIds" data-price="@product.price">
+                            <a href="@Url.Action("ProductDetails", "Home", new { area = "Customer", id = product.productId })">
+                                <img src="@Url.Content(product.image)" alt="@product.productName" />
+                            </a>
+                            <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", id = product.productId })">
+                                <h4>@product.productName</h4>
+                            </a>
+                            <p>@product.price.ToString("C")</p>
+                        </div>
+                    }
+
+
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!--------------------------`   offer   --------------------------------->
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="@Url.Content("~/Content/images/image1.png")" />
+            </div>
+            <div class="col-2">
+                <p>Exclusively Available on RedStore</p>
+                <h1>Sports Shoes</h1>
+                <small> Buy latest collections of sports shoes online on Redstore at best prices from top brands such as Adidas, Nike, Puma, Asics, and Sparx at your leisure at best prices. </small><br>
+                <a href="products.html" class="btn">Buy Now &#8594;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!------------------------------Testimonial---------------------------------->
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="~/Content/images/user-1.png">
+                <h3>Sean Parkar</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="~/Content/images/user-2.png">
+                <h3>Mike Smith</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="~/Content/images/user-3.png">
+                <h3>Mabel Joe</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------------------------Brands------------------------------------>
+<div class="brands">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-5">
+                <img src="~/Content/images/logo-godrej.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-oppo.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-coca-cola.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-paypal.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="~/Content/images/logo-philips.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll(".filter-checkbox");
+        const minPriceRange = document.querySelector("#minPriceRange");
+        const maxPriceRange = document.querySelector("#maxPriceRange");
+        const minPriceDisplay = document.querySelector("#minPriceDisplay");
+        const maxPriceDisplay = document.querySelector("#maxPriceDisplay");
+
+        // Cập nhật giá hiển thị khi thay đổi thanh kéo
+        minPriceRange.addEventListener("input", function () {
+            minPriceDisplay.innerText = minPriceRange.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            applyFilters();
+        });
+        maxPriceRange.addEventListener("input", function () {
+            maxPriceDisplay.innerText = maxPriceRange.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            applyFilters();
+        });
+
+        function applyFilters() {
+            const selectedCategories = getSelectedFilters(".category-list input:checked", "data-filter");
+            const selectedBrands = getSelectedFilters(".brand-list input:checked", "data-brand");
+            const selectedSizes = getSelectedFilters(".size-list input:checked", "data-size");
+
+            // Giả sử có một biến chứa numberSize được chọn
+            const selectedNumberSize = document.querySelector("input[name='numberSize']:checked")?.value;
+
+            const minPrice = parseFloat(minPriceRange.value) || 0;
+            const maxPrice = parseFloat(maxPriceRange.value) || 1000000;
+
+            filterProductsOnClient(selectedCategories, selectedBrands, selectedSizes, minPrice, maxPrice, selectedNumberSize);
+        }
+
+        function getSelectedFilters(selector, attribute) {
+            return Array.from(document.querySelectorAll(selector))
+                .map(el => el.getAttribute(attribute))
+                .filter(value => value); // Lọc các giá trị null hoặc undefined
+        }
+
+        function filterProductsOnClient(categories, brands, sizes, minPrice, maxPrice) {
+            const products = document.querySelectorAll(".filter-item");
+
+            products.forEach(product => {
+                const productCategory = product.getAttribute("data-filter");
+                const productBrand = product.getAttribute("data-brand");
+                const productSizes = product.getAttribute("data-size") ? product.getAttribute("data-size").split(',') : []; // Chuyển thành mảng
+                const productPrice = parseFloat(product.getAttribute("data-price"));
+
+                const categoryMatch = categories.length === 0 || categories.includes(productCategory);
+                const brandMatch = brands.length === 0 || brands.includes(productBrand);
+                const sizeMatch = sizes.length === 0 || sizes.some(sizeId => productSizes.includes(sizeId)); // Sửa tại đây
+                const priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
+
+                // Hiển thị sản phẩm nếu tất cả điều kiện đều khớp
+                product.style.display = (categoryMatch && brandMatch && sizeMatch && priceMatch) ? "block" : "none";
+            });
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", applyFilters);
+        });
+
+        minPriceRange.addEventListener("input", applyFilters);
+        maxPriceRange.addEventListener("input", applyFilters);
+
+        applyFilters(); // Gọi lần đầu để hiển thị sản phẩm
+    });
+</script>
+
+
+
+
+<style>
+    .small-container {
+        max-width: 1200px; /* Chiều rộng tối đa của container */
+        margin: 0 auto; /* Center the container */
+    }
+
+    .row {
+        display: flex; /* Sử dụng flexbox để bố cục */
+        position: relative; /* Đặt vị trí tương đối cho row để chứa các phần tử con có vị trí tuyệt đối */
+    }
+
+    .filters-sidebar {
+        position: absolute; /* Sidebar sẽ có vị trí tuyệt đối */
+        left: 0; /* Gán trái cho sidebar */
+        top: 0; /* Đặt cách đầu trang 0px để đảm bảo nằm ở góc trên cùng */
+        width: 250px; /* Chiều rộng của sidebar */
+        height: 500px; /* Chiều cao cố định cho sidebar */
+        padding: 20px; /* Khoảng cách bên trong */
+        background-color: #fff; /* Màu nền cho sidebar */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho sidebar */
+        overflow-y: auto; /* Thêm thanh cuộn dọc nếu nội dung vượt quá chiều cao */
+    }
+
+    .product-container {
+        margin-left: 270px; /* Khoảng cách giữa sidebar và sản phẩm */
+        flex: 1; /* Chiếm phần còn lại */
+        display: flex;
+        flex-wrap: wrap; /* Cho phép sản phẩm cuộn xuống hàng tiếp theo */
+        padding-top: 20px; /* Để đảm bảo không có chồng lấn với sidebar */
+    }
+</style>
+
+
+
+

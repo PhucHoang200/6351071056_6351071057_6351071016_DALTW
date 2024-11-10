@@ -14,7 +14,8 @@ using ShoeWeb.Helper;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
-    [JwtAuthorize(SD.AdminRole)]
+    [AdminAutho]
+
     public class BrandController : Controller
     {
         private readonly ApplicationDbContext _db;

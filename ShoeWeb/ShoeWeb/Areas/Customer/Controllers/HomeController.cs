@@ -1,14 +1,13 @@
-﻿using System;
+﻿using ShoeWeb.Data;
+using ShoeWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ShoeWeb.Data;
-using ShoeWeb.Models;
 using ShoeWeb.Areas.Customer.CustomertVM;
 
-
-namespace ShoeWeb.Controllers
+namespace ShoeWeb.Areas.Customer.Controllers
 {
     public class HomeController : Controller
     {
@@ -81,12 +80,7 @@ namespace ShoeWeb.Controllers
             return View();
         }
 
-        public ActionResult Account()
-        {
-            ViewBag.Message = "Your account page.";
 
-            return View();
-        }
 
         private List<Product> Laysanpham(ApplicationDbContext context)
         {
@@ -130,7 +124,7 @@ namespace ShoeWeb.Controllers
 
             using (var applicationDbContext = new ApplicationDbContext())
             {
-                
+
 
                 var sanphammoi = Laysanpham(applicationDbContext);
                 var danhmucList = Laydanhmuc(applicationDbContext);
@@ -144,7 +138,7 @@ namespace ShoeWeb.Controllers
                     Brands = thuonghieuList,
                     Sizes = kichthuocList
                 };
-                
+
                 return View(productVm);
             }
 

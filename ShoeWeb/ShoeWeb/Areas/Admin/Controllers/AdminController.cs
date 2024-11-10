@@ -8,8 +8,7 @@ using ShoeWeb.Utility;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
-   
-    [JwtAuthorize(SD.AdminRole)]
+    [AdminAutho]
     public class AdminController : Controller
     {
         public ActionResult Index()
