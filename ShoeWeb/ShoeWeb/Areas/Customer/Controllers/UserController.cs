@@ -164,6 +164,9 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     var userIdentity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
                     authenManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties(), userIdentity);
 
+                    //Lưu tên người dùng vào session
+                    Session["LoggedUserName"] = user.UserName;
+
                     // Lấy vai trò của user
                     var roles = await userManager.GetRolesAsync(user.Id); // Lấy danh sách các vai trò
                     var role = roles.FirstOrDefault(); // Lấy vai trò đầu tiên (nếu có)
@@ -181,7 +184,19 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
+        
+        public ActionResult Logout()
+        {
+            //var authenManager = HttpContext.GetOwinContext().Authentication;
+            //authenManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.Remove("LoggedUserName"); // Xóa tất cả dữ liệu trong Session
+            return RedirectToAction("Index", "Home");
+        }
 
+        public ActionResult UserInformation()
+        {
+            return View();
+        }
 
         //private bool ValidateUser(User user, string password)
         //{

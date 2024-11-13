@@ -31,9 +31,26 @@
                     <ul id="MenuItems">
                         <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                         <li><a href="@Url.Action("Product", "Home")">Products</a></li>
-                        <li><a href="@Url.Action("Index", "User")">Account</a></li>
-                    </ul>
 
+                        @if (Session["LoggedUserName"] != null)
+                        {
+                            <li class="nav-item dropdown">
+                                <!-- Định dạng giống ComboBox cho "Hello, người dùng" -->
+                                <a class="nav-link user-button" href="javascript:void(0);" onclick="toggleUserMenu()">
+                                    Hello, @Session["LoggedUserName"]!
+                                    <i class="fa fa-caret-down"></i> <!-- Mũi tên xuống -->
+                                </a>
+                                <ul id="userDropdown" class="dropdown-content" style="display: none;">
+                                    <li><a href="@Url.Action("UserInformation", "User")">Xem thông tin chi tiết</a></li>
+                                    <li class="logout-item"><a href="@Url.Action("Logout", "User")">Đăng xuất</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Index", "User")">Account</a></li>
+                        }
+                    </ul>
                 </nav>
                 <a href="@Url.Action("Cart", "Home", new { area = "Customer" })"><img src="~/Content/images/cart.png" width="30" height="30"></a>
                 <img src="~/Content/images/menu.png" class="menu-icon" onClick="menutoggle()">
@@ -116,10 +133,84 @@ function searchProducts() {
     $.get("@Url.Action("Search", "Product", new { area = "Customer" })", { searchTerm: searchTerm }, function (data) {
         $("#searchResults").html(data).show();
     });
-}
+        }
+
+        // Toggle hiển thị menu người dùng
+        function toggleUserMenu() {
+            var dropdown = document.getElementById("userDropdown");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+
+        // Đóng menu khi click ra ngoài
+        window.onclick = function (event) {
+            if (!event.target.matches('.user-button')) {
+                var dropdown = document.getElementById("userDropdown");
+                if (dropdown && dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        };
+
+        // Menu toggle
+        function menutoggle() {
+            var menuItems = document.getElementById("MenuItems");
+            menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" ? "200px" : "0px";
+        }
+
     </script>
 
     <style>
+
+        /* Định dạng "Hello, người dùng" không có viền và màu nền */
+        .user-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent; /* Bỏ màu nền */
+            border: none; /* Bỏ viền */
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            text-align: left;
+            width: 200px;
+        }
+
+            .user-button i {
+                margin-left: 10px;
+            }
+
+        /* Định dạng menu thả xuống */
+        .dropdown-content {
+            position: absolute;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+            z-index: 1;
+        }
+
+            /* Mục trong menu thả xuống */
+            .dropdown-content li {
+                padding: 8px 10px;
+                display: block;
+            }
+
+                .dropdown-content li a {
+                    color: black;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                    .dropdown-content li a:hover {
+                        background-color: #f0f0f0;
+                    }
+
+        /* Định dạng để "Đăng xuất" nằm bên trái */
+        .logout-item {
+            text-align: left; /* Căn trái cho "Đăng xuất" */
+        }
+
         .search-form {
             position: relative; /* Để nút tìm kiếm nằm bên trong thanh tìm kiếm */
             max-width: 500px;
@@ -150,6 +241,9 @@ function searchProducts() {
                     color: #007bff; /* Màu sắc biểu tượng kính lúp */
                     font-size: 18px;
                 }
+
+     
+
     </style>
 
 </body>
