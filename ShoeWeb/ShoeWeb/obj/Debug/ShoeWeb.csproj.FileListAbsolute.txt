@@ -451,3 +451,17 @@ D:\Shoes_Web_MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.U
 D:\Shoes_Web_MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
 D:\Shoes_Web_MVC\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
 >>>>>>> 0f3c1826a34ba8be222ea437f4e91c73e4f211bc
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.IdentityMigration.AddShoppingCartTable.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateDatabaseSchema.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.dll
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.xml
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateDatabase.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.AddDiscriminatorColumn.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.AddIdentity.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.AddIdentityToDb.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.addTable.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.addAllTable.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.dll
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\StarkbankEcdsa.dll
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.pdb
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.xml

@@ -18,8 +18,7 @@ using ShoeWeb.Helper;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
-    [AdminAutho]
-
+    [Authorize(Roles = SD.AdminRole)]
 
     public class ProductController : Controller
     {

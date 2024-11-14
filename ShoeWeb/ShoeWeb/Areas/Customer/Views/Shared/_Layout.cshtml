@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -15,6 +18,85 @@
 
 
 <body>
+    <style>
+        /* CSS cho dropdown menu */
+        .nav-item.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-item .dropdown-content {
+            display: none; /* Mặc định ẩn */
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0; /* Canh phải nếu cần */
+        }
+
+            .nav-item .dropdown-content li {
+                padding: 8px 16px;
+                list-style: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+                .nav-item .dropdown-content li a {
+                    text-decoration: none;
+                    color: #333;
+                    display: block;
+                    padding: 6px 0;
+                }
+
+                    .nav-item .dropdown-content li a:hover {
+                        background-color: #ddd;
+                        color: #000;
+                    }
+
+        /* Hiển thị dropdown khi click */
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Định dạng cho "Hello, người dùng" */
+        .nav-item .user-button {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .nav-item .user-button:hover {
+                color: #0056b3;
+            }
+
+        /* CSS cho form đăng xuất */
+        .logout-item a {
+            display: inline-block;
+            padding: 8px 12px;
+            text-decoration: none;
+            background-color: #f44336;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .logout-item a:hover {
+                background-color: #d32f2f;
+            }
+
+        .logout-form {
+            display: inline;
+        }
+
+        /* Giảm bớt khoảng cách giữa các mục trong dropdown */
+        .dropdown-content li {
+            padding: 10px;
+        }
+
+    </style>
     <div class="header">
         <div class="container">
             <div class="navbar">
@@ -31,11 +113,40 @@
                     <ul id="MenuItems">
                         <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                         <li><a href="@Url.Action("Product", "Home")">Products</a></li>
-                        <li><a href="@Url.Action("Index", "User")">Account</a></li>
+                        @if (Request.IsAuthenticated)
+                        {
+
+
+                            <li class="nav-item dropdown">
+                                <!-- Định dạng giống ComboBox cho "Hello, người dùng" -->
+                                <a class="nav-link user-button" href="javascript:void(0);" onclick="toggleUserMenu()">
+                                    Hello, @User.Identity.GetUserName()! 
+                                    <i class="fa fa-caret-down"></i> <!-- Mũi tên xuống -->
+                                </a>
+                                <ul id="userDropdown" class="dropdown-content" style="display: none;">
+                                    <li><a href="@Url.Action("UserInformation", "Account")">Xem thông tin chi tiết</a></li>
+                                    <li class="logout-item">
+                                        @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { @class = "logout-form" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <a href="javascript:void(0);" onclick="this.closest('form').submit();">Log out</a>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Login", "User")">Login</a></li>
+                            <li><a href="@Url.Action("Register", "User")">Register</a></li>
+                        }
+
                     </ul>
 
                 </nav>
-                <a href="@Url.Action("Cart", "Home", new { area = "Customer" })"><img src="~/Content/images/cart.png" width="30" height="30"></a>
+                <a href="@Url.Action("Index", "Cart")"><img src="~/Content/images/cart.png" width="30" height="30"></a>
                 <img src="~/Content/images/menu.png" class="menu-icon" onClick="menutoggle()">
             </div>
 
@@ -116,7 +227,16 @@ function searchProducts() {
     $.get("@Url.Action("Search", "Product", new { area = "Customer" })", { searchTerm: searchTerm }, function (data) {
         $("#searchResults").html(data).show();
     });
-}
+        }
+        function toggleUserMenu() {
+            var dropdown = document.getElementById("userDropdown");
+            if (dropdown.style.display === "none") {
+                dropdown.style.display = "block";  
+            } else {
+                dropdown.style.display = "none";   // Ẩn dropdown
+            }
+        }
+
     </script>
 
     <style>

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using ShoeWeb.Areas.Customer.CustomertVM;
 using System.Net;
+using ShoeWeb.Areas.Customer.CustomerVM;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
@@ -220,40 +221,44 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
-        public ActionResult Cart()
+
+        [HttpGet]
+        public ActionResult ProductDetails(int productId)
         {
-            ViewBag.Message = "You cart page.";
+            var detailProductVm = new DetailProductVM();
 
-            return View();
-        }
-
-        public ActionResult ProductDetails(int? productId)
-        {
-            if (productId == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); // Hoặc chuyển hướng tới trang lỗi tùy ý
-            }
-
-            var product = _db.products
-                             .Include("Category")
-                             .Include("Brand")
-                             .Include("Origin")
-                             .FirstOrDefault(p => p.productId == productId);
+            var product = _db.products.FirstOrDefault(p => p.productId == productId);
 
             if (product == null)
             {
                 return HttpNotFound();
             }
 
+            var SizeOfProduct = _db.sizeOfProducts.Where(s => s.productId == productId).ToList();
+
+            if (SizeOfProduct != null && SizeOfProduct.Any())
+            {
+                var sizeIds = SizeOfProduct.Select(s => s.sizeId).ToList(); 
+                detailProductVm.sizes = _db.sizes.Where(s => sizeIds.Contains(s.sizeId)).ToList();
+            }
+            else
+            {
+                detailProductVm.sizes = new List<Size>(); 
+            }
+
             var relatedProducts = _db.products
-                                     .Where(p => p.cateId == product.cateId && p.productId != productId)
-                                     .Take(4)
-                                     .ToList();
+                                       .Where(p => p.cateId == product.cateId && p.productId != productId)
+                                       .Take(4)
+                                       .ToList();
 
-            ViewBag.RelatedProducts = relatedProducts;
+            detailProductVm.products = relatedProducts;
+            detailProductVm.Product = product;
+            detailProductVm.sizeOfProduct = SizeOfProduct;
 
-            return View(product);
+            return View(detailProductVm);
         }
+
+
 
 
     }

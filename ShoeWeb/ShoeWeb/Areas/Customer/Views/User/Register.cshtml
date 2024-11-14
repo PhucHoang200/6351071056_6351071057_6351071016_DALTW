@@ -1,0 +1,19 @@
+﻿@model ShoeWeb.Models.Identity.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<form id="RegForm" action="@Url.Action("Register", "User")" method="post" onsubmit="SubmitRegister(event)">
+    @if(ViewBag.ThongBao != null)
+            {
+                <span>@ViewBag.ThongBao</span>
+            }
+    @Html.AntiForgeryToken()
+    <input id="email_register" name="Email" type="email" placeholder="Email" value="@Model.Email" required />
+    <input id="password_register" name="Password" type="password" placeholder="Password" required />
+    <input id="password_confirm_register" name="ConfirmPassword" type="password" placeholder="Confirm Password" required />
+    <button type="submit" class="btn">Register</button>
+</form>
+

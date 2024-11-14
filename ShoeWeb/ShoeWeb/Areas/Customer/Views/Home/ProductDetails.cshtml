@@ -1,82 +1,100 @@
-@model ShoeWeb.Models.Product
+@model ShoeWeb.Areas.Customer.CustomerVM.DetailProductVM
 
-<div class="small-container single-product">
-    <div class="row">
-        <!-- Hình ảnh sản phẩm chính -->
-        <div class="col-2">
-            <img src="@Model.image" width="100%" id="productImg" alt="@Model.productName">
+@if (Model.Product == null)
+{
+    <h2>Chưa chọn sản phẩm nào! Hãy <a href="@Url.Action("Product","Home")">chọn môt sản phẩm</a></h2>
+}
+else
+{
+    <div class="small-container single-product">
+        <div class="row">
+            <!-- Hình ảnh sản phẩm chính -->
+            <div class="col-2">
+                <img src="@Model.Product.image" width="100%" id="productImg" alt="@Model.Product.productName">
 
-            <!-- Hình ảnh nhỏ bên dưới -->
-            <div class="small-img-row">
-                @if (Model.AdditionalImages != null && Model.AdditionalImages.Any())
-                {
-                    foreach (var image in Model.AdditionalImages)
+                <!-- Hình ảnh nhỏ bên dưới (nếu cần) -->
+                <!--<div class="small-img-row">
+                   <div class="small-img-col">
+                       <img src="@Model.Product.image" width="100%" class="small-img">
+                   </div>
+                </div>-->
+            </div>
+
+            <!-- Chi tiết sản phẩm -->
+            <div class="col-2">
+                <p>Home / Shoes</p>
+                <h1>@Model.Product.productName</h1>
+                <h4>@Model.Product.price.ToString("C")</h4>
+                <select>
+                    <option>Chọn Kích Cỡ</option>
+                    @foreach (var item in Model.sizes)
                     {
-                        <div class="small-img-col">
-                            <img src="@image" width="100%" class="small-img">
-                        </div>
+                        <option value="@item.sizeId">@item.numberSize</option>
                     }
-                }
+                </select>
+                <input type="number" value="1">
+                <button onclick="addToCart(@Model.Product.productId)" type="button" class="btn">Thêm vào giỏ hàng</button>
+                <h3>Chi tiết sản phẩm <i class="fa fa-indent"></i></h3>
+                <p>@Model.Product.productDescription</p>
             </div>
-
-        </div>
-
-        <!-- Chi tiết sản phẩm -->
-        <div class="col-2">
-            <p>Home / Shoes</p>
-            <h1>@Model.productName</h1>
-            <h4>@Model.price.ToString("C")</h4>
-            <select>
-                <option>Chọn Kích Cỡ</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-            </select>
-            <input type="number" value="1">
-            <button onclick="addToCart(@Model.productId)" class="btn">Thêm vào giỏ hàng</button>
-            <h3>Chi tiết sản phẩm <i class="fa fa-indent"></i></h3>
-            <p>@Model.productDescription</p>
         </div>
     </div>
-</div>
 
-<div class="small-container">
-    <!-- Tiêu đề sản phẩm liên quan -->
-    <div class="row row-2">
-        <h2>Sản phẩm liên quan</h2>
-        <a href="@Url.Action("Product", "Home")"><p>Xem thêm</p></a>
-    </div>
+    <div class="small-container">
+        <!-- Tiêu đề sản phẩm liên quan -->
+        <div class="row row-2">
+            <h2>Sản phẩm liên quan</h2>
+            <a href="@Url.Action("Product", "Home")"><p>Xem thêm</p></a>
+        </div>
 
-    <!-- Sản phẩm liên quan -->
-    <div class="row">
-        @foreach (var relatedProduct in ViewBag.RelatedProducts as List<ShoeWeb.Models.Product>)
-        {
-            <div class="col-4">
-                <a href="@Url.Action("ProductDetails", "Home", new { productId = relatedProduct.productId })">
-                    <img src="@relatedProduct.image" alt="@relatedProduct.productName">
-                </a>
-                <a href="@Url.Action("ProductDetails", "Home", new { productId = relatedProduct.productId })">
-                    <h4>@relatedProduct.productName</h4>
-                </a>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
+        <!-- Sản phẩm liên quan -->
+        <div class="row">
+            @foreach (var relatedProduct in Model.products)
+            {
+                <div class="col-4">
+                    <a href="@Url.Action("ProductDetails", "Home", new { productId = relatedProduct.productId })">
+                        <img src="@relatedProduct.image" alt="@relatedProduct.productName">
+                    </a>
+                    <a href="@Url.Action("ProductDetails", "Home", new { productId = relatedProduct.productId })">
+                        <h4>@relatedProduct.productName</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>@relatedProduct.price.ToString("C")</p>
                 </div>
-                <p>@relatedProduct.price.ToString("C")</p>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     function addToCart(productId) {
-        // Thêm mã AJAX gọi controller để thêm sản phẩm vào giỏ hàng
-        alert("Đã thêm sản phẩm vào giỏ hàng!");
+        $.ajax({
+            url: '@Url.Action("AddToCart", "Cart")',
+            type: 'post',
+            data: {
+                id: productId,
+                quantity : 1
+            },
+            success: function (result) {
+                if (result.success) {
+                    alert("Thêm thành công");
+                    window.location.href = '@Url.Action("Index", "Cart")';
+                } else {
+                    alert("Thêm thất bại!");
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Có lỗi xảy ra!");
+            }
+        });
     }
 
     // Chuyển đổi ảnh sản phẩm khi nhấn vào hình ảnh nhỏ

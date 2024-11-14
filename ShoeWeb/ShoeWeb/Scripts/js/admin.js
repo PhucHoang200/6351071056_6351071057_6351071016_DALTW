@@ -30,33 +30,33 @@ function cancelEdit(cateId) {
 //}
 
 {/*@* ADD METHOD *@*/ }
-function Add() {
-    var Name = document.getElementById(`InputName`).value;
-    var Description = document.getElementById(`InputDescription`).value;
+//function Add() {
+//    var Name = document.getElementById(`InputName`).value;
+//    var Description = document.getElementById(`InputDescription`).value;
 
-    if (confirm("Bạn có chắc muốn thêm mục này không?")) {
-        $.ajax({
-            url: '/Category/AddCategory',
-            type: 'POST',
-            data: {
-                description: Description,
-                name: Name
-            },
-            success: function (result) {
-                if (result.success) {
-                    updateCategoryList(result.categories);
-                    $('#exampleModalCenter').modal('hide');
-                    $('.modal-backdrop').remove();
-                } else {
-                    alert("Thêm thất bại!");
-                }
-            },
-            error: function (xhr, status, error) {
-                alert("Có lỗi xảy ra!");
-            }
-        });
-    }
-}
+//    if (confirm("Bạn có chắc muốn thêm mục này không?")) {
+//        $.ajax({
+//            url: '/Admin/Category/AddCategory',
+//            type: 'POST',
+//            data: {
+//                description: Description,
+//                name: Name
+//            },
+//            success: function (result) {
+//                if (result.success) {
+//                    updateCategoryList(result.categories);
+//                    $('#exampleModalCenter').modal('hide');
+//                    $('.modal-backdrop').remove();
+//                } else {
+//                    alert("Thêm thất bại!");
+//                }
+//            },
+//            error: function (xhr, status, error) {
+//                alert("Có lỗi xảy ra!" + status);
+//            }
+//        });
+//    }
+//}
 
 
 //@* UPDATE METHOD *@

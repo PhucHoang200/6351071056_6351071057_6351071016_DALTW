@@ -38,10 +38,10 @@
             @foreach (var product in productsInCategory)
             {
                 <div class="col-4 filter-item cate-@product.cateId">
-                    <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", id = product.productId })">
+                    <a href="@Url.Action("ProductDetails", "Home", new { productId = product.productId })">
                         <img src="@Url.Content(product.image)" alt="@product.productName" />
                     </a>
-                    <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", id = product.productId })">
+                    <a href="@Url.Action("ProductDetails", "Home", new { productId = product.productId })">
                         <h4>@product.productName</h4>
                     </a>
                     <p>@product.price.ToString("C")</p>

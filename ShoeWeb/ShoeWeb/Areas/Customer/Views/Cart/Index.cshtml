@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+@model ShoeWeb.Areas.Customer.CustomerVM.CartVM
+
+@if (Model.Products.Count() == 0)
+{
+    <h2>Không có sản phẩm nào trong giỏ hàng! <a href="@Url.Action("Product", "Home")">Mua hàng ngay</a></h2>
+
+}
+else
+{
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+
+                    <td>
+                        <div class="cart-info">
+                            <img src=@item.Product.image>
+                            <div>
+                                <p>@item.Product.image</p>
+                                <small>Price: @item.Product.price</small><br>
+                                <a href="">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" vlaue="@item.Quantity"></td>
+                    <td>@item.UnitPrice</td>
+                </tr>
+            }
+
+
+        </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$200.00</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>$35.00</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>$230.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+

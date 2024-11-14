@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ShoeWeb.App_Start;
 
 namespace ShoeWeb
 {
@@ -17,12 +18,8 @@ namespace ShoeWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            // Di chuyển việc khởi tạo secret key vào Application_Start
-            string secretKey = ConfigurationManager.AppSettings["JwtSecretKey"];
-            JwtAuthManagerProvider.Initialize(secretKey);
         }
 
-        // Sự kiện này sẽ được gọi khi mỗi yêu cầu HTTP bắt đầu
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             // Kiểm tra nếu URL là trang chủ và chuyển hướng đến /Customer/Home

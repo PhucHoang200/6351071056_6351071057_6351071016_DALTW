@@ -14,8 +14,7 @@ using System.Web.Mvc;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
-    [AdminAutho]
-
+    [Authorize(Roles = SD.AdminRole)]
     public class OriginController : Controller
     {
 

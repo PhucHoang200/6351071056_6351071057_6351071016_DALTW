@@ -94,6 +94,9 @@
     <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.2\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Security.Jwt, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Jwt.4.2.2\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
     </Reference>
@@ -102,6 +105,12 @@
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.29.3.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.9.29.3\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="StarkbankEcdsa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b2e6337a5d77bfbc, processorArchitecture=MSIL">
+      <HintPath>..\packages\starkbank-ecdsa.1.3.3\lib\net452\StarkbankEcdsa.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -122,6 +131,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
@@ -192,8 +202,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\BrandVM.cs" />
@@ -205,48 +217,45 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\OriginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Customer\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Customer\Controllers\CartController.cs" />
     <Compile Include="Areas\Customer\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Customer\Controllers\ManageController.cs" />
     <Compile Include="Areas\Customer\Controllers\UserController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\CartVM.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\DetailProductVM.cs" />
     <Compile Include="Areas\Customer\CustomerVM\HomeVM.cs" />
     <Compile Include="Areas\Customer\CustomerVM\ProductVM.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\UserVM.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\AdminAutho.cs" />
+    <Compile Include="Helper\ConstantHelper.cs" />
     <Compile Include="Helper\JwtAuthenticationManager.cs" />
     <Compile Include="Helper\JwtAuthManagerProvider.cs" />
     <Compile Include="Helper\JwtAuthorizeAttribute.cs" />
     <Compile Include="Helper\MyAuthenFilter.cs" />
     <Compile Include="Helper\PasswordHasher.cs" />
-    <Compile Include="IdentityMigration\202411070943101_init.cs" />
-    <Compile Include="IdentityMigration\202411070943101_init.Designer.cs">
-      <DependentUpon>202411070943101_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IdentityMigration\Configuration.cs" />
-    <Compile Include="Identity\AppDbContext.cs" />
+    <Compile Include="Helper\SendMail.cs" />
     <Compile Include="Identity\AppUser.cs" />
-    <Compile Include="Identity\AppUserManager.cs" />
-    <Compile Include="Identity\AppUserStore.cs" />
-    <Compile Include="Migrations\202411030948202_addRoleToDb.cs" />
-    <Compile Include="Migrations\202411030948202_addRoleToDb.Designer.cs">
-      <DependentUpon>202411030948202_addRoleToDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411030950549_updateUserTable.cs" />
-    <Compile Include="Migrations\202411030950549_updateUserTable.Designer.cs">
-      <DependentUpon>202411030950549_updateUserTable.cs</DependentUpon>
+    <Compile Include="Migrations\202411121635509_addAllTable.cs" />
+    <Compile Include="Migrations\202411121635509_addAllTable.Designer.cs">
+      <DependentUpon>202411121635509_addAllTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Identity\AccountViewModels.cs" />
+    <Compile Include="Models\Identity\ManageViewModels.cs" />
     <Compile Include="Models\Origin.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\ShoppingCartItem.cs" />
     <Compile Include="Models\Size.cs" />
     <Compile Include="Models\SizeOfProduct.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\SD.cs" />
@@ -525,10 +534,15 @@
     <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Customer\Views\Home\Index.cshtml" />
     <Content Include="Areas\Customer\Views\Home\Product.cshtml" />
-    <Content Include="Areas\Customer\Views\Home\Cart.cshtml" />
     <Content Include="Areas\Customer\Views\Home\ProductDetails.cshtml" />
     <Content Include="Areas\Customer\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Customer\Views\User\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\User\Login.cshtml" />
+    <Content Include="Areas\Customer\Views\Cart\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\User\Register.cshtml" />
+    <Content Include="Areas\Customer\Views\User\Error.cshtml" />
+    <Content Include="Areas\Customer\Views\User\EmailCheck.cshtml" />
+    <Content Include="Areas\Customer\Views\User\ConfirmEmail.cshtml" />
+    <Content Include="Areas\Customer\Views\Account\UserInformation.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -553,6 +567,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Customer\Data\" />
+    <Folder Include="Areas\Customer\Views\ManageController\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -566,15 +581,12 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="IdentityMigration\202411070943101_init.resx">
-      <DependentUpon>202411070943101_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411121635509_addAllTable.resx">
+      <DependentUpon>202411121635509_addAllTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411030948202_addRoleToDb.resx">
-      <DependentUpon>202411030948202_addRoleToDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411030950549_updateUserTable.resx">
-      <DependentUpon>202411030950549_updateUserTable.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

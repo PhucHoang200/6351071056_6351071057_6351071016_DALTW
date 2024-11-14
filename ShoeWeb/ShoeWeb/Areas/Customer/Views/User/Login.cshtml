@@ -1,0 +1,146 @@
+﻿@model ShoeWeb.Models.Identity.LoginViewModel
+<!-- Form Login -->
+
+<style>
+    .account-page .form-container {
+        width: 100%; /* Full width cho form */
+        max-width: 500px; /* Đặt chiều rộng tối đa */
+        margin-left: 0px; /* Căn trái */
+        padding: 30px; /* Khoảng đệm xung quanh form */
+        background-color: #ffffff; /* Màu nền trắng cho form */
+        border-radius: 8px; /* Bo góc cho form */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    }
+
+    /* Tiêu đề form */
+    .form-container h4 {
+        color: #333; /* Màu chữ tiêu đề */
+        margin-bottom: 20px; /* Khoảng cách phía dưới */
+    }
+
+    /* Định dạng các hàng trong form */
+    .form-container .row {
+        margin-bottom: 15px; /* Khoảng cách giữa các hàng */
+    }
+
+    /* Định dạng các nhãn */
+    .form-container label {
+        color: #555; /* Màu chữ cho label */
+        font-weight: bold;
+    }
+
+    /* Định dạng các ô input */
+    .form-container input[type="text"],
+    .form-container input[type="password"] {
+        width: 100%; /* Full width */
+        padding: 10px; /* Padding bên trong ô input */
+        border: 1px solid #ddd; /* Viền màu xám nhạt */
+        border-radius: 5px; /* Bo góc */
+        margin-top: 5px;
+        box-sizing: border-box; /* Giữ padding trong width */
+    }
+
+    /* Định dạng checkbox và label */
+    .form-container .checkbox input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    /* Định dạng nút submit */
+    .form-container input[type="submit"] {
+        width: 100%; /* Full width */
+        padding: 10px;
+        background-color: #007bff; /* Màu xanh cho nút */
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3; /* Đổi màu khi hover */
+        }
+
+    /* Định dạng cho link đăng ký */
+    .form-container p a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .form-container p a:hover {
+            text-decoration: underline;
+        }
+
+    /* Định dạng thông báo lỗi */
+    .text-danger {
+        color: #dc3545; /* Màu đỏ */
+        font-size: 0.9em; /* Font nhỏ */
+    }
+</style>
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/Content/images/image1.png" width="100%">
+            </div>
+            <div class="col-2">
+                <div class="form-container" style="height: 500px !important; display: block;">
+
+                    <span onclick="login()">Login</span>
+                    <hr id="Indicator">
+
+                    <form id="LoginForm" style="left : 0px !important;" action="@Url.Action("Login", "User", new { returnUrl = ViewBag.ReturnUrl })" method="post" role="form">
+                        @Html.AntiForgeryToken()
+                        @if (ViewBag.ResendEmail != null && ViewBag.ResendEmail == true)
+                        {
+                            <div class="alert alert-warning">
+                                <p>@ViewBag.ErrorMessage</p>
+                                @Html.ActionLink("Gửi lại mail, click vào đây", "ResendConfirmationEmail", "User", new { email = ViewBag.UserEmail }, new { @class = "btn btn-link", onclick = "return confirm('Bạn có chắc chắn muốn gửi lại email xác nhận không?');" })
+                            </div>
+                        }
+
+                        <div class="text-danger">
+                            <!-- Display validation summary here -->
+                        </div>
+                        <div class="row">
+                            <label for="Email" class="col-md-2 col-form-label">Email</label>
+                            <div class="col-md-10">
+                                <input type="text" name="Email" id="Email_login" class="form-control" value="@Model.Email" />
+                                <div class="text-danger" id="EmailValidationMessage"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="Password" class="col-md-2 col-form-label">Password</label>
+                            <div class="col-md-10">
+                                <input type="password" name="Password" id="Password_login" class="form-control" value="@Model.Password" />
+                                <div class="text-danger" id="PasswordValidationMessage"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-md-2 col-md-10">
+                                <div class="checkbox">
+                                    <input type="checkbox" name="RememberMe" id="RememberMe" />
+                                    <label for="RememberMe">Remember Me</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-md-2 col-md-10">
+                                <input type="submit" value="Log in" class="btn btn-outline-dark" onclick="SubmitLogin(event)" />
+                            </div>
+                        </div>
+                        <p>
+                            <a href="/User/Register">Register as a new user</a>
+                        </p>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------------------------------js for toggle form-------------------------------------->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

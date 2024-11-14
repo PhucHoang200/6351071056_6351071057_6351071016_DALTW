@@ -14,8 +14,7 @@ using ShoeWeb.Helper;
 
 namespace ShoeWeb.Areas.Admin.Controllers
 {
-    [AdminAutho]
-
+    [Authorize(Roles = SD.AdminRole)]
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _db;

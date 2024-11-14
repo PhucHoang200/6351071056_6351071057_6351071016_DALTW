@@ -1,82 +1,69 @@
-﻿using Microsoft.Owin;
-using Owin;
-using System;
-using System.Threading.Tasks;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
+using ShoeWeb.App_Start;
+using ShoeWeb.Data;
 using ShoeWeb.Identity;
-using ShoeWeb.Utility;
+using System;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 
 
 [assembly: OwinStartup(typeof(ShoeWeb.Startup))]
 
 namespace ShoeWeb
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
+            ConfigureAuth(app);
+            CreateRolesAndUsers();
+        }
+        public void CreateRolesAndUsers()
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            var userManager = new UserManager<AppUser>(new UserStore<AppUser>(new ApplicationDbContext()));
+
+            // Tạo vai trò Admin nếu chưa có
+            if (!roleManager.RoleExists("Admin"))
+            {
+                var role = new IdentityRole("Admin");
+                roleManager.Create(role);
+            }
+
+            // Tạo vai trò Customer nếu chưa có
+            if (!roleManager.RoleExists("Customer"))
+            {
+                var role = new IdentityRole("Customer");
+                roleManager.Create(role);
+            }
+        }
+        public void ConfigureAuth(IAppBuilder app)
+        {
+            // Cấu hình xác thực cho ứng dụng
+            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Customer/User/Index")
+                LoginPath = new PathString("/User/Login"),
+                Provider = new CookieAuthenticationProvider
+                {
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, AppUser>(
+                        validateInterval: TimeSpan.FromMinutes(30),
+                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+                }
             });
-            CreateRolesAndUser();
+
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
+            app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
         }
 
-        public void CreateRolesAndUser()
-        {
-            var roleManager = new RoleManager<IdentityRole>(
-                    new RoleStore<IdentityRole>(new AppDbContext()));
-
-            var appDbContext = new AppDbContext();
-            var appUserStore = new AppUserStore(appDbContext);
-            var userManager = new AppUserManager(appUserStore);
-
-            if (!roleManager.RoleExists(SD.AdminRole))
-             { 
-                var role  = new IdentityRole();
-                role.Name = SD.AdminRole;
-                roleManager.Create(role);
-            }
-
-            if (userManager.FindByName(SD.AdminRole) == null) {
-                var user = new AppUser();
-
-                user.UserName = "admin";
-                user.Email = "admin@gmail.com";
-                string userPassword = "admin123";
-                var chkUser = userManager.Create(user, userPassword);
-                if (chkUser.Succeeded)
-                {
-                    userManager.AddToRole(user.Id, SD.AdminRole);
-                }
-
-            }
-
-            if (!roleManager.RoleExists(SD.CustomerRole))
-            {
-                var role = new IdentityRole();
-                role.Name = SD.CustomerRole;
-                roleManager.Create(role);
-            }
-            if (userManager.FindByName(SD.CustomerRole) == null)
-            {
-                var user = new AppUser();
-
-                user.UserName = "customer1";
-                user.Email = "cus@gmail.com";
-                string userPassword = "customer123";
-                var chkUser = userManager.Create(user, userPassword);
-                if (chkUser.Succeeded)
-                {
-                    userManager.AddToRole(user.Id, SD.CustomerRole);
-                }
-
-            }
-
-
-        }
     }
 }
