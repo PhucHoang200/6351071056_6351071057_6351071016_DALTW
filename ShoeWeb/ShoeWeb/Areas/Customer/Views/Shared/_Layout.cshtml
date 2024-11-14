@@ -229,7 +229,6 @@ function searchProducts() {
         $("#searchResults").html(data).show();
     });
         }
-<<<<<<< HEAD
         function toggleUserMenu() {
             var dropdown = document.getElementById("userDropdown");
             if (dropdown.style.display === "none") {
@@ -238,30 +237,7 @@ function searchProducts() {
                 dropdown.style.display = "none";   // Ẩn dropdown
             }
         }
-=======
 
-        // Toggle hiển thị menu người dùng
-        function toggleUserMenu() {
-            var dropdown = document.getElementById("userDropdown");
-            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
-        }
-
-        // Đóng menu khi click ra ngoài
-        window.onclick = function (event) {
-            if (!event.target.matches('.user-button')) {
-                var dropdown = document.getElementById("userDropdown");
-                if (dropdown && dropdown.style.display === "block") {
-                    dropdown.style.display = "none";
-                }
-            }
-        };
-
-        // Menu toggle
-        function menutoggle() {
-            var menuItems = document.getElementById("MenuItems");
-            menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" ? "200px" : "0px";
-        }
->>>>>>> ca98af18fe8045259cc9f050c26471e1f3556893
 
     </script>
 
