@@ -91,8 +91,8 @@
     <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Google, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.2\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
@@ -536,6 +536,7 @@
     <Content Include="Areas\Customer\Views\Home\Product.cshtml" />
     <Content Include="Areas\Customer\Views\Home\ProductDetails.cshtml" />
     <Content Include="Areas\Customer\Views\_ViewStart.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Customer\Views\User\Login.cshtml" />
     <Content Include="Areas\Customer\Views\Cart\Index.cshtml" />
     <Content Include="Areas\Customer\Views\User\Register.cshtml" />
@@ -543,6 +544,10 @@
     <Content Include="Areas\Customer\Views\User\EmailCheck.cshtml" />
     <Content Include="Areas\Customer\Views\User\ConfirmEmail.cshtml" />
     <Content Include="Areas\Customer\Views\Account\UserInformation.cshtml" />
+=======
+    <Content Include="Areas\Customer\Views\User\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\User\UserInformation.cshtml" />
+>>>>>>> ca98af18fe8045259cc9f050c26471e1f3556893
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />

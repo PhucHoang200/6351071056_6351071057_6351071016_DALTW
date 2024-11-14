@@ -36,7 +36,6 @@ namespace ShoeWeb
                 namespaces: new[] { "ShoeWeb.Areas.Customer.Controllers" }
             );
 
-
         }
 
     }

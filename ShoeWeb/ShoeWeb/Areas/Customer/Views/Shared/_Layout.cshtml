@@ -118,7 +118,7 @@
 
 
                             <li class="nav-item dropdown">
-                                <!-- Định dạng giống ComboBox cho "Hello, người dùng" -->
+                               
                                 <a class="nav-link user-button" href="javascript:void(0);" onclick="toggleUserMenu()">
                                     Hello, @User.Identity.GetUserName()! 
                                     <i class="fa fa-caret-down"></i> <!-- Mũi tên xuống -->
@@ -145,6 +145,7 @@
 
                     </ul>
 
+                       
                 </nav>
                 <a href="@Url.Action("Index", "Cart")"><img src="~/Content/images/cart.png" width="30" height="30"></a>
                 <img src="~/Content/images/menu.png" class="menu-icon" onClick="menutoggle()">
@@ -228,6 +229,7 @@ function searchProducts() {
         $("#searchResults").html(data).show();
     });
         }
+<<<<<<< HEAD
         function toggleUserMenu() {
             var dropdown = document.getElementById("userDropdown");
             if (dropdown.style.display === "none") {
@@ -236,10 +238,85 @@ function searchProducts() {
                 dropdown.style.display = "none";   // Ẩn dropdown
             }
         }
+=======
+
+        // Toggle hiển thị menu người dùng
+        function toggleUserMenu() {
+            var dropdown = document.getElementById("userDropdown");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+
+        // Đóng menu khi click ra ngoài
+        window.onclick = function (event) {
+            if (!event.target.matches('.user-button')) {
+                var dropdown = document.getElementById("userDropdown");
+                if (dropdown && dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        };
+
+        // Menu toggle
+        function menutoggle() {
+            var menuItems = document.getElementById("MenuItems");
+            menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" ? "200px" : "0px";
+        }
+>>>>>>> ca98af18fe8045259cc9f050c26471e1f3556893
 
     </script>
 
     <style>
+
+        /* Định dạng "Hello, người dùng" không có viền và màu nền */
+        .user-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent; /* Bỏ màu nền */
+            border: none; /* Bỏ viền */
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            text-align: left;
+            width: 200px;
+        }
+
+            .user-button i {
+                margin-left: 10px;
+            }
+
+        /* Định dạng menu thả xuống */
+        .dropdown-content {
+            position: absolute;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+            z-index: 1;
+        }
+
+            /* Mục trong menu thả xuống */
+            .dropdown-content li {
+                padding: 8px 10px;
+                display: block;
+            }
+
+                .dropdown-content li a {
+                    color: black;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                    .dropdown-content li a:hover {
+                        background-color: #f0f0f0;
+                    }
+
+        /* Định dạng để "Đăng xuất" nằm bên trái */
+        .logout-item {
+            text-align: left; /* Căn trái cho "Đăng xuất" */
+        }
+
         .search-form {
             position: relative; /* Để nút tìm kiếm nằm bên trong thanh tìm kiếm */
             max-width: 500px;
@@ -270,6 +347,9 @@ function searchProducts() {
                     color: #007bff; /* Màu sắc biểu tượng kính lúp */
                     font-size: 18px;
                 }
+
+     
+
     </style>
 
 </body>
