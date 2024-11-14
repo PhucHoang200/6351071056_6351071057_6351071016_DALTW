@@ -34,7 +34,7 @@
         // Lấy sản phẩm theo danh mục
         var productsInCategory = Model.Products.ElementAt(Model.Categories.ToList().IndexOf(itemCate));
 
-        <div class="row product-container">
+        <div class="row product-container" style="justify-content: flex-start;">
             @foreach (var product in productsInCategory)
             {
                 <div class="col-4 filter-item cate-@product.cateId">

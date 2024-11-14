@@ -95,7 +95,6 @@
         .dropdown-content li {
             padding: 10px;
         }
-
     </style>
     <div class="header">
         <div class="container">
@@ -118,9 +117,9 @@
 
 
                             <li class="nav-item dropdown">
-                               
+
                                 <a class="nav-link user-button" href="javascript:void(0);" onclick="toggleUserMenu()">
-                                    Hello, @User.Identity.GetUserName()! 
+                                    Hello, @User.Identity.GetUserName()!
                                     <i class="fa fa-caret-down"></i> <!-- Mũi tên xuống -->
                                 </a>
                                 <ul id="userDropdown" class="dropdown-content" style="display: none;">
@@ -145,7 +144,7 @@
 
                     </ul>
 
-                       
+
                 </nav>
                 <a href="@Url.Action("Index", "Cart")"><img src="~/Content/images/cart.png" width="30" height="30"></a>
                 <img src="~/Content/images/menu.png" class="menu-icon" onClick="menutoggle()">
@@ -229,39 +228,15 @@ function searchProducts() {
         $("#searchResults").html(data).show();
     });
         }
-<<<<<<< HEAD
         function toggleUserMenu() {
             var dropdown = document.getElementById("userDropdown");
             if (dropdown.style.display === "none") {
-                dropdown.style.display = "block";  
+                dropdown.style.display = "block";
             } else {
                 dropdown.style.display = "none";   // Ẩn dropdown
             }
         }
-=======
 
-        // Toggle hiển thị menu người dùng
-        function toggleUserMenu() {
-            var dropdown = document.getElementById("userDropdown");
-            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
-        }
-
-        // Đóng menu khi click ra ngoài
-        window.onclick = function (event) {
-            if (!event.target.matches('.user-button')) {
-                var dropdown = document.getElementById("userDropdown");
-                if (dropdown && dropdown.style.display === "block") {
-                    dropdown.style.display = "none";
-                }
-            }
-        };
-
-        // Menu toggle
-        function menutoggle() {
-            var menuItems = document.getElementById("MenuItems");
-            menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" ? "200px" : "0px";
-        }
->>>>>>> ca98af18fe8045259cc9f050c26471e1f3556893
 
     </script>
 
@@ -347,9 +322,6 @@ function searchProducts() {
                     color: #007bff; /* Màu sắc biểu tượng kính lúp */
                     font-size: 18px;
                 }
-
-     
-
     </style>
 
 </body>

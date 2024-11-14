@@ -117,9 +117,6 @@ C:\Users\phucp\Downloads\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\S
 C:\Users\phucp\Downloads\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
 C:\Users\phucp\Downloads\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
 <<<<<<< HEAD
-C:\Users\phucp\Downloads\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.addRoleToDb.resources
-C:\Users\phucp\Downloads\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache
-C:\Users\phucp\Downloads\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateUserTable.resources
 D:\CSharp\Project_ShoeWeb\project\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll.config
 D:\CSharp\Project_ShoeWeb\project\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll
 D:\CSharp\Project_ShoeWeb\project\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.pdb
@@ -479,7 +476,6 @@ D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\StarkbankEcdsa.dll
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.pdb
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.xml
-=======
 C:\Users\phucp\Downloads\WebUpdateMoiNhat\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll.config
 C:\Users\phucp\Downloads\WebUpdateMoiNhat\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll
 C:\Users\phucp\Downloads\WebUpdateMoiNhat\WebMoi\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.pdb
