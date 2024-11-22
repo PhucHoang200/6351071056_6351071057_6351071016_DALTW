@@ -8,6 +8,7 @@ using ShoeWeb.Data;
 using ShoeWeb.Identity;
 using System;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Web.Services.Description;
 
 
 
@@ -21,7 +22,12 @@ namespace ShoeWeb
         {
             ConfigureAuth(app);
             CreateRolesAndUsers();
+
+            
         }
+
+        
+
         public void CreateRolesAndUsers()
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));

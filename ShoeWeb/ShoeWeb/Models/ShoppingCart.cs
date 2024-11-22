@@ -17,6 +17,7 @@ namespace ShoeWeb.Models
         [Required]
         public decimal TotalPrice { get; set; }
 
+       
         [Required]
         public string UserId { get; set; }
 
