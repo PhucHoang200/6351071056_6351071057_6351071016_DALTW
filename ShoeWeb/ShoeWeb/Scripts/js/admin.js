@@ -66,7 +66,7 @@ function updateItem(id) {
 
     if (confirm("Bạn có chắc muốn cập nhật mục này không?")) {
         $.ajax({
-            url: '/Category/Update',
+            url: '/Admin/Category/Update',
             type: 'POST',
             data: {
                 id: id,
@@ -135,7 +135,7 @@ function updateCategoryList(categories) {
 function deleteProduct(id) {
     if (confirm("Bạn có chắc muốn xóa mục này không?")) {
         $.ajax({
-            url: '/Product/Delete',
+            url: '/Admin/Product/Delete',
             type: 'POST',
             data: { id: id },
             success: function (result) {
@@ -153,150 +153,13 @@ function deleteProduct(id) {
 }
 
 //UPDATE PRODUCT
-function updateProduct(id) {
-    var formData = new FormData();
-    var name = document.getElementById(`ProductName-${id}`).value;
-    var description = document.getElementById(`ProductDescription-${id}`).value;
-    var imageFile = document.getElementById(`ProductImage-${id}`).files[0];
-
-    formData.append('id', id);
-    formData.append('name', name);
-    formData.append('description', description);
-    if (imageFile) {
-        formData.append('image', imageFile);
-    }
-
-    $.ajax({
-        url: '/Product/Update',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-
-
-        success: function (result) {
-            console.log(result.products);
-            if (result.success) {
-                alert("Cập nhật thành công!");
-                updateProductList(result.products);
-            } else {
-                alert("Cập nhật không thành công!");
-            }
-        },
-        error: function (xhr, status, error) {
-            alert("Có lỗi xảy ra trong quá trình cập nhật!");
-        }
-    });
-}
-
-function AddProduct() {
-    var formData = new FormData();
-    var name = document.getElementById(`InputName`).value;
-    var description = document.getElementById(`InputDescription`).value;
-    var price = document.getElementById(`InputPrice`).value;
-    var quantity = document.getElementById(`InputQuantity`).value;
-    var imageFile = document.getElementById(`InputImage`).files[0];
-
-    var categoryId = document.getElementById(`categorySelect`).value;
-    var brandId = document.getElementById(`brandSelect`).value;
-    var sizeId = document.getElementById(`sizeSelect`).value;
-    var originId = document.getElementById(`originSelect`).value;
-
-    formData.append('name', name);
-    formData.append('description', description);
-    formData.append('price', parseFloat(price));
-    formData.append('quantity', parseInt(quantity));
-    formData.append('categoryId', categoryId);
-    formData.append('brandId', brandId);
-    formData.append('sizeId', sizeId);
-    formData.append('originId', originId);
-
-    if (imageFile) {
-        formData.append('image', imageFile);
-    }
-
-    $.ajax({
-        url: '/Product/Add',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-
-        success: function (result) {
-            if (result.success) {
-                alert("Thêm thành công!");
-                $('#exampleModalCenter').modal('hide');
-                $('.modal-backdrop').remove();
-
-                updateProductList(result.products);
-            } else {
-                console.log(result.message);
-
-                alert("Thêm không thành công!");
-            }
-        },
-        error: function (xhr, status, error) {
-            alert("Có lỗi xảy ra trong quá trình thêm!");
-        }
-    });
-}
-
-
-
-function updateProductList(products) {
-    var productTableBody = $('tbody');
-    productTableBody.empty();
-
-    $.each(products, function (index, product) {
-        productTableBody.append(`
-            <tr id="viewRow-${product.productId}">
-                <th scope="row">${product.productId}</th>
-                <td>${product.productName}</td>
-                <td>${product.productDescription}</td>
-                <td>${product.quantity}</td>
-                <td>${product.price}</td>
-                <td><img src="${product.image}" alt="Ảnh sản phẩm" width="120"/></td>
-                <td scope="col" id="manage">
-                    <button id="edit" type="button" class="btn btn-secondary" onclick="editItem(${product.productId})">
-                        <i class="bi bi-pencil-square"></i> Sửa
-                    </button>
-                    <button id="delete" type="button" class="btn btn-danger" onclick="deleteProduct(${product.productId})">
-                        <i class="bi bi-trash"></i> Xóa
-                    </button>
-                </td>
-            </tr>
-            <tr id="editRow-${product.productId}" style="display:none;" >
-                <th scope="row">${product.productId}</th>
-                <td>
-                    <input type="text" id="ProductName-${product.productId}" value="${product.productName}" class="form-control">
-                </td>
-                <td>
-                    <input type="text" id="ProductDescription-${product.productId}" value="${product.productDescription}" class="form-control">
-                </td>
-                <td>${product.quantity}</td>
-                <td>${product.price}</td>
-                <td>
-                    <input type="file" id="ProductImage-${product.productId}" class="form-control">
-                </td>
-                <td scope="col" id="manage">
-                    <button type="button" id="save" class="btn btn-secondary" onclick="updateProduct(${product.productId})">
-                        <i class="bi bi-save"></i> Lưu
-                    </button>
-                    <button type="button" id="cancel" class="btn btn-danger" onclick="cancelEdit(${product.productId})">
-                        <i class="bi bi-x-circle"></i> Hủy
-                    </button>
-                </td>
-            </tr>
-        `);
-    });
-}
 
 //BRAND
 function updateBrand(id) {
     var name = document.getElementById(`BrandName-${id}`).value;
     if (confirm("Bạn có chắc muốn cập nhật mục này không?")) {
         $.ajax({
-            url: '/Brand/Update',
+            url: '/Admin/Brand/Update',
             type: 'POST',
             data: {
                 id: id,

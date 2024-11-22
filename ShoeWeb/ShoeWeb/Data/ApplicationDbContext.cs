@@ -32,6 +32,9 @@ namespace ShoeWeb.Data
         
         public DbSet<ShoppingCart> shoppingCarts {  get; set; }
         public DbSet<ShoppingCartItem> shoppingCartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
 
       
 

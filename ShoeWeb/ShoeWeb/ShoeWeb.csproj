@@ -239,17 +239,50 @@
     <Compile Include="Helper\JwtAuthorizeAttribute.cs" />
     <Compile Include="Helper\MyAuthenFilter.cs" />
     <Compile Include="Helper\PasswordHasher.cs" />
+    <Compile Include="Helper\Payment\Config\ZaloPayConfig.cs" />
+    <Compile Include="Helper\Payment\Request\CreateZaloPayRequest.cs" />
+    <Compile Include="Helper\Payment\Response\CreateZaloPayResponse.cs" />
     <Compile Include="Helper\SendMail.cs" />
     <Compile Include="Identity\AppUser.cs" />
     <Compile Include="Migrations\202411121635509_addAllTable.cs" />
     <Compile Include="Migrations\202411121635509_addAllTable.Designer.cs">
       <DependentUpon>202411121635509_addAllTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411170717232_updateCartItem.cs" />
+    <Compile Include="Migrations\202411170717232_updateCartItem.Designer.cs">
+      <DependentUpon>202411170717232_updateCartItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411190521544_updatCartitem.cs" />
+    <Compile Include="Migrations\202411190521544_updatCartitem.Designer.cs">
+      <DependentUpon>202411190521544_updatCartitem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411200754406_addStatus.cs" />
+    <Compile Include="Migrations\202411200754406_addStatus.Designer.cs">
+      <DependentUpon>202411200754406_addStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411200800131_addCode.cs" />
+    <Compile Include="Migrations\202411200800131_addCode.Designer.cs">
+      <DependentUpon>202411200800131_addCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411200804390_UpdateOrder.cs" />
+    <Compile Include="Migrations\202411200804390_UpdateOrder.Designer.cs">
+      <DependentUpon>202411200804390_UpdateOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411200806001_addOrder.cs" />
+    <Compile Include="Migrations\202411200806001_addOrder.Designer.cs">
+      <DependentUpon>202411200806001_addOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411200808275_updateCreateAt.cs" />
+    <Compile Include="Migrations\202411200808275_updateCreateAt.Designer.cs">
+      <DependentUpon>202411200808275_updateCreateAt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Identity\AccountViewModels.cs" />
     <Compile Include="Models\Identity\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Origin.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
@@ -534,7 +567,6 @@
     <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Customer\Views\Home\Index.cshtml" />
     <Content Include="Areas\Customer\Views\Home\Product.cshtml" />
-    <Content Include="Areas\Customer\Views\Home\ProductDetails.cshtml" />
     <Content Include="Areas\Customer\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Customer\Views\User\Login.cshtml" />
     <Content Include="Areas\Customer\Views\Cart\Index.cshtml" />
@@ -543,6 +575,7 @@
     <Content Include="Areas\Customer\Views\User\EmailCheck.cshtml" />
     <Content Include="Areas\Customer\Views\User\ConfirmEmail.cshtml" />
     <Content Include="Areas\Customer\Views\Account\UserInformation.cshtml" />
+    <Content Include="Areas\Customer\Views\Home\ProductDetails.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -583,6 +616,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202411121635509_addAllTable.resx">
       <DependentUpon>202411121635509_addAllTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411170717232_updateCartItem.resx">
+      <DependentUpon>202411170717232_updateCartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411190521544_updatCartitem.resx">
+      <DependentUpon>202411190521544_updatCartitem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411200754406_addStatus.resx">
+      <DependentUpon>202411200754406_addStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411200800131_addCode.resx">
+      <DependentUpon>202411200800131_addCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411200804390_UpdateOrder.resx">
+      <DependentUpon>202411200804390_UpdateOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411200806001_addOrder.resx">
+      <DependentUpon>202411200806001_addOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411200808275_updateCreateAt.resx">
+      <DependentUpon>202411200808275_updateCreateAt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

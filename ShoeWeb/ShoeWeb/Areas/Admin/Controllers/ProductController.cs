@@ -73,7 +73,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
             return Json(new { success = false });
         }
         [HttpPost]
-        public async Task<ActionResult> Update(int id, string name, string description, HttpPostedFileBase image)
+        public async Task<ActionResult> UpdateProduct(int id, string name, string description, HttpPostedFileBase image)
         {
             var product = _db.products.Find(id);
             if (product == null)

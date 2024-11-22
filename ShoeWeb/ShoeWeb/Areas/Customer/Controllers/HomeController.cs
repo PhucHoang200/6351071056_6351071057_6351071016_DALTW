@@ -8,6 +8,9 @@ using System.Web.Mvc;
 using ShoeWeb.Areas.Customer.CustomertVM;
 using System.Net;
 using ShoeWeb.Areas.Customer.CustomerVM;
+using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using System.Data.Entity;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
@@ -223,7 +226,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
 
         [HttpGet]
-        public ActionResult ProductDetails(int productId)
+        public async Task<ActionResult> ProductDetails(int? productId)
         {
             var detailProductVm = new DetailProductVM();
 
@@ -231,16 +234,23 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             if (product == null)
             {
-                return HttpNotFound();
+                return View(detailProductVm);
             }
 
-            var SizeOfProduct = _db.sizeOfProducts.Where(s => s.productId == productId).ToList();
+            var sizeIds = _db.sizeOfProducts
+                      .Where(s => s.productId == productId)
+                      .Select(s => s.sizeId)
+                      .ToList();
 
-            if (SizeOfProduct != null && SizeOfProduct.Any())
+            if (sizeIds.Any())
             {
-                var sizeIds = SizeOfProduct.Select(s => s.sizeId).ToList(); 
-                detailProductVm.sizes = _db.sizes.Where(s => sizeIds.Contains(s.sizeId)).ToList();
+                var sizes = await _db.sizes
+                                     .Where(size => sizeIds.Contains(size.sizeId))
+                                     .ToListAsync();
+
+                detailProductVm.sizes = sizes;
             }
+
             else
             {
                 detailProductVm.sizes = new List<Size>(); 
@@ -253,7 +263,6 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             detailProductVm.products = relatedProducts;
             detailProductVm.Product = product;
-            detailProductVm.sizeOfProduct = SizeOfProduct;
 
             return View(detailProductVm);
         }

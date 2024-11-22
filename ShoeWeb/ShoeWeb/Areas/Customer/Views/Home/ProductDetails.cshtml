@@ -1,3 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
 @model ShoeWeb.Areas.Customer.CustomerVM.DetailProductVM
 
 @if (Model.Product == null)
@@ -25,14 +31,14 @@ else
                 <p>Home / Shoes</p>
                 <h1>@Model.Product.productName</h1>
                 <h4>@Model.Product.price.ToString("C")</h4>
-                <select>
+                <select id="sizeSelect">
                     <option>Chọn Kích Cỡ</option>
                     @foreach (var item in Model.sizes)
                     {
                         <option value="@item.sizeId">@item.numberSize</option>
                     }
                 </select>
-                <input type="number" value="1">
+                <input type="number" id="quantityInput" value="1" min="1" oninput="updateQuantity()">
                 <button onclick="addToCart(@Model.Product.productId)" type="button" class="btn">Thêm vào giỏ hàng</button>
                 <h3>Chi tiết sản phẩm <i class="fa fa-indent"></i></h3>
                 <p>@Model.Product.productDescription</p>
@@ -75,27 +81,45 @@ else
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    function addToCart(productId) {
+   function addToCart(productId) {
+        const sizeId = document.getElementById('sizeSelect').value;
+        const quantity = document.getElementById('quantityInput').value;
+       console.log("ProductId: " + productId);
+       console.log("SizeId: " + sizeId);
+       console.log("Quantity: " + quantity);
+
+        if (!sizeId) {
+            alert("Vui lòng chọn kích cỡ!");
+            return;
+        }
+
+        if (quantity <= 0) {
+            alert("Số lượng phải lớn hơn 0!");
+            return;
+        }
+
         $.ajax({
-            url: '@Url.Action("AddToCart", "Cart")',
+            url: '@Url.Action("AddToCart", "Cart" , new {area = "Customer"})',
             type: 'post',
             data: {
                 id: productId,
-                quantity : 1
+                sizeId: sizeId,
+                quantity: quantity
             },
             success: function (result) {
                 if (result.success) {
                     alert("Thêm thành công");
                     window.location.href = '@Url.Action("Index", "Cart")';
                 } else {
-                    alert("Thêm thất bại!");
+                    alert("Thêm thất bại! Lỗi: " + result.Message );
                 }
             },
             error: function (xhr, status, error) {
                 alert("Có lỗi xảy ra!");
             }
-        });
-    }
+    });
+}
+
 
     // Chuyển đổi ảnh sản phẩm khi nhấn vào hình ảnh nhỏ
     var productImg = document.getElementById("productImg");
@@ -106,4 +130,15 @@ else
             productImg.src = smallImg[i].src;
         };
     }
+
+
+
+    function updateQuantity() {
+        const inputElement = document.getElementById('quantityInput');
+        const quantity = inputElement.value;
+        document.getElementById('quantityDisplay').textContent = `Số lượng hiện tại: ${quantity}`;
+    }
+
 </script>
+
+

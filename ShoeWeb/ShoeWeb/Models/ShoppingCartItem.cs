@@ -23,9 +23,13 @@ namespace ShoeWeb.Models
 
         [Required]
         public int Quantity { get; set; }
+        [Required]
+        public float numberSize { get; set; }
 
         [NotMapped]
         public decimal UnitPrice => Quantity * Price;
+        [Required]
+        public decimal UnitPriceDb { get; set; }
 
         [Required]
         public int ShoppingCartId { get; set; }

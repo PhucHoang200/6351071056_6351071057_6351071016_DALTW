@@ -21,6 +21,8 @@ namespace ShoeWeb
                 constraints: new { productId = @"\d+" } // Giới hạn productId chỉ nhận giá trị là số
             );
 
+           
+
             routes.MapRoute(
                 name: "Admin",
                 url: "Admin/{controller}/{action}/{id}",
