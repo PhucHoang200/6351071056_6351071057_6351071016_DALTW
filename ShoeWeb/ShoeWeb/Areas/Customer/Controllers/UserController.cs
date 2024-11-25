@@ -92,7 +92,8 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 return View(model);
             }
 
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
+
             if (user == null)
             {
                 ModelState.AddModelError("", "Tài khoản không tồn tại.");
@@ -111,7 +112,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 return View(model); // Giữ người dùng lại trang Login
             }
 
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -183,7 +184,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             {
                 string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ConfirmEmail", "User", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                SendMail.SendEmail(email, "Xác nhận tài khoản của bạn", $"Vui lòng nhấp vào <a href='{callbackUrl}'>đây</a> để xác nhận tài khoản.","");
+                SendMail.SendEmail(email, "Xác nhận tài khoản của bạn", $"Vui lòng nhấp vào <a href='{callbackUrl}'>đây</a> để xác nhận tài khoản.", "");
             }
             return View("EmailCheck");
         }
@@ -204,7 +205,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 if (result.Succeeded)
                 {
 
-                    await UserManager.AddToRoleAsync(user.Id, SD.AdminRole);
+                    await UserManager.AddToRoleAsync(user.Id, SD.CustomerRole);
 
                     //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 

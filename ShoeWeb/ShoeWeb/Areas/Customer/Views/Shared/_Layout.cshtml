@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -125,6 +124,7 @@
                                 </a>
                                 <ul id="userDropdown" class="dropdown-content" style="display: none;">
                                     <li><a href="@Url.Action("UserInformation", "Account")">Xem thông tin chi tiết</a></li>
+                                    <li><a href="@Url.Action("ChangePassword", "Account")">Đổi mật khẩu</a></li>
                                     <li class="logout-item">
                                         @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { @class = "logout-form" }))
                                         {

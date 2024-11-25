@@ -7,13 +7,13 @@ namespace ShoeWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class updateCartItem : IMigrationMetadata
+    public sealed partial class addAllTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updateCartItem));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addAllTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202411170717232_updateCartItem"; }
+            get { return "202411251037236_addAllTable"; }
         }
         
         string IMigrationMetadata.Source

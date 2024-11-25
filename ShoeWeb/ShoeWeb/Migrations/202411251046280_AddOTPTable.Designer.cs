@@ -7,13 +7,13 @@ namespace ShoeWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class UpdateOrder : IMigrationMetadata
+    public sealed partial class AddOTPTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateOrder));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddOTPTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202411200804390_UpdateOrder"; }
+            get { return "202411251046280_AddOTPTable"; }
         }
         
         string IMigrationMetadata.Source

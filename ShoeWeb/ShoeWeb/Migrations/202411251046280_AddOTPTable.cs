@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addAllTable : DbMigration
+    public partial class AddOTPTable : DbMigration
     {
         public override void Up()
         {
@@ -27,13 +27,38 @@
                 .PrimaryKey(t => t.cateId);
             
             CreateTable(
-                "dbo.Origins",
+                "dbo.OrderDetails",
                 c => new
                     {
-                        idOrigin = c.Int(nullable: false, identity: true),
-                        nameCountry = c.String(nullable: false, maxLength: 50),
+                        Id = c.Int(nullable: false, identity: true),
+                        OrderId = c.Int(nullable: false),
+                        ProductId = c.Int(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Quantity = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.idOrigin);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.OrderId)
+                .Index(t => t.ProductId);
+            
+            CreateTable(
+                "dbo.Orders",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Code = c.String(nullable: false),
+                        CustomerName = c.String(nullable: false),
+                        Phone = c.String(nullable: false),
+                        Address = c.String(nullable: false),
+                        Email = c.String(),
+                        TotalAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Quantity = c.Int(nullable: false),
+                        TypePayment = c.Int(nullable: false),
+                        Status = c.Int(nullable: false),
+                        CreatedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Products",
@@ -60,51 +85,23 @@
                 .Index(t => t.idOrigin);
             
             CreateTable(
-                "dbo.AspNetRoles",
+                "dbo.Origins",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
+                        idOrigin = c.Int(nullable: false, identity: true),
+                        nameCountry = c.String(nullable: false, maxLength: 50),
                     })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+                .PrimaryKey(t => t.idOrigin);
             
             CreateTable(
-                "dbo.AspNetUserRoles",
-                c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.RoleId);
-            
-            CreateTable(
-                "dbo.ShoppingCartItems",
+                "dbo.OTPs",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ProductId = c.Int(nullable: false),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Quantity = c.Int(nullable: false),
-                        ShoppingCartId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .ForeignKey("dbo.ShoppingCarts", t => t.ShoppingCartId, cascadeDelete: true)
-                .Index(t => t.ProductId)
-                .Index(t => t.ShoppingCartId);
-            
-            CreateTable(
-                "dbo.ShoppingCarts",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        TotalPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                         UserId = c.String(nullable: false, maxLength: 128),
+                        OTPCode = c.String(nullable: false, maxLength: 6),
+                        ExpiryDate = c.DateTime(nullable: false),
+                        IsUsed = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
@@ -156,6 +153,59 @@
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
+                "dbo.ShoppingCartItems",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ProductId = c.Int(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Quantity = c.Int(nullable: false),
+                        numberSize = c.Single(nullable: false),
+                        UnitPriceDb = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ShoppingCartId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("dbo.ShoppingCarts", t => t.ShoppingCartId, cascadeDelete: true)
+                .Index(t => t.ProductId)
+                .Index(t => t.ShoppingCartId);
+            
+            CreateTable(
+                "dbo.ShoppingCarts",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TotalPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
                 "dbo.SizeOfProducts",
                 c => new
                     {
@@ -185,40 +235,49 @@
             DropForeignKey("dbo.SizeOfProducts", "sizeId", "dbo.Sizes");
             DropForeignKey("dbo.SizeOfProducts", "productId", "dbo.Products");
             DropForeignKey("dbo.ShoppingCarts", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.ShoppingCartItems", "ShoppingCartId", "dbo.ShoppingCarts");
             DropForeignKey("dbo.ShoppingCartItems", "ProductId", "dbo.Products");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.OTPs", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.OrderDetails", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Products", "idOrigin", "dbo.Origins");
             DropForeignKey("dbo.Products", "cateId", "dbo.Categories");
             DropForeignKey("dbo.Products", "brandId", "dbo.Brands");
+            DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
             DropIndex("dbo.SizeOfProducts", new[] { "sizeId" });
             DropIndex("dbo.SizeOfProducts", new[] { "productId" });
-            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.ShoppingCarts", new[] { "UserId" });
             DropIndex("dbo.ShoppingCartItems", new[] { "ShoppingCartId" });
             DropIndex("dbo.ShoppingCartItems", new[] { "ProductId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.OTPs", new[] { "UserId" });
             DropIndex("dbo.Products", new[] { "idOrigin" });
             DropIndex("dbo.Products", new[] { "brandId" });
             DropIndex("dbo.Products", new[] { "cateId" });
+            DropIndex("dbo.OrderDetails", new[] { "ProductId" });
+            DropIndex("dbo.OrderDetails", new[] { "OrderId" });
             DropTable("dbo.Sizes");
             DropTable("dbo.SizeOfProducts");
+            DropTable("dbo.ShoppingCarts");
+            DropTable("dbo.ShoppingCartItems");
+            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.ShoppingCarts");
-            DropTable("dbo.ShoppingCartItems");
-            DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Products");
+            DropTable("dbo.OTPs");
             DropTable("dbo.Origins");
+            DropTable("dbo.Products");
+            DropTable("dbo.Orders");
+            DropTable("dbo.OrderDetails");
             DropTable("dbo.Categories");
             DropTable("dbo.Brands");
         }
