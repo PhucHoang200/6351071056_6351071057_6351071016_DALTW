@@ -1,21 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\",
+  "WorkspaceRootPath": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|c:\\users\\phucp\\downloads\\webpullupdateshoppingcart\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoesweb\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoesweb\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoesweb\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\views\\home\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\home\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|d:\\shoesweb\\shoes-strore-website\\shoeweb\\shoeweb\\areas\\customer\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\account\\confirmotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\account\\confirmotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\account\\confirmotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\shoeweb\\areas\\customer\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8801724C-12F3-4775-8E95-6C233D19A144}|ShoeWeb\\ShoeWeb.csproj|solutionrelative:shoeweb\\areas\\customer\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -26,8 +38,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -45,44 +65,51 @@
               "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Register.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\User\\Register.cshtml",
+              "ToolTip": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Register.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\User\\Register.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAUwF4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-25T12:35:52.955Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Login.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\User\\Login.cshtml",
+              "ToolTip": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\User\\Login.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\User\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-25T12:35:03.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cshtml",
+              "DocumentMoniker": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "ToolTip": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Home\\Product.cshtml",
+              "ViewState": "AgIAAMUBAAAAAAAAAAAUwO0BAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-25T12:34:11.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -91,11 +118,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ChangePassword.cshtml",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ChangePassword.cshtml",
+              "DocumentMoniker": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ChangePassword.cshtml",
               "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Account\\ChangePassword.cshtml",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ChangePassword.cshtml",
+              "ToolTip": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ChangePassword.cshtml",
               "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Account\\ChangePassword.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -103,11 +130,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ConfirmOtp.cshtml",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ConfirmOtp.cshtml",
+              "DocumentMoniker": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ConfirmOtp.cshtml",
               "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Views\\Account\\ConfirmOtp.cshtml",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ConfirmOtp.cshtml",
+              "ToolTip": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Views\\Account\\ConfirmOtp.cshtml",
               "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Views\\Account\\ConfirmOtp.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -115,11 +142,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "ShoeWeb\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\phucp\\Downloads\\WebpullUpdateShoppingcart\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\shoesweb\\Shoes-Strore-Website\\ShoeWeb\\ShoeWeb\\Areas\\Customer\\Controllers\\AccountController.cs",
               "RelativeToolTip": "ShoeWeb\\Areas\\Customer\\Controllers\\AccountController.cs",
               "ViewState": "AgIAALcAAAAAAAAAAAAmwMYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
