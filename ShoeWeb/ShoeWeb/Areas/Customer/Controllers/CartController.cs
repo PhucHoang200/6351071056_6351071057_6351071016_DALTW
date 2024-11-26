@@ -20,6 +20,7 @@ using System.Web.Mvc;
 namespace ShoeWeb.Areas.Customer.Controllers
 {
 
+
     public class CartController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -59,7 +60,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 .Include("ShoppingCartItems.Product")
                 .FirstOrDefaultAsync();
 
-                return cart?.ShoppingCartItems.ToList() ?? new List<ShoppingCartItem>();
+                return cart?.ShoppingCartItems.Where(i => i.status == false).ToList() ?? new List<ShoppingCartItem>();
 
 
 
@@ -387,8 +388,12 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
-       
 
+        [HttpGet]
+        public async Task<ActionResult> Checkout()
+        {
+            return View();
+        }
     }
 
 
