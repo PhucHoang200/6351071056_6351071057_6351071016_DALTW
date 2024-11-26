@@ -1,8 +1,29 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "UserInformation";
     Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UserInformation</h2>
+@model ShoeWeb.Areas.Customer.CustomerVM.UserProfileViewModel
 
+<h2>Thông tin người dùng</h2>
+
+<form action="@Url.Action("UpdateProfile", "Account", new { area = "Customer" })" method="post">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label>Email:</label>
+        <input type="email" name="Email" value="@Model.Email" readonly />
+    </div>
+
+    <div>
+        <label>Số điện thoại:</label>
+        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" />
+    </div>
+
+    <div>
+        <label>Tên đăng nhập:</label>
+        <input type="text" name="UserName" value="@Model.UserName" />
+    </div>
+
+    <button type="submit">Cập nhật</button>
+</form>

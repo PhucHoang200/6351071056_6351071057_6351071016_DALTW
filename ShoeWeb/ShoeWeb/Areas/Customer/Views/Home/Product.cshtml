@@ -74,15 +74,7 @@
         <!-- Container chứa sản phẩm -->
         <div class="col-2 product-container">
             <div id="product-list" class="row">
-                @foreach (var product in Model.Products)
-                {
-                    <div class="product-item">
-                        <h3>@product.productName</h3>
-                        <img src="@product.image" alt="@product.productName" style="width:150px;" />
-                        <p>Giá: @product.price.ToString("C")</p>
-                        <a href="@Url.Action("ProductDetails", "Home", new { productId = product.productId })">Xem chi tiết</a>
-                    </div>
-                }
+
 
                 @foreach (var product in Model.Products)
                 {
@@ -102,7 +94,7 @@
                             <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", id = product.productId })">
                                 <h4>@product.productName</h4>
                             </a>
-                            <p>@product.price.ToString("C")</p>
+                            <p>@product.price.ToString("C", new System.Globalization.CultureInfo("vi-VN"))</p>
                         </div>
                     }
 
@@ -273,43 +265,230 @@
 
         applyFilters(); // Gọi lần đầu để hiển thị sản phẩm
     });
+
 </script>
 
 
 
 
 <style>
+    /* Container */
     .small-container {
-        max-width: 1200px; /* Chiều rộng tối đa của container */
-        margin: 0 auto; /* Center the container */
+        max-width: 1200px; /* Cập nhật chiều rộng tối đa */
+        margin: 0 auto; /* Giữ căn giữa */
     }
 
+    /* Row layout */
     .row {
-        display: flex; /* Sử dụng flexbox để bố cục */
-        position: relative; /* Đặt vị trí tương đối cho row để chứa các phần tử con có vị trí tuyệt đối */
-    }
-
-    .filters-sidebar {
-        position: absolute; /* Sidebar sẽ có vị trí tuyệt đối */
-        left: 0; /* Gán trái cho sidebar */
-        top: 0; /* Đặt cách đầu trang 0px để đảm bảo nằm ở góc trên cùng */
-        width: 250px; /* Chiều rộng của sidebar */
-        height: 500px; /* Chiều cao cố định cho sidebar */
-        padding: 20px; /* Khoảng cách bên trong */
-        background-color: #fff; /* Màu nền cho sidebar */
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho sidebar */
-        overflow-y: auto; /* Thêm thanh cuộn dọc nếu nội dung vượt quá chiều cao */
-    }
-
-    .product-container {
-        margin-left: 270px; /* Khoảng cách giữa sidebar và sản phẩm */
-        flex: 1; /* Chiếm phần còn lại */
         display: flex;
-        flex-wrap: wrap; /* Cho phép sản phẩm cuộn xuống hàng tiếp theo */
-        padding-top: 20px; /* Để đảm bảo không có chồng lấn với sidebar */
+        flex-wrap: wrap; /* Hỗ trợ nhiều dòng nếu không đủ chỗ */
+        gap: 20px; /* Thêm khoảng cách giữa các phần tử */
+        position: relative; /* Cần để hỗ trợ sidebar */
     }
-</style>
 
+    /* Filters Sidebar */
+    .filters-sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 250px;
+        height: 500px; /* Chiều cao cố định */
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        overflow-y: auto; /* Hỗ trợ thanh cuộn */
+    }
 
+        .filters-sidebar strong {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
 
+        .filters-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
 
+            .filters-sidebar ul li {
+                margin-bottom: 8px;
+            }
+
+        .filters-sidebar label {
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+
+    /* Product Container */
+    .product-container {
+        margin-left: 270px; /* Để dành chỗ cho sidebar */
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 20px;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Filter Item */
+    .filter-item {
+        flex: 0 0 calc(25% - 20px); /* Cập nhật để vừa 4 phần tử mỗi dòng */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background-color: #fff;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+        .filter-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .filter-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .filter-item h4 {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 15px;
+            font-weight: bold;
+        }
+
+        .filter-item p {
+            font-size: 14px;
+            color: #e74c3c;
+            margin: 0 15px 15px;
+            font-weight: bold;
+        }
+
+        .filter-item a {
+            text-decoration: none;
+        }
+
+    /* Price range */
+    .price-range {
+        margin: 20px 0;
+    }
+
+        .price-range input[type="range"] {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        .price-range span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+    /* Offer section */
+    .offer {
+        margin: 40px 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+        .offer img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            object-fit: cover;
+        }
+
+        .offer h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .offer p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .offer a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #ff523b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+            .offer a:hover {
+                background-color: #e84118;
+            }
+
+    /* Testimonial section */
+    .testimonial {
+        margin: 40px 0;
+    }
+
+        .testimonial .row {
+            justify-content: center;
+        }
+
+        .testimonial .col-3 {
+            flex: 0 0 calc(33.333% - 20px);
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 10px 0;
+        }
+
+        .testimonial h3 {
+            font-size: 16px;
+            color: #333;
+        }
+
+    /* Brands section */
+    .brands .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brands img {
+        width: 100px;
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.3s;
+    }
+
+        .brands img:hover {
+            transform: scale(1.1);
+        }
+</style> 

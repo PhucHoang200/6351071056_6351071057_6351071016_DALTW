@@ -26,6 +26,8 @@ namespace ShoeWeb.Models
         [Required]
         public float numberSize { get; set; }
 
+        public bool status { get; set; } = false;
+
         [NotMapped]
         public decimal UnitPrice => Quantity * Price;
         [Required]

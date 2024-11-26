@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "ConfirmOtp";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xác nhận OTP</h2>
+
+<form action="@Url.Action("ConfirmOtp", "Account", new { area = "Customer" })" method="post">
+    @Html.AntiForgeryToken()
+    <label>Mã OTP:</label>
+    <input type="text" name="otpCode" required />
+    <button type="submit">Xác nhận</button>
+</form>
+
+<form action="@Url.Action("ResendOtp", "Account", new { area = "Customer" })" method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit">Gửi lại mã OTP</button>
+</form>

@@ -133,14 +133,10 @@ else
 
 <script>
      function MuaHang() {
-        window.location.href = '@Url.Action("Checkout", "Cart", new { area = "Customer" })';
+        window.location.href = '@Url.Action("Checkout", "Checkout", new { area = "Customer" })';
      }
 
-    function updateQuantity(id) {
-        const inputElement = document.getElementById('quantityInput');
-        const quantity = inputElement.value;
-        document.getElementById('quantityDisplay').textContent = `Số lượng hiện tại: ${quantity}`;
-    }
+
   function changeQuantity(change, idProduct, numberSize) {
     const quantityDisplay = document.getElementById(`quantityDisplay-${idProduct}`);
     let currentValue = parseInt(quantityDisplay.textContent);
@@ -220,6 +216,7 @@ function updateQuantity(idProduct, quantity, numberSize) {
 }
 
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 

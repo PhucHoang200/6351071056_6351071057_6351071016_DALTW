@@ -28,7 +28,8 @@ namespace ShoeWeb.Models
         [Required(ErrorMessage = "Phường/xã không được để trống")]
         public string PhuongXa { get; set; }
 
-
+        public bool isPayment { get; set; } = false;
+        public bool isAccept { get; set; } = false;
         public string Email { get; set; }
         public decimal TotalAmount { get; set; }
         public int Quantity { get; set; }
