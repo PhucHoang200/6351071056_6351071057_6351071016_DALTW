@@ -276,6 +276,10 @@
     <Compile Include="Migrations\202411200808275_updateCreateAt.Designer.cs">
       <DependentUpon>202411200808275_updateCreateAt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411241553406_updateAddress.cs" />
+    <Compile Include="Migrations\202411241553406_updateAddress.Designer.cs">
+      <DependentUpon>202411241553406_updateAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
@@ -637,6 +641,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411200808275_updateCreateAt.resx">
       <DependentUpon>202411200808275_updateCreateAt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411241553406_updateAddress.resx">
+      <DependentUpon>202411241553406_updateAddress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -20,6 +20,15 @@ namespace ShoeWeb.Models
         public string Phone { get; set; }
         [Required(ErrorMessage = "Địa chỉ khổng để trống")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Tỉnh thành không được để trống")]
+        public string TinhThanh { get; set; }
+        [Required(ErrorMessage = "Quận huyện không được để trống")]
+        public string QuanHuyen { get; set; } 
+        [Required(ErrorMessage = "Phường/xã không được để trống")]
+        public string PhuongXa { get; set; }
+
+
         public string Email { get; set; }
         public decimal TotalAmount { get; set; }
         public int Quantity { get; set; }

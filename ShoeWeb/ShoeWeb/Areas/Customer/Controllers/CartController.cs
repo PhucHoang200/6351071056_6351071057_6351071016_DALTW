@@ -387,8 +387,12 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
-       
 
+        //[HttpGet]
+        //public async Task<ActionResult> Checkout()
+        //{
+        //    return View();
+        //}
     }
 
 

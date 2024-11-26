@@ -127,3 +127,4 @@ D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\Sh
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateOrder.resources
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.addOrder.resources
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateCreateAt.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateAddress.resources
