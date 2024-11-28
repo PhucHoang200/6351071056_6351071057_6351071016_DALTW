@@ -3,16 +3,35 @@
     Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Xác nhận OTP</h2>
+<div class="small-container">
+    <h2>Xác nhận OTP</h2>
 
-<form action="@Url.Action("ConfirmOtp", "Account", new { area = "Customer" })" method="post">
-    @Html.AntiForgeryToken()
-    <label>Mã OTP:</label>
-    <input type="text" name="otpCode" required />
-    <button type="submit">Xác nhận</button>
-</form>
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
 
-<form action="@Url.Action("ResendOtp", "Account", new { area = "Customer" })" method="post">
-    @Html.AntiForgeryToken()
-    <button type="submit">Gửi lại mã OTP</button>
-</form>
+    <form action="@Url.Action("ConfirmOtp", "Account", new { area = "Customer" })" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="OtpCode" class="form-label">Mã OTP:</label>
+            <input type="text" id="OtpCode" name="OtpCode" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Xác nhận</button>
+        </div>
+    </form>
+
+    <form action="@Url.Action("ResendOtp", "Account", new { area = "Customer" })" method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <button type="submit" class="btn btn-secondary">Gửi lại mã OTP</button>
+        </div>
+    </form>
+</div>

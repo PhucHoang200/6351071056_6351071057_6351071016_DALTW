@@ -414,10 +414,13 @@
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Areas\Customer\CustomerVM\CartVM.cs" />
     <Compile Include="Areas\Customer\CustomerVM\ChangePasswordViewModel.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\ConfirmOtpViewModel.cs" />
     <Compile Include="Areas\Customer\CustomerVM\DetailProductVM.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\ForgotPasswordViewModel.cs" />
     <Compile Include="Areas\Customer\CustomerVM\HomeVM.cs" />
     <Compile Include="Areas\Customer\CustomerVM\OrderViewModel.cs" />
     <Compile Include="Areas\Customer\CustomerVM\ProductVM.cs" />
+    <Compile Include="Areas\Customer\CustomerVM\ResetPasswordViewModel.cs" />
     <Compile Include="Areas\Customer\CustomerVM\UserProfileViewModel.cs" />
     <Compile Include="Areas\Customer\CustomerVM\UserVM.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
@@ -436,25 +439,9 @@
     <Compile Include="Helper\Payment\Response\CreateZaloPayResponse.cs" />
     <Compile Include="Helper\SendMail.cs" />
     <Compile Include="Identity\AppUser.cs" />
-    <Compile Include="Migrations\202411260249305_updateAllTable.cs" />
-    <Compile Include="Migrations\202411260249305_updateAllTable.Designer.cs">
-      <DependentUpon>202411260249305_updateAllTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411260530056_updateCartItem.cs" />
-    <Compile Include="Migrations\202411260530056_updateCartItem.Designer.cs">
-      <DependentUpon>202411260530056_updateCartItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411260903208_InitialCreate.cs" />
-    <Compile Include="Migrations\202411260903208_InitialCreate.Designer.cs">
-      <DependentUpon>202411260903208_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411260952508_updateOrderItem.cs" />
-    <Compile Include="Migrations\202411260952508_updateOrderItem.Designer.cs">
-      <DependentUpon>202411260952508_updateOrderItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411260954126_updateOrderItem_1.cs" />
-    <Compile Include="Migrations\202411260954126_updateOrderItem_1.Designer.cs">
-      <DependentUpon>202411260954126_updateOrderItem_1.cs</DependentUpon>
+    <Compile Include="Migrations\202411280317566_UpdateModels.cs" />
+    <Compile Include="Migrations\202411280317566_UpdateModels.Designer.cs">
+      <DependentUpon>202411280317566_UpdateModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -746,6 +733,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Customer\Views\Checkout\Success.cshtml" />
     <Content Include="Areas\Customer\Views\Checkout\Error.cshtml" />
+    <Content Include="Areas\Customer\Views\Account\ProfileInformation.cshtml" />
+    <Content Include="Areas\Customer\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Areas\Customer\Views\User\ForgotPassword.cshtml" />
+    <Content Include="Areas\Customer\Views\User\ResetPassword.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -773,23 +764,6 @@
     <Folder Include="Areas\Customer\Data\" />
     <Folder Include="Areas\Customer\Views\ManageController\" />
     <Folder Include="Models\Address\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202411260249305_updateAllTable.resx">
-      <DependentUpon>202411260249305_updateAllTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411260530056_updateCartItem.resx">
-      <DependentUpon>202411260530056_updateCartItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411260903208_InitialCreate.resx">
-      <DependentUpon>202411260903208_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411260952508_updateOrderItem.resx">
-      <DependentUpon>202411260952508_updateOrderItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411260954126_updateOrderItem_1.resx">
-      <DependentUpon>202411260954126_updateOrderItem_1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -821,6 +795,11 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202411280317566_UpdateModels.resx">
+      <DependentUpon>202411280317566_UpdateModels.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

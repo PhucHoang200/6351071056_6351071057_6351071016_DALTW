@@ -124,8 +124,7 @@
                                     <i class="fa fa-caret-down"></i> <!-- Mũi tên xuống -->
                                 </a>
                                 <ul id="userDropdown" class="dropdown-content" style="display: none;">
-                                    <li><a href="@Url.Action("UserInformation", "Account")">Xem thông tin chi tiết</a></li>
-                                    <li><a href="@Url.Action("ChangePassword", "Account")">Đổi mật khẩu</a></li>
+                                    <li><a href="@Url.Action("ProfileInformation", "Account")">Xem thông tin chi tiết</a></li>
                                     <li class="logout-item">
                                         @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { @class = "logout-form" }))
                                         {

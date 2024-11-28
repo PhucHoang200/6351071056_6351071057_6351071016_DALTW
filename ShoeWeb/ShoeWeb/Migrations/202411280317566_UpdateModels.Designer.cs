@@ -7,13 +7,13 @@ namespace ShoeWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class updateOrderItem : IMigrationMetadata
+    public sealed partial class UpdateModels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updateOrderItem));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateModels));
         
         string IMigrationMetadata.Id
         {
-            get { return "202411260952508_updateOrderItem"; }
+            get { return "202411280317566_UpdateModels"; }
         }
         
         string IMigrationMetadata.Source

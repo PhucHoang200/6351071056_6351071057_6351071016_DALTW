@@ -16,6 +16,7 @@ using ShoeWeb.Areas.Customer.CustomerVM;
 using System.Data.Entity;
 using System.Web.Security;
 using ShoeWeb.Helper;
+using ShoeWeb.Models;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
@@ -249,75 +250,129 @@ namespace ShoeWeb.Areas.Customer.Controllers
             return View();
         }
 
-        //
         // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
-                {
-                    // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
-                }
-
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
-        //
-        // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
-        public ActionResult ForgotPasswordConfirmation()
-        {
-            return View();
-        }
-
-        //
-        // GET: /Account/ResetPassword
-        [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
-        {
-            return code == null ? View("Error") : View();
-        }
-
-        //
-        // POST: /Account/ResetPassword
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ActionResult> ForgotPassword(ShoeWeb.Areas.Customer.CustomerVM.ForgotPasswordViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
-            if (user == null)
+
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
             {
-                // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                TempData["Error"] = "Email không tồn tại hoặc chưa được xác nhận.";
+                return View(model);
             }
-            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
-            if (result.Succeeded)
+
+            if (model.NewPassword != model.ConfirmPassword)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                ModelState.AddModelError("ConfirmPassword", "Mật khẩu mới và xác nhận mật khẩu không trùng khớp.");
+                return View(model);
             }
-            AddErrors(result);
+
+            // Tạo mã OTP
+            string otpCode = GenerateOtp();
+
+            // Lưu OTP vào cơ sở dữ liệu
+            var otp = new OTP
+            {
+                UserId = user.Id,
+                OTPCode = otpCode,
+                ExpiryDate = DateTime.Now.AddMinutes(5),
+                IsUsed = false
+            };
+            _db.oTPs.Add(otp);
+            _db.SaveChanges();
+
+            // Gửi OTP qua email
+            string subject = "Your OTP Code";
+            string body = $"Mã OTP của bạn là: <b>{otpCode}</b>. Vui lòng sử dụng mã này để đổi mật khẩu.";
+            SendMail.SendEmail(user.Email, subject, body, "");
+
+            TempData["Email"] = model.Email;
+            TempData["NewPassword"] = model.NewPassword;
+
+            return RedirectToAction("ResetPassword", new { code = otpCode });
+        }
+
+
+
+        private string GenerateOtp()
+        {
+            var random = new Random();
+            return random.Next(100000, 999999).ToString();
+        }
+
+        //
+        // GET: /Account/ForgotPasswordConfirmation
+        // GET: /Account/ResetPassword
+        [AllowAnonymous]
+        public ActionResult ResetPassword()
+        {
             return View();
         }
+
+
+
+        // POST: /Account/ResetPassword
+     // POST: /Account/ResetPassword
+[HttpPost]
+[AllowAnonymous]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> ResetPassword(ShoeWeb.Areas.Customer.CustomerVM.ResetPasswordViewModel model)
+{
+    if (!ModelState.IsValid)
+    {
+        return View(model);
+    }
+
+    var email = TempData["Email"]?.ToString();
+    var newPassword = TempData["NewPassword"]?.ToString();
+
+    if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(newPassword))
+    {
+        TempData["Error"] = "Thông tin không hợp lệ. Vui lòng thử lại.";
+        return RedirectToAction("ForgotPassword");
+    }
+
+    var user = await UserManager.FindByEmailAsync(email);
+    if (user == null)
+    {
+        TempData["Error"] = "Người dùng không tồn tại.";
+        return View(model);
+    }
+
+    // Xác minh mã OTP
+    var otp = _db.oTPs.FirstOrDefault(o => o.UserId == user.Id &&
+                                           o.OTPCode == model.OtpCode &&
+                                           o.ExpiryDate > DateTime.Now &&
+                                           !o.IsUsed);
+
+    if (otp == null)
+    {
+        TempData["Error"] = "Mã OTP không hợp lệ hoặc đã hết hạn.";
+        return View(model);
+    }
+
+    // Đổi mật khẩu
+    var result = await UserManager.ResetPasswordAsync(user.Id, await UserManager.GeneratePasswordResetTokenAsync(user.Id), newPassword);
+
+    if (result.Succeeded)
+    {
+        otp.IsUsed = true;
+        _db.SaveChanges();
+        TempData["Success"] = "Đổi mật khẩu thành công. Vui lòng đăng nhập lại.";
+        return RedirectToAction("Login", "User", new { area = "Customer" });
+    }
+
+    AddErrors(result);
+    return View(model);
+}
+
 
         //
         // GET: /Account/ResetPasswordConfirmation
