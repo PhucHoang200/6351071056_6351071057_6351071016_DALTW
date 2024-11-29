@@ -398,11 +398,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\BrandVM.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\CategoryVM.cs" />
+    <Compile Include="Areas\Admin\Admin_ViewModel\OrderVM.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\OriginVM.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\ProductVM.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\OriginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Customer\Controllers\AccountController.cs" />
@@ -442,6 +444,10 @@
     <Compile Include="Migrations\202411280317566_UpdateModels.cs" />
     <Compile Include="Migrations\202411280317566_UpdateModels.Designer.cs">
       <DependentUpon>202411280317566_UpdateModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411261512425_updateOrder_02.cs" />
+    <Compile Include="Migrations\202411261512425_updateOrder_02.Designer.cs">
+      <DependentUpon>202411261512425_updateOrder_02.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -733,10 +739,14 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Customer\Views\Checkout\Success.cshtml" />
     <Content Include="Areas\Customer\Views\Checkout\Error.cshtml" />
-    <Content Include="Areas\Customer\Views\Account\ProfileInformation.cshtml" />
-    <Content Include="Areas\Customer\Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Areas\Customer\Views\User\ForgotPassword.cshtml" />
-    <Content Include="Areas\Customer\Views\User\ResetPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\WaitingOrder.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\TatCa.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\ChoXacNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\ChoLayHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\DangGiao.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\DaGiao.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\DetailOrder.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -749,6 +759,58 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\admin.js" />
     <Content Include="Scripts\js\Checkout.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.esm.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Scripts\lib\chart\chart.min.js" />
+    <Content Include="Scripts\lib\easing\easing.js" />
+    <Content Include="Scripts\lib\easing\easing.min.js" />
+    <Content Include="Scripts\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Include="Scripts\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Include="Scripts\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="Scripts\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="Scripts\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Scripts\lib\jquery\dist\jquery.js" />
+    <Content Include="Scripts\lib\jquery\dist\jquery.min.js" />
+    <Content Include="Scripts\lib\jquery\LICENSE.txt" />
+    <Content Include="Scripts\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Scripts\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Scripts\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Scripts\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Scripts\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Scripts\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Scripts\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Scripts\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Scripts\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="Scripts\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Scripts\lib\tempusdominus\css\tempusdominus-bootstrap-4.css" />
+    <Content Include="Scripts\lib\tempusdominus\css\tempusdominus-bootstrap-4.min.css" />
+    <Content Include="Scripts\lib\tempusdominus\js\moment-timezone.min.js" />
+    <Content Include="Scripts\lib\tempusdominus\js\moment.min.js" />
+    <Content Include="Scripts\lib\tempusdominus\js\tempusdominus-bootstrap-4.js" />
+    <Content Include="Scripts\lib\tempusdominus\js\tempusdominus-bootstrap-4.min.js" />
+    <Content Include="Scripts\lib\waypoints\waypoints.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -757,6 +819,33 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <Content Include="Scripts\lib\bootstrap\LICENSE" />
+    <Content Include="Scripts\lib\jquery-validation\LICENSE.md" />
+    <Content Include="Scripts\lib\jquery\dist\jquery.min.map" />
+    <Content Include="Scripts\lib\owlcarousel\LICENSE" />
+    <Content Include="Scripts\lib\waypoints\links.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -764,6 +853,11 @@
     <Folder Include="Areas\Customer\Data\" />
     <Folder Include="Areas\Customer\Views\ManageController\" />
     <Folder Include="Models\Address\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202411261512425_updateOrder_02.resx">
+      <DependentUpon>202411261512425_updateOrder_02.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

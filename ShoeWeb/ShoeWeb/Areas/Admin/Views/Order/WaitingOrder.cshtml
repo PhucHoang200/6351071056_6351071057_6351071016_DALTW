@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "WaitingOrder";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model ShoeWeb.Areas.Admin.Admin_ViewModel.OrderVM
+
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">Mã đơn hàng</th>
+            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Số lượng sản phẩm</th>
+            <th scope="col">Tổng tiền</th>
+            <th scope="col">Ngày mua</th>
+           
+            <th scope="col">Trạng thái đơn hàng</th>
+            <th scope="col">Trạng thái vận chuyển</th>
+            <th scope="col">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.order)
+        {
+            <tr id="viewRow-@item.Code">
+                <th scope="row">@item.Code</th>
+                <td>@item.CustomerName</td>
+                <td>@item.Quantity</td>
+                <td style="display:grid;">
+                    <strong> @item.TotalAmount.ToString("#,##0.##")đ</strong>
+                    <span>
+                        (@(item.isPayment ? "Đã thanh toán" : "Chưa thanh toán"))
+                    </span>
+                </td>
+                <td>@item.CreatedDate</td>
+
+                @if (!item.isAccept)
+                {
+
+                    <td>Chưa vận chuyển</td>
+                    <td style="text-align: center;">
+                        <button id="delete" type="button" class="btn btn-danger">
+                            Duyệt đơn
+                        </button>
+                    </td>
+                }
+                else
+                {
+                    <td>Đã duyệt</td>
+                    <td>
+                        @switch (item.StatusShipping)
+                        {
+                            case 1:
+                                @:Đã giao cho đơn vị vận chuyển
+                                break;
+                            case 2:
+                                @:Đang vận chuyển
+                                break;
+                            case 3:
+                                @:Giao thành công
+                                break;
+                            default:
+                                @:Giao thất bại
+                                break;
+                        }
+                    </td>
+                }
+
+                <td scope="col" id="manage">
+                    @if (item.StatusShipping == 3)
+                    {
+                        <button id="delete" type="button" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Xóa
+                        </button>
+                    }
+                    else
+                    {
+                        <span>Không thể xóa</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+

@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+
 
 </head>
 
@@ -76,7 +76,6 @@
             display: inline-block;
             padding: 8px 12px;
             text-decoration: none;
-            background-color: #f44336;
             color: white;
             border-radius: 4px;
             text-align: center;
@@ -97,6 +96,7 @@
             padding: 10px;
         }
     </style>
+
     <div class="header">
         <div class="container">
             <div class="navbar">
@@ -111,30 +111,36 @@
                 </form>
                 <nav>
                     <ul id="MenuItems">
-                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                        <li><a href="@Url.Action("Product", "Home")">Products</a></li>
+                        <li><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                        <li><a href="@Url.Action("Product", "Home")">Sản phẩm</a></li>
                         @if (Request.IsAuthenticated)
                         {
 
 
                             <li class="nav-item dropdown">
 
-                                <a class="nav-link user-button" href="javascript:void(0);" onclick="toggleUserMenu()">
-                                    Hello, @User.Identity.GetUserName()!
-                                    <i class="fa fa-caret-down"></i> <!-- Mũi tên xuống -->
+                                <a class="nav-link user-button" href="javascript:void(0);" onclick="toggleUserMenu()" style="display: flex;">
+                                    @User.Identity.GetUserName()!
+                                    <i class="fa fa-caret-down" style="padding-top: 5px;"></i> <!-- Mũi tên xuống -->
                                 </a>
-                                <ul id="userDropdown" class="dropdown-content" style="display: none;">
-                                    <li><a href="@Url.Action("ProfileInformation", "Account")">Xem thông tin chi tiết</a></li>
-                                    <li class="logout-item">
+
+                                <ul id="userDropdown" class="dropdown-content" style="display: none; text-align: center; width: 262px; border-radius: 24px; }">
+                                    <li style="width: 100% !important;">
+                                        <a href="@Url.Action("UserInformation", "Account")">Xem thông tin chi tiết</a>
+                                    </li>
+                                    <li style="width: 100%;">
+                                        <a href="@Url.Action("ChangePassword", "Account")">Đổi mật khẩu</a>
+                                    </li>
+                                    <li class="logout-item" style="width: 100%;">
                                         @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { @class = "logout-form" }))
                                         {
                                             @Html.AntiForgeryToken()
-
                                             <a href="javascript:void(0);" onclick="this.closest('form').submit();">Log out</a>
                                         }
                                     </li>
                                 </ul>
                             </li>
+
 
                         }
                         else
@@ -246,10 +252,10 @@ function searchProducts() {
         /* Định dạng "Hello, người dùng" không có viền và màu nền */
         .user-button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 0px 0px;
             background-color: transparent; /* Bỏ màu nền */
             border: none; /* Bỏ viền */
-            font-size: 16px;
+            font-size: 14px;
             color: #333;
             cursor: pointer;
             text-align: left;

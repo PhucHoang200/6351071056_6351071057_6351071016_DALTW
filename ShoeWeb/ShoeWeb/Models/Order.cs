@@ -28,7 +28,9 @@ namespace ShoeWeb.Models
         [Required(ErrorMessage = "Phường/xã không được để trống")]
         public string PhuongXa { get; set; }
 
+        public int StatusShipping { get; set; } = 0; //0 : chờ vận chuyển, 1: bàn giao cho đơn vị vận chuyển, 2: đang vận chuyển, 3: đã giao hàng, khác : giao hàng thất bại
         public bool isPayment { get; set; } = false;
+
         public bool isAccept { get; set; } = false;
         public string Email { get; set; }
         public decimal TotalAmount { get; set; }

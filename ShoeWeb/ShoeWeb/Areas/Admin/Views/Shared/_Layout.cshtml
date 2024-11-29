@@ -43,6 +43,32 @@
             text-align: center;
             padding: 10px 0;
         }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            z-index: 1000;
+        }
+
+            .dropdown-menu a {
+                padding: 10px 15px;
+                display: block;
+                text-decoration: none;
+                color: black;
+            }
+
+                .dropdown-menu a:hover {
+                    background-color: #f0f0f0;
+                }
+
+        #dropdownMenu {
+            display: none; /* Mặc định ẩn */
+        }
+
+            #dropdownMenu.show {
+                display: block; /* Hiển thị khi có lớp 'show' */
+            }
     </style>
 </head>
 <body>
@@ -77,13 +103,9 @@
                     <a asp-controller="Origin" href="@Url.Action("Index", "Origin")" class="nav-item nav-link">
                         <i class="far fa-file-alt me-2"></i> Xuất xứ
                     </a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Các đơn hàng</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#" class="dropdown-item">Đơn hàng</a>
-                            <a href="#" class="dropdown-item">Chi tiết đơn</a>
-                        </div>
-                    </div>
+                    <a href="@Url.Action("Index", "Order")" class="nav-item nav-link">
+                        <i class="bi bi-bag me-2"></i> Đơn hàng
+                    </a>
 
                     <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Tài khoản</a>
                     <div class="nav-item dropdown">
@@ -91,8 +113,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="#" class="dropdown-item">Sign In</a>
                             <a href="#" class="dropdown-item">Sign Up</a>
-                            <a href="#" class="dropdown-item">404 Error</a>
-                            <a href="#" class="dropdown-item">Blank Page</a>
+                         
                         </div>
                     </div>
                 </div>
@@ -173,6 +194,7 @@
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
+
                     </div>
                 </div>
             </nav>
@@ -188,11 +210,47 @@
     </footer>
     <!-- Footer End -->
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    @*<script src="~/Scripts/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/Scripts/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Scripts/lib/chart/chart.min.js"></script>
+        <script src="~/Scripts/lib/easing/easing.min.js"></script>
+        <script src="~/Scripts/lib/waypoints/waypoints.min.js"></script>
+        <script src="~/Scripts/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="~/Scripts/lib/tempusdominus/js/moment.min.js"></script>
+        <script src="~/Scripts/lib/tempusdominus/js/moment-timezone.min.js"></script>
+        <script src="~/Scripts/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="~/Scripts/js/admin.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <script>
+        // Lấy các phần tử cần thiết
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        // Thêm sự kiện click vào toggle
+        dropdownToggle.addEventListener('click', function (event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định
+
+            // Kiểm tra menu đang hiển thị hay không
+            const isVisible = dropdownMenu.classList.toggle('show');
+
+            // Thay đổi thuộc tính style dựa trên trạng thái
+            dropdownMenu.style.display = isVisible ? 'block' : 'none';
+        });
+
+        // Ẩn menu khi nhấp ra ngoài
+        document.addEventListener('click', function (event) {
+            if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+                dropdownMenu.style.display = 'none'; // Ẩn menu
+            }
+        });
+
+    </script>
 </body>
 </html>
