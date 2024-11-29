@@ -2,74 +2,72 @@
 <!-- Form Login -->
 
 <style>
-    .account-page .form-container {
-        width: 100%; /* Đảm bảo form chiếm toàn bộ chiều rộng */
-        max-width: 500px; /* Giới hạn chiều rộng của form */
-        padding: 30px; /* Khoảng đệm xung quanh form */
-        background-color: #ffffff; /* Màu nền trắng cho form */
-        border-radius: 8px; /* Bo góc cho form */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
-        position: absolute; /* Giữ form cố định khi cuộn trang */
-        right: 20px; /* Cách mép phải 20px */
-        top: 120px; /* Cách mép trên 120px */
+    /* Đảm bảo không bị cuộn ngang */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Container chung cho cả form */
+    #LoginForm {
+        width: 450px; /* Tăng chiều rộng của form */
+        height: auto; /* Chiều cao tự động tùy theo nội dung */
+        max-height: 90vh; /* Giới hạn chiều cao của form (90% chiều cao màn hình) */
+        padding: 40px; /* Tăng padding để nội dung có khoảng cách thoải mái */
+        background-color: #ffffff;
+        border-radius: 10px; /* Tăng bo góc cho form mềm mại hơn */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0); /* Tăng độ nổi của bóng đổ */
+        position: absolute; /* Đảm bảo form cố định ở vị trí trên màn hình */
+        top: 100px; /* Cách mép trên 100px */
+        left: calc(50% - 225px); /* Canh giữa form trên màn hình */
         z-index: 1000; /* Đảm bảo form nằm trên các phần tử khác */
-        display: flex; /* Sử dụng Flexbox */
-        flex-direction: column; /* Căn theo cột */
-        justify-content: flex-start; /* Căn các phần tử từ trên xuống dưới */
-        align-items: center; /* Căn giữa form theo chiều ngang */
+        overflow-y: auto; /* Hiển thị thanh cuộn dọc nếu nội dung vượt quá chiều cao */
     }
 
-    /* Định dạng các hàng trong form */
-    .form-container .row {
-        display: flex; /* Sử dụng Flexbox để căn ngang các phần tử */
-        align-items: center; /* Căn giữa theo chiều dọc */
-        margin-bottom: 15px; /* Khoảng cách giữa các hàng */
-        justify-content: center; /* Các phần tử không có khoảng cách đều, căn sang trái */
-        width: 100%; /* Đảm bảo hàng chiếm đủ chiều rộng của form */
+    /* Định dạng tiêu đề */
+    #RegForm h4 {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center; /* Tiêu đề canh giữa */
     }
 
-    /* Định dạng các nhãn */
-    .form-container label {
-        color: #555; /* Màu chữ cho label */
-        font-weight: bold;
-        text-align: center; /* Căn nhãn sang trái */
-        flex: 0 0 30%; /* Nhãn chiếm 30% chiều rộng */
-        max-width: 150px; /* Giới hạn chiều rộng tối đa của nhãn */
-        margin-right: 10px; /* Khoảng cách giữa nhãn và input */
-    }
-
-    /* Định dạng các ô input */
+    /* Định dạng ô input */
     .form-container input[type="text"],
+    .form-container input[type="email"],
     .form-container input[type="password"] {
-        padding: 10px; /* Padding bên trong ô input */
-        border: 1px solid #ddd; /* Viền màu xám nhạt */
-        border-radius: 5px; /* Bo góc */
-        flex: 1; /* Đảm bảo input chiếm phần còn lại của hàng */
-        width: 100%; /* Đảm bảo input giãn đầy đủ */
-        box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến chiều rộng */
+        width: calc(100% - 20px);
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
     }
 
-    /* Định dạng nút submit */
-    .form-container input[type="submit"] {
-        width: 100%; /* Chiều rộng nút bằng 100% */
-        padding: 10px;
-        background-color: #007bff; /* Màu xanh cho nút */
+    /* Nút submit */
+    .form-container button[type="submit"] {
+        width: 200px;
+        padding: 12px;
+        background-color: #007bff;
         color: #ffffff;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         font-weight: bold;
+        font-size: 1rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        margin-top: 20px; /* Khoảng cách phía trên */
+        display: block;
+        margin: 20px auto;
     }
 
-        .form-container input[type="submit"]:hover {
-            background-color: #0056b3; /* Đổi màu khi hover */
-        }
+    /* Hover cho nút */
+    .form-container button[type="submit"] {
+        background-color: #0056b3;
+        width: 150px;
+    }
 
-    /* Định dạng cho link đăng ký */
+    /* Liên kết */
     .form-container p {
-        text-align: center; /* Căn giữa link */
+        text-align: center;
         margin-top: 10px;
     }
 
@@ -82,49 +80,52 @@
                 text-decoration: underline;
             }
 
-    /* Định dạng thông báo lỗi */
+    /* Thông báo lỗi */
     .text-danger {
-        color: #dc3545; /* Màu đỏ */
-        font-size: 0.9em; /* Font nhỏ */
-        text-align: center; /* Căn giữa nếu xuất hiện */
+        color: #dc3545;
+        font-size: 0.9em;
+        margin-top: -10px;
+        margin-bottom: 10px;
     }
 </style>
 <div class="account-page">
     <div class="container">
         <div class="row">
             <div class="col-2">
-                <img src="~/Content/images/image1.png" width="100%">
+                <img src="~/Content/images/image1.png" width="70%">
             </div>
             <div class="col-2">
                 <div class="form-container" style="height: 500px !important; display: block;">
                     <span onclick="login()">Login</span>
                     <hr id="Indicator">
 
-                    <form id="LoginForm" style="left: 0px !important;" action="@Url.Action("Login", "User", new { returnUrl = ViewBag.ReturnUrl })" method="post" role="form">
+                    <form id="LoginForm"
+                          style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; padding: 0;"
+                          action="@Url.Action("Login", "User", new { returnUrl = ViewBag.ReturnUrl })"
+                          method="post">
                         @Html.AntiForgeryToken()
 
-                        <!-- Email Row -->
-                        <div class="form-group row">
-                            <label for="Email" class="label">Email</label>
-                            <input type="text" name="Email" id="Email_login" class="form-control" value="@Model.Email" />
-                            <div class="text-danger" id="EmailValidationMessage"></div>
-                        </div>
+                        <!-- Thông báo lỗi -->
+                        @if (ViewBag.ThongBao != null)
+                        {
+                            <div class="text-danger">@ViewBag.ThongBao</div>
+                        }
 
-                        <!-- Password Row -->
-                        <div class="form-group row">
-                            <label for="Password" class="label">Password</label>
-                            <input type="password" name="Password" id="Password_login" class="form-control" value="@Model.Password" />
-                            <div class="text-danger" id="PasswordValidationMessage"></div>
-                        </div>
+                        <!-- Email Input -->
+                        <input id="Email_login" name="Email" type="text" placeholder="Email" value="@Model.Email" required />
+
+                        <!-- Password Input -->
+                        <input id="Password_login" name="Password" type="password" placeholder="Password" required />
 
                         <!-- Submit Button -->
-                        <div class="form-group row">
-                            <input type="submit" value="Log in" class="btn btn-outline-dark" />
-                        </div>
+                        <button type="submit" class="btn">Log in</button>
 
-                        <!-- Register Link -->
+                        <!-- Link to Register -->
                         <p>
-                            <a href="/User/Register">Register as a new user</a>
+                            <a href="@Url.Action("Register", "User")">Register as a new user</a>
+                        </p>
+                        <p>
+                            <a href="@Url.Action("ForgotPassword", "User")">Forgot your password?</a>
                         </p>
                     </form>
                 </div>
@@ -132,6 +133,9 @@
         </div>
     </div>
 </div>
+<!-----------------------------------js for toggle form-------------------------------------->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <!-----------------------------------js for toggle form-------------------------------------->

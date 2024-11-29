@@ -5,25 +5,38 @@
 
 @model ShoeWeb.Areas.Customer.CustomerVM.UserProfileViewModel
 
-<h2>Thông tin người dùng</h2>
+<div class="small-container">
+    <h2>Thông tin người dùng</h2>
 
-<form action="@Url.Action("UpdateProfile", "Account", new { area = "Customer" })" method="post">
-    @Html.AntiForgeryToken()
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
 
-    <div>
-        <label>Email:</label>
-        <input type="email" name="Email" value="@Model.Email" readonly />
-    </div>
+    <form action="@Url.Action("UpdateProfile", "Account", new { area = "Customer" })" method="post">
+        @Html.AntiForgeryToken()
 
-    <div>
-        <label>Số điện thoại:</label>
-        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" />
-    </div>
+        <div class="form-group">
+            <label for="Email" class="form-label">Email:</label>
+            <input type="email" id="Email" name="Email" value="@Model.Email" class="form-control" readonly />
+        </div>
 
-    <div>
-        <label>Tên đăng nhập:</label>
-        <input type="text" name="UserName" value="@Model.UserName" />
-    </div>
+        <div class="form-group">
+            <label for="PhoneNumber" class="form-label">Số điện thoại:</label>
+            <input type="text" id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control" />
+        </div>
 
-    <button type="submit">Cập nhật</button>
-</form>
+        <div class="form-group">
+            <label for="UserName" class="form-label">Tên đăng nhập:</label>
+            <input type="text" id="UserName" name="UserName" value="@Model.UserName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </div>
+    </form>
+</div>

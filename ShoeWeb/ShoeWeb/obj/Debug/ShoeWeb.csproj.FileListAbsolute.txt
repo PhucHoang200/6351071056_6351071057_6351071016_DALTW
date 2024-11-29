@@ -1,3 +1,4 @@
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.AssemblyReference.cache
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll.config
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.pdb
@@ -162,15 +163,10 @@ D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.W
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.xml
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.xml
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.AssemblyReference.cache
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateAllTable.resources
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateCartItem.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateOrder_02.resources
+D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateModels.resources
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.CoreCompileInputs.cache
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.Up2Date
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
 D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.InitialCreate.resources
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateOrderItem.resources
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateOrderItem_1.resources
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateOrder_02.resources

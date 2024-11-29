@@ -10,23 +10,38 @@
     <div class="container">
         <div class="row">
             <div class="col-2">
-                <img src="~/Content/images/image1.png" width="100%">
+                <img src="~/Content/images/image1.png" width="70%">
             </div>
-            <form id="RegForm" action="@Url.Action("Register", "User")" method="post" onsubmit="SubmitRegister(event)">
-                @if (ViewBag.ThongBao != null)
-                {
-                    <span>@ViewBag.ThongBao</span>
-                }
-                @Html.AntiForgeryToken()
-                <input id="email_register" name="Email" type="email" placeholder="Email" value="@Model.Email" required />
-                <input id="password_register" name="Password" type="password" placeholder="Password" required />
-                <input id="password_confirm_register" name="ConfirmPassword" type="password" placeholder="Confirm Password" required />
-                <button type="submit" class="btn">Register</button>
-            </form>
+            <div class="col-2">
+                <div class="form-container" style="height: 500px !important; display: block;">
+                    <span onclick="register()">Register</span>
+                    <hr id="Indicator">
 
+                    <form id="RegForm"
+                          style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; padding: 0;"
+                          action="@Url.Action("Register", "User")"
+                          method="post"
+                          onsubmit="SubmitRegister(event)">
+
+                        @if (ViewBag.ThongBao != null)
+                        {
+                            <div class="text-danger">@ViewBag.ThongBao</div>
+                        }
+
+                        <!-- Nội dung giữ nguyên -->
+                        @Html.AntiForgeryToken()
+                        <input id="email_register" name="Email" type="email" placeholder="Email" value="@Model.Email" required />
+                        <input id="password_register" name="Password" type="password" placeholder="Password" required />
+                        <input id="password_confirm_register" name="ConfirmPassword" type="password" placeholder="Confirm Password" required />
+                        <button type="submit" class="btn">Register</button>
+
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 <style>
     /* Đảm bảo body không bị cuộn ngang */
@@ -36,18 +51,17 @@
 
     /* Form đăng ký - hiển thị bên phải màn hình */
     #RegForm {
-        width: 350px; /* Chiều rộng của form */
+        width: 450px; /* Tăng chiều rộng của form */
         height: auto; /* Chiều cao tự động tùy theo nội dung */
         max-height: 90vh; /* Giới hạn chiều cao của form (90% chiều cao màn hình) */
-        padding: 30px;
+        padding: 40px; /* Tăng padding để nội dung có khoảng cách thoải mái */
         background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px; /* Tăng bo góc cho form mềm mại hơn */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0); /* Tăng độ nổi của bóng đổ */
         position: absolute; /* Đảm bảo form cố định ở vị trí trên màn hình */
-        top: 120px; /* Cách mép trên 120px */
-        left: 1150px; /* Đặt form vào mép phải màn hình */
+        top: 100px; /* Cách mép trên 100px */
+        left: calc(50% - 225px); /* Canh giữa form trên màn hình */
         z-index: 1000; /* Đảm bảo form nằm trên các phần tử khác */
-        margin-right: 20px; /* Đảm bảo form không chạm vào mép phải của màn hình */
         overflow-y: auto; /* Hiển thị thanh cuộn dọc nếu nội dung vượt quá chiều cao */
     }
 
@@ -55,41 +69,48 @@
         #RegForm h4 {
             color: #333;
             margin-bottom: 20px;
+            text-align: center; /* Tiêu đề canh giữa */
         }
 
         /* Định dạng các trường nhập liệu */
         #RegForm input[type="email"],
         #RegForm input[type="password"] {
-            width: 100%; /* Chiếm toàn bộ chiều rộng */
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 5px;
-            margin-bottom: 15px;
+            width: calc(100% - 20px); /* Căn chỉnh chiều rộng có khoảng cách đều 2 bên */
+            padding: 12px; /* Tăng padding cho các ô nhập liệu */
+            border: 1px solid #ccc; /* Đường viền sáng hơn */
+            border-radius: 8px; /* Bo góc cho ô nhập liệu */
+            margin-top: 10px; /* Tăng khoảng cách trên */
+            margin-bottom: 20px; /* Tăng khoảng cách dưới */
             box-sizing: border-box;
         }
 
         /* Định dạng nút submit */
         #RegForm button[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
+            width: 200px; /* Giảm chiều rộng của nút */
+            padding: 12px; /* Padding thoải mái */
+            background-color: #28a745; /* Màu xanh cho nút */
             color: #ffffff;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; /* Bo góc nút */
             font-weight: bold;
+            font-size: 1rem; /* Tăng kích thước chữ */
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: block; /* Đảm bảo nút là khối để áp dụng căn giữa */
+            margin: 20px auto; /* Căn giữa bằng margin tự động */
         }
+
 
             /* Đổi màu khi hover nút submit */
             #RegForm button[type="submit"]:hover {
-                background-color: #0056b3;
+                background-color: #218838;
             }
 
     /* Định dạng thông báo lỗi nếu có */
     .text-danger {
         color: #dc3545;
         font-size: 0.9em;
+        margin-top: -10px; /* Giảm khoảng cách giữa thông báo và ô nhập liệu */
+        margin-bottom: 10px;
     }
-</style> 
+</style>

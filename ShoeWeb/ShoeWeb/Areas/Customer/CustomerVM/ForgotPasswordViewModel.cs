@@ -6,22 +6,19 @@ using System.Web;
 
 namespace ShoeWeb.Areas.Customer.CustomerVM
 {
-    public class ChangePasswordViewModel
+    public class ForgotPasswordViewModel
     {
         [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Mật khẩu cũ")]
-        public string OldPassword { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Mật khẩu mới")]
         public string NewPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Xác nhận mật khẩu mới")]
-        [Compare("NewPassword", ErrorMessage = "Mật khẩu xác nhận không trùng khớp.")]
+        [Compare("NewPassword", ErrorMessage = "The passwords do not match.")]
         public string ConfirmPassword { get; set; }
     }
 }

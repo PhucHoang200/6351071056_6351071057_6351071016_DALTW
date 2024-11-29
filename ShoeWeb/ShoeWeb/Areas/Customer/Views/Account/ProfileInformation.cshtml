@@ -1,0 +1,132 @@
+﻿@model ShoeWeb.Areas.Customer.CustomerVM.UserProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<div class="profile-container">
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="@Url.Action("UserInformation", "Account")" class="menu-item">Tài khoản</a></li>
+            <li><a href="@Url.Action("ChangePassword", "Account")" class="menu-item">Đổi mật khẩu</a></li>
+            <li><a href="@Url.Action("", "Account")" class="menu-item">Lịch sử mua hàng</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="content-container">
+            <!-- Nội dung mặc định -->
+            <label>Tên đăng nhập:</label>
+            <input type="text" name="UserName" value="@Model.UserName" readonly />
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".sidebar-menu").on("click", ".menu-item", function (e) {
+            e.preventDefault();
+            const targetUrl = $(this).attr("href");
+
+            if (targetUrl) {
+                $.ajax({
+                    url: targetUrl,
+                    type: "GET",
+                    success: function (response) {
+                        const htmlContent = $(response).find(".profile-content").html();
+                        $("#content-container").html(htmlContent);
+                    },
+                    error: function () {
+                        alert("Không thể tải nội dung.");
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+<style>
+    .profile-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        background: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar {
+        width: 250px;
+        background: #fff;
+        padding: 20px;
+        border-right: 1px solid #e0e0e0;
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .sidebar-menu .menu-item {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .sidebar-menu .menu-item:hover {
+                background: #ff523b;
+                color: #fff;
+            }
+
+    .content {
+        flex: 1;
+        padding: 20px;
+    }
+
+        .content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+    .btn-update {
+        padding: 10px 20px;
+        background-color: #ff523b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-update:hover {
+            background-color: #e84118;
+        }
+</style>
