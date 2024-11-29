@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "DetailOrder";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model ShoeWeb.Areas.Admin.Admin_ViewModel.OrderVM
+
+<section class="h-100">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+
+                <!-- Quay lại và mã đơn hàng -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <a href="@Url.Action("Index","Order")">Quay lại</a>
+                    <div>
+                        <p class="mb-0">
+                            Mã đơn hàng: @Model.Order.Code
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Thông tin người mua -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <h5 class="mb-3">Thông tin người mua</h5>
+                        <table class="table">
+                            <tr>
+                                <th>Tên khách hàng</th>
+                                <td>@Model.Order.CustomerName</td>
+                            </tr>
+                            <tr>
+                                <th>Địa chỉ</th>
+                                <td>@Model.Order.Address</td>
+                            </tr>
+                            <tr>
+                                <th>Số điện thoại</th>
+                                <td>@Model.Order.Phone</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>@Model.Order.Email</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Thông tin đơn hàng -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <h5 class="mb-3">Chi tiết đơn hàng</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sản phẩm</th>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Đơn giá</th>
+                                    <th scope="col">Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.orderDetail)
+                                {
+                                    <tr>
+                                        <td>@item.Product.productName</td>
+                                        <td>@item.numberSize</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.Product.price.ToString("#,##0.##")đ</td>
+                                        <td>@item.Price.ToString("#,##0.##")đ</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tổng tiền đơn hàng -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <h5 class="mb-3">Tổng tiền đơn hàng</h5>
+                        <table class="table">
+                            <tr>
+                                <th>Tổng tiền</th>
+                                <td>
+                                    <strong>@Model.Order.TotalAmount.ToString("#,##0.##")đ</strong>
+                                    <span>(@(Model.Order.isPayment ? "Đã thanh toán" : "Chưa thanh toán"))</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Phương thức thanh toán</th>
+                                <td>@(Model.Order.TypePayment == 0 ? "COD" : "VNPay")</td>
+                            </tr>
+                            <tr>
+                                <th>Trạng thái đơn hàng</th>
+                                <td>
+                                    @if (Model.Order.isAccept == false)
+                                    {
+                                        <span>Chờ duyệt</span>
+                                    }
+                                    else if (Model.Order.StatusShipping == 0)
+                                    {
+                                        <span>Chờ giao cho đơn vị vận chuyển</span>
+                                    }
+                                    else if (Model.Order.StatusShipping == 2)
+                                    {
+                                        <span>Đang vận chuyển</span>
+                                    }
+                                    else if (Model.Order.StatusShipping == 3 && Model.Order.isPayment == true)
+                                    {
+                                        <span>Đã giao</span>
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

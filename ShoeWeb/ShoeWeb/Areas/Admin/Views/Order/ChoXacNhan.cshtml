@@ -1,0 +1,41 @@
+﻿
+@model ShoeWeb.Areas.Admin.Admin_ViewModel.OrderVM
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" style="text-align: center !important;">Mã đơn hàng</th>
+            <th scope="col" style="text-align: center !important;">Tên khách hàng</th>
+            <th scope="col" style="text-align: center !important;">Tổng tiền</th>
+            <th scope="col" style="text-align: center!important;">Ngày mua</th>
+            <th scope="col" style="text-align: center !important;">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.order)
+        {
+            <tr id="viewRow-@item.Id">
+                <th scope="row">@item.Code</th>
+                <td>@item.CustomerName</td>
+                <td>
+                    <strong>@item.TotalAmount.ToString("#,##0.##")đ</strong>
+                    <span>(@(item.isPayment ? "Đã thanh toán" : "Chưa thanh toán"))</span>
+                </td>
+                <td>@item.CreatedDate</td>
+                <td style="text-align: center;">
+                    @if (!item.isAccept)
+                    {
+                        <button type="button" class="btn btn-primary" onclick="DuyetDon(@item.Id)">
+                            <i class="bi bi-check-circle"></i> Duyệt đơn
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="HuyDon(@item.Id)">
+                            <i class="bi bi-trash"></i> Hủy đơn
+                        </button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

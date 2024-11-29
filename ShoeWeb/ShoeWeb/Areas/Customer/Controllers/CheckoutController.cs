@@ -116,7 +116,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                         Status = 0, // Trạng thái đơn hàng (0: chưa xử lý)
                         CreatedDate = DateTime.Now,
                         isPayment = model.PaymentMethod == "VNPay" ? true : false, // Nếu là VNPay thì thanh toán, còn lại là COD -> chưa thanh toán
-                        isAccept = false // Chưa được xác nhận
+                        isAccept = false, // Chưa được xác nhận
                     };
 
                     _db.Orders.Add(order);
