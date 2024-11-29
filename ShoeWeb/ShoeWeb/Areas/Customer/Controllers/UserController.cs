@@ -36,8 +36,9 @@ namespace ShoeWeb.Areas.Customer.Controllers
         {
         }
 
-        public UserController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public UserController(ApplicationDbContext db, ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
+            _db = db;
             UserManager = userManager;
             SignInManager = signInManager;
         }
@@ -242,42 +243,40 @@ namespace ShoeWeb.Areas.Customer.Controllers
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
-        //
-        // GET: /Account/ForgotPassword
+
+        // GET: ForgotPassword
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
         }
 
-        // POST: /Account/ForgotPassword
+        // POST: ForgotPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ShoeWeb.Areas.Customer.CustomerVM.ForgotPasswordViewModel model)
+        public ActionResult ForgotPassword(ShoeWeb.Areas.Customer.CustomerVM.ForgotPasswordViewModel model)
         {
+            // Kiểm tra validation từ DataAnnotations
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var user = await UserManager.FindByEmailAsync(model.Email);
-            if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+            // Kiểm tra xem email có tồn tại trong cơ sở dữ liệu không
+            var user = _db.Users.FirstOrDefault(u => u.Email == model.Email);
+            if (user == null)
             {
-                TempData["Error"] = "Email không tồn tại hoặc chưa được xác nhận.";
+                // Thêm lỗi tùy chỉnh khi email không tồn tại
+                ModelState.AddModelError("Email", "Email không tồn tại.");
                 return View(model);
             }
 
-            if (model.NewPassword != model.ConfirmPassword)
-            {
-                ModelState.AddModelError("ConfirmPassword", "Mật khẩu mới và xác nhận mật khẩu không trùng khớp.");
-                return View(model);
-            }
+            // Lưu email vào TempData trước khi chuyển hướng
+            TempData["Email"] = model.Email;
 
-            // Tạo mã OTP
-            string otpCode = GenerateOtp();
-
-            // Lưu OTP vào cơ sở dữ liệu
+            // Tiếp tục xử lý logic gửi OTP
+            var otpCode = GenerateOtp();
             var otp = new OTP
             {
                 UserId = user.Id,
@@ -290,88 +289,149 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             // Gửi OTP qua email
             string subject = "Your OTP Code";
-            string body = $"Mã OTP của bạn là: <b>{otpCode}</b>. Vui lòng sử dụng mã này để đổi mật khẩu.";
+            string body = $"Mã OTP của bạn là: {otpCode}. Vui lòng sử dụng mã này để đặt lại mật khẩu.";
             SendMail.SendEmail(user.Email, subject, body, "");
 
             TempData["Email"] = model.Email;
-            TempData["NewPassword"] = model.NewPassword;
-
-            return RedirectToAction("ResetPassword", new { code = otpCode });
+            return RedirectToAction("ConfirmOtp");
         }
 
 
-
-        private string GenerateOtp()
-        {
-            var random = new Random();
-            return random.Next(100000, 999999).ToString();
-        }
-
-        //
-        // GET: /Account/ForgotPasswordConfirmation
-        // GET: /Account/ResetPassword
+        // GET: ConfirmOtp
+        [HttpGet]
         [AllowAnonymous]
-        public ActionResult ResetPassword()
+        public ActionResult ConfirmOtp()
         {
             return View();
         }
 
 
+        // POST: ConfirmOtp
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ConfirmOtp(ShoeWeb.Areas.Customer.CustomerVM.ConfirmOtpViewModel model)
+        {
+            // Kiểm tra validation từ DataAnnotations
+            if (!ModelState.IsValid)
+            {
+                return View(model); // Trả lại view nếu OtpCode trống hoặc không hợp lệ
+            }
 
-        // POST: /Account/ResetPassword
-     // POST: /Account/ResetPassword
-[HttpPost]
-[AllowAnonymous]
-[ValidateAntiForgeryToken]
-public async Task<ActionResult> ResetPassword(ShoeWeb.Areas.Customer.CustomerVM.ResetPasswordViewModel model)
-{
-    if (!ModelState.IsValid)
-    {
-        return View(model);
-    }
+            // Lấy email từ TempData
+            var email = TempData["Email"]?.ToString();
+            if (string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("ForgotPassword"); // Nếu email không tồn tại trong TempData, chuyển hướng về trang ForgotPassword
+            }
 
-    var email = TempData["Email"]?.ToString();
-    var newPassword = TempData["NewPassword"]?.ToString();
+            // Tìm user dựa trên email
+            var user = _db.Users.FirstOrDefault(u => u.Email == email);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Người dùng không tồn tại.");
+                return View(model);
+            }
 
-    if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(newPassword))
-    {
-        TempData["Error"] = "Thông tin không hợp lệ. Vui lòng thử lại.";
-        return RedirectToAction("ForgotPassword");
-    }
+            // Kiểm tra mã OTP còn hạn không
+            var otp = _db.oTPs.FirstOrDefault(o =>
+                o.UserId == user.Id &&
+                o.ExpiryDate > DateTime.Now && // Kiểm tra OTP còn hạn
+                !o.IsUsed); // Kiểm tra OTP chưa sử dụng
 
-    var user = await UserManager.FindByEmailAsync(email);
-    if (user == null)
-    {
-        TempData["Error"] = "Người dùng không tồn tại.";
-        return View(model);
-    }
+            if (otp == null)
+            {
+                ModelState.AddModelError("OtpCode", "Mã OTP không hợp lệ hoặc đã hết hạn.");
+                TempData["Email"] = email; // Lưu lại email khi mã OTP sai
+                return View(model);
+            }
 
-    // Xác minh mã OTP
-    var otp = _db.oTPs.FirstOrDefault(o => o.UserId == user.Id &&
-                                           o.OTPCode == model.OtpCode &&
-                                           o.ExpiryDate > DateTime.Now &&
-                                           !o.IsUsed);
+            // Kiểm tra mã OTP có khớp không
+            if (otp.OTPCode != model.OtpCode)
+            {
+                ModelState.AddModelError("OtpCode", "Mã OTP không chính xác.");
+                TempData["Email"] = email; // Lưu lại email khi mã OTP sai
+                return View(model);
+            }
 
-    if (otp == null)
-    {
-        TempData["Error"] = "Mã OTP không hợp lệ hoặc đã hết hạn.";
-        return View(model);
-    }
+            // Đánh dấu OTP đã sử dụng
+            otp.IsUsed = true;
+            _db.SaveChanges();
 
-    // Đổi mật khẩu
-    var result = await UserManager.ResetPasswordAsync(user.Id, await UserManager.GeneratePasswordResetTokenAsync(user.Id), newPassword);
+            TempData["UserId"] = user.Id; // Lưu UserId để sử dụng trong trang ResetPassword
+            return RedirectToAction("ResetPassword"); // Chuyển hướng đến trang reset mật khẩu
+        }
 
-    if (result.Succeeded)
-    {
-        otp.IsUsed = true;
-        _db.SaveChanges();
-        TempData["Success"] = "Đổi mật khẩu thành công. Vui lòng đăng nhập lại.";
-        return RedirectToAction("Login", "User", new { area = "Customer" });
-    }
 
-    AddErrors(result);
-    return View(model);
-}
+
+
+
+
+        // GET: ResetPassword
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ResetPassword()
+        {
+            // Lấy ID người dùng từ User.Identity
+            var userId = User.Identity.GetUserId();
+
+            // Kiểm tra nếu _userManager không phải là null và tìm người dùng
+            if (UserManager == null)
+            {
+                throw new InvalidOperationException("UserManager is not initialized.");
+            }
+
+            var user = UserManager.FindByIdAsync(userId).Result;
+
+            // Kiểm tra nếu người dùng không tồn tại hoặc chưa xác nhận email
+            if (user == null || !user.EmailConfirmed)
+            {
+                TempData["Error"] = "Vui lòng xác nhận email trước khi thực hiện thao tác này.";
+                return RedirectToAction("ForgotPassword", "User", new { area = "Customer" });
+            }
+
+            // Nếu mọi thứ hợp lệ, trả về view
+            return View();
+        }
+
+
+        // POST: ResetPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ResetPassword(ShoeWeb.Areas.Customer.CustomerVM.ResetPasswordViewModel model)
+        {
+            // Kiểm tra validation từ DataAnnotations
+            if (!ModelState.IsValid)
+            {
+                return View(model); // Trả lại view nếu có lỗi validation từ ViewModel
+            }
+
+            // Kiểm tra mật khẩu mới và mật khẩu xác nhận có trùng khớp không
+            if (model.NewPassword != model.ConfirmPassword)
+            {
+                ModelState.AddModelError("ConfirmPassword", "Mật khẩu không trùng khớp.");
+                return View(model); // Trả lại view và hiển thị lỗi
+            }
+
+            // Lấy userId từ TempData
+            var userId = TempData["UserId"]?.ToString();
+            var user = _db.Users.FirstOrDefault(u => u.Id == userId);
+
+            if (user == null) return RedirectToAction("ForgotPassword");
+
+            // Mã hóa mật khẩu mới và lưu vào database
+            user.PasswordHash = new Microsoft.AspNet.Identity.PasswordHasher().HashPassword(model.NewPassword);
+            _db.SaveChanges();
+
+            TempData["Success"] = "Đổi mật khẩu thành công. Vui lòng đăng nhập.";
+            return RedirectToAction("Login");
+        }
+
+        private string GenerateOtp()
+        {
+            return new Random().Next(100000, 999999).ToString();
+        }
 
 
         //

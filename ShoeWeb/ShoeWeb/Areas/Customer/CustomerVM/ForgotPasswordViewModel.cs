@@ -8,17 +8,8 @@ namespace ShoeWeb.Areas.Customer.CustomerVM
 {
     public class ForgotPasswordViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Vui lòng nhập email.")]
+        [EmailAddress(ErrorMessage = "Email không đúng định dạng.")]
         public string Email { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        public string NewPassword { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        [Compare("NewPassword", ErrorMessage = "The passwords do not match.")]
-        public string ConfirmPassword { get; set; }
     }
 }

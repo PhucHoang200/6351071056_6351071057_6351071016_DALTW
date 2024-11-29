@@ -1,0 +1,39 @@
+﻿@model ShoeWeb.Areas.Customer.CustomerVM.ConfirmOtpViewModel
+
+@{
+    ViewBag.Title = "Xác nhận OTP";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-container">
+    <h2>Xác nhận mã OTP</h2>
+    @using (Html.BeginForm("ConfirmOtp", "User", new { area = "Customer" }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.LabelFor(m => m.OtpCode, "Nhập mã OTP")
+            @Html.TextBoxFor(m => m.OtpCode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.OtpCode, null, new { @class = "text-danger" }) <!-- Hiển thị lỗi -->
+        </div>
+        <button type="submit" class="btn btn-primary">Xác nhận</button>
+    }
+</div>
+
+<style>
+    .form-container {
+        max-width: 600px;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    button[type="submit"] {
+        display: block;
+        visibility: visible;
+    }
+
+    .form-container span {
+        width: 300px;
+    }
+</style>

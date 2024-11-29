@@ -144,52 +144,53 @@ namespace ShoeWeb.Areas.Customer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ShoeWeb.Areas.Customer.CustomerVM.ChangePasswordViewModel model)
         {
-            if (ModelState.IsValid)
+            // Kiểm tra nếu ModelState không hợp lệ (trường không hợp lệ hoặc trống)
+            if (!ModelState.IsValid)
             {
-                var userId = User.Identity.GetUserId();
-                var user = await _userManager.FindByIdAsync(userId);
+                return View(model);
+            }
 
-                if (user == null)
-                {
-                    TempData["Error"] = "Không tìm thấy người dùng.";
-                    return RedirectToAction("ChangePassword");
-                }
+            var userId = User.Identity.GetUserId();
+            var user = await _userManager.FindByIdAsync(userId);
 
-                // Kiểm tra mật khẩu cũ
-                var passwordValid = await _userManager.CheckPasswordAsync(user, model.OldPassword);
-                if (!passwordValid)
-                {
-                    ModelState.AddModelError("OldPassword", "Mật khẩu cũ không đúng.");
-                    return View(model);
-                }
-
-                // Kiểm tra mật khẩu mới và xác nhận mật khẩu
-                if (model.NewPassword != model.ConfirmPassword)
-                {
-                    ModelState.AddModelError("NewPassword", "Mật khẩu mới và xác nhận mật khẩu không trùng khớp.");
-                    return View(model);
-                }
-
-                // Đổi mật khẩu
-                var result = await _userManager.ChangePasswordAsync(userId, model.OldPassword, model.NewPassword);
-                if (result.Succeeded)
-                {
-                    // Đăng xuất người dùng
-                    var authManager = HttpContext.GetOwinContext().Authentication;
-                    authManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-                    TempData["Success"] = "Mật khẩu đã được thay đổi. Vui lòng đăng nhập lại.";
-                    return RedirectToAction("Login", "User", new { area = "Customer" });
-                }
-
-                // Nếu có lỗi khi thay đổi mật khẩu
-                TempData["Error"] = "Đổi mật khẩu thất bại. Vui lòng thử lại.";
+            if (user == null)
+            {
+                TempData["Error"] = "Không tìm thấy người dùng.";
                 return RedirectToAction("ChangePassword");
             }
 
-            // Nếu ModelState không hợp lệ
-            return View(model);
+            // Kiểm tra mật khẩu cũ
+            var passwordValid = await _userManager.CheckPasswordAsync(user, model.OldPassword);
+            if (!passwordValid)
+            {
+                ModelState.AddModelError("OldPassword", "Mật khẩu cũ không đúng.");
+                return View(model);
+            }
+
+            // Kiểm tra mật khẩu mới và xác nhận mật khẩu có trùng khớp không
+            if (model.NewPassword != model.ConfirmPassword)
+            {
+                ModelState.AddModelError("ConfirmPassword", "Mật khẩu mới và xác nhận mật khẩu không trùng khớp.");
+                return View(model);
+            }
+
+            // Đổi mật khẩu
+            var result = await _userManager.ChangePasswordAsync(userId, model.OldPassword, model.NewPassword);
+            if (result.Succeeded)
+            {
+                // Đăng xuất người dùng
+                var authManager = HttpContext.GetOwinContext().Authentication;
+                authManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+                TempData["Success"] = "Mật khẩu đã được thay đổi. Vui lòng đăng nhập lại.";
+                return RedirectToAction("Login", "User", new { area = "Customer" });
+            }
+
+            // Nếu có lỗi khi thay đổi mật khẩu
+            TempData["Error"] = "Đổi mật khẩu thất bại. Vui lòng thử lại.";
+            return RedirectToAction("ChangePassword");
         }
+
 
         [HttpGet]
         public ActionResult ForgotPassword()

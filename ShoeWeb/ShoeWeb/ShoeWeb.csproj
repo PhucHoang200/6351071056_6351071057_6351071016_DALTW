@@ -441,13 +441,9 @@
     <Compile Include="Helper\Payment\Response\CreateZaloPayResponse.cs" />
     <Compile Include="Helper\SendMail.cs" />
     <Compile Include="Identity\AppUser.cs" />
-    <Compile Include="Migrations\202411280317566_UpdateModels.cs" />
-    <Compile Include="Migrations\202411280317566_UpdateModels.Designer.cs">
-      <DependentUpon>202411280317566_UpdateModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411261512425_updateOrder_02.cs" />
-    <Compile Include="Migrations\202411261512425_updateOrder_02.Designer.cs">
-      <DependentUpon>202411261512425_updateOrder_02.cs</DependentUpon>
+    <Compile Include="Migrations\202411291725126_UpdateDatabase.cs" />
+    <Compile Include="Migrations\202411291725126_UpdateDatabase.Designer.cs">
+      <DependentUpon>202411291725126_UpdateDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -747,6 +743,9 @@
     <Content Include="Areas\Admin\Views\Order\DangGiao.cshtml" />
     <Content Include="Areas\Admin\Views\Order\DaGiao.cshtml" />
     <Content Include="Areas\Admin\Views\Order\DetailOrder.cshtml" />
+    <Content Include="Areas\Customer\Views\User\ForgotPassword.cshtml" />
+    <Content Include="Areas\Customer\Views\User\ConfirmOtp.cshtml" />
+    <Content Include="Areas\Customer\Views\User\ResetPassword.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -855,11 +854,6 @@
     <Folder Include="Models\Address\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202411261512425_updateOrder_02.resx">
-      <DependentUpon>202411261512425_updateOrder_02.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
@@ -891,8 +885,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202411280317566_UpdateModels.resx">
-      <DependentUpon>202411280317566_UpdateModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411291725126_UpdateDatabase.resx">
+      <DependentUpon>202411291725126_UpdateDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,11 +8,7 @@ namespace ShoeWeb.Areas.Customer.CustomerVM
 {
     public class ConfirmOtpViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập mã OTP.")]
         public string OtpCode { get; set; }
-
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
     }
 }
