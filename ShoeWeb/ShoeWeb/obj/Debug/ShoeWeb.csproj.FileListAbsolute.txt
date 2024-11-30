@@ -1,518 +1,175 @@
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.AssemblyReference.cache
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll.config
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe.config
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.rsp
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe.config
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.rsp
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.targets
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Buffers.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Collections.Immutable.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Memory.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Numerics.Vectors.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Reflection.Metadata.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe.config
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.rsp
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe.config
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.exe
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Web.Infrastructure.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Owin.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\StarkbankEcdsa.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.AttributedModel.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Convention.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Hosting.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Runtime.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.TypedParts.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encoding.CodePages.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\WebGrease.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.pdb
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.xml
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.updateOrder_02.resources
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateModels.resources
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.CoreCompileInputs.cache
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.Up2Date
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
-D:\CSharp\Project_ShoeWeb\test\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.AssemblyReference.cache
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.CoreCompileInputs.cache
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll.config
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.exe
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Owin.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\StarkbankEcdsa.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.AttributedModel.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Convention.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Hosting.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Runtime.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.TypedParts.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encoding.CodePages.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\WebGrease.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.pdb
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.xml
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.Up2Date
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe.config
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.rsp
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe.config
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.rsp
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Buffers.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Memory.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Numerics.Vectors.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe.config
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.rsp
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateDatabase.resources
-C:\Users\phucp\Downloads\webpullmoichuachinhsua\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll.config
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe.config
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.rsp
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe.config
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.rsp
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.targets
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Buffers.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Collections.Immutable.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Memory.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Numerics.Vectors.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Reflection.Metadata.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe.config
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.rsp
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe.config
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.exe
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Web.Infrastructure.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Owin.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.Mvc.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\StarkbankEcdsa.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.AttributedModel.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Convention.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Hosting.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Runtime.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.TypedParts.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encoding.CodePages.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\WebGrease.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.Mvc.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.pdb
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.xml
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.AssemblyReference.cache
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateDatabase.resources
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.CoreCompileInputs.cache
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.Up2Date
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
-C:\webpullmoichuachinhsua - Copy\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll.config
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\ShoeWeb.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.exe
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Web.Infrastructure.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Owin.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.Mvc.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\StarkbankEcdsa.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.AttributedModel.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Convention.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Hosting.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.Runtime.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Composition.TypedParts.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encoding.CodePages.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\WebGrease.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Antlr3.Runtime.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\dotnet-aspnet-codegenerator-design.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\EntityFramework.SqlServer.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Core.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.AspNetCore.Razor.Language.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Bcl.TimeProvider.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.CSharp.Workspaces.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeAnalysis.Workspaces.Desktop.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Abstractions.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Logging.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.IdentityModel.Tokens.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Cookies.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Google.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.Jwt.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.Owin.Security.OAuth.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Core.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Templating.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGeneration.Utils.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\Newtonsoft.Json.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\NuGet.Frameworks.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\PagedList.Mvc.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\SendGrid.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Buffers.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Collections.Immutable.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Memory.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Numerics.Vectors.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Reflection.Metadata.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Encodings.Web.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Text.Json.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Threading.Tasks.Extensions.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.ValueTuple.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Helpers.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Mvc.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Optimization.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.Razor.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Deployment.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.WebPages.Razor.xml
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.AssemblyReference.cache
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.UpdateDatabase.resources
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.CoreCompileInputs.cache
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.Up2Date
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.exe.config
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csc.rsp
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.exe.config
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\csi.rsp
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.Managed.Core.targets
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Buffers.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Collections.Immutable.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Memory.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Numerics.Vectors.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Reflection.Metadata.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.exe.config
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\vbc.rsp
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\roslyn\VBCSCompiler.exe.config
