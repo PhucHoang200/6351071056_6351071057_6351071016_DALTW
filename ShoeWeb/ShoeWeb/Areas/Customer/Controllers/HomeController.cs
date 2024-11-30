@@ -268,7 +268,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
 
         [HttpGet]
-        public ActionResult ProductDetails(int productId)
+        public ActionResult ProductDetails(int? productId)
         {
             var detailProductVm = new DetailProductVM();
 
