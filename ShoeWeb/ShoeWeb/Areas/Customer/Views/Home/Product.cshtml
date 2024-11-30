@@ -80,7 +80,7 @@
 
         <!-- Container chứa sản phẩm -->
         <div class="col-2 product-container">
-            <div id="product-list" class="row">
+            <div id="product-list" class="row" style="justify-content: flex-start;">
 
 
                 @foreach (var product in Model.Products)
@@ -95,10 +95,10 @@
 
 
                         <div class="col-4 filter-item" data-filter="@product.cateId" data-brand="@product.brandId" data-size="@sizeIds" data-price="@product.price">
-                            <a href="@Url.Action("ProductDetails", "Home", new { productId = product.productId })">
+                            <a href="@Url.Action("ProductDetails", "Home", new { area = "Customer", productId = product.productId })">
                                 <img src="@Url.Content(product.image)" alt="@product.productName" />
                             </a>
-                            <a href="@Url.Action("ProductDetails", "Home", new { productId = product.productId })">
+                            <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", productId = product.productId })">
                                 <h4>@product.productName</h4>
                             </a>
                             <p>@product.price.ToString("C", new System.Globalization.CultureInfo("vi-VN"))</p>

@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity.Owin;
 using ShoeWeb.App_Start;
 using ShoeWeb.Areas.Customer.CustomerVM;
 using ShoeWeb.Data;
-using ShoeWeb.Helper.Payment;
+using ShoeWeb.Helper;
 using ShoeWeb.Models;
 using System;
 using System.Collections.Generic;

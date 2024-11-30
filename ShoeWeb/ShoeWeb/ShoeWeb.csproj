@@ -206,6 +206,9 @@
     <Reference Include="System.Composition.TypedParts, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Composition.TypedParts.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.9.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
@@ -442,16 +445,11 @@
     <Compile Include="Helper\JwtAuthorizeAttribute.cs" />
     <Compile Include="Helper\MyAuthenFilter.cs" />
     <Compile Include="Helper\PasswordHasher.cs" />
-    <Compile Include="Helper\Payment\Config\ZaloPayConfig.cs" />
-    <Compile Include="Helper\Payment\Request\CreateZaloPayRequest.cs" />
-    <Compile Include="Helper\Payment\Response\CreateZaloPayResponse.cs" />
     <Compile Include="Helper\SendMail.cs" />
+    <Compile Include="Helper\VnPay\PaymentInformationModel.cs" />
+    <Compile Include="Helper\VnPay\PaymentResponseModel.cs" />
     <Compile Include="Identity\AppUser.cs" />
-    <Compile Include="Migrations\202411291725126_UpdateDatabase.cs" />
-    <Compile Include="Migrations\202411291725126_UpdateDatabase.Designer.cs">
-      <DependentUpon>202411291725126_UpdateDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Libraries\VnPayLibrary.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Identity\AccountViewModels.cs" />
@@ -466,6 +464,8 @@
     <Compile Include="Models\Size.cs" />
     <Compile Include="Models\SizeOfProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\VnPay\IVnPayService.cs" />
+    <Compile Include="Service\VnPay\VnPayService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\SD.cs" />
   </ItemGroup>
@@ -890,11 +890,6 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202411291725126_UpdateDatabase.resx">
-      <DependentUpon>202411291725126_UpdateDatabase.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

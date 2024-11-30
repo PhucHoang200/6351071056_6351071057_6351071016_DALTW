@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoeWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,13 +22,19 @@ namespace ShoeWeb.Areas.Customer.CustomerVM
         public string Address { get; set; }
 
         [Required(ErrorMessage = "Vui lòng chọn một Tỉnh/Thành phố hợp lệ.")]
-        public string Province { get; set; }
+        public string Province { get; set; }  // ID của Tỉnh
+
+        public string ProvinceText { get; set; }  // Text của Tỉnh
 
         [Required(ErrorMessage = "Vui lòng chọn một Quận/Huyện hợp lệ.")]
-        public string District { get; set; }
+        public string District { get; set; }  // ID của Quận
+
+        public string DistrictText { get; set; }  // Text của Quận
 
         [Required(ErrorMessage = "Vui lòng chọn một Phường/Xã hợp lệ.")]
-        public string Ward { get; set; }
+        public string Ward { get; set; }  // ID của Phường
+
+        public string WardText { get; set; }  // Text của Phường
 
         [Required(ErrorMessage = "Vui lòng chọn phương thức thanh toán.")]
         public string PaymentMethod { get; set; }
