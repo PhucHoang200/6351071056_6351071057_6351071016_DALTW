@@ -47,8 +47,9 @@ namespace ShoeWeb.Areas.Customer.Controllers
         public ActionResult Index()
         {
 
-            List<List<Product>> products = new List<List<Product>>();
-            var categories = _db.categories.ToList();
+            var categories = _db.categories.ToList(); // Chuyển sang List
+            var products = new List<List<Product>>();
+
             foreach (var item in categories)
             {
                 var productByCate = _db.products
@@ -60,16 +61,14 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             var brands = _db.brands.ToList();
 
-            HomeVM homeVM = new HomeVM()
+            var homeVM = new HomeVM
             {
-                Products = products,
                 Categories = categories,
+                Products = products,
                 Brands = brands
             };
 
-            // Truyền dữ liệu vào View thông qua ViewBag
-            //ViewBag.Categories = categories;
-            return View(homeVM); // Truyền danh sách sản phẩm vào View
+            return View(homeVM);
         }
         public ActionResult About()
         {
