@@ -159,3 +159,170 @@
     });</script>
 
 
+<style>
+    .row {
+        display: flex; /* Kích hoạt Flexbox */
+        flex-wrap: wrap; /* Hỗ trợ xuống dòng nếu cần */
+        justify-content: space-between; /* Khoảng cách đều giữa các item */
+        gap: 20px; /* Khoảng cách đều giữa các items */
+        padding: 0; /* Không có khoảng cách dư thừa bên trong */
+        margin: 0 auto; /* Canh giữa container */
+        justify-content: start; /* Bắt đầu từ trái */
+    }
+
+    .filter-item {
+        flex: 1 1 calc(25% - 20px); /* Chiếm 1/4 chiều rộng của hàng, trừ khoảng cách */
+        max-width: calc(25% - 20px); /* Đảm bảo không vượt quá chiều rộng */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background-color: #fff;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        flex: 1 1 calc(100% / 4 - 20px); /* Đảm bảo chia đều thành 4 phần */
+    }
+
+        .filter-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .filter-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .filter-item h4 {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 15px;
+            font-weight: bold;
+        }
+
+        .filter-item p {
+            font-size: 14px;
+            color: #e74c3c;
+            margin: 0 15px 15px;
+            font-weight: bold;
+        }
+
+        .filter-item a {
+            text-decoration: none;
+        }
+
+    /* Price range */
+    .price-range {
+        margin: 20px 0;
+    }
+
+        .price-range input[type="range"] {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        .price-range span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+    /* Offer section */
+    .offer {
+        margin: 40px 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+        .offer img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            object-fit: cover;
+        }
+
+        .offer h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .offer p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .offer a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #ff523b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+            .offer a:hover {
+                background-color: #e84118;
+            }
+
+    /* Testimonial section */
+    .testimonial {
+        margin: 40px 0;
+    }
+
+        .testimonial .row {
+            justify-content: center;
+        }
+
+        .testimonial .col-3 {
+            flex: 0 0 calc(33.333% - 20px);
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 10px 0;
+        }
+
+        .testimonial h3 {
+            font-size: 16px;
+            color: #333;
+        }
+
+    /* Brands section */
+    .brands .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brands img {
+        width: 100px;
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.3s;
+    }
+
+        .brands img:hover {
+            transform: scale(1.1);
+        }
+</style>

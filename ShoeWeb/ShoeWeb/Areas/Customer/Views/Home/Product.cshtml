@@ -8,6 +8,12 @@
 
 
 @using ShoeWeb.Data;
+@using PagedList;
+@using PagedList.Mvc;
+
+
+
+
 
 <div class="small-container">
     <div class="row">
@@ -107,6 +113,28 @@
     </div>
 </div>
 
+
+
+<!-- Phân trang -->
+<div class="pagination-container">
+    @if (Model.Products is IPagedList)
+    {
+        <div>
+            @Html.PagedListPager(
+                (IPagedList)Model.Products,
+                page => Url.Action("Product", new
+                {
+                    page,
+                    searchTerm = TempData["SearchTerm"],
+                    FilterByGender = TempData["FilterByGender"],
+                    FilterSize = TempData["FilterSize"],
+                    FilterByBrand = TempData["FilterByBrand"],
+                    FilterByCategory = TempData["FilterByCategory"]
+                })
+            )
+        </div>
+    }
+</div>
 
 
 
@@ -492,4 +520,34 @@
         .brands img:hover {
             transform: scale(1.1);
         }
+    /*phân trang*/
+    .pagination-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .pagination-container .pagination {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+            .pagination-container .pagination li {
+                display: inline;
+            }
+
+                .pagination-container .pagination li a,
+                .pagination-container .pagination li span {
+                    color: #000;
+                    float: left;
+                    padding: 8px 16px;
+                    text-decoration: none;
+                    transition: background-color 0.3s;
+                    border: 1px solid #ddd;
+                    margin: 0 4px;
+                }
+
+                    .pagination-container .pagination li a:hover {
+                        background-color: #ddd;
+                    }
 </style> 

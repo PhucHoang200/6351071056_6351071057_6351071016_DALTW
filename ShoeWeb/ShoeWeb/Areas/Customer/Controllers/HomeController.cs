@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using ShoeWeb.Areas.Customer.CustomertVM;
 using System.Net;
 using ShoeWeb.Areas.Customer.CustomerVM;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
-using System.Data.Entity;
+using PagedList;
+using PagedList.Mvc;
+using System.Web.UI;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
@@ -46,7 +46,6 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
         public ActionResult Index()
         {
-
             List<List<Product>> products = new List<List<Product>>();
             var categories = _db.categories.ToList();
             foreach (var item in categories)
@@ -119,7 +118,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 .ToList(); // Lấy sản phẩm theo từ khóa tìm kiếm
         }
 
-        public ActionResult Product(string searchTerm)
+        public ActionResult Product(string searchTerm, int? page, bool? FilterByGender, int? FilterSize, int? FilterByBrand, int? FilterByCategory)
         {
             // Lưu từ khóa tìm kiếm vào TempData
             TempData["SearchTerm"] = searchTerm;
@@ -127,36 +126,68 @@ namespace ShoeWeb.Areas.Customer.Controllers
             // Lấy danh sách sản phẩm từ TempData nếu có, nếu không lấy tất cả sản phẩm
             var products = TempData["SearchResults"] as List<Product> ?? Laysanpham(_db, searchTerm);
 
-            using (var applicationDbContext = new ApplicationDbContext())
+            // Lọc theo giới tính nếu có
+            if (FilterByGender.HasValue)
             {
-
-
-                var sanphammoi = Laysanpham(applicationDbContext);
-                var danhmucList = Laydanhmuc(applicationDbContext);
-                var thuonghieuList = Laythuonghieu(applicationDbContext);
-                var kichthuocList = Laykichthuoc(applicationDbContext);
-
-                var productVm = new ProductVM
-                {
-                    Products = products,
-                    Categories = danhmucList,
-                    Brands = thuonghieuList,
-                    Sizes = kichthuocList
-                };
-
-                return View(productVm);
+                products = _db.sizeOfProducts
+                    .Where(sop => sop.size.gender == FilterByGender.Value) // Lọc theo giới tính từ bảng Size
+                    .Select(sop => sop.product) // Lấy sản phẩm tương ứng
+                    .ToList();
             }
 
+            // Lọc theo kích thước nếu có
+            if (FilterSize.HasValue)
+            {
+                products = _db.sizeOfProducts
+                    .Where(sop => sop.sizeId == FilterSize.Value)
+                    .Select(sop => sop.product)
+                    .ToList();
+            }
+
+            // Lọc theo thương hiệu nếu có
+            if (FilterByBrand.HasValue)
+            {
+                products = products.Where(p => p.brandId == FilterByBrand.Value).ToList();
+            }
+
+            // Lọc theo danh mục nếu có
+            if (FilterByCategory.HasValue)
+            {
+                products = products.Where(p => p.cateId == FilterByCategory.Value).ToList();
+            }
+
+            int pageSize = 28; // Số sản phẩm trên mỗi trang
+            int pageNumber = page ?? 1; // Trang hiện tại, mặc định là trang 1
+
+            var pagedProducts = products.ToPagedList(pageNumber, pageSize);
+
+            // Truyền thông tin vào view model để hiển thị trong view
+            var productVm = new ProductVM
+            {
+                Products = pagedProducts,
+                Categories = Laydanhmuc(_db),
+                Brands = Laythuonghieu(_db),
+                Sizes = Laykichthuoc(_db)
+            };
+
+            return View(productVm);
         }
 
-        public ActionResult FilterByCategory(int id)
+
+        public ActionResult FilterByCategory(int id, int? page, bool? FilterByGender, int? FilterSize, int? FilterByBrand)
         {
             using (var applicationDbContext = new ApplicationDbContext())
             {
                 var giayTheoDanhMuc = applicationDbContext.products.Where(s => s.cateId == id).ToList();
+                // Số sản phẩm trên mỗi trang
+                int pageSize = 4;
+                // Trang hiện tại
+                int pageNumber = page ?? 1;
+
+                var pagedProducts = giayTheoDanhMuc.ToPagedList(pageNumber, pageSize);
                 var productVm = new ProductVM
                 {
-                    Products = giayTheoDanhMuc,
+                    Products = pagedProducts,
                     Categories = Laydanhmuc(applicationDbContext),
                     Brands = Laythuonghieu(applicationDbContext),
                     Sizes = Laykichthuoc(applicationDbContext)
@@ -166,14 +197,18 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
         }
 
-        public ActionResult FilterByBrand(int id)
+        public ActionResult FilterByBrand(int id, int? page, bool? FilterByGender, int? FilterSize, int? FilterByBrand)
         {
             using (var applicationDbContext = new ApplicationDbContext())
             {
                 var giayTheoThuongHieu = applicationDbContext.products.Where(s => s.brandId == id).ToList();
+                int pageSize = 4;
+                int pageNumber = page ?? 1;
+
+                var pagedProducts = giayTheoThuongHieu.ToPagedList(pageNumber, pageSize);
                 var productVm = new ProductVM
                 {
-                    Products = giayTheoThuongHieu,
+                    Products = pagedProducts,
                     Categories = Laydanhmuc(applicationDbContext),
                     Brands = Laythuonghieu(applicationDbContext),
                     Sizes = Laykichthuoc(applicationDbContext)
@@ -182,7 +217,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
-        public ActionResult FilterSize(int id)
+        public ActionResult FilterSize(int id, int? page, bool? FilterByGender, int? FilterSize, int? FilterByBrand)
         {
             using (var applicationDbContext = new ApplicationDbContext())
             {
@@ -191,10 +226,14 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     .Where(sop => sop.sizeId == id) // Lọc theo sizeId
                     .Select(sop => sop.product) // Lấy sản phẩm từ SizeOfProduct
                     .ToList();
+                int pageSize = 4;
+                int pageNumber = page ?? 1;
+
+                var pagedProducts = giayTheoKichCo.ToPagedList(pageNumber, pageSize);
 
                 var productVm = new ProductVM
                 {
-                    Products = giayTheoKichCo,
+                    Products = pagedProducts,
                     Categories = Laydanhmuc(applicationDbContext),
                     Brands = Laythuonghieu(applicationDbContext),
                     Sizes = Laykichthuoc(applicationDbContext)
@@ -204,7 +243,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
         }
 
 
-        public ActionResult FilterByGender(bool gender)
+        public ActionResult FilterByGender(bool gender, int? page, bool? FilterByGender, int? FilterSize, int? FilterByBrand)
         {
             using (var applicationDbContext = new ApplicationDbContext())
             {
@@ -212,10 +251,13 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     .Where(sop => sop.size.gender == gender) // Lọc theo giới tính
                     .Select(sop => sop.product) // Lấy danh sách sản phẩm từ SizeOfProduct
                     .ToList();
+                int pageSize = 4;
+                int pageNumber = page ?? 1;
 
+                var pagedProducts = giayTheoGioiTinh.ToPagedList(pageNumber, pageSize);
                 var productVm = new ProductVM
                 {
-                    Products = giayTheoGioiTinh,
+                    Products = pagedProducts,
                     Categories = Laydanhmuc(applicationDbContext),
                     Brands = Laythuonghieu(applicationDbContext),
                     Sizes = Laykichthuoc(applicationDbContext)
@@ -226,7 +268,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult> ProductDetails(int? productId)
+        public ActionResult ProductDetails(int productId)
         {
             var detailProductVm = new DetailProductVM();
 
@@ -234,26 +276,19 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             if (product == null)
             {
-                return View(detailProductVm);
+                return HttpNotFound();
             }
 
-            var sizeIds = _db.sizeOfProducts
-                      .Where(s => s.productId == productId)
-                      .Select(s => s.sizeId)
-                      .ToList();
+            var SizeOfProduct = _db.sizeOfProducts.Where(s => s.productId == productId).ToList();
 
-            if (sizeIds.Any())
+            if (SizeOfProduct != null && SizeOfProduct.Any())
             {
-                var sizes = await _db.sizes
-                                     .Where(size => sizeIds.Contains(size.sizeId))
-                                     .ToListAsync();
-
-                detailProductVm.sizes = sizes;
+                var sizeIds = SizeOfProduct.Select(s => s.sizeId).ToList();
+                detailProductVm.sizes = _db.sizes.Where(s => sizeIds.Contains(s.sizeId)).ToList();
             }
-
             else
             {
-                detailProductVm.sizes = new List<Size>(); 
+                detailProductVm.sizes = new List<Size>();
             }
 
             var relatedProducts = _db.products
@@ -263,6 +298,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             detailProductVm.products = relatedProducts;
             detailProductVm.Product = product;
+            detailProductVm.sizeOfProduct = SizeOfProduct;
 
             return View(detailProductVm);
         }
