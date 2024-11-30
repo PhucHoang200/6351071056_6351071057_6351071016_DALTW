@@ -36,10 +36,7 @@ namespace ShoeWeb.Data
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<OTP> oTPs { get; set; }
 
-
-
-
-
+   
 
     }
 }

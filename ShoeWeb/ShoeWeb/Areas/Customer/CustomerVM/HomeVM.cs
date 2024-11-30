@@ -8,8 +8,8 @@ namespace ShoeWeb.Areas.Customer.CustomertVM
 {
     public class HomeVM
     {
-        public IEnumerable<IEnumerable<Product>> Products { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
-        public IEnumerable<Brand> Brands { get; set; }
+        public List<List<Product>> Products { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Brand> Brands { get; set; }
     }
 }

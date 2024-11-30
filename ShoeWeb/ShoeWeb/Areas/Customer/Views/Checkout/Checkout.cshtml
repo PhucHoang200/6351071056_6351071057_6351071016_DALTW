@@ -70,7 +70,7 @@
             </form>
         </div>
         <div class="col-md-8 order-md-1">
-            @using (Html.BeginForm("Create", "Checkout", FormMethod.Post, new {area= "Customer", @class = "needs-validation", novalidate = "true" }))
+            @using (Html.BeginForm("Checkout", "Checkout", FormMethod.Post, new { area = "Customer", @class = "needs-validation", novalidate = "true" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -103,46 +103,42 @@
 
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <label for="province">Tỉnh/Thành phố</label>
-                        <select class="form-control" id="province" name="Province">
-                            <option value="">Chọn Tỉnh/Thành phố...</option>
+                        <select class="css_select form-control selectpicker" id="tinh" name="Province" title="Chọn Tỉnh Thành" data-live-search="true" style="width: 90% !important;">
+                            <option value="0">Tỉnh Thành</option>
                         </select>
                         @Html.ValidationMessageFor(m => m.Province, "", new { @class = "text-danger" })
+                        <input type="hidden" id="provinceText" name="ProvinceText" />
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label for="district">Quận/Huyện</label>
-                        <select class="form-control" id="district" name="District" disabled>
-                            <option value="">Chọn Quận/Huyện...</option>
+                        <select class="css_select form-control selectpicker" id="quan" name="District" title="Chọn Quận Huyện" data-live-search="true" style="width: 90% !important;">
+                            <option value="0">Quận Huyện</option>
                         </select>
                         @Html.ValidationMessageFor(m => m.District, "", new { @class = "text-danger" })
+                        <input type="hidden" id="districtText" name="DistrictText" />
                     </div>
 
                     <div class="col-md-3 mb-3">
-                        <label for="ward">Phường/Xã</label>
-                        <select class="form-control" id="ward" name="Ward" disabled>
-                            <option value="">Chọn Phường/Xã...</option>
+                        <select class="css_select form-control selectpicker" id="phuong" name="Ward" title="Chọn Phường Xã" data-live-search="true" style="width: 90% !important;">
+                            <option value="0">Phường Xã</option>
                         </select>
                         @Html.ValidationMessageFor(m => m.Ward, "", new { @class = "text-danger" })
+                        <input type="hidden" id="wardText" name="WardText" />
                     </div>
+
+
                 </div>
 
                 <h4 class="mb-3">Phương thức thanh toán</h4>
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                        <input id="VNPay"
-                               name="paymentMethod"
-                               type="radio"
-                               class="custom-control-input"
-                               required="" />
+                        <input id="VNPay" value="VNPay" name="PaymentMethod" type="radio" class="custom-control-input" required="" />
+
                         <label class="custom-control-label" for="VNPay">Thanh toán VNPay</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="Cod"
-                               name="paymentMethod"
-                               type="radio"
-                               class="custom-control-input"
-                               required="" />
+                        <input id="Cod" value="Cod" name="PaymentMethod" type="radio" class="custom-control-input" required="" />
+
                         <label class="custom-control-label" for="Cod">Thanh toán khi nhận hàng</label>
                     </div>
                 </div>
@@ -213,3 +209,72 @@
 <script type="text/javascript"></script>
 <script src="~/Scripts/js/Checkout.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://esgoo.net/scripts/jquery.js"></script>
+<style type="text/css">
+    .css_select_div {
+        text-align: center;
+    }
+
+    .css_select {
+        display: inline-table;
+        width: 25%;
+        padding: 5px;
+        margin: 5px 2%;
+        border: solid 1px #686868;
+        border-radius: 5px;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        // Lấy tỉnh thành
+        $.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm', function (data_tinh) {
+            if (data_tinh.error == 0) {
+                $.each(data_tinh.data, function (key_tinh, val_tinh) {
+                    $("#tinh").append('<option value="' + val_tinh.id + '">' + val_tinh.full_name + '</option>');
+                });
+
+                // Khi chọn Tỉnh, lấy cả giá trị và text
+                $("#tinh").change(function () {
+                    var idtinh = $(this).val();
+                    var tinhText = $("#tinh option:selected").text(); // Lấy text của Tỉnh
+                    $("#provinceText").val(tinhText); // Cập nhật vào hidden field
+
+                    // Lấy quận huyện
+                    $.getJSON('https://esgoo.net/api-tinhthanh/2/' + idtinh + '.htm', function (data_quan) {
+                        if (data_quan.error == 0) {
+                            $("#quan").html('<option value="0">Quận Huyện</option>');
+                            $("#phuong").html('<option value="0">Phường Xã</option>');
+                            $.each(data_quan.data, function (key_quan, val_quan) {
+                                $("#quan").append('<option value="' + val_quan.id + '">' + val_quan.full_name + '</option>');
+                            });
+                        }
+                    });
+                });
+            }
+        });
+
+        // Khi chọn Quận, lấy cả giá trị và text
+        $("#quan").change(function () {
+            var idquan = $(this).val();
+            var quanText = $("#quan option:selected").text(); // Lấy text của Quận
+            $("#districtText").val(quanText); // Cập nhật vào hidden field
+
+            // Lấy phường xã
+            $.getJSON('https://esgoo.net/api-tinhthanh/3/' + idquan + '.htm', function (data_phuong) {
+                if (data_phuong.error == 0) {
+                    $("#phuong").html('<option value="0">Phường Xã</option>');
+                    $.each(data_phuong.data, function (key_phuong, val_phuong) {
+                        $("#phuong").append('<option value="' + val_phuong.id + '">' + val_phuong.full_name + '</option>');
+                    });
+                }
+            });
+        });
+
+        // Khi chọn Phường, lấy cả giá trị và text
+        $("#phuong").change(function () {
+            var idphuong = $(this).val();
+            var phuongText = $("#phuong option:selected").text(); // Lấy text của Phường
+            $("#wardText").val(phuongText); // Cập nhật vào hidden field
+        });
+    });
+</script>

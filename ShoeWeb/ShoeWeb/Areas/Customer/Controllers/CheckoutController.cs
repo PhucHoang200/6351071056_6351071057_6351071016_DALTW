@@ -13,6 +13,9 @@ using System.Data.Entity;
 using ShoeWeb.Areas.Customer.CustomerVM;
 using ShoeWeb.Utility;
 using System.Diagnostics;
+using ShoeWeb.Helper.VnPay;
+using ShoeWeb.Service.VnPay;
+using ShoeWeb.Libraries;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
@@ -23,18 +26,26 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
         private readonly ApplicationDbContext _db;
         private ApplicationUserManager _userManager;
+        private readonly IVnPayService _vnPayService;
+        private OrderViewModel orderViewModel;
 
         public CheckoutController(ApplicationDbContext db)
         {
             _db = db;
+            _vnPayService = new VnPayService();
         }
         public CheckoutController() : this(new ApplicationDbContext())
         {
+            _vnPayService = new VnPayService();
+
         }
         public CheckoutController(ApplicationUserManager userManager)
         {
             UserManager = userManager;
         }
+
+
+
         public ApplicationUserManager UserManager
         {
             get
@@ -45,6 +56,33 @@ namespace ShoeWeb.Areas.Customer.Controllers
             {
                 _userManager = value;
             }
+        }
+        [HttpGet]
+        public ActionResult CreatePaymentUrlVnpay(PaymentInformationModel model)
+        { 
+            if(model == null) model = new PaymentInformationModel();
+            model.OrderType = "Thực Phẩm - Tiêu Dùng";
+            model.OrderDescription = "Thanh toán VNPay thành công";
+            model.Amount = 100000.00M;
+            model.Name = "hieuchance2018";
+
+
+
+            var url = _vnPayService.CreatePaymentUrl(model, this.HttpContext.ApplicationInstance.Context);
+
+            Debug.WriteLine(model.OrderType);
+            Debug.WriteLine(model.OrderDescription);
+            Debug.WriteLine(model.Amount);
+            Debug.WriteLine(model.Name);
+            return Redirect(url);
+        }
+
+        [HttpGet]
+        public ActionResult PaymentCallbackVnpay()
+        {
+            var response = _vnPayService.PaymentExecute(Request.QueryString);
+
+            return Json(response, JsonRequestBehavior.AllowGet);
         }
 
         public async Task<List<ShoppingCartItem>> GetCartItems()
@@ -80,8 +118,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
         [HttpGet]
         public async Task<ActionResult> Checkout()
         {
-            OrderViewModel orderViewModel = new OrderViewModel();
-
+            orderViewModel = new OrderViewModel();
             return View(orderViewModel);
         }
         public string GenerateOrderCode()
@@ -90,48 +127,69 @@ namespace ShoeWeb.Areas.Customer.Controllers
             int newOrderId = (lastOrder == null) ? 1 : lastOrder.Id + 1;
             return "ORD" + newOrderId.ToString("D6"); // Sinh mã đơn hàng dạng ORD000001, ORD000002, ...
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(OrderViewModel model)
+        public async Task<ActionResult> Checkout(OrderViewModel model)
         {
+            Debug.WriteLine(model.PaymentMethod);
+            if (model == null) return View(model);
             if (ModelState.IsValid)
             {
+
                 try
                 {
                     var userId = User.Identity.GetUserId();
                     var cart = await _db.shoppingCarts.Where(c => c.UserId == userId).FirstOrDefaultAsync();
                     var cartItems = await _db.shoppingCartItems.Where(c => c.ShoppingCartId == cart.Id && c.status == false).ToListAsync();
-                    Order order = new Order()
+                    if (model.PaymentMethod == "VNPay")
                     {
-                        Code = GenerateOrderCode(), // Tạo mã đơn hàng
-                        CustomerName = model.FirstName + " " + model.LastName,
-                        Phone = model.Phone,
-                        Address = model.Address,
-                        TinhThanh = model.Province,
-                        QuanHuyen = model.District,
-                        PhuongXa = model.Ward,
-                        TotalAmount = cart.TotalPrice, // Tính tổng tiền đơn hàng
-                        Quantity = cartItems.Count, // Tổng số lượng sản phẩm trong giỏ
-                        TypePayment = model.PaymentMethod == "VNPay" ? 1 : 0, // 1: VNPay, 0: COD
-                        Status = 0, // Trạng thái đơn hàng (0: chưa xử lý)
-                        CreatedDate = DateTime.Now,
-                        isPayment = model.PaymentMethod == "VNPay" ? true : false, // Nếu là VNPay thì thanh toán, còn lại là COD -> chưa thanh toán
-                        isAccept = false, // Chưa được xác nhận
-                    };
+                        var infoPayment = new PaymentInformationModel
+                        {
+                            OrderType = "VNPay",
+                            OrderDescription = "Success",
+                            Amount = 100,
+                            Name = model.FirstName + " " + model.LastName
+                        };
+                        return RedirectToAction("CreatePaymentUrlVnpay", new { model = infoPayment });
 
-                    _db.Orders.Add(order);
-                    await _db.SaveChangesAsync();
-
-                    if (await SaveOrderDetails(cartItems, order.Id))
-                    {
-                        return View("Success");
                     }
                     else
                     {
-                        Debug.WriteLine("loi" );
+                        Order order = new Order()
+                        {
+                            Code = GenerateOrderCode(), // Tạo mã đơn hàng
+                            CustomerName = model.FirstName + " " + model.LastName,
+                            Phone = model.Phone,
+                            Address = model.Address,
+                            TinhThanh = model.ProvinceText,
+                            QuanHuyen = model.DistrictText,
+                            PhuongXa = model.WardText,
+                            TotalAmount = cart.TotalPrice, // Tính tổng tiền đơn hàng
+                            Quantity = cartItems.Count, // Tổng số lượng sản phẩm trong giỏ
+                            TypePayment = model.PaymentMethod == "VNPay" ? 1 : 0, // 1: VNPay, 0: COD
+                            Status = 0, // Trạng thái đơn hàng (0: chưa xử lý)
+                            CreatedDate = DateTime.Now,
+                            isPayment = model.PaymentMethod == "VNPay" ? true : false, // Nếu là VNPay thì thanh toán, còn lại là COD -> chưa thanh toán
+                            isAccept = false, // Chưa được xác nhận
+                        };
 
-                        return View("Error");
+                        _db.Orders.Add(order);
+                        await _db.SaveChangesAsync();
+
+                        if (await SaveOrderDetails(cartItems, order.Id))
+                        {
+                            return View("Success");
+                        }
+                        else
+                        {
+                            Debug.WriteLine("loi");
+
+                            return View("Error");
+                        }
                     }
+
+
 
                 }
                 catch (Exception ex)
@@ -193,6 +251,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
+    
 
     }
 }
