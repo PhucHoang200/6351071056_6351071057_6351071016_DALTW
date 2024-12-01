@@ -17,6 +17,7 @@ using System.Data.Entity;
 using System.Web.Security;
 using ShoeWeb.Helper;
 using ShoeWeb.Models;
+using System.Diagnostics;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
@@ -292,7 +293,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             string body = $"Mã OTP của bạn là: {otpCode}. Vui lòng sử dụng mã này để đặt lại mật khẩu.";
             SendMail.SendEmail(user.Email, subject, body, "");
 
-            TempData["Email"] = model.Email;
+            HttpContext.Session["Email"] = model.Email;
             return RedirectToAction("ConfirmOtp");
         }
 
@@ -319,9 +320,12 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
 
             // Lấy email từ TempData
-            var email = TempData["Email"]?.ToString();
-            if (string.IsNullOrEmpty(email))
+            var email = HttpContext.Session["Email"]?.ToString();
+            Debug.WriteLine(email);
+            if (email == null)
             {
+                Debug.WriteLine("no");
+
                 return RedirectToAction("ForgotPassword"); // Nếu email không tồn tại trong TempData, chuyển hướng về trang ForgotPassword
             }
 
@@ -342,7 +346,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             if (otp == null)
             {
                 ModelState.AddModelError("OtpCode", "Mã OTP không hợp lệ hoặc đã hết hạn.");
-                TempData["Email"] = email; // Lưu lại email khi mã OTP sai
+                HttpContext.Session["Email"] = email;
                 return View(model);
             }
 
@@ -350,7 +354,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             if (otp.OTPCode != model.OtpCode)
             {
                 ModelState.AddModelError("OtpCode", "Mã OTP không chính xác.");
-                TempData["Email"] = email; // Lưu lại email khi mã OTP sai
+                HttpContext.Session["Email"] = email;
                 return View(model);
             }
 
@@ -359,6 +363,8 @@ namespace ShoeWeb.Areas.Customer.Controllers
             _db.SaveChanges();
 
             TempData["UserId"] = user.Id; // Lưu UserId để sử dụng trong trang ResetPassword
+            HttpContext.Session["UserId"] = user.Id;
+
             return RedirectToAction("ResetPassword"); // Chuyển hướng đến trang reset mật khẩu
         }
 
@@ -372,30 +378,25 @@ namespace ShoeWeb.Areas.Customer.Controllers
         [AllowAnonymous]
         public ActionResult ResetPassword()
         {
-            // Lấy ID người dùng từ User.Identity
-            var userId = User.Identity.GetUserId();
+            var email = HttpContext.Session["Email"]?.ToString();
+            var user = UserManager.FindByEmail(email);
 
-            // Kiểm tra nếu _userManager không phải là null và tìm người dùng
-            if (UserManager == null)
-            {
-                throw new InvalidOperationException("UserManager is not initialized.");
-            }
-
-            var user = UserManager.FindByIdAsync(userId).Result;
+          
 
             // Kiểm tra nếu người dùng không tồn tại hoặc chưa xác nhận email
-            if (user == null || !user.EmailConfirmed)
+            if (user == null || !user.EmailConfirmed || email == null)
             {
                 TempData["Error"] = "Vui lòng xác nhận email trước khi thực hiện thao tác này.";
                 return RedirectToAction("ForgotPassword", "User", new { area = "Customer" });
             }
 
+            
             // Nếu mọi thứ hợp lệ, trả về view
             return View();
         }
 
 
-        // POST: ResetPassword
+        //// POST: ResetPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -415,7 +416,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
 
             // Lấy userId từ TempData
-            var userId = TempData["UserId"]?.ToString();
+            var userId = HttpContext.Session["UserId"]?.ToString();
             var user = _db.Users.FirstOrDefault(u => u.Id == userId);
 
             if (user == null) return RedirectToAction("ForgotPassword");

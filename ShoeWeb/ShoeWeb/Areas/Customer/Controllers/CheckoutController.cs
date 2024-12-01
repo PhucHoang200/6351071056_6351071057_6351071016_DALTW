@@ -172,12 +172,13 @@ namespace ShoeWeb.Areas.Customer.Controllers
                             CreatedDate = DateTime.Now,
                             isPayment = model.PaymentMethod == "VNPay" ? true : false, // Nếu là VNPay thì thanh toán, còn lại là COD -> chưa thanh toán
                             isAccept = false, // Chưa được xác nhận
+                            userId = userId
                         };
 
                         _db.Orders.Add(order);
                         await _db.SaveChangesAsync();
 
-                        if (await SaveOrderDetails(cartItems, order.Id))
+                        if (await SaveOrderDetails(cart.Id, order.Id))
                         {
                             return View("Success");
                         }
@@ -207,9 +208,11 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
-        public async Task<bool> SaveOrderDetails(List<ShoppingCartItem> cartItems, int orderId)
+        public async Task<bool> SaveOrderDetails(int cartId, int orderId)
         {
             var orderDetailItems = new List<OrderDetail>();
+            var cartItems = await _db.shoppingCartItems.Where(c => c.ShoppingCartId == cartId && c.status == false).ToListAsync();
+
 
             // Duyệt qua từng item trong giỏ hàng để tạo OrderDetail và cập nhật trạng thái
             foreach (var item in cartItems)

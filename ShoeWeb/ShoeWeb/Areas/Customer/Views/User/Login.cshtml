@@ -110,6 +110,18 @@
                         {
                             <div class="text-danger">@ViewBag.ThongBao</div>
                         }
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-success">
+                                <strong>@TempData["Success"]</strong>
+                            </div>
+                        }
+                        @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                <strong>@TempData["Error"]</strong>
+                            </div>
+                        }
 
                         <!-- Email Input -->
                         <input id="Email_login" name="Email" type="text" placeholder="Email" value="@Model.Email" required />

@@ -171,3 +171,5 @@ D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\bin\System.Web.We
 D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.Up2Date
 D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.dll
 D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.pdb
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.Migrations.addUserId.resources
+D:\CSharp\Project_ShoeWeb\Shoes-Strore-Website\ShoeWeb\ShoeWeb\obj\Debug\ShoeWeb.csproj.GenerateResource.cache

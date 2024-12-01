@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ThongKeTheoVung";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    hr {
+        border: none;
+        border-top: 1px solid #ddd; /* Đường gạch ngang mỏng */
+        margin-top: 10px;
+    }
+</style>
+<div class="dropdown">
+    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Thời Gian
+    </a>
+    <hr />
+
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" onclick="loadPartial('Thang')" href="#">Theo tháng</a></li>
+        <li><a class="dropdown-item" onclick="loadPartial('Quy')" href="#">Theo quý</a></li>
+        <li><a class="dropdown-item" onclick="loadPartial('Nam')" href="#">Theo năm</a></li>
+    </ul>
+</div>
+
+
+
+<div id="partial-container"></div>
+
+
+<script>
+    function loadPartial(timeType) {
+        const container = document.getElementById("partial-container");
+
+        // Xóa toàn bộ nội dung cũ trước khi chèn nội dung mới
+        container.innerHTML = '';
+
+        // Gửi yêu cầu với tham số timeType
+        fetch(`/Admin/ThongKe/Statistic_TheoVung?type=${timeType}`)
+            .then((response) => response.text())
+            .then((html) => {
+                container.innerHTML = html; // Hiển thị nội dung trả về
+            })
+            .catch((error) => {
+                console.error("Lỗi khi tải Partial View:", error);
+                container.innerHTML = "<p>Không thể tải nội dung.</p>";
+            });
+    }
+
+</script>
+

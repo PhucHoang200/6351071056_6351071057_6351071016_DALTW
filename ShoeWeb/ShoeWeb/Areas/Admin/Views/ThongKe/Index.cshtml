@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .main-order {
+        display: grid;
+        gap: 10px; /* Khoảng cách giữa các phần tử trong grid */
+    }
+
+    .header-order ul {
+        display: flex;
+        gap: 20px; /* Khoảng cách giữa các mục trong danh sách */
+        list-style: none; /* Bỏ bullet của danh sách */
+        padding: 0; /* Xóa padding mặc định */
+        margin: 0; /* Xóa margin mặc định */
+        padding-left: 27px;
+    }
+
+        .header-order ul li a {
+            text-decoration: none; /* Bỏ gạch chân */
+            color: #333; /* Màu chữ */
+            font-size: 20px;
+        }
+
+            .header-order ul li a:hover {
+                color: #007bff; /* Màu chữ khi hover */
+            }
+
+    .header-order hr {
+        border: none;
+        border-top: 1px solid #ddd; /* Đường gạch ngang mỏng */
+        margin-top: 10px;
+    }
+
+    .header-order ul li {
+        cursor: pointer;
+        padding: 5px 10px;
+        border-bottom: 2px solid transparent; /* Mặc định viền dưới trong suốt */
+        color: #333; /* Màu chữ mặc định */
+        transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+    }
+
+        .header-order ul li.show {
+            border-bottom: 2px solid #007bff;
+        }
+</style>
+<div class="main-order">
+    <div class="header-order">
+        <ul>
+            <li><a href="#" onclick="loadPartial('DoanhSo')">Doanh số bán ra</a></li>
+            <li><a href="#" onclick="loadPartial('SanPhamBanChay')">Sản phẩm bán chạy</a></li>          
+            <li><a href="#" onclick="loadPartial('ThongKeTheoVung')">Thống kê theo vùng</a></li>          
+        </ul>
+        <hr />
+    </div>
+</div>
+
+
+<script>
+    // Chọn tất cả các mục trong danh sách
+    const listItems = document.querySelectorAll(".header-order ul li");
+
+    // Lặp qua các mục và thêm sự kiện click
+    listItems.forEach((item) => {
+        item.addEventListener("click", function () {
+            // Bỏ class `show` khỏi tất cả các mục
+            listItems.forEach((li) => li.classList.remove("show"));
+
+            // Thêm class `show` vào mục hiện tại
+            this.classList.add("show");
+        });
+    });
+
+
+    function loadPartial(viewName) {
+        const container = document.getElementById("partial-container");
+
+        // Xóa toàn bộ nội dung cũ trong container trước khi chèn nội dung mới
+        container.innerHTML = '';
+
+        fetch(`/Admin/Order/${viewName}`)
+            .then((response) => response.text())
+            .then((html) => {
+                container.innerHTML = html;
+            })
+            .catch((error) => {
+                console.error("Lỗi khi tải Partial View:", error);
+                container.innerHTML = "<p>Không thể tải nội dung.</p>";
+            });
+    }
+
+
+</script>
+
+
+

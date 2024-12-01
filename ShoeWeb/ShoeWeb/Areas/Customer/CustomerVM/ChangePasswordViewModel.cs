@@ -20,5 +20,8 @@ namespace ShoeWeb.Areas.Customer.CustomerVM
         [Display(Name = "Xác nhận mật khẩu mới")]
         [Compare("NewPassword", ErrorMessage = "Mật khẩu xác nhận không trùng khớp.")]
         public string ConfirmPassword { get; set; }
+
+        public string optCode { get; set; }
+        public string token { get; set; }
     }
 }
