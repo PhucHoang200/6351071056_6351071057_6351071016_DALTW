@@ -12,6 +12,8 @@ namespace ShoeWeb.Areas.Customer.CustomerVM
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string UserName { get; set; }
-        public ShoppingCartItem ShoppingCartItem { get; set; }
+        public IEnumerable<OrderDetail> orderItem_success { get; set; }
+        public IEnumerable<OrderDetail> orderItem_waitingAccept { get; set; }
+        public IEnumerable<OrderDetail> orderItem_shipping { get; set; }
     }
 }

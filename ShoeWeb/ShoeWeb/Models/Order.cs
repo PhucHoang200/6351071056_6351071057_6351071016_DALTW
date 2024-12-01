@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using ShoeWeb.Identity;
 
 namespace ShoeWeb.Models
 {
@@ -39,5 +40,8 @@ namespace ShoeWeb.Models
         public int Status { get; set; }
 
         public DateTime CreatedDate { get; set; }
+        public string userId { get; set; }
+        [ForeignKey("userId")]
+        public AppUser User { get; set; }
     }
 }
