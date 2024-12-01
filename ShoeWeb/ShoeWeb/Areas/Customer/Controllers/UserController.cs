@@ -208,7 +208,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 if (result.Succeeded)
                 {
 
-                    await UserManager.AddToRoleAsync(user.Id, SD.AdminRole);
+                    await UserManager.AddToRoleAsync(user.Id, SD.CustomerRole);
 
                     //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
