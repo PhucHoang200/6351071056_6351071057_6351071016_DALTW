@@ -3,6 +3,8 @@
     ViewBag.Title = "ThongKeTheoVung";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+
 <style>
     hr {
         border: none;
@@ -27,7 +29,103 @@
 
 <div id="partial-container"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).ready(function() {
+    // Đảm bảo mã ajax chỉ chạy sau khi trang được tải hoàn toàn
 
+    // Xử lý khi chọn thời gian khác
+    function loadPartial(timeType) {
+        const container = document.getElementById("partial-container");
+
+        // Xóa toàn bộ nội dung cũ trước khi chèn nội dung mới
+        container.innerHTML = '';
+
+        // Gửi yêu cầu với tham số timeType
+        fetch(`/Admin/ThongKe/Statistic_TheoVung?type=${timeType}`)
+            .then((response) => response.text())
+            .then((html) => {
+                container.innerHTML = html; // Hiển thị nội dung trả về
+
+                // Gọi lại biểu đồ sau khi partial view được tải
+                loadChart(timeType);
+            })
+            .catch((error) => {
+                console.error("Lỗi khi tải Partial View:", error);
+                container.innerHTML = "<p>Không thể tải nội dung.</p>";
+            });
+    }
+
+    // Hàm để tải và vẽ biểu đồ
+    function loadChart(type) {
+        console.log(type);
+
+        $.ajax({
+            url: '@Url.Action("Statistic_TheoVung", "ThongKe")',  // Thay "YourControllerName" bằng tên controller của bạn
+            data: { type: type },
+            type: 'GET',
+            success: function(data) {
+                // Kiểm tra dữ liệu trả về
+                console.log(data); // In ra dữ liệu trong console để kiểm tra
+
+                // Nếu dữ liệu có, tiếp tục xử lý
+                if (data && data.length > 0) {
+                    var labels = data.map(function(item) { return item.Date; });  // Chuyển ngày sang label
+                    var values = data.map(function(item) { return item.TotalAmount; });  // Chuyển tổng tiền thành giá trị
+
+                    var ctx = document.getElementById('myChart');
+                    if (ctx) {
+                        var myChart = new Chart(ctx.getContext('2d'), {
+                            type: 'bar', // Loại biểu đồ
+                            data: {
+                                labels: labels, // Gán nhãn theo ngày
+                                datasets: [{
+                                    label: 'Tổng số tiền',
+                                    data: values,  // Dữ liệu tổng số tiền
+                                    backgroundColor: 'rgba(54, 162, 235, 0.6)',  // Màu nền cho các cột
+                                    borderColor: 'rgba(54, 162, 235, 1)',  // Màu viền cho các cột
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Thống kê tổng số tiền theo ' + type,
+                                    fontSize: 25
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'top',
+                                    labels: {
+                                        fontColor: '#000'
+                                    }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                },
+                                tooltips: {
+                                    enabled: true
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    console.log("Không có dữ liệu để hiển thị");
+                }
+            },
+            error: function(err) {
+                console.log('Lỗi khi gọi API:', err);
+            }
+        });
+    }
+});
+
+</script>
 <script>
     function loadPartial(timeType) {
         const container = document.getElementById("partial-container");

@@ -109,7 +109,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             {
                 Response.Cookies.Remove("__RequestVerificationToken");
                 SignInManager.AuthenticationManager.SignOut();
-                ViewBag.ErrorMessage = "Email của bạn chưa được xác nhận. Vui lòng kiểm tra email hoặc yêu cầu gửi lại.";
+                ViewBag.ErrorMessage = "Email của bạn chưa được xác nhận.";
                 ViewBag.ResendEmail = true;
                 ViewBag.UserEmail = model.Email; // Chuyển email cho liên kết gửi lại mail
                 return View(model); // Giữ người dùng lại trang Login
@@ -180,6 +180,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
 
         [AllowAnonymous]
+        [HttpGet]
         public async Task<ActionResult> ResendConfirmationEmail(string email)
         {
             var user = await UserManager.FindByEmailAsync(email);

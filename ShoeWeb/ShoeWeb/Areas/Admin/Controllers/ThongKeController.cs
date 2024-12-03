@@ -39,88 +39,110 @@ namespace ShoeWeb.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Statistic_TheoVung(string type)
+        public async Task<ActionResult> Statistic_TheoVung()
         {
             try
             {
-                List<StatisticVM> orders = new List<StatisticVM>();
+                List<StatisticVM> orders;
+                int currentYear = DateTime.Now.Year; // Lấy năm hiện tại
 
-                switch (type)
+                // Lấy dữ liệu của năm nay
+                var monthData = await _db.Orders
+                    .Where(o => o.CreatedDate.Year == currentYear) // Lọc đơn hàng trong năm nay
+                    .ToListAsync();
+
+                // Nhóm dữ liệu theo tháng và tính tổng số tiền theo mỗi tháng
+                orders = monthData
+                    .GroupBy(o => o.CreatedDate.Month)
+                    .Select(g => new StatisticVM
+                    {
+                        TotalAmount = g.Sum(o => o.TotalAmount),
+                        CreatedDate = new DateTime(currentYear, g.Key, 1) // Mốc ngày đầu tháng
+                    })
+                    .OrderBy(o => o.CreatedDate) // Sắp xếp theo tháng
+                    .ToList();
+
+                // Đảm bảo có đầy đủ 12 tháng
+                for (int i = 1; i <= 12; i++)
                 {
-                    case "Thang":
-                        // Lấy tất cả dữ liệu
-                        var monthData = await _db.Orders
-                            .ToListAsync(); // Lấy toàn bộ dữ liệu
-
-                        // Thực hiện nhóm và tính toán trong bộ nhớ
-                        orders = monthData
-                            .GroupBy(o => new { o.CreatedDate.Year, o.CreatedDate.Month })
-                            .Select(g => new StatisticVM
-                            {
-                                TotalAmount = g.Sum(o => o.TotalAmount),
-                                CreatedDate = new DateTime(g.Key.Year, g.Key.Month, 1) // Lấy ngày đầu tháng
-                            })
-                            .OrderBy(o => o.CreatedDate)
-                            .ToList();
-                        foreach (var item in orders)
+                    if (!orders.Any(o => o.CreatedDate.Month == i))
+                    {
+                        orders.Add(new StatisticVM
                         {
-                            Debug.WriteLine(item.TotalAmount);
-                            Debug.WriteLine(item.CreatedDate);
-                        }
-                        break;
-
-                    case "Quy":
-                        // Lấy tất cả dữ liệu
-                        var quarterData = await _db.Orders
-                            .ToListAsync(); // Lấy toàn bộ dữ liệu
-
-                        // Thực hiện nhóm và tính toán trong bộ nhớ
-                        orders = quarterData
-                            .GroupBy(o => new
-                            {
-                                o.CreatedDate.Year,
-                                Quarter = (o.CreatedDate.Month - 1) / 3 + 1 // Tính quý
-                            })
-                            .Select(g => new StatisticVM
-                            {
-                                TotalAmount = g.Sum(o => o.TotalAmount),
-                                CreatedDate = new DateTime(g.Key.Year, (g.Key.Quarter - 1) * 3 + 1, 1) // Lấy tháng đầu quý
-                            })
-                            .OrderBy(o => o.CreatedDate)
-                            .ToList();
-                        break;
-
-                    case "Nam":
-                        // Lấy tất cả dữ liệu
-                        var yearData = await _db.Orders
-                            .ToListAsync(); // Lấy toàn bộ dữ liệu
-
-                        // Thực hiện nhóm và tính toán trong bộ nhớ
-                        orders = yearData
-                            .GroupBy(o => o.CreatedDate.Year)
-                            .Select(g => new StatisticVM
-                            {
-                                TotalAmount = g.Sum(o => o.TotalAmount),
-                                CreatedDate = new DateTime(g.Key, 1, 1) // Lấy ngày đầu năm
-                            })
-                            .OrderBy(o => o.CreatedDate)
-                            .ToList();
-                        break;
-
-                    default:
-                        return Content("Loại thống kê không hợp lệ");
+                            CreatedDate = new DateTime(currentYear, i, 1),
+                            TotalAmount = 0 // Thêm tháng chưa có dữ liệu với số tiền bằng 0
+                        });
+                    }
                 }
 
-                // Trả về Partial View với dữ liệu
-                return PartialView("Statistic_TheoVung", orders);
+                // Trả về dữ liệu dưới dạng JSON
+                var data = orders.OrderBy(o => o.CreatedDate).Select(o => new {
+                    Date = o.CreatedDate.ToString("yyyy-MM"),
+                    TotalAmount = o.TotalAmount
+                }).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi
                 return Content($"Lỗi: {ex.Message}");
             }
         }
 
+
+
+
+        [HttpGet]
+        public async Task<ActionResult> Statistic_LuongDon()
+        {
+            try
+            {
+                List<StatisticVM> orders;
+                int currentYear = DateTime.Now.Year; // Lấy năm hiện tại
+
+                // Lấy dữ liệu của năm nay
+                var monthData = await _db.Orders
+                    .Where(o => o.CreatedDate.Year == currentYear) // Lọc đơn hàng trong năm nay
+                    .ToListAsync();
+
+                // Nhóm dữ liệu theo tháng và tính tổng số lượng đơn hàng theo mỗi tháng
+                orders = monthData
+                    .GroupBy(o => o.CreatedDate.Month)
+                    .Select(g => new StatisticVM
+                    {
+                        // Thay vì tính tổng số tiền, ta tính tổng số lượng đơn hàng
+                        TotalAmount = g.Count(), // Đếm số lượng đơn hàng trong tháng
+                        CreatedDate = new DateTime(currentYear, g.Key, 1) // Mốc ngày đầu tháng
+                    })
+                    .OrderBy(o => o.CreatedDate) // Sắp xếp theo tháng
+                    .ToList();
+
+                // Đảm bảo có đầy đủ 12 tháng
+                for (int i = 1; i <= 12; i++)
+                {
+                    if (!orders.Any(o => o.CreatedDate.Month == i))
+                    {
+                        orders.Add(new StatisticVM
+                        {
+                            CreatedDate = new DateTime(currentYear, i, 1),
+                            TotalAmount = 0 // Thêm tháng chưa có dữ liệu với số lượng đơn bằng 0
+                        });
+                    }
+                }
+
+                // Trả về dữ liệu dưới dạng JSON
+                var data = orders.OrderBy(o => o.CreatedDate).Select(o => new {
+                    Date = o.CreatedDate.ToString("yyyy-MM"),
+                    TotalAmount = o.TotalAmount // Sử dụng TotalAmount để chứa số lượng đơn hàng
+                }).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Content($"Lỗi: {ex.Message}");
+            }
+        }
 
 
 

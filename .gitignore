@@ -1,6 +1,14 @@
+# Ignore Visual Studio temporary files, build results, and
+# user-specific files
+ShoeWeb/.vs/
 ShoeWeb/ShoeWeb/bin/
 ShoeWeb/ShoeWeb/obj/
-ShoeWeb/.vs/
-*.dll
-*.exe
-*.pdb
+*.user
+*.suo
+
+# Ignore NuGet packages
+packages/
+# Ignore large NuGet package
+ShoeWeb/packages/HarfBuzzSharp.2.6.1.5/
+
+ShoeWeb/packages/HarfBuzzSharp.2.6.1.5/*.nupkg

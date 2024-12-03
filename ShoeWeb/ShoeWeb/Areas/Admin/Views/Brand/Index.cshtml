@@ -79,30 +79,5 @@
 </table>
 
 
-<script>
-    function AddBrand() {
-        var name = document.getElementById(`InputName`).value;
-        if (confirm("Bạn có chắc muốn thêm không?")) {
-            $.ajax({
-                url: '/Brand/AddBrand',
-                type: 'POST',
-                data: {
-                    name: name,
-                },
-                success: function (result) {
-                    if (result.success) {
-                        $('#exampleModalCenter').modal('hide');
-                        $('.modal-backdrop').remove();
-                        updateBrandList(result.brands);
-                    } else {
-                        alert(result.message);
-                    }
-                },
-                error: function (xhr, status, error) {
-                    alert("Có lỗi xảy ra!");
-                }
-            });
-        }
-    }
-</script>
+
 
