@@ -7,13 +7,13 @@ namespace ShoeWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class addUserId : IMigrationMetadata
+    public sealed partial class AddStatusToUsers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addUserId));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddStatusToUsers));
         
         string IMigrationMetadata.Id
         {
-            get { return "202412010924270_addUserId"; }
+            get { return "202412030634550_AddStatusToUsers"; }
         }
         
         string IMigrationMetadata.Source

@@ -35,8 +35,6 @@ namespace ShoeWeb.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<OTP> oTPs { get; set; }
-
-   
-
+        public DbSet<IdentityUserRole> UserRoles { get; set; } // DbSet cho AspNetUserRoles
     }
 }

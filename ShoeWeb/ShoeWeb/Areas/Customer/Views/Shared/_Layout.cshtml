@@ -128,9 +128,6 @@
                                     <li style="width: 100% !important;">
                                         <a href="@Url.Action("UserInformation", "Account")">Xem thông tin chi tiết</a>
                                     </li>
-                                    <li style="width: 100%;">
-                                        <a href="@Url.Action("ChangePassword", "Account")">Đổi mật khẩu</a>
-                                    </li>
                                     <li class="logout-item" style="width: 100%;">
                                         @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { @class = "logout-form" }))
                                         {

@@ -136,29 +136,26 @@
                           method="post">
                         @Html.AntiForgeryToken()
 
-                        <!-- Thông báo lỗi -->
-                        @if (ViewBag.ThongBao != null)
-                        {
-                            <div class="text-danger">@ViewBag.ThongBao</div>
-                        }
-                        @if (TempData["Success"] != null)
-                        {
-                            <div class="alert alert-success">
-                                <strong>@TempData["Success"]</strong>
-                            </div>
-                        }
-                        @if (TempData["Error"] != null)
+                        <!-- Hiển thị lỗi -->
+                        @if (!ViewData.ModelState.IsValid)
                         {
                             <div class="alert alert-danger">
-                                <strong>@TempData["Error"]</strong>
+                                <ul>
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <li>@error.ErrorMessage</li>
+                                    }
+                                </ul>
                             </div>
                         }
 
-                        <!-- Email Input -->
+                        <!-- Input Email -->
                         <input id="Email_login" name="Email" type="text" placeholder="Email" value="@Model.Email" required />
+                        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
 
-                        <!-- Password Input -->
+                        <!-- Input Password -->
                         <input id="Password_login" name="Password" type="password" placeholder="Password" required />
+                        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
 
                         <!-- Submit Button -->
                         <button type="submit" class="btn">Log in</button>

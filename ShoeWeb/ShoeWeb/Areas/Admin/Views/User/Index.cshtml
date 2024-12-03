@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model List<ShoeWeb.Areas.Admin.Admin_ViewModel.UserVM>
+@using Microsoft.AspNet.Identity.EntityFramework
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>User Name</th>
+            <th>Status</th>
+            <th>Role Name</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr id="viewRow-@user.Id">
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.UserName</td>
+                <td>@(user.Status ? "Đã vô hiệu hóa" : "Chưa vô hiệu hóa")</td>
+                <td>@user.RoleName</td>
+                <td>
+                    <button class="btn btn-secondary" onclick="editUser('@user.Id')">
+                        <i class="bi bi-pencil-square"></i> Sửa
+                    </button>
+                </td>
+            </tr>
+            <tr id="editRow-@user.Id" style="display: none;">
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.UserName</td>
+                <td>
+                    <select class="form-select" id="statusSelect-@user.Id">
+                        <option value="false" @(user.Status ? "" : "selected")>Chưa vô hiệu hóa</option>
+                        <option value="true" @(user.Status ? "selected" : "")>Đã vô hiệu hóa</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select" id="roleSelect-@user.Id">
+                        <option value="">Chọn vai trò</option>
+                        @foreach (var role in ViewBag.Roles as List<IdentityRole>)
+                        {
+                            <option value="@role.Id" @(role.Name == user.RoleName ? "selected" : "")>
+                                @role.Name
+                            </option>
+                        }
+                    </select>
+                </td>
+
+
+                <td>
+                    <button class="btn btn-primary" onclick="saveUser('@user.Id')">
+                        <i class="bi bi-save"></i> Lưu
+                    </button>
+                    <button class="btn btn-danger" onclick="cancelEdit('@user.Id')">
+                        <i class="bi bi-x-circle"></i> Hủy
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    function editUser(userId) {
+        document.getElementById(`viewRow-${userId}`).style.display = 'none';
+        document.getElementById(`editRow-${userId}`).style.display = '';
+    }
+
+    function cancelEdit(userId) {
+        document.getElementById(`editRow-${userId}`).style.display = 'none';
+        document.getElementById(`viewRow-${userId}`).style.display = '';
+    }
+
+    function saveUser(userId) {
+        console.log("Button clicked for userId:", userId);
+
+        // Lấy giá trị trạng thái và vai trò
+        const status = document.getElementById(`statusSelect-${userId}`).value === "true";
+        const roleId = document.getElementById(`roleSelect-${userId}`).value; // Lấy RoleId
+
+        // Tạo dữ liệu để gửi
+        const data = {
+            userId: userId,
+            status: status,
+            roleName: roleId // Gửi RoleId thay vì RoleName
+        };
+
+        // Gửi yêu cầu đến server bằng Fetch API
+        fetch('/Admin/User/UpdateUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Định dạng dữ liệu JSON
+            },
+            body: JSON.stringify(data) // Chuyển dữ liệu thành chuỗi JSON
+        })
+            .then(response => response.json()) // Chuyển đổi phản hồi thành JSON
+            .then(response => {
+                if (response.success) {
+                    alert("Cập nhật thành công!");
+                    location.reload(); // Reload lại trang để hiển thị thay đổi
+                } else {
+                    alert(response.message); // Hiển thị lỗi từ server
+                }
+            })
+            .catch(error => {
+                console.error("Có lỗi xảy ra khi cập nhật!", error);
+                alert("Có lỗi xảy ra khi cập nhật!");
+            });
+    }
+
+</script>
