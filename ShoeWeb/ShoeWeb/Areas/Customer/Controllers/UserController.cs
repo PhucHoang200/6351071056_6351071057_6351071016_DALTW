@@ -95,6 +95,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 return View(model);
             }
 
+            // Tìm người dùng dựa trên Email
             var user = await UserManager.FindByEmailAsync(model.Email);
 
             if (user == null)
@@ -103,8 +104,17 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 return View(model);
             }
 
+            // Kiểm tra trạng thái tài khoản
+            if (user.Status) // Nếu `Status` là true, tài khoản bị vô hiệu hóa
+            {
+                ModelState.AddModelError("", "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ quản trị viên.");
+                return View(model);
+            }
+
+            // Lấy vai trò của người dùng
             var role = await UserManager.GetRolesAsync(user.Id);
 
+            // Kiểm tra xác nhận Email
             if (!user.EmailConfirmed)
             {
                 Response.Cookies.Remove("__RequestVerificationToken");
@@ -115,6 +125,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 return View(model); // Giữ người dùng lại trang Login
             }
 
+            // Thực hiện đăng nhập
             var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {

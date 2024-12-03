@@ -411,6 +411,7 @@
     <Compile Include="Areas\Admin\Admin_ViewModel\OriginVM.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\ProductVM.cs" />
     <Compile Include="Areas\Admin\Admin_ViewModel\StatisticVM.cs" />
+    <Compile Include="Areas\Admin\Admin_ViewModel\UserVM.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
@@ -418,6 +419,7 @@
     <Compile Include="Areas\Admin\Controllers\OriginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongKeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Customer\Controllers\AccountController.cs" />
     <Compile Include="Areas\Customer\Controllers\CartController.cs" />
     <Compile Include="Areas\Customer\Controllers\CheckoutController.cs" />
@@ -455,6 +457,10 @@
     <Compile Include="Migrations\202412011339158_UpdateDatabase.cs" />
     <Compile Include="Migrations\202412011339158_UpdateDatabase.Designer.cs">
       <DependentUpon>202412011339158_UpdateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412030634550_AddStatusToUsers.cs" />
+    <Compile Include="Migrations\202412030634550_AddStatusToUsers.Designer.cs">
+      <DependentUpon>202412030634550_AddStatusToUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -766,6 +772,7 @@
     <Content Include="Areas\Admin\Views\ThongKe\Statistic_TheoVung.cshtml" />
     <Content Include="Areas\Customer\Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Areas\Customer\Views\Account\InputPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -907,6 +914,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202412011339158_UpdateDatabase.resx">
       <DependentUpon>202412011339158_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412030634550_AddStatusToUsers.resx">
+      <DependentUpon>202412030634550_AddStatusToUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
