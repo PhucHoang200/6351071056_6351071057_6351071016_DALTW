@@ -179,10 +179,31 @@ function updateBrand(id) {
     }
 }
 
-
-
-
-function updateBrandList() {
+function AddBrand() {
+    var name = document.getElementById(`InputName`).value;
+    if (confirm("Bạn có chắc muốn thêm không?")) {
+        $.ajax({
+            url: '/Admin/Brand/AddBrand',
+            type: 'POST',
+            data: {
+                name: name,
+            },
+            success: function (result) {
+                if (result.success) {
+                    $('#exampleModalCenter').modal('hide');
+                    $('.modal-backdrop').remove();
+                    updateBrandList(result.brands);
+                } else {
+                    alert(result.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Có lỗi xảy ra!");
+            }
+        });
+    }
+}
+function updateBrandList(brands) {
     var brandTableBody = $('tbody');
     brandTableBody.empty(); // Xóa tất cả các dòng hiện tại trong bảng
     $.each(brands, function (index, brand) {
@@ -212,6 +233,10 @@ function updateBrandList() {
             </tr>
         `);
     });
-
-
 }
+
+
+
+
+
+

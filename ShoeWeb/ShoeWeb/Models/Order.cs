@@ -43,5 +43,7 @@ namespace ShoeWeb.Models
         public string userId { get; set; }
         [ForeignKey("userId")]
         public AppUser User { get; set; }
+
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

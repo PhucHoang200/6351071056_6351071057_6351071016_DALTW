@@ -1,99 +1,98 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
-
-<style>
-    .main-order {
-        display: grid;
-        gap: 10px; /* Khoảng cách giữa các phần tử trong grid */
+﻿<div class="container-fluid">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+        <i class="bi bi-arrow-down-circle"></i> Xuất báo cáo
+    </button>
+    @{
+        var successMessage = TempData["SuccessMessage"] as string;
     }
 
-    .header-order ul {
-        display: flex;
-        gap: 20px; /* Khoảng cách giữa các mục trong danh sách */
-        list-style: none; /* Bỏ bullet của danh sách */
-        padding: 0; /* Xóa padding mặc định */
-        margin: 0; /* Xóa margin mặc định */
-        padding-left: 27px;
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert alert-success">
+            @successMessage
+        </div>
+    }  @if (ViewData["Error"] != null)
+    {
+        <div class="alert alert-success">
+            @ViewData["Error"]
+        </div>
     }
 
-        .header-order ul li a {
-            text-decoration: none; /* Bỏ gạch chân */
-            color: #333; /* Màu chữ */
-            font-size: 20px;
-        }
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Báo cáo</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="@Url.Action("ExportRevenueToPDF", "BaoCao")" method="get">
+                        <!-- Từ ngày -->
+                        <div class="mb-3">
+                            <label for="fromDate" class="form-label">Từ ngày:</label>
+                            <input type="date" class="form-control" id="fromDate" name="fromDate" required>
+                        </div>
 
-            .header-order ul li a:hover {
-                color: #007bff; /* Màu chữ khi hover */
-            }
+                        <!-- Đến ngày -->
+                        <div class="mb-3">
+                            <label for="toDate" class="form-label">Đến ngày:</label>
+                            <input type="date" class="form-control" id="toDate" name="toDate" required>
+                        </div>
 
-    .header-order hr {
-        border: none;
-        border-top: 1px solid #ddd; /* Đường gạch ngang mỏng */
-        margin-top: 10px;
-    }
-
-    .header-order ul li {
-        cursor: pointer;
-        padding: 5px 10px;
-        border-bottom: 2px solid transparent; /* Mặc định viền dưới trong suốt */
-        color: #333; /* Màu chữ mặc định */
-        transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
-    }
-
-        .header-order ul li.show {
-            border-bottom: 2px solid #007bff;
-        }
-</style>
-<div class="main-order">
-    <div class="header-order">
-        <ul>
-            <li><a href="#" onclick="loadPartial('DoanhSo')">Doanh số bán ra</a></li>
-            <li><a href="#" onclick="loadPartial('SanPhamBanChay')">Sản phẩm bán chạy</a></li>          
-            <li><a href="#" onclick="loadPartial('ThongKeTheoVung')">Thống kê theo vùng</a></li>          
-        </ul>
-        <hr />
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Xuất báo cáo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
-<script>
-    // Chọn tất cả các mục trong danh sách
-    const listItems = document.querySelectorAll(".header-order ul li");
+    </p>
 
-    // Lặp qua các mục và thêm sự kiện click
-    listItems.forEach((item) => {
-        item.addEventListener("click", function () {
-            // Bỏ class `show` khỏi tất cả các mục
-            listItems.forEach((li) => li.classList.remove("show"));
+<!-- Content Row -->
+<div class="row">
 
-            // Thêm class `show` vào mục hiện tại
-            this.classList.add("show");
-        });
-    });
+    <div class="col-xl-8 col-lg-7">
 
+        <!-- Area Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Doanh thu</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="myAreaChart"></canvas>
+                </div>
 
-    function loadPartial(viewName) {
-        const container = document.getElementById("partial-container");
+            </div>
+        </div>
 
-        // Xóa toàn bộ nội dung cũ trong container trước khi chèn nội dung mới
-        container.innerHTML = '';
+        <!-- Bar Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Đơn hàng</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-bar">
+                    <canvas id="myBarChart"></canvas>
+                </div>
 
-        fetch(`/Admin/Order/${viewName}`)
-            .then((response) => response.text())
-            .then((html) => {
-                container.innerHTML = html;
-            })
-            .catch((error) => {
-                console.error("Lỗi khi tải Partial View:", error);
-                container.innerHTML = "<p>Không thể tải nội dung.</p>";
-            });
-    }
+            </div>
+        </div>
 
+    </div>
 
-</script>
+    <!-- Donut Chart -->
+  
+</div>
+
+</div>
 
 
 
