@@ -298,34 +298,46 @@ function searchProducts() {
 
         .search-form {
             position: relative; /* Để nút tìm kiếm nằm bên trong thanh tìm kiếm */
-            max-width: 500px;
+            max-width: 800px; /* Tăng độ rộng */
             margin: 0 auto;
-            margin-left: 100px;
+            margin-left: 200px;
         }
 
             .search-form input[type="text"] {
                 width: 100%;
-                padding: 8px 40px 8px 12px; /* Chừa khoảng trống bên phải cho nút tìm kiếm */
+                padding: 10px 50px 10px 15px; /* Điều chỉnh padding cho cân đối */
                 border: 2px solid #ccc;
-                border-radius: 20px;
+                border-radius: 8px; /* Bo góc nhẹ */
                 outline: none;
                 font-size: 16px;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt mà khi focus */
             }
+
+                .search-form input[type="text"]:focus {
+                    border-color: #007bff; /* Đổi màu viền khi focus */
+                    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng ánh sáng khi focus */
+                }
 
             .search-form button {
                 position: absolute; /* Đặt nút tìm kiếm trong thanh tìm kiếm */
-                right: 5px; /* Canh lề phải bên trong thanh tìm kiếm */
+                right: 10px; /* Canh lề phải bên trong thanh tìm kiếm */
                 top: 50%;
                 transform: translateY(-50%); /* Căn chỉnh nút tìm kiếm theo chiều dọc */
                 background-color: transparent; /* Làm nền nút trong suốt */
+                color: #007bff;
                 border: none;
                 cursor: pointer;
             }
 
-                .search-form button i {
-                    color: #007bff; /* Màu sắc biểu tượng kính lúp */
-                    font-size: 18px;
+                .search-form button:hover {
+                    color: #0056b3; /* Màu khi hover vào biểu tượng */
                 }
+
+                .search-form button i {
+                    font-size: 20px; /* Tăng kích thước biểu tượng kính lúp */
+                    transition: color 0.3s ease; /* Hiệu ứng mượt khi đổi màu */
+                }
+
     </style>
 
 </body>

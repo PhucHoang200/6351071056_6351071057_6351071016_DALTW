@@ -44,7 +44,7 @@
                     <a href="@Url.Action("ProductDetails", "Home", new { productId = product.productId })">
                         <h4>@product.productName</h4>
                     </a>
-                    <p>@product.price.ToString("C")</p>
+                    <p>@product.price.ToString("#,##0.##")đ</p>
                 </div>
             }
         </div>

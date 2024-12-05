@@ -101,7 +101,7 @@
                             <a href="@Url.Action("ProductDetails", "Home", new {area = "Customer", productId = product.productId })">
                                 <h4>@product.productName</h4>
                             </a>
-                            <p>@product.price.ToString("C", new System.Globalization.CultureInfo("vi-VN"))</p>
+                            <p>@product.price.ToString("#,##0.##")đ</p>
                         </div>
                     }
 
@@ -138,22 +138,7 @@
 
 
 
-<!--------------------------`   offer   --------------------------------->
-<div class="offer">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-2">
-                <img src="@Url.Content("~/Content/images/image1.png")" />
-            </div>
-            <div class="col-2">
-                <p>Exclusively Available on RedStore</p>
-                <h1>Sports Shoes</h1>
-                <small> Buy latest collections of sports shoes online on Redstore at best prices from top brands such as Adidas, Nike, Puma, Asics, and Sparx at your leisure at best prices. </small><br>
-                <a href="products.html" class="btn">Buy Now &#8594;</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 
@@ -321,7 +306,7 @@
         left: 0;
         top: 0;
         width: 250px;
-        height: 1650px; /* Chiều cao cố định */
+        height: 2018px;
         padding: 20px;
         background-color: #fff;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
