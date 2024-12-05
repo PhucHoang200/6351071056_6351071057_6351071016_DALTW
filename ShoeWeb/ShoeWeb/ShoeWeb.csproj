@@ -866,6 +866,7 @@
     <Content Include="Areas\Customer\Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Areas\Customer\Views\Account\InputPassword.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\Checkout\PaymentResult.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\chart-area-demo.js" />
     <Content Include="Scripts\chart-bar-demo.js" />

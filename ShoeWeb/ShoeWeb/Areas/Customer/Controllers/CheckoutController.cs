@@ -15,7 +15,6 @@ using ShoeWeb.Utility;
 using System.Diagnostics;
 using ShoeWeb.Helper.VnPay;
 using ShoeWeb.Service.VnPay;
-using ShoeWeb.Libraries;
 using System.Configuration;
 using WebGrease;
 using Serilog.Core;
@@ -123,7 +122,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
         // GET: Customer/Checkout
         [HttpGet]
-        public async Task<ActionResult> Checkout()
+        public  ActionResult Checkout()
         {
             orderViewModel = new OrderViewModel();
             return View(orderViewModel);
@@ -149,9 +148,14 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     var userId = User.Identity.GetUserId();
                     var cart = await _db.shoppingCarts.Where(c => c.UserId == userId).FirstOrDefaultAsync();
                     var cartItems = await _db.shoppingCartItems.Where(c => c.ShoppingCartId == cart.Id && c.status == false).ToListAsync();
+                    if (cart == null || cartItems == null || !cartItems.Any())
+                    {
+                        ModelState.AddModelError("", "Giỏ hàng rỗng.");
+                        return View(model);
+                    }
                     if (model.PaymentMethod == "VNPay")
                     {
-                        VnPay(cart.TotalPrice);
+                        CreatePayment("abc",10000);
                         return View();
                     }
                     else
@@ -207,6 +211,56 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
             }
         }
+        [HttpPost]
+        public ActionResult CreatePayment(string orderDescription, decimal amount)
+        {
+            // Lấy thông tin cấu hình
+            string vnp_Returnurl = ConfigurationManager.AppSettings["vnp_Returnurl"];
+            string vnp_Url = ConfigurationManager.AppSettings["vnp_Url"];
+            string vnp_TmnCode = ConfigurationManager.AppSettings["vnp_TmnCode"];
+            string vnp_HashSecret = ConfigurationManager.AppSettings["vnp_HashSecret"];
+
+            VnPayLibrary vnpay = new VnPayLibrary();
+
+            // Chuyển IP từ IPv6 sang IPv4 nếu cần
+            string ipAddress = Request.UserHostAddress;
+            if (ipAddress == "::1") ipAddress = "127.0.0.1";
+
+            // Thêm thông tin giao dịch
+            vnpay.AddRequestData("vnp_Version", "2.1.0");
+            vnpay.AddRequestData("vnp_Command", "pay");
+            vnpay.AddRequestData("vnp_TmnCode", vnp_TmnCode);
+            vnpay.AddRequestData("vnp_Amount", ((long)(amount * 100)).ToString());
+            vnpay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
+            vnpay.AddRequestData("vnp_CurrCode", "VND");
+            vnpay.AddRequestData("vnp_IpAddr", ipAddress);
+            vnpay.AddRequestData("vnp_Locale", "vn");
+            vnpay.AddRequestData("vnp_OrderInfo", $"Thanh toán đơn hàng: {orderDescription}");
+            vnpay.AddRequestData("vnp_OrderType", "other");
+            vnpay.AddRequestData("vnp_ReturnUrl", vnp_Returnurl);
+            vnpay.AddRequestData("vnp_TxnRef", Guid.NewGuid().ToString()); // Unique TxnRef
+
+            // Tạo URL thanh toán
+            string paymentUrl = vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
+
+            Debug.WriteLine(paymentUrl);
+            return Redirect(paymentUrl);
+        }   
+
+
+        public ActionResult PaymentResult()
+        {
+            string vnp_ResponseCode = Request.QueryString["vnp_ResponseCode"];
+            if (vnp_ResponseCode == "00")
+            {
+                ViewBag.Message = "Thanh toán thành công!";
+            }
+            else
+            {
+                ViewBag.Message = "Giao dịch không thành công.";
+            }
+            return View();
+        }
 
         public async Task<bool> SaveOrderDetails(int cartId, int orderId)
         {
@@ -255,65 +309,6 @@ namespace ShoeWeb.Areas.Customer.Controllers
         }
 
 
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-        public void VnPay(decimal Tongtien)
-        {
-            try
-            {
-                // Đọc cấu hình từ Web.config
-                string vnp_Returnurl = System.Configuration.ConfigurationManager.AppSettings["vnp_Returnurl"];
-                string vnp_Url = System.Configuration.ConfigurationManager.AppSettings["vnp_Url"];
-                string vnp_TmnCode = System.Configuration.ConfigurationManager.AppSettings["vnp_TmnCode"];
-                string vnp_HashSecret = System.Configuration.ConfigurationManager.AppSettings["vnp_HashSecret"];
-
-                // Tạo thông tin đơn hàng
-                Order order = new Order
-                {
-                    Code = GenerateOrderCode(),
-                    TotalAmount = Tongtien,
-                    CustomerName = "thanhdat",
-                    CreatedDate = DateTime.Now
-                };
-
-                // Tạo URL thanh toán với VNPAY
-                VnPayLibrary vnpay = new VnPayLibrary();
-                vnpay.AddRequestData("vnp_Version", VnPayLibrary.VERSION);
-                vnpay.AddRequestData("vnp_Command", "pay");
-                vnpay.AddRequestData("vnp_TmnCode", vnp_TmnCode);
-                vnpay.AddRequestData("vnp_Amount", (order.TotalAmount * 100).ToString());
-                vnpay.AddRequestData("vnp_CreateDate", order.CreatedDate.ToString("yyyyMMddHHmmss"));
-                vnpay.AddRequestData("vnp_CurrCode", "VND");
-                vnpay.AddRequestData("vnp_IpAddr", GetIpAddress());
-                vnpay.AddRequestData("vnp_Locale", "vn");
-                vnpay.AddRequestData("vnp_OrderInfo", $"Thanh toán đơn hàng: {order.Code}");
-                vnpay.AddRequestData("vnp_OrderType", "other");
-                vnpay.AddRequestData("vnp_ReturnUrl", vnp_Returnurl);
-                vnpay.AddRequestData("vnp_TxnRef", order.Code);
-
-                // Tạo URL thanh toán
-                string paymentUrl = vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
-
-                // Ghi log thông tin URL
-                log.Info($"VNPAY URL: {paymentUrl}");
-
-                // Chuyển hướng tới trang thanh toán VNPAY
-                this.Response.Redirect(paymentUrl, false);  // Sử dụng this.Response thay vì HttpContext.Current
-            }
-            catch (Exception ex)
-            {
-                log.Error("Lỗi khi tạo URL thanh toán VNPAY", ex);
-                throw;
-            }
-        }
-
-        // Hàm lấy địa chỉ IP người dùng
-        private string GetIpAddress()
-        {
-            return Request.UserHostAddress; // Sử dụng Request để lấy IP trong Controller
-        }
-
-
-
+    
     }
 }

@@ -108,6 +108,8 @@ namespace ShoeWeb.Areas.Customer.Controllers
             if (user.Status) // Nếu `Status` là true, tài khoản bị vô hiệu hóa
             {
                 ModelState.AddModelError("", "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ quản trị viên.");
+                ViewBag.ErrorMessage = "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ quản trị viên.";
+
                 return View(model);
             }
 

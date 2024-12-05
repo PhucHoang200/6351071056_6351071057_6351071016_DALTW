@@ -12,7 +12,6 @@
             <th>Email</th>
             <th>Phone Number</th>
             <th>User Name</th>
-            <th>Status</th>
             <th>Role Name</th>
             <th>Hành động</th>
         </tr>
@@ -24,9 +23,21 @@
                 <td>@user.Email</td>
                 <td>@user.PhoneNumber</td>
                 <td>@user.UserName</td>
-                <td>@(user.Status ? "Đã vô hiệu hóa" : "Chưa vô hiệu hóa")</td>
                 <td>@user.RoleName</td>
                 <td>
+                    @if (user.Status)
+                    {
+                        <button class="btn btn-primary" onclick="ThayDoiTrangThai('@user.Id', false)">
+                            <i class="bi bi-unlock"></i> Mở khóa
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger" onclick="ThayDoiTrangThai('@user.Id', true)">
+                            <i class="bi bi-lock"></i> Khóa
+                        </button>
+                    }
+
                     <button class="btn btn-secondary" onclick="editUser('@user.Id')">
                         <i class="bi bi-pencil-square"></i> Sửa
                     </button>
@@ -36,12 +47,6 @@
                 <td>@user.Email</td>
                 <td>@user.PhoneNumber</td>
                 <td>@user.UserName</td>
-                <td>
-                    <select class="form-select" id="statusSelect-@user.Id">
-                        <option value="false" @(user.Status ? "" : "selected")>Chưa vô hiệu hóa</option>
-                        <option value="true" @(user.Status ? "selected" : "")>Đã vô hiệu hóa</option>
-                    </select>
-                </td>
                 <td>
                     <select class="form-select" id="roleSelect-@user.Id">
                         <option value="">Chọn vai trò</option>
@@ -70,6 +75,36 @@
 
 
 <script>
+    function ThayDoiTrangThai(userId, status) {
+        const message = status
+            ?
+            "Bạn có chắc chắn khóa tài khoản này không?" :
+            "Bạn có chắc chắn mở khóa tài khoản này không?";
+
+        if (confirm(message)) {
+            fetch(`/Admin/User/ChangeStatus`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId, status })
+            })
+                .then(response => response.json())
+                .then(response => {
+                    if (response.success) {
+                        alert("Thay đổi trạng thái thành công!");
+                        location.reload();
+                    } else {
+                        alert("Thay đổi trạng thái không thành công: " + response.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Lỗi khi thay đổi trạng thái:", error);
+                    alert("Có lỗi xảy ra khi thay đổi trạng thái!");
+                });
+        }
+    }
+
     function editUser(userId) {
         document.getElementById(`viewRow-${userId}`).style.display = 'none';
         document.getElementById(`editRow-${userId}`).style.display = '';
@@ -81,34 +116,24 @@
     }
 
     function saveUser(userId) {
-        console.log("Button clicked for userId:", userId);
+        const roleId = document.getElementById(`roleSelect-${userId}`).value;
 
-        // Lấy giá trị trạng thái và vai trò
-        const status = document.getElementById(`statusSelect-${userId}`).value === "true";
-        const roleId = document.getElementById(`roleSelect-${userId}`).value; // Lấy RoleId
+        const data = { userId, roleName: roleId };
 
-        // Tạo dữ liệu để gửi
-        const data = {
-            userId: userId,
-            status: status,
-            roleName: roleId // Gửi RoleId thay vì RoleName
-        };
-
-        // Gửi yêu cầu đến server bằng Fetch API
         fetch('/Admin/User/UpdateUser', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json' // Định dạng dữ liệu JSON
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data) // Chuyển dữ liệu thành chuỗi JSON
+            body: JSON.stringify(data)
         })
-            .then(response => response.json()) // Chuyển đổi phản hồi thành JSON
+            .then(response => response.json())
             .then(response => {
                 if (response.success) {
                     alert("Cập nhật thành công!");
-                    location.reload(); // Reload lại trang để hiển thị thay đổi
+                    location.reload();
                 } else {
-                    alert(response.message); // Hiển thị lỗi từ server
+                    alert(response.message);
                 }
             })
             .catch(error => {

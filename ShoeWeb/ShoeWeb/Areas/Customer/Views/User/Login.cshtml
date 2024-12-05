@@ -11,7 +11,6 @@
     #LoginForm {
         width: 450px; /* Tăng chiều rộng của form */
         height: auto; /* Chiều cao tự động tùy theo nội dung */
-        max-height: 90vh; /* Giới hạn chiều cao của form (90% chiều cao màn hình) */
         padding: 40px; /* Tăng padding để nội dung có khoảng cách thoải mái */
         background-color: #ffffff;
         border-radius: 10px; /* Tăng bo góc cho form mềm mại hơn */
@@ -84,7 +83,6 @@
     .text-danger {
         color: #dc3545;
         font-size: 0.9em;
-        margin-top: -10px;
         margin-bottom: 10px;
     }
 
@@ -143,7 +141,7 @@
                                 <ul>
                                     @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
                                     {
-                                        <li>@error.ErrorMessage</li>
+                                        <li class="text-danger">@error.ErrorMessage</li>
                                     }
                                 </ul>
                             </div>

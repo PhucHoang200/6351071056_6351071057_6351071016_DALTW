@@ -62,9 +62,32 @@ namespace ShoeWeb.Areas.Admin.Controllers
 
             return View(userVMList);
         }
+        [HttpPost]
+        public async Task<ActionResult> ChangeStatus(string userId, bool status)
+        {
+            try
+            {
+                var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                if(user == null)
+                {
+                    return Json(new { success = false, message = "Người dùng không tồn tại!" });
+                }
+
+                user.Status = status;
+                await _db.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Cập nhật thành công!" });
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message});
+
+            }
+        }
 
         [HttpPost]
-        public async Task<ActionResult> UpdateUser(string userId, bool status, string roleName)
+        public async Task<ActionResult> UpdateUser(string userId, string roleName)
         {
             // Tìm người dùng trong bảng AspNetUsers
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
@@ -73,12 +96,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
                 return Json(new { success = false, message = "Người dùng không tồn tại!" });
             }
 
-            // Cập nhật trạng thái người dùng
-            if (user.Status != status)
-            {
-                user.Status = status;
-                _db.Entry(user).State = EntityState.Modified;
-            }
+       
 
             // Tìm vai trò trong bảng AspNetRoles dựa trên tên vai trò
             var role = await _db.Roles.FirstOrDefaultAsync(r => r.Id == roleName);
