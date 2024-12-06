@@ -549,9 +549,9 @@
     <Compile Include="Helper\VnPay\PaymentResponseModel.cs" />
     <Compile Include="Identity\AppUser.cs" />
     <Compile Include="Libraries\VnPayLibrary.cs" />
-    <Compile Include="Migrations\202412030634550_AddStatusToUsers.cs" />
-    <Compile Include="Migrations\202412030634550_AddStatusToUsers.Designer.cs">
-      <DependentUpon>202412030634550_AddStatusToUsers.cs</DependentUpon>
+    <Compile Include="Migrations\202412051638568_updatdatabase.cs" />
+    <Compile Include="Migrations\202412051638568_updatdatabase.Designer.cs">
+      <DependentUpon>202412051638568_updatdatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -1013,8 +1013,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202412030634550_AddStatusToUsers.resx">
-      <DependentUpon>202412030634550_AddStatusToUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202412051638568_updatdatabase.resx">
+      <DependentUpon>202412051638568_updatdatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

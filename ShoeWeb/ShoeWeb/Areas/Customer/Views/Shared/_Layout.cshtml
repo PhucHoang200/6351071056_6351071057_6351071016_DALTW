@@ -106,7 +106,7 @@
                 <!-- Thanh tìm kiếm với AJAX -->
                 <!-- Form tìm kiếm -->
                 <form action="@Url.Action("Search", "Home", new { area = "Customer" })" method="get" class="search-form">
-                    <input type="text" id="searchBox" name="searchTerm" placeholder="Product search..." />
+                    <input type="text" id="searchBox" name="searchTerm" placeholder="Tìm kiếm sản phẩm..." />
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 <nav>
@@ -142,8 +142,8 @@
                         }
                         else
                         {
-                            <li><a href="@Url.Action("Login", "User")">Login</a></li>
-                            <li><a href="@Url.Action("Register", "User")">Register</a></li>
+                            <li><a href="@Url.Action("Login", "User")">Đăng nhập</a></li>
+                            <li><a href="@Url.Action("Register", "User")">Đăng kí</a></li>
                         }
 
                     </ul>
