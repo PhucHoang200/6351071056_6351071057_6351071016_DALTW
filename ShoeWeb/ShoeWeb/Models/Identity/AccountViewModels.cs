@@ -52,12 +52,9 @@ namespace ShoeWeb.Models.Identity
 
     public class LoginViewModel
     {
-        [Required]
         [Display(Name = "Email")]
-        [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -69,19 +66,20 @@ namespace ShoeWeb.Models.Identity
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Địa chỉ email không hợp lệ.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        //  [StringLength(100, ErrorMessage = "Mật khẩu phải có ít nhất {2} ký tự.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
+        //   [RegularExpression(@"^(?=.*[A-Z])(?=.*[\W_]).{6,}$", ErrorMessage = "Mật khẩu ít nhất 6 ký tự gồm ít nhất 1 chữ in hoa và 1 ký tự đặc biệt")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Xác nhận mật khẩu không khớp.")]
         public string ConfirmPassword { get; set; }
     }
 

@@ -18,6 +18,7 @@ using System.Web.Security;
 using ShoeWeb.Helper;
 using ShoeWeb.Models;
 using System.Diagnostics;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShoeWeb.Areas.Customer.Controllers
 {
@@ -90,7 +91,19 @@ namespace ShoeWeb.Areas.Customer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            // Kiểm tra định dạng email
+            if (!new EmailAddressAttribute().IsValid(model.Email))
+            {
+                ModelState.AddModelError("", "Email không đúng định dạng.");
+                //Xóa thông tin trong trường email
+                ModelState.Remove("Email");
+                model.Email = string.Empty;
+
+            }
+
+            // Nếu ModelState không hợp lệ, trả về lại trang login với các lỗi
             if (!ModelState.IsValid)
+
             {
                 return View(model);
             }
@@ -101,6 +114,9 @@ namespace ShoeWeb.Areas.Customer.Controllers
             if (user == null)
             {
                 ModelState.AddModelError("", "Tài khoản không tồn tại.");
+                //Xóa thông tin trong trường email
+                ModelState.Remove("Email");
+                model.Email = string.Empty;
                 return View(model);
             }
 
@@ -108,8 +124,9 @@ namespace ShoeWeb.Areas.Customer.Controllers
             if (user.Status) // Nếu `Status` là true, tài khoản bị vô hiệu hóa
             {
                 ModelState.AddModelError("", "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ quản trị viên.");
-                ViewBag.ErrorMessage = "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ quản trị viên.";
-
+                //Xóa thông tin trong trường email
+                ModelState.Remove("Email");
+                model.Email = string.Empty;
                 return View(model);
             }
 
@@ -132,10 +149,12 @@ namespace ShoeWeb.Areas.Customer.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+
                     if (role.Contains(SD.AdminRole))
                     {
                         return RedirectToAction("Index", "Admin", new { area = "Admin" });
                     }
+                    TempData["LoginMessage"] = "Đăng nhập thành công!";
                     return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -143,7 +162,12 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Lỗi đăng nhập.");
+                    ModelState.AddModelError("", "Email hoặc mật khẩu không chính xác.");
+
+                    //Xóa thông tin trong trường email
+                    ModelState.Remove("Email");
+                    model.Email = string.Empty;
+
                     return View(model);
             }
         }
@@ -217,6 +241,17 @@ namespace ShoeWeb.Areas.Customer.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
+                // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
+                var existingUser = await UserManager.FindByEmailAsync(model.Email);
+                if (existingUser != null)
+                {
+                    // Nếu email đã tồn tại, thêm lỗi vào ModelState
+                    ModelState.AddModelError("Email", "Email này đã được đăng ký trước đó. Vui lòng sử dụng email khác.");
+                    return View(model);
+                }
+
                 var user = new AppUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -236,13 +271,14 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     SendMail.SendEmail(model.Email, "Xác nhận tài khoản của bạn", $"Vui lòng nhấp vào <a href='{callbackUrl}'>đây</a> để xác nhận tài khoản.", "");
                     return View("EmailCheck");
                 }
+
+                // Nếu tạo tài khoản không thành công, thêm lỗi vào ModelState
                 AddErrors(result);
             }
 
-            // If we got this far, something failed, redisplay form
+            // Nếu model không hợp lệ hoặc có lỗi, hiển thị lại form đăng ký với lỗi
             return View(model);
         }
-
 
 
         //

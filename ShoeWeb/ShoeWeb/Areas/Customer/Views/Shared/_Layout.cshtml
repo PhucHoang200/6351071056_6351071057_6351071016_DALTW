@@ -220,6 +220,25 @@ function menutoggle() {
     }
 }
 
+// Kiểm tra thông báo từ server
+window.onload = function () {
+        var loginMessage = '@TempData["LoginMessage"]';
+        if (loginMessage) {
+            // Hiển thị thông báo trên giao diện
+            var notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = loginMessage;
+
+            // Thêm thông báo vào đầu trang
+            document.body.insertBefore(notification, document.body.firstChild);
+
+            // Tự động ẩn thông báo sau 3 giây
+            setTimeout(function () {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    };
+
 // AJAX tìm kiếm sản phẩm
 function searchProducts() {
     var searchTerm = document.getElementById("searchBox").value;

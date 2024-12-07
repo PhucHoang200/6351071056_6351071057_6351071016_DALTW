@@ -1,4 +1,4 @@
-﻿@model ShoeWeb.Models.Identity.LoginViewModel
+﻿﻿@model ShoeWeb.Models.Identity.LoginViewModel
 <!-- Form Login -->
 
 <style>
@@ -7,43 +7,27 @@
         overflow-x: hidden;
     }
 
-    span {
-        display: block; /* Đảm bảo thẻ span xử lý như một khối */
-        width: 100%; /* Chiếm toàn bộ chiều rộng của thẻ cha */
-        text-align: center; /* Căn giữa nội dung chữ */
-        font-size: 20px; /* Kích thước chữ */
-        margin: 0px; /* Xóa khoảng cách ngoài không cần thiết */
-        padding: 20px 0px; /* Thêm khoảng cách trên và dưới */
-        box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến chiều rộng */
-        white-space: nowrap; /* Ngăn chữ xuống dòng */
-    }
-
+    /* Container chung cho cả form */
     #LoginForm {
         width: 450px; /* Tăng chiều rộng của form */
-        padding: 40px; /* Khoảng cách bên trong form */
+        height: auto; /* Chiều cao tự động tùy theo nội dung */
+        padding: 40px; /* Tăng padding để nội dung có khoảng cách thoải mái */
         background-color: #ffffff;
-        border-radius: 10px; /* Bo góc cho form */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0); /* Thêm bóng đổ nhẹ */
-        position: absolute;
-        top: 100px;
-        left: 50%;
-        transform: translateX(-50%); /* Đảm bảo form căn giữa màn hình */
-        z-index: 1000;
+        border-radius: 10px; /* Tăng bo góc cho form mềm mại hơn */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0); /* Tăng độ nổi của bóng đổ */
+        position: absolute; /* Đảm bảo form cố định ở vị trí trên màn hình */
+        top: 100px; /* Cách mép trên 100px */
+        left: calc(50% - 225px); /* Canh giữa form trên màn hình */
+        z-index: 1000; /* Đảm bảo form nằm trên các phần tử khác */
+        overflow-y: auto; /* Hiển thị thanh cuộn dọc nếu nội dung vượt quá chiều cao */
     }
 
-    .form-container {
-        display: flex; /* Sử dụng flexbox để căn chỉnh */
-        flex-direction: column; /* Các phần tử xếp theo cột */
-        align-items: center; /* Căn giữa nội dung theo chiều ngang */
-        text-align: center; /* Căn giữa nội dung chữ */
+    /* Định dạng tiêu đề */
+    #RegForm h4 {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center; /* Tiêu đề canh giữa */
     }
-
-        .form-container span {
-            width: 100%; /* Chiều rộng tối đa theo form */
-            text-align: center; /* Chữ nằm chính giữa */
-            margin-bottom: 0px; /* Khoảng cách giữa span và các phần tử khác */
-        }
-
 
     /* Định dạng ô input */
     .form-container input[type="text"],
@@ -53,14 +37,15 @@
         padding: 25px 25px; /* Tăng padding trên và dưới */
         border: 1px solid #ccc;
         border-radius: 8px;
-        margin-top: 1px;
-        margin-bottom: 1px;
+        margin-top: 10px;
+        margin-bottom: 20px;
         box-sizing: border-box;
     }
 
+
     /* Nút submit */
     .form-container button[type="submit"] {
-        width: 150px;
+        width: 200px;
         padding: 12px;
         background-color: #007bff;
         color: #ffffff;
@@ -74,11 +59,11 @@
         margin: 20px auto;
     }
 
-        /* Hover cho nút */
-        .form-container button[type="submit"]:hover {
-            background-color: #28a745;
-            width: 150px;
-        }
+    /* Hover cho nút */
+    .form-container button[type="submit"] {
+        background-color: #0056b3;
+        width: 150px;
+    }
 
     /* Liên kết */
     .form-container p {
@@ -102,39 +87,40 @@
         margin-bottom: 10px;
     }
 
+    .form-container span {
+        width: 300px;
+    }
 </style>
 <div class="account-page">
     <div class="container">
         <div class="row">
             <div class="col-2">
-                <img src="~/Content/images/image1.png" width="70%">
+                <img src="~/Content/images/image1.png" width="70">
             </div>
             <div class="col-2">
                 <div class="form-container" style="height: 500px !important; display: block;">
-                    <span onclick="login()">Đăng nhập</span>
-
+                    <span>Đăng nhập</span>
                     <hr id="Indicator">
-
-                    @if (ViewBag.ResendEmail as bool? == true)
-                    {
-                        <div style="  ">
-                            <span style="font-size: 15px; color: #555; display: block !important; width: 100%;">
-                                @ViewBag.ErrorMessage <a href="@Url.Action("ResendConfirmationEmail", "User", new { email = ViewBag.UserEmail })"
-                                                         style="font-size: 15px; text-decoration: none; color: #007bff;">
-                                    Gửi lại Email
-                                </a>
-                            </span>
-                        </div>
-                      
-
-                    }
-
 
                     <form id="LoginForm"
                           style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; padding: 0;"
                           action="@Url.Action("Login", "User", new { returnUrl = ViewBag.ReturnUrl })"
                           method="post">
                         @Html.AntiForgeryToken()
+
+
+
+                        <!-- Input Email -->
+                        <input id="Email_login" name="Email" type="text" placeholder="Email" value="@Model.Email"
+                               required oninvalid="this.setCustomValidity('Vui lòng nhập email.')"
+                               oninput="this.setCustomValidity('')" />
+
+
+                        <!-- Input Password -->
+                        <input id="Password_login" name="Password" type="password" placeholder="Mật khẩu"
+                               required oninvalid="this.setCustomValidity('Vui lòng nhập mật khẩu.')"
+                               oninput="this.setCustomValidity('')" />
+
 
                         <!-- Hiển thị lỗi -->
                         @if (!ViewData.ModelState.IsValid)
@@ -149,16 +135,8 @@
                             </div>
                         }
 
-                        <!-- Input Email -->
-                        <input id="Email_login" name="Email" type="text" placeholder="Email" value="@Model.Email" required />
-                        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
-
-                        <!-- Input Password -->
-                        <input id="Password_login" name="Mật khẩu" type="Password" placeholder="Mật khẩu" required />
-                        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
-
                         <!-- Submit Button -->
-                        <button type="submit" class="btn">Đăng nhập</button>
+                        <button type="submit" class="btn">Log in</button>
 
                         <!-- Link to Register -->
                         <p>
@@ -173,11 +151,8 @@
         </div>
     </div>
 </div>
-<!-----------------------------------js for toggle form-------------------------------------->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<!-----------------------------------js for toggle form-------------------------------------->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
