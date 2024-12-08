@@ -615,7 +615,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
         {
             Response.Cookies.Remove("__RequestVerificationToken");
             SignInManager.AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new {area = "Customer"});
         }
 
         //

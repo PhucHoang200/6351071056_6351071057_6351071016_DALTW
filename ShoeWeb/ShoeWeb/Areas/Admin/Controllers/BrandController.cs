@@ -33,7 +33,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
             return new BrandVM()
             {
                 brands = await _db.brands.ToListAsync()
-    
+
             };
 
         }
@@ -43,14 +43,43 @@ namespace ShoeWeb.Areas.Admin.Controllers
             var brands = await GetBrandVM();
             return View(brands);
         }
+        [HttpPost]
+        public async Task<ActionResult> DeleteBrand(int id)
+        {
+            try
+            {
 
+                var brand = await _db.brands.FindAsync(id);
+
+                if (brand == null)
+                {
+                    return Json(new { success = false});
+                }
+                var isProduct = await _db.products.Where(p => p.brandId == id).FirstOrDefaultAsync();
+                if (isProduct != null)
+                {
+                    return Json(new { success = false });
+                }
+
+                _db.brands.Remove(brand);
+                await _db.SaveChangesAsync();
+                var brandVM = await GetBrandVM();
+
+                return Json(new { success = true, brands = brandVM.brands });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false });
+            }
+        }
         [HttpPost]
         public async Task<ActionResult> Update(int id, string name)
         {
             try
             {
                 var brand = await _db.brands.FindAsync(id);
-                if (brand == null) {
+                if (brand == null)
+                {
                     return Json(new { success = false });
                 }
                 brand.brandName = name;

@@ -58,9 +58,9 @@
                     <button id="edit" type="button" class="btn btn-secondary" onclick="editItem(@item.cateId)">
                         <i class="bi bi-pencil-square"></i> Sửa
                     </button>
-                    @*<button id="delete" type="button" class="btn btn-danger" onclick="deleteItem(@item.cateId)">
+                    <button id="delete" type="button" class="btn btn-danger" onclick="deleteItem(@item.cateId)">
                             <i class="bi bi-trash"></i> Xóa
-                        </button>*@
+                        </button>
                 </td>
             </tr>
             <tr id="editRow-@item.cateId" style="display:none;">
@@ -106,6 +106,30 @@
                         $('.modal-backdrop').remove();
                     } else {
                         alert("Thêm thất bại!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!" + status);
+                }
+            });
+        }
+    }
+
+    function deleteItem(cateId) {
+   
+
+        if (confirm("Bạn có chắc muốn xóa mục này không?")) {
+            $.ajax({
+                url: '/Admin/Category/DeleteCategory',
+                type: 'POST',
+                data: {
+                    id: cateId,
+                },
+                success: function (result) {
+                    if (result.success) {
+                        updateCategoryList(result.categories);
+                    } else {
+                        alert("Không được phép xóa danh mục này!");
                     }
                 },
                 error: function (xhr, status, error) {

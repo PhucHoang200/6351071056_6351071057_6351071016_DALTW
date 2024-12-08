@@ -3,7 +3,7 @@
 
 <div class="p-3">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-        <i class="bi bi-plus-circle-fill"></i> Thêm nhãn hàng mới
+        <i class="bi bi-plus-circle-fill"></i> Thêm mới quốc gia
     </button>
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -19,7 +19,7 @@
                     <form>
                         <div class="mb-3">
                             <label for="InputCountry" class="form-label">Tên Nước</label>
-                            <select name="name" class="form-control" id="InputCountry">
+                            <select name="nameCountry" class="form-control" id="InputCountry">
                                 <option value="">-- Chọn Nước --</option>
                                 @if (ViewData["Countries"] != null)
                                 {
@@ -34,6 +34,7 @@
                                     <option value="">Không có dữ liệu</option>
                                 }
                             </select>
+
                         </div>
 
 
@@ -73,6 +74,10 @@
                             <i class="bi bi-pencil-square"></i> Sửa
                         </button>
 
+                        <button id="edit" type="button" class="btn btn-danger" onclick="DeteleOrigin(@item.idOrigin)">
+                            <i class="bi bi-pencil-square"></i> Xóa
+                        </button>
+
                     </td>
                 </tr>
                 <tr id="editRow-@item.idOrigin" style="display:none;">
@@ -103,7 +108,7 @@
         formData.append('id', id);
         if (confirm("Bạn có chắc muốn cập nhật mục này không?")) {
             $.ajax({
-                url: '/Origin/UpdateOrigin',
+                url: '/Admin/Origin/UpdateOrigin',
                 type: 'POST',
                 data: formData,
                 contentType: false,
@@ -121,13 +126,71 @@
             });
         }
     }
+    function AddOrigin() {
+        var formData = new FormData();
+        var country = document.getElementById('InputCountry').value;
 
+        if (!country) {
+            alert("Vui lòng chọn tên nước!");
+            return;
+        }
+
+        formData.append('nameCountry', country);
+
+        if (confirm("Bạn có chắc muốn thêm nhãn hàng mới không?")) {
+            $.ajax({
+                url: '/Admin/Origin/AddOrigin', // Thay bằng URL chính xác trong controller
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    if (result.success) {
+                        // Cập nhật danh sách Origin
+                        updateOriginList(result.origins);
+                        alert("Thêm nhãn hàng mới thành công!");
+                        $('#exampleModalCenter').modal('hide');
+                        $('.modal-backdrop').remove();
+                    } else {
+                        alert("Không thể thêm nhãn hàng!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra khi thêm nhãn hàng!");
+                }
+            });
+        }
+    }
+
+
+    function DeteleOrigin(id) {
+        if (confirm("Bạn có chắc muốn xóa mục này không?")) {
+            $.ajax({
+                url: '/Admin/Origin/DeleteOrigin',
+                type: 'POST',
+                data: { id: id }, 
+                success: function (result) {
+                    if (result.success) {
+                        // Xóa hàng khỏi DOM
+                        $(`#viewRow-${id}`).remove();
+                        $(`#editRow-${id}`).remove(); 
+                        alert("Xóa thành công!");
+                    } else {
+                        alert("Không được xóa mục này!");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra!");
+                }
+            });
+        }
+    }
 
 
 
     function updateOriginList(origins) {
         var originTableBody = $('tbody');
-        originTableBody.empty(); 
+        originTableBody.empty();
         $.each(origins, function (index, origin) {
             originTableBody.append(`
             <tr id="viewRow-${origin.idOrigin}">
@@ -137,6 +200,9 @@
                     <button id="edit" type="button" class="btn btn-secondary" onclick="editItem(${origin.idOrigin})">
                         <i class="bi bi-pencil-square"></i> Sửa
                     </button>
+                      <button id="edit" type="button" class="btn btn-danger" onclick="DeteleOrigin(${origin.idOrigin})">
+                          <i class="bi bi-pencil-square"></i> Xóa
+                      </button>
                 </td>
             </tr>
             <tr id="editRow-${origin.idOrigin}" style="display:none;">

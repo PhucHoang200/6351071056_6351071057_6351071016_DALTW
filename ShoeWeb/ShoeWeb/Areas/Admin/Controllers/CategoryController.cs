@@ -69,37 +69,37 @@ namespace ShoeWeb.Areas.Admin.Controllers
                 return Json(new { success = false, message = "Đã xảy ra lỗi khi thêm danh mục.", error = ex.Message });
             }
         }
-        //[HttpPost]
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    try
-        //    {
-        //        var category = await _db.categories.Where(c => c.cateId == id).FirstOrDefaultAsync();
-        //        if (category != null)
-        //        {
-        //            var isProduct = await _db.products.AnyAsync(p => p.cateId == category.cateId);
+        [HttpPost]
+        public async Task<ActionResult> DeleteCategory(int id)
+        {
+            try
+            {
+                var category = await _db.categories.Where(c => c.cateId == id).FirstOrDefaultAsync();
+                if (category != null)
+                {
+                    var isProduct = await _db.products.AnyAsync(p => p.cateId == category.cateId);
 
-        //            if (isProduct)
-        //            {
-        //                return Json(new { success = false, message = "Cannot delete category because there are products associated with it." } );
+                    if (isProduct)
+                    {
+                        return Json(new { success = false, message = "Cannot delete category because there are products associated with it." });
 
-        //            }
-        //            _db.categories.Remove(category);
-        //            await _db.SaveChangesAsync();
-                 
+                    }
+                    _db.categories.Remove(category);
+                    await _db.SaveChangesAsync();
 
-        //            var updatedCategories = await GetCategoriese();
-        //            return Json(new { success = true, categories = updatedCategories.categories });
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
 
-        //    return Json(new { success = false });
+                    var updatedCategories = await GetCategoriese();
+                    return Json(new { success = true, categories = updatedCategories.categories });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-        //}
+            return Json(new { success = false });
+
+        }
 
 
         [HttpPost]

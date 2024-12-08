@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace ShoeWeb.Areas.Admin.Controllers
@@ -102,10 +103,58 @@ namespace ShoeWeb.Areas.Admin.Controllers
             }
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult> AddOrigin(string country)
-        //{
+        [HttpPost]
+        public async Task<ActionResult> AddOrigin(string nameCountry)
+        {
+            if (string.IsNullOrEmpty(nameCountry))
+            {
+                return Json(new { success = false });
+            }
+            try
+            {
+                var newOrigin = new Models.Origin { nameCountry = nameCountry };
+                _db.origin.Add(newOrigin);
+                await _db.SaveChangesAsync();
 
-        //}
+                // Lấy danh sách Origin mới nhất (bất đồng bộ)
+                var origins = await _db.origin.ToListAsync();
+
+                return Json(new { success = true, origins = origins });
+            }
+            catch
+            {
+                return Json(new { success = false });
+
+            }
+
+
+        }
+        [HttpPost]
+        public async Task<JsonResult> DeleteOrigin(int id)
+        {
+            try
+            {
+                var origin = await _db.origin.FindAsync(id);
+                if (origin == null)
+                {
+                    return Json(new { success = false });
+                }
+
+                var isProduct = await _db.products.Where(p => p.idOrigin == id).FirstOrDefaultAsync();
+                if (isProduct != null)
+                {
+                    return Json(new { success = false });
+                }
+                _db.origin.Remove(origin);
+                await _db.SaveChangesAsync();
+
+                return Json(new { success = true });
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false });
+            }
+        }
+
     }
 }
