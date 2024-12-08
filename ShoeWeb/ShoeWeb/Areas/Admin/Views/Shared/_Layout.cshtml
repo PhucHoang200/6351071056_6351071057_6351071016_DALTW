@@ -82,12 +82,11 @@
 
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="#" alt="Ảnh của admin" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="https://www.shutterstock.com/image-vector/admin-icon-strategy-collection-thin-600nw-2307398667.jpg" alt="Ảnh của admin" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">Admin</h6>
-                        <span>Admin</span>
                     </div>
 
                 </div>
@@ -125,74 +124,18 @@
                 <a asp-controller="Home" asp-action="Index" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
-                </form>
+              
                 <div class="navbar-nav align-items-center ms-auto">
+                  
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-envelope me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Message</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="https://avatars.githubusercontent.com/u/127457628?v=4" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item text-center">See all messages</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notifications</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">Notification 1</a>
-                            <a href="#" class="dropdown-item">Notification 2</a>
-                            <a href="#" class="dropdown-item">Notification 3</a>
-                            <a href="#" class="dropdown-item text-center">See all notifications</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdownToggle" onclick="toggleUserMenu(event)">
                             <i class="fa fa-user me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Profile</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                        <div id="dropdownMenu" class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0" style="display: none;">
+                            <a href="@Url.Action("Index","Admin")" class="dropdown-item">My Profile</a>
+                            <a href="@Url.Action("LogOff","Admin")" class="dropdown-item">Log Out</a>
                         </div>
-
                     </div>
                 </div>
             </nav>
@@ -225,32 +168,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    // Hàm toggle hiển thị menu
+    function toggleUserMenu(event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
 
+        // Lấy phần tử dropdown menu
+        const dropdownMenu = document.getElementById('dropdownMenu');
 
+        // Kiểm tra xem menu có đang hiển thị không và thay đổi trạng thái
+        const isVisible = dropdownMenu.style.display === 'block';
+        dropdownMenu.style.display = isVisible ? 'none' : 'block';
+    }
 
-    // Lấy các phần tử cần thiết
-    const dropdownToggle = document.getElementById('dropdownToggle');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-
-    // Thêm sự kiện click vào toggle
-    dropdownToggle.addEventListener('click', function (event) {
-        event.preventDefault(); // Ngăn chặn hành động mặc định
-
-        // Kiểm tra menu đang hiển thị hay không
-        const isVisible = dropdownMenu.classList.toggle('show');
-
-        // Thay đổi thuộc tính style dựa trên trạng thái
-        dropdownMenu.style.display = isVisible ? 'block' : 'none';
-    });
-
-    // Ẩn menu khi nhấp ra ngoài
+    // Ẩn menu khi nhấp ra ngoài dropdown
     document.addEventListener('click', function (event) {
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        // Kiểm tra nếu nhấp vào ngoài dropdown thì ẩn menu
         if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('show');
-            dropdownMenu.style.display = 'none'; // Ẩn menu
+            dropdownMenu.style.display = 'none';
         }
     });
-
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
