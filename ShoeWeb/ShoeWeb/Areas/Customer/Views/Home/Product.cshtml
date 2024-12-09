@@ -218,37 +218,47 @@
         const checkboxes = document.querySelectorAll(".filter-checkbox");
         const minPriceRange = document.querySelector("#minPriceRange");
         const maxPriceRange = document.querySelector("#maxPriceRange");
-        const minPriceDisplay = document.querySelector("#minPriceDisplay");
-        const maxPriceDisplay = document.querySelector("#maxPriceDisplay");
+        const sidebar = document.querySelector(".filters-sidebar");
 
-        // Cập nhật giá hiển thị khi thay đổi thanh kéo
+        // Cập nhật giá hiển thị khi thay đổi thanh kéo (sự kiện 'input' để thay đổi giá trực tiếp)
         minPriceRange.addEventListener("input", function () {
             minPriceDisplay.innerText = minPriceRange.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            applyFilters();
         });
         maxPriceRange.addEventListener("input", function () {
             maxPriceDisplay.innerText = maxPriceRange.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            applyFilters();
         });
+
+        // Cuộn lên đầu sidebar chỉ khi thả chuột ra khỏi thanh lọc giá
+        minPriceRange.addEventListener("mouseup", applyFilters);
+        maxPriceRange.addEventListener("mouseup", applyFilters);
+
+        // Lọc sản phẩm khi chọn checkbox
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", applyFilters);
+        });
+
+        function scrollToTopOfSidebar() {
+            sidebar.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
 
         function applyFilters() {
             const selectedCategories = getSelectedFilters(".category-list input:checked", "data-filter");
             const selectedBrands = getSelectedFilters(".brand-list input:checked", "data-brand");
             const selectedSizes = getSelectedFilters(".size-list input:checked", "data-size");
 
-            // Giả sử có một biến chứa numberSize được chọn
-            const selectedNumberSize = document.querySelector("input[name='numberSize']:checked")?.value;
-
             const minPrice = parseFloat(minPriceRange.value) || 0;
-            const maxPrice = parseFloat(maxPriceRange.value) || 1000000;
+            const maxPrice = parseFloat(maxPriceRange.value) || 2000000;
 
-            filterProductsOnClient(selectedCategories, selectedBrands, selectedSizes, minPrice, maxPrice, selectedNumberSize);
+            filterProductsOnClient(selectedCategories, selectedBrands, selectedSizes, minPrice, maxPrice);
+
+            // Cuộn lên đầu Sidebar sau khi thay đổi bộ lọc giá
+            scrollToTopOfSidebar();
         }
 
         function getSelectedFilters(selector, attribute) {
             return Array.from(document.querySelectorAll(selector))
                 .map(el => el.getAttribute(attribute))
-                .filter(value => value); // Lọc các giá trị null hoặc undefined
+                .filter(value => value);
         }
 
         function filterProductsOnClient(categories, brands, sizes, minPrice, maxPrice) {
@@ -257,28 +267,23 @@
             products.forEach(product => {
                 const productCategory = product.getAttribute("data-filter");
                 const productBrand = product.getAttribute("data-brand");
-                const productSizes = product.getAttribute("data-size") ? product.getAttribute("data-size").split(',') : []; // Chuyển thành mảng
+                const productSizes = product.getAttribute("data-size")?.split(',') || [];
                 const productPrice = parseFloat(product.getAttribute("data-price"));
 
-                const categoryMatch = categories.length === 0 || categories.includes(productCategory);
-                const brandMatch = brands.length === 0 || brands.includes(productBrand);
-                const sizeMatch = sizes.length === 0 || sizes.some(sizeId => productSizes.includes(sizeId)); // Sửa tại đây
+                const categoryMatch = !categories.length || categories.includes(productCategory);
+                const brandMatch = !brands.length || brands.includes(productBrand);
+                const sizeMatch = !sizes.length || sizes.some(sizeId => productSizes.includes(sizeId));
                 const priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
 
-                // Hiển thị sản phẩm nếu tất cả điều kiện đều khớp
                 product.style.display = (categoryMatch && brandMatch && sizeMatch && priceMatch) ? "block" : "none";
             });
         }
 
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener("change", applyFilters);
-        });
-
-        minPriceRange.addEventListener("input", applyFilters);
-        maxPriceRange.addEventListener("input", applyFilters);
-
-        applyFilters(); // Gọi lần đầu để hiển thị sản phẩm
+        // Áp dụng bộ lọc ban đầu khi tải trang
+        applyFilters();
     });
+
+
 
 </script>
 
@@ -306,7 +311,7 @@
         left: 0;
         top: 0;
         width: 250px;
-        height: 2018px;
+        height: 1050px;
         padding: 20px;
         background-color: #fff;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -319,20 +324,29 @@
             display: inline-block;
         }
 
+        /* Sidebar layout */
         .filters-sidebar ul {
-            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Khoảng cách giữa các checkbox */
             padding: 0;
-            margin: 10px 0;
+            list-style: none;
         }
 
             .filters-sidebar ul li {
-                margin-bottom: 8px;
+                flex: 0 0 calc(50% - 10px); /* Mỗi checkbox chiếm 50% chiều rộng */
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
             }
+
+        .filters-sidebar input[type="checkbox"] {
+            margin-right: 10px;
+        }
 
         .filters-sidebar label {
             font-size: 14px;
             color: #555;
-            cursor: pointer;
         }
 
     /* Product Container */

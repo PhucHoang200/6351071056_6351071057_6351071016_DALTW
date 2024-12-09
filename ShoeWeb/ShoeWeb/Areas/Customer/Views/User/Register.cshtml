@@ -62,8 +62,8 @@
 
 
 
-                        <button type="submit" class="btn">Register</button>
-
+                        <button type="submit" class="btn">Đăng ký</button>
+                        <p><a href="@Url.Action("Login", "User")">Bạn đã có tài khoản ư?</a></p>
                     </form>
                 </div>
             </div>
@@ -146,4 +146,13 @@
     .form-container span {
         width: 300px;
     }
+
+    .form-container p a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .form-container p a:hover {
+            text-decoration: underline;
+        }
 </style>
