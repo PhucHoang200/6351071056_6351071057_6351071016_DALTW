@@ -132,7 +132,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
         {
             if (UserName == "" || Email == "" || PhoneNumber == "")
             {
-                TempData["Error"] = "Cập nhật thông tin thất bại.";
+                TempData["Error"] = "Cập nhật thông tin thất bại. Vui lòng điền đầy đủ thông tin.";
                 return RedirectToAction("UserInformation");
 
             }
@@ -147,7 +147,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     var isUserNameTaken = _db.Users.Any(u => u.UserName == UserName && u.Id != user.Id);
                     if (isUserNameTaken)
                     {
-                        ModelState.AddModelError("UserName", "Tên đăng nhập đã được sử dụng.");
+                        ModelState.AddModelError("UserName", "Tên người dùng đã được sử dụng.");
                         ViewBag.ActiveTab = "account-general";
                         return View("UserInformation", new UserProfileViewModel
                         {
@@ -168,7 +168,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 }
             }
             ViewBag.ActiveTab = "account-general";
-            TempData["Error"] = "Cập nhật thông tin thất bại.";
+            TempData["Error"] = "Cập nhật thông tin thất bại. ";
             return View("UserInformation");
         }
 
@@ -191,8 +191,11 @@ namespace ShoeWeb.Areas.Customer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(string CurrentPassword, string NewPassword, string RepeatPassword)
         {
+            
+
             if (!ModelState.IsValid)
             {
+                
                 ViewBag.ActiveTab = "account-change-password";
                 return View("UserInformation");
             }
@@ -213,6 +216,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
 
             var passwordValid = await _userManager.CheckPasswordAsync(user, CurrentPassword);
+
             if (!passwordValid)
             {
                 ModelState.AddModelError("CurrentPassword", "Mật khẩu hiện tại không đúng.");
