@@ -95,13 +95,13 @@
                         <i class="bi bi-card-list me-2"></i> Danh mục
                     </a>
 
-                    <a  href="@Url.Action("Index", "Product")" class="nav-item nav-link">
+                    <a href="@Url.Action("Index", "Product")" class="nav-item nav-link">
                         <i class="fa fa-th me-2"></i> Sản phẩm
                     </a>
-                    <a  href="@Url.Action("Index", "Brand")" class="nav-item nav-link">
+                    <a href="@Url.Action("Index", "Brand")" class="nav-item nav-link">
                         <i class="fa fa-file-alt me-2"></i> Nhãn hàng
                     </a>
-                    <a  href="@Url.Action("Index", "Origin")" class="nav-item nav-link">
+                    <a href="@Url.Action("Index", "Origin")" class="nav-item nav-link">
                         <i class="far fa-file-alt me-2"></i> Xuất xứ
                     </a>
                     <a href="@Url.Action("Index", "Order")" class="nav-item nav-link">
@@ -124,9 +124,14 @@
                 <a asp-controller="Home" asp-action="Index" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
-              
+                <form id="searchForm" class="d-none d-md-flex ms-4">
+                    <input id="searchInput" class="form-control border-0" type="search" placeholder="Search">
+                    <button type="button" id="searchButton" class="btn btn-link" style="height: 37px; width: 41px;"><i class="bi bi-search"></i></button>
+                </form>
+                <div id="searchResults"></div>
+
                 <div class="navbar-nav align-items-center ms-auto">
-                  
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="dropdownToggle" onclick="toggleUserMenu(event)">
                             <i class="fa fa-user me-lg-2"></i>
@@ -201,5 +206,48 @@
             document.body.style.paddingRight = '';
         });
     });
+
+    $(document).ready(function () {
+        $('#searchButton').on('click', function () {
+            var keyword = $('#searchInput').val().trim();
+
+            if (keyword === "") {
+                alert("Vui lòng nhập từ khóa.");
+                return;
+            }
+
+            $.ajax({
+                url: '/Admin/Admin/SearchFunction',
+                method: 'GET',
+                data: { keyword: keyword },
+                success: function (response) {
+                    if (response.success) {
+                        var functions = response.data; // Dữ liệu chức năng và URL tìm được
+
+                        // Kiểm tra xem có chức năng nào khớp với từ khóa không
+                        if (functions.length > 0) {
+                            // Duyệt qua các chức năng và thực hiện chuyển hướng
+                            functions.forEach(function (item) {
+                                if (item.Url !== "#") {
+                                    window.location.href = item.Url; // Chuyển hướng đến URL
+                                } else {
+                                    alert("Không có chức năng khớp với từ khóa");
+                                }
+                            });
+                        } else {
+                            alert("Không tìm thấy chức năng này");
+                        }
+                    } else {
+                        alert("Không tìm thấy chức năng này");
+                    }
+                },
+                error: function () {
+                    alert("Có lỗi xảy ra.");
+                }
+            });
+        });
+    });
+
+
 
 </script>
