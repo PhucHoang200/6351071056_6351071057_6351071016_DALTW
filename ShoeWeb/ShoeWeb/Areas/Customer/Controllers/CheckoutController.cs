@@ -261,12 +261,12 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
             return View();
         }
-
         public async Task<bool> SaveOrderDetails(int cartId, int orderId)
         {
             var orderDetailItems = new List<OrderDetail>();
-            var cartItems = await _db.shoppingCartItems.Where(c => c.ShoppingCartId == cartId && c.status == false).ToListAsync();
-
+            var cartItems = await _db.shoppingCartItems
+                .Where(c => c.ShoppingCartId == cartId && c.status == false)
+                .ToListAsync();
 
             // Duyệt qua từng item trong giỏ hàng để tạo OrderDetail và cập nhật trạng thái
             foreach (var item in cartItems)
@@ -277,17 +277,42 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     ProductId = item.ProductId,
                     Price = item.UnitPrice,
                     Quantity = item.Quantity,
-                    numberSize = item.numberSize
+                    numberSize = item.numberSize // Sử dụng numberSize từ giỏ hàng
                 };
 
-                // Cập nhật trạng thái của item thành true
+                // Cập nhật trạng thái của item trong giỏ hàng
                 item.status = true;
+                _db.Entry(item).State = EntityState.Modified;
+
+                // Truy vấn bảng trung gian sizeOfProduct và liên kết với bảng size
+                var sizeOfProduct = await _db.sizeOfProducts
+                    .Include(sp => sp.size) // Bao gồm thông tin từ bảng size
+                    .Include(sp => sp.product)
+                    .FirstOrDefaultAsync(sp => sp.productId == item.ProductId && sp.size.numberSize == item.numberSize);
+
+                if (sizeOfProduct != null)
+                {
+                    if (sizeOfProduct.product.quantity >= item.Quantity)
+                    {
+                        sizeOfProduct.product.quantity -= item.Quantity; // Trừ số lượng
+                        _db.Entry(sizeOfProduct).State = EntityState.Modified; // Đánh dấu thay đổi
+                    }
+                    else
+                    {
+                        // Nếu không đủ số lượng, thông báo lỗi
+                        Console.WriteLine($"Không đủ số lượng sản phẩm: {item.ProductId} (Size: {item.numberSize})");
+                        return false;
+                    }
+                }
+                else
+                {
+                    // Nếu không tìm thấy thông tin sizeOfProduct, thông báo lỗi
+                    Console.WriteLine($"Không tìm thấy thông tin sản phẩm: {item.ProductId} (Size: {item.numberSize})");
+                    return false;
+                }
 
                 // Thêm OrderDetail vào danh sách
                 orderDetailItems.Add(newOrderItem);
-
-                // Cập nhật trạng thái của ShoppingCartItem trong cơ sở dữ liệu
-                _db.Entry(item).State = EntityState.Modified; // Cập nhật trạng thái của từng item
             }
 
             try
@@ -309,6 +334,53 @@ namespace ShoeWeb.Areas.Customer.Controllers
         }
 
 
-    
+        //public async Task<bool> SaveOrderDetails(int cartId, int orderId)
+        //{
+        //    var orderDetailItems = new List<OrderDetail>();
+        //    var cartItems = await _db.shoppingCartItems.Where(c => c.ShoppingCartId == cartId && c.status == false).ToListAsync();
+
+
+        //    // Duyệt qua từng item trong giỏ hàng để tạo OrderDetail và cập nhật trạng thái
+        //    foreach (var item in cartItems)
+        //    {
+        //        var newOrderItem = new OrderDetail
+        //        {
+        //            OrderId = orderId,
+        //            ProductId = item.ProductId,
+        //            Price = item.UnitPrice,
+        //            Quantity = item.Quantity,
+        //            numberSize = item.numberSize
+        //        };
+
+        //        // Cập nhật trạng thái của item thành true
+        //        item.status = true;
+
+        //        // Thêm OrderDetail vào danh sách
+        //        orderDetailItems.Add(newOrderItem);
+
+        //        // Cập nhật trạng thái của ShoppingCartItem trong cơ sở dữ liệu
+        //        _db.Entry(item).State = EntityState.Modified; // Cập nhật trạng thái của từng item
+        //    }
+
+        //    try
+        //    {
+        //        // Thêm tất cả OrderDetail vào cơ sở dữ liệu
+        //        _db.OrderDetails.AddRange(orderDetailItems);
+
+        //        // Lưu tất cả các thay đổi vào cơ sở dữ liệu
+        //        await _db.SaveChangesAsync();
+
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log lỗi để biết nguyên nhân nếu có
+        //        Console.WriteLine(ex.Message);
+        //        return false;
+        //    }
+        //}
+
+
+
     }
 }
