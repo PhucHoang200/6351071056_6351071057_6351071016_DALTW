@@ -108,7 +108,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
 
                 if (cartItems == null || !cartItems.Any())
                 {
-                    return false; 
+                    return false;
                 }
 
                 var cart = await _db.shoppingCarts.FirstOrDefaultAsync(c => c.UserId == idUser);
@@ -123,23 +123,37 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     _db.shoppingCarts.Add(cart);
                     await _db.SaveChangesAsync();
                 }
-                else
-                {
-                    cart.TotalPrice += cartItems.Sum(item => item.UnitPrice * item.Quantity);
-                    await _db.SaveChangesAsync();
-                }
+
+                // Cập nhật TotalPrice của giỏ hàng
+                cart.TotalPrice += cartItems.Sum(item => item.UnitPrice * item.Quantity);
+                await _db.SaveChangesAsync();
 
                 foreach (var item in cartItems)
                 {
-                    item.ShoppingCartId = cart.Id;
+                    // Kiểm tra nếu sản phẩm với idProduct và size đã tồn tại trong database
+                    var existingItem = await _db.shoppingCartItems
+                        .FirstOrDefaultAsync(c => c.ShoppingCartId == cart.Id && c.ProductId == item.ProductId && c.numberSize == item.numberSize);
+
+                    if (existingItem != null)
+                    {
+                        // Cộng dồn số lượng và cập nhật lại
+                        existingItem.Quantity += item.Quantity;
+                        existingItem.UnitPriceDb = item.UnitPrice; // Cập nhật giá nếu cần
+                    }
+                    else
+                    {
+                        // Thêm sản phẩm mới
+                        item.ShoppingCartId = cart.Id;
+                        _db.shoppingCartItems.Add(item);
+                    }
                 }
 
-                _db.shoppingCartItems.AddRange(cartItems);
                 await _db.SaveChangesAsync();
 
+                // Xóa session
                 HttpContext.Session.Remove("Cart");
 
-                return true; 
+                return true;
             }
             catch (Exception ex)
             {
@@ -147,7 +161,6 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 return false;
             }
         }
-
 
         public async Task<bool> AddItemToDb(int id, int quantity, float numberSize)
         {
@@ -306,6 +319,50 @@ namespace ShoeWeb.Areas.Customer.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult UpdateCartItemSession(int quantity, int productId, float numberSize)
+        {
+            try
+            {
+                // Lấy giỏ hàng từ session
+                var cart = Session["Cart"] as List<ShoppingCartItem>;
+                if (cart == null)
+                {
+                    return Json(new { success = false, Message = "Giỏ hàng rỗng!" });
+                }
+
+                // Tìm sản phẩm trong giỏ hàng
+                var cartItem = cart.FirstOrDefault(c => c.ProductId == productId && c.numberSize == numberSize);
+                if (cartItem == null)
+                {
+                    return Json(new { success = false, Message = "Không tìm thấy sản phẩm trong giỏ hàng!" });
+                }
+
+                // Cập nhật số lượng
+                cartItem.Quantity = quantity;
+                cartItem.UnitPriceDb = cartItem.Price * quantity;
+
+                // Tính tổng giá trị giỏ hàng
+                var totalPrice = cart.Sum(i => i.Quantity * i.Price);
+
+                // Cập nhật session
+                Session["Cart"] = cart;
+
+                return Json(new
+                {
+                    success = true,
+                    data = new
+                    {
+                        UnitPrice = cartItem.UnitPrice,
+                        TotalPrice = totalPrice
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, Message = "Lỗi: " + ex.Message });
+            }
+        }
 
         [HttpPost]
         public async Task<ActionResult> UpdateCartItem(int quantity, int productId, float numberSize)
@@ -361,6 +418,53 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 return Json(new { success = true, data = cart });
             }
         }
+        [HttpPost]
+        public ActionResult DeleteCartItemSession(int productId, int shoppingCartId, float numberSize)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                // Xử lý giỏ hàng từ cơ sở dữ liệu nếu người dùng đã đăng nhập
+                var cartItem = _db.shoppingCartItems
+                                  .FirstOrDefault(c => c.ProductId == productId && c.numberSize == numberSize);
+                if (cartItem == null)
+                {
+                    return Json(new { success = false, Message = "Không tìm thấy sản phẩm trong giỏ hàng!" });
+                }
+
+                _db.shoppingCartItems.Remove(cartItem);
+                _db.SaveChanges();
+
+                // Cập nhật tổng giá
+                var totalPrice = _db.shoppingCartItems.Sum(c => c.Quantity * c.Price);
+                return Json(new { success = true, data = new { TotalPrice = totalPrice } });
+            }
+            else
+            {
+                // Xử lý giỏ hàng trong session nếu người dùng chưa đăng nhập
+                var cart = Session["Cart"] as List<ShoppingCartItem>;
+                if (cart == null)
+                {
+                    return Json(new { success = false, Message = "Giỏ hàng trống!" });
+                }
+
+                var cartItem = cart.FirstOrDefault(c => c.ProductId == productId && c.numberSize == numberSize);
+                if (cartItem != null)
+                {
+                    cart.Remove(cartItem);
+                }
+                else
+                {
+                    return Json(new { success = false, Message = "Không tìm thấy sản phẩm trong giỏ hàng!" });
+                }
+
+                // Cập nhật lại tổng giá
+                var totalPrice = cart.Sum(c => c.Quantity * c.Price);
+                Session["Cart"] = cart;
+
+                return Json(new { success = true, data = new { TotalPrice = totalPrice } });
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult> DeleteCartItem(int productId, int shoppingCartId, float numberSize)
         {

@@ -59,6 +59,8 @@
 }
 else
 {
+
+
     <div class="small-container cart-page">
         <table>
             <tr>
@@ -67,38 +69,72 @@ else
                 <th>Số lượng</th>
                 <th>Thành tiền</th>
             </tr>
-            @foreach (var item in Model.Products)
+            @if (User.Identity.IsAuthenticated)
             {
-                <tr id="product-row-@item.ProductId">
+                foreach (var item in Model.Products)
+                {
+                    <tr id="product-row-@item.ProductId">
 
-                    <td>
-                        <div class="cart-info">
-                            <img src=@item.Product.image>
-                            <div>
-                                <p> @item.Product.productName</p><br>
-                                <small> @item.Product.price.ToString("#,##0") đ</small><br>
-                                <a href="javascript:void(0)" onclick="deleteCartItem(@item.ProductId, @item.ShoppingCartId, @item.numberSize)">Xóa</a>
+                        <td>
+                            <div class="cart-info">
+                                <img src=@item.Product.image>
+                                <div>
+                                    <p> @item.Product.productName</p><br>
+                                    <small> @item.Product.price.ToString("#,##0") đ</small><br>
+                                    <a href="javascript:void(0)" onclick="deleteCartItem(@item.ProductId, @item.ShoppingCartId, @item.numberSize)">Xóa</a>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td style="text-align: center;">
-                        <p>
-                            @item.numberSize
-                        </p>
-                    </td>
-                    <td>
-                        <div class="col">
-                            <a href="javascript:void(0)" onclick="changeQuantity(-1, @item.ProductId,@item.numberSize )">-</a>
-                            <a class="border" id="quantityDisplay-@item.ProductId">@item.Quantity</a>
-                            <a href="javascript:void(0)" onclick="changeQuantity(1, @item.ProductId,@item.numberSize)">+</a>
-                        </div>
-                    </td>
+                        </td>
+                        <td style="text-align: center;">
+                            <p>
+                                @item.numberSize
+                            </p>
+                        </td>
+                        <td>
+                            <div class="col">
+                                <a href="javascript:void(0)" onclick="changeQuantity(-1, @item.ProductId,@item.numberSize )">-</a>
+                                <a class="border" id="quantityDisplay-@item.ProductId">@item.Quantity</a>
+                                <a href="javascript:void(0)" onclick="changeQuantity(1, @item.ProductId,@item.numberSize)">+</a>
+                            </div>
+                        </td>
 
 
 
 
-                    <td id="unitPrice-@item.ProductId">@item.UnitPrice.ToString("#,##0") đ</td>
-                </tr>
+                        <td id="unitPrice-@item.ProductId">@item.UnitPrice.ToString("#,##0") đ</td>
+                    </tr>
+                }
+
+            }
+            else
+            {
+                var cart = Session["Cart"] as List<ShoeWeb.Models.ShoppingCartItem> ?? new List<ShoeWeb.Models.ShoppingCartItem>();
+                foreach (var item in cart)
+                {
+                    <tr id="product-row-@item.ProductId">
+                        <td>
+                            <div class="cart-info">
+                                <img src="@item.Product.image" alt="Product image">
+                                <div>
+                                    <p>@item.Product.productName</p><br>
+                                    <small>@item.Price.ToString("#,##0") đ</small><br>
+                                    <a href="javascript:void(0)" onclick="deleteCartItemSession(@item.ProductId, 0, @item.numberSize)">Xóa</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="text-align: center;">
+                            <p>@item.numberSize</p>
+                        </td>
+                        <td>
+                            <div class="col">
+                                <a href="javascript:void(0)" onclick="changeQuantitySession(-1, @item.ProductId, @item.numberSize)">-</a>
+                                <a class="border" id="quantityDisplay-@item.ProductId">@item.Quantity</a>
+                                <a href="javascript:void(0)" onclick="changeQuantitySession(1, @item.ProductId, @item.numberSize)">+</a>
+                            </div>
+                        </td>
+                        <td id="unitPrice-@item.ProductId">@item.Price.ToString("#,##0") đ</td>
+                    </tr>
+                }
             }
 
 
@@ -214,6 +250,80 @@ function updateQuantity(idProduct, quantity, numberSize) {
         }
     });
 }
+
+
+function changeQuantitySession(change, productId, numberSize) {
+    const quantityDisplay = document.getElementById(`quantityDisplay-${productId}`);
+    let currentValue = parseInt(quantityDisplay.textContent);
+
+    // Cập nhật giá trị mới
+    let newValue = currentValue + change;
+    if (newValue < 1) newValue = 1; // Không cho phép số lượng nhỏ hơn 1
+
+    // Hiển thị giá trị mới tạm thời
+    quantityDisplay.textContent = newValue;
+
+    // Gọi Ajax để cập nhật session
+    $.ajax({
+        url: '@Url.Action("UpdateCartItemSession", "Cart", new { area = "Customer" })',
+        type: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            productId: productId,
+            quantity: newValue,
+            numberSize: numberSize
+        }),
+        success: function (response) {
+            if (response.success) {
+                console.log("Cập nhật session thành công:", response);
+
+                // Cập nhật giá từng sản phẩm nếu cần
+                $(`#unitPrice-${productId}`).text(response.data.UnitPrice.toLocaleString() + "đ");
+
+                // Cập nhật tổng giá
+                $('#totalPrice').text(response.data.TotalPrice.toLocaleString() + "đ");
+            } else {
+                alert(response.Message);
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi khi cập nhật session:", error);
+            alert('Không thể cập nhật số lượng, vui lòng thử lại sau.');
+        }
+    });
+    }
+
+    function deleteCartItemSession(productId, shoppingCartId, numberSize) {
+    $.ajax({
+        url: '@Url.Action("DeleteCartItemSession", "Cart", new { area = "Customer" })',
+        type: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            productId: productId,
+            shoppingCartId: shoppingCartId,
+            numberSize: numberSize
+        }),
+
+        success: function (response) {
+            if (response.success) {
+                console.log("Xóa sản phẩm thành công:", response);
+
+                // Xóa thẻ <tr> tương ứng với sản phẩm đã xóa
+                $(`#product-row-${productId}`).remove();
+
+                // Cập nhật lại tổng giá nếu cần
+                $('#totalPrice').text(response.data.TotalPrice);
+            } else {
+                alert(response.Message);
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi khi xóa:", error);
+            alert('Không thể xóa sản phẩm, vui lòng thử lại sau.');
+        }
+    });
+}
+
 
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
