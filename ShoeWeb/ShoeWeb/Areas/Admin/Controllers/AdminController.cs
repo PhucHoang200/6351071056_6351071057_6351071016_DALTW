@@ -27,7 +27,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
         public AdminController(ApplicationDbContext db, UserManager<AppUser> userManager)
         {
             _db = db;
-            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));  
+            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         }
 
         // Constructor mặc định (có thể không cần nữa nếu bạn tiêm dependency qua constructor)
@@ -39,7 +39,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
             Debug.WriteLine(userId);
 
             var user = await _userManager.FindByIdAsync(userId);
-         
+
             var model = new UserProfileViewModel
             {
                 Email = user.Email,
@@ -49,6 +49,72 @@ namespace ShoeWeb.Areas.Admin.Controllers
             return View(model);
 
         }
+
+        [HttpGet]
+        public JsonResult SearchFunction(string keyword)
+        {
+            try
+            {
+                // Kiểm tra xem keyword có được truyền vào đúng hay không
+                if (string.IsNullOrWhiteSpace(keyword))
+                {
+                    return Json(new { success = false, message = "Từ khóa không hợp lệ." }, JsonRequestBehavior.AllowGet);
+                }
+
+                // Giả sử bạn tìm kiếm trong một danh sách chức năng
+                var functions = new List<object>();
+                string keywordLower = keyword.ToLower();
+
+                // Tìm kiếm các chức năng theo từ khóa và thêm vào mảng functions
+                if ("danh mục".Contains(keywordLower))
+                {
+                    functions.Add(new { Name = "Danh mục", Url = "/Admin/Category/Index" });
+                }
+                if ("sản phẩm".Contains(keywordLower))
+                {
+                    functions.Add(new { Name = "Sản phẩm", Url = "/Admin/Product/Index" });
+                }
+                if ("nhãn hàng".Contains(keywordLower))
+                {
+                    functions.Add(new { Name = "Nhãn hàng", Url = "/Admin/Brand/Index" });
+                }
+                if ("xuất xứ".Contains(keywordLower))
+                {
+                    functions.Add(new { Name = "Xuất xứ", Url = "/Admin/Origin/Index" });
+                }
+                if ("đơn hàng".Contains(keywordLower))
+                {
+                    functions.Add(new { Name = "Đơn hàng", Url = "/Admin/Order/Index" });
+                }
+                if ("thống kê".Contains(keywordLower))
+                {
+                    functions.Add(new { Name = "Thống kê", Url = "/Admin/ThongKe/Index" });
+                }
+                if ("tài khoản".Contains(keywordLower))
+                {
+                    functions.Add(new { Name = "Tài khoản", Url = "/Admin/User/Index" });
+                }
+
+                // Nếu không tìm thấy chức năng nào, trả về dữ liệu rỗng
+                if (functions.Count == 0)
+                {
+                    return Json(new { success = false, data = "#" }, JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(new { success = true, data = functions }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                // Log lỗi nếu có
+                Debug.WriteLine($"Lỗi xảy ra khi tìm kiếm chức năng: {ex.Message}");
+                return Json(new { success = false, message = "Có lỗi xảy ra." }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
+
         [HttpGet]
         public ActionResult LogOff()
         {
@@ -79,7 +145,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
                         ModelState.AddModelError("UserName", "Tên đăng nhập đã được sử dụng.");
                         ViewBag.ActiveTab = "account-general";
                         return View("Index", new UserProfileViewModel
-                        {   
+                        {
                             UserName = UserName,
                             Email = Email,
                             PhoneNumber = PhoneNumber
@@ -164,7 +230,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
             if (result.Succeeded)
             {
                 TempData["Success"] = "Mật khẩu đã được thay đổi.";
-            return View("Index", model);
+                return View("Index", model);
             }
 
             TempData["Error"] = "Đổi mật khẩu thất bại.";
@@ -348,7 +414,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
 
             TempData["Success"] = "Đổi mật khẩu thành công. Vui lòng đăng nhập.";
             Request.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Login", "User", new {area = "Customer"});
+            return RedirectToAction("Login", "User", new { area = "Customer" });
         }
 
         [HttpGet]

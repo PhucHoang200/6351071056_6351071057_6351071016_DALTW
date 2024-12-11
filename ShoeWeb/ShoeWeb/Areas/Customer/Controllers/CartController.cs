@@ -403,7 +403,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 var existingItem = cart.FirstOrDefault(i => i.ProductId == productId && i.numberSize == numberSize);
                 if (existingItem != null)
                 {
-                    existingItem.Quantity = quantity; 
+                    existingItem.Quantity = quantity;
                 }
                 else
                 {
@@ -479,7 +479,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                     await _db.SaveChangesAsync();
 
                     var cart = await _db.shoppingCarts.FindAsync(shoppingCartId);
-                    var totalPrice = cart.ShoppingCartItems.Sum(ci => ci.Quantity * ci.Price); 
+                    var totalPrice = cart.ShoppingCartItems.Sum(ci => ci.Quantity * ci.Price);
 
                     return Json(new { success = true, data = new { TotalPrice = totalPrice } });
                 }
@@ -498,6 +498,50 @@ namespace ShoeWeb.Areas.Customer.Controllers
         {
             return View();
         }
+
+
+        [HttpPost]
+        public JsonResult DeleteOrderItem(int orderItemId)
+        {
+            try
+            {
+                // Lấy OrderItem dựa trên ID
+                var orderItem = _db.OrderDetails.FirstOrDefault(item => item.Id == orderItemId);
+                if (orderItem != null)
+                {
+                    // Lưu lại OrderId để kiểm tra sau
+                    var orderId = orderItem.OrderId;
+
+                    // Xóa OrderItem
+                    _db.OrderDetails.Remove(orderItem);
+                    _db.SaveChanges();
+
+                    // Kiểm tra nếu Order không còn OrderItem nào
+                    var remainingItems = _db.OrderDetails.Where(item => item.OrderId == orderId).ToList();
+                    if (!remainingItems.Any())
+                    {
+                        // Xóa Order nếu không còn OrderItem
+                        var order = _db.Orders.FirstOrDefault(o => o.Id == orderId);
+                        if (order != null)
+                        {
+                            _db.Orders.Remove(order);
+                            _db.SaveChanges();
+                        }
+                    }
+
+                    return Json(new { success = true, message = "Xóa sản phẩm thành công." });
+                }
+
+                return Json(new { success = false, message = "Không tìm thấy sản phẩm." });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Lỗi khi xóa sản phẩm: {ex.Message}");
+                return Json(new { success = false, message = "Có lỗi xảy ra khi xóa sản phẩm." });
+            }
+        }
+
+
     }
 
 
