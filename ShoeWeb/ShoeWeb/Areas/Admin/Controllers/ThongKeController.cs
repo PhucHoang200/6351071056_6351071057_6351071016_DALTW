@@ -47,7 +47,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
                 int currentYear = DateTime.Now.Year; // Lấy năm hiện tại
 
                 // Lấy dữ liệu của năm nay
-                var monthData = await _db.Orders
+                var monthData = await _db.Orders.Where(p => p.StatusShipping == 3)
                     .Where(o => o.CreatedDate.Year == currentYear) // Lọc đơn hàng trong năm nay
                     .ToListAsync();
 
@@ -106,7 +106,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
                     .ToListAsync();
 
                 // Nhóm dữ liệu theo tháng và tính tổng số lượng đơn hàng theo mỗi tháng
-                orders = monthData
+                orders = monthData.Where(p => p.StatusShipping == 3)
                     .GroupBy(o => o.CreatedDate.Month)
                     .Select(g => new StatisticVM
                     {
