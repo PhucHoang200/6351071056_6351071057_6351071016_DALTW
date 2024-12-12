@@ -102,6 +102,10 @@
                     <span>Đăng nhập</span>
                     <hr id="Indicator">
 
+                    @if (ViewData["Success"] != null)
+                    {
+                        <span class="text-danger">@ViewData["Success"]</span>
+                    }
                     <form id="LoginForm"
                           style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; padding: 0;"
                           action="@Url.Action("Login", "User", new { returnUrl = ViewBag.ReturnUrl })"

@@ -27,18 +27,31 @@ namespace ShoeWeb.Areas.Customer.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly UserManager<AppUser> _userManager;
+        private ApplicationSignInManager _signInManager;
+
 
         // Constructor với UserManager
         public AccountController(ApplicationDbContext db, UserManager<AppUser> userManager)
         {
             _db = db;
-            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));  // Đảm bảo _userManager không phải null
+            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));  // Đảm bảo _userManager không phải null\
+            
         }
 
         // Constructor mặc định (có thể không cần nữa nếu bạn tiêm dependency qua constructor)
         public AccountController() : this(new ApplicationDbContext(), new UserManager<AppUser>(new UserStore<AppUser>(new ApplicationDbContext())))
         { }
-
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
         public ActionResult ProfileInformation()
         {
 
@@ -239,6 +252,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
             if (result.Succeeded)
             {
                 TempData["Success"] = "Mật khẩu đã được thay đổi.";
+                Request.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                 return RedirectToAction("Login", "User", new { area = "Customer" });
             }
 
