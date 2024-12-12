@@ -106,29 +106,36 @@ namespace ShoeWeb.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> AddOrigin(string nameCountry)
         {
-            if (string.IsNullOrEmpty(nameCountry))
+            if (string.IsNullOrWhiteSpace(nameCountry))
             {
-                return Json(new { success = false });
+                return Json(new { success = false, message = "Tên quốc gia không hợp lệ." });
             }
+
             try
             {
+                // Kiểm tra sự tồn tại của tên quốc gia
+                var existingOrigin = await _db.origin.FirstOrDefaultAsync(o => o.nameCountry == nameCountry);
+                if (existingOrigin != null)
+                {
+                    return Json(new { success = false, message = "Tên quốc gia đã tồn tại!" });
+                }
+
+                // Nếu không tồn tại, thêm mới
                 var newOrigin = new Models.Origin { nameCountry = nameCountry };
                 _db.origin.Add(newOrigin);
                 await _db.SaveChangesAsync();
 
-                // Lấy danh sách Origin mới nhất (bất đồng bộ)
+                // Lấy danh sách Origin mới nhất
                 var origins = await _db.origin.ToListAsync();
 
                 return Json(new { success = true, origins = origins });
             }
-            catch
+            catch (Exception ex)
             {
-                return Json(new { success = false });
-
+                return Json(new { success = false, message = "Đã xảy ra lỗi.", error = ex.Message });
             }
-
-
         }
+
         [HttpPost]
         public async Task<JsonResult> DeleteOrigin(int id)
         {

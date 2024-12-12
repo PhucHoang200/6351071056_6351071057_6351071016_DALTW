@@ -57,6 +57,7 @@
                             </option>
                         }
                     </select>
+
                 </td>
 
 
@@ -75,6 +76,8 @@
 
 
 <script>
+
+
     function ThayDoiTrangThai(userId, status) {
         const message = status
             ?
@@ -89,7 +92,13 @@
                 },
                 body: JSON.stringify({ userId, status })
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        console.error("Server trả về lỗi:", response.status, response.statusText);
+                        throw new Error("Yêu cầu không thành công.");
+                    }
+                    return response.json();
+                })
                 .then(response => {
                     if (response.success) {
                         alert("Thay đổi trạng thái thành công!");
@@ -102,6 +111,7 @@
                     console.error("Lỗi khi thay đổi trạng thái:", error);
                     alert("Có lỗi xảy ra khi thay đổi trạng thái!");
                 });
+
         }
     }
 
@@ -142,4 +152,39 @@
             });
     }
 
+</script>
+
+<script>
+    function saveUser(id) {
+        var roleSelect = document.getElementById(`roleSelect-${id}`);
+        if (!roleSelect) {
+            console.log("Không tìm thấy phần tử select với id:", `roleSelect-${id}`);
+            return;
+        }
+        var roleId = roleSelect.value;
+        if (!roleId) {
+            alert("Vui lòng chọn vai trò cho người dùng.");
+            return;
+        }
+
+        $.ajax({
+            url: '/Admin/User/UpdateUser', // Đường dẫn đến action trên server
+            method: 'POST',
+            data: {
+                userId: id,
+                roleId: roleId
+            },
+            success: function (response) {
+                if (response.success) {
+                    alert("Cập nhật thành công!");
+                    location.reload(); // Tải lại trang nếu cần
+                } else {
+                    alert("Cập nhật thất bại: " + response.message);
+                }
+            },
+            error: function () {
+                alert("Đã xảy ra lỗi trong quá trình cập nhật vai trò.");
+            }
+        });
+    }
 </script>

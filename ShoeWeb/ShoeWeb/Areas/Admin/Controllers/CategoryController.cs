@@ -47,20 +47,31 @@ namespace ShoeWeb.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> AddCategory(string name, string description)
         {
-            if (string.IsNullOrEmpty(description) || string.IsNullOrEmpty(name))
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
             {
                 return Json(new { success = false, message = "Thông tin đầu vào không hợp lệ." });
             }
-            Category cateNew = new Category()
-            {
-                cateDescription = description,
-                cateName = name
-            };
+
             try
             {
-                 _db.categories.Add(cateNew);
+                // Kiểm tra xem danh mục đã tồn tại chưa
+                var existingCategory = await _db.categories.FirstOrDefaultAsync(c => c.cateName == name);
+                if (existingCategory != null)
+                {
+                    return Json(new { success = false, message = "Danh mục đã tồn tại!" });
+                }
+
+                // Nếu không tồn tại, thêm mới
+                Category cateNew = new Category()
+                {
+                    cateDescription = description,
+                    cateName = name
+                };
+
+                _db.categories.Add(cateNew);
                 await _db.SaveChangesAsync();
 
+                // Lấy danh sách danh mục mới
                 var updatedCategories = await GetCategoriese();
                 return Json(new { success = true, categories = updatedCategories.categories });
             }
@@ -69,6 +80,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
                 return Json(new { success = false, message = "Đã xảy ra lỗi khi thêm danh mục.", error = ex.Message });
             }
         }
+
         [HttpPost]
         public async Task<ActionResult> DeleteCategory(int id)
         {
