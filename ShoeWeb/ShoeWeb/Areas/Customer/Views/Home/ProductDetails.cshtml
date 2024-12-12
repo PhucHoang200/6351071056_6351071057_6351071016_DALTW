@@ -39,7 +39,17 @@ else
                     }
                 </select>
                 <input type="number" id="quantityInput" value="1" min="1" oninput="updateQuantity()">
-                <button onclick="addToCart(@Model.Product.productId)" type="button" class="btn">Thêm vào giỏ hàng</button>
+
+                @if (Model.sizes.Count() == 0)
+                {
+                    <button type="button" class="btn" disabled>Sản phẩm hết size</button>
+
+                }
+                else
+                {
+                    <button onclick="addToCart(@Model.Product.productId)" type="button" class="btn">Thêm vào giỏ hàng</button>
+
+                }
                 <h3>Chi tiết sản phẩm <i class="fa fa-indent"></i></h3>
                 <p>@Model.Product.productDescription</p>
             </div>
@@ -199,8 +209,7 @@ else
             font-weight: bold;
         }
 
-    .col-4 a {
-        text-decoration: none;
-    }
-
+        .col-4 a {
+            text-decoration: none;
+        }
 </style>

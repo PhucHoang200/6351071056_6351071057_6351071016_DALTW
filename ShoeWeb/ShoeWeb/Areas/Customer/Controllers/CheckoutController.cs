@@ -307,7 +307,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 else
                 {
                     // Nếu không tìm thấy thông tin sizeOfProduct, thông báo lỗi
-                    Console.WriteLine($"Không tìm thấy thông tin sản phẩm: {item.ProductId} (Size: {item.numberSize})");
+                    Debug.WriteLine($"Không tìm thấy thông tin sản phẩm: {item.ProductId} (Size: {item.numberSize})");
                     return false;
                 }
 
