@@ -549,6 +549,10 @@
     <Compile Include="Helper\VnPay\PaymentResponseModel.cs" />
     <Compile Include="Identity\AppUser.cs" />
     <Compile Include="Libraries\VnPayLibrary.cs" />
+    <Compile Include="Migrations\202412121319440_UpdateDatabase.cs" />
+    <Compile Include="Migrations\202412121319440_UpdateDatabase.Designer.cs">
+      <DependentUpon>202412121319440_UpdateDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
@@ -1009,6 +1013,11 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202412121319440_UpdateDatabase.resx">
+      <DependentUpon>202412121319440_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

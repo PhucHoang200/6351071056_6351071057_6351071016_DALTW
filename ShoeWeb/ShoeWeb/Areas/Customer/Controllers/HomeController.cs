@@ -118,7 +118,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                 .ToList(); // Lấy sản phẩm theo từ khóa tìm kiếm
         }
 
-        public ActionResult Product(string searchTerm, int? page, bool? FilterByGender, int? FilterSize, int? FilterByBrand, int? FilterByCategory)
+        public ActionResult Product(string searchTerm, int? page, bool? FilterByGender, int? FilterSize, int? FilterByBrand, int? FilterByCategory, decimal? minPrice, decimal? maxPrice)
         {
             // Lưu từ khóa tìm kiếm vào TempData
             TempData["SearchTerm"] = searchTerm;
@@ -154,6 +154,13 @@ namespace ShoeWeb.Areas.Customer.Controllers
             if (FilterByCategory.HasValue)
             {
                 products = products.Where(p => p.cateId == FilterByCategory.Value).ToList();
+            }
+
+            if (minPrice.HasValue || maxPrice.HasValue)
+            {
+                decimal min = minPrice ?? 0;
+                decimal max = maxPrice ?? decimal.MaxValue;
+                products = products.Where(p => p.price >= min && p.price <= max).ToList();
             }
 
             int pageSize = 28; // Số sản phẩm trên mỗi trang
