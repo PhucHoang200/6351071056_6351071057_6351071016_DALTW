@@ -68,10 +68,10 @@
             <div>
                 <strong>Giá</strong>
                 <div class="price-range">
-                    <input type="range" id="minPriceRange" min="0" max="2000000" value="0" step="100000">
-                    <input type="range" id="maxPriceRange" min="0" max="2000000" value="2000000" step="100000">
+                    <input type="range" id="minPriceRange" min="0" max="10000000" value="0" step="1000000">
+                    <input type="range" id="maxPriceRange" min="0" max="10000000" value="10000000" step="1000000">
                     <div>
-                        <span id="minPriceDisplay">0</span> - <span id="maxPriceDisplay">2000000</span> VND
+                        <span id="minPriceDisplay">0</span> - <span id="maxPriceDisplay">10,000,000</span> VND
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
 
 
 
-                        <div class="col-4 filter-item" data-filter="@product.cateId" data-brand="@product.brandId" data-size="@sizeIds" data-price="@product.price">
+                        <div class="col-4 filter-item" data-filter="@product.cateId" data-brand="@product.brandId" data-size="@sizeIds" data-price="@product.price?.ToString(" 0.##")">
                             <a href="@Url.Action("ProductDetails", "Home", new { area = "Customer", productId = product.productId })">
                                 <img src="@Url.Content(product.image)" alt="@product.productName" />
                             </a>
@@ -129,7 +129,9 @@
                     FilterByGender = TempData["FilterByGender"],
                     FilterSize = TempData["FilterSize"],
                     FilterByBrand = TempData["FilterByBrand"],
-                    FilterByCategory = TempData["FilterByCategory"]
+                    FilterByCategory = TempData["FilterByCategory"],
+                    minPrice = TempData["minPrice"],
+                    maxPrice = TempData["maxPrice"]
                 })
             )
         </div>
@@ -212,13 +214,13 @@
     </div>
 </div>
 
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const checkboxes = document.querySelectorAll(".filter-checkbox");
         const minPriceRange = document.querySelector("#minPriceRange");
         const maxPriceRange = document.querySelector("#maxPriceRange");
-        const sidebar = document.querySelector(".filters-sidebar");
+        const minPriceDisplay = document.getElementById("minPriceDisplay");
+        const maxPriceDisplay = document.getElementById("maxPriceDisplay");
 
         // Cập nhật giá hiển thị khi thay đổi thanh kéo (sự kiện 'input' để thay đổi giá trực tiếp)
         minPriceRange.addEventListener("input", function () {
@@ -228,64 +230,47 @@
             maxPriceDisplay.innerText = maxPriceRange.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         });
 
-        // Cuộn lên đầu sidebar chỉ khi thả chuột ra khỏi thanh lọc giá
-        minPriceRange.addEventListener("mouseup", applyFilters);
-        maxPriceRange.addEventListener("mouseup", applyFilters);
+        // Áp dụng bộ lọc khi giá trị thanh kéo thay đổi
+        minPriceRange.addEventListener("change", applyFilters);
+        maxPriceRange.addEventListener("change", applyFilters);
 
-        // Lọc sản phẩm khi chọn checkbox
+        // Áp dụng bộ lọc khi checkbox thay đổi
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener("change", applyFilters);
         });
-
-        function scrollToTopOfSidebar() {
-            sidebar.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
 
         function applyFilters() {
             const selectedCategories = getSelectedFilters(".category-list input:checked", "data-filter");
             const selectedBrands = getSelectedFilters(".brand-list input:checked", "data-brand");
             const selectedSizes = getSelectedFilters(".size-list input:checked", "data-size");
-
             const minPrice = parseFloat(minPriceRange.value) || 0;
-            const maxPrice = parseFloat(maxPriceRange.value) || 2000000;
+            const maxPrice = parseFloat(maxPriceRange.value) || 10000000;
 
-            filterProductsOnClient(selectedCategories, selectedBrands, selectedSizes, minPrice, maxPrice);
+            const url = new URL(window.location.href);
 
-            // Cuộn lên đầu Sidebar sau khi thay đổi bộ lọc giá
-            scrollToTopOfSidebar();
+            // Thiết lập giá trị bộ lọc
+            url.searchParams.set('minPrice', minPrice);
+            url.searchParams.set('maxPrice', maxPrice);
+            url.searchParams.set('page', '1'); // Reset về trang 1 khi áp dụng bộ lọc mới
+            url.searchParams.set('FilterByCategory', selectedCategories.join(','));
+            url.searchParams.set('FilterByBrand', selectedBrands.join(','));
+            url.searchParams.set('FilterSize', selectedSizes.join(','));
+
+
+            // Tải lại trang với URL mới
+            window.location.href = url.toString();
         }
 
+
+        // Lấy danh sách bộ lọc đã chọn
         function getSelectedFilters(selector, attribute) {
             return Array.from(document.querySelectorAll(selector))
                 .map(el => el.getAttribute(attribute))
                 .filter(value => value);
         }
-
-        function filterProductsOnClient(categories, brands, sizes, minPrice, maxPrice) {
-            const products = document.querySelectorAll(".filter-item");
-
-            products.forEach(product => {
-                const productCategory = product.getAttribute("data-filter");
-                const productBrand = product.getAttribute("data-brand");
-                const productSizes = product.getAttribute("data-size")?.split(',') || [];
-                const productPrice = parseFloat(product.getAttribute("data-price"));
-
-                const categoryMatch = !categories.length || categories.includes(productCategory);
-                const brandMatch = !brands.length || brands.includes(productBrand);
-                const sizeMatch = !sizes.length || sizes.some(sizeId => productSizes.includes(sizeId));
-                const priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
-
-                product.style.display = (categoryMatch && brandMatch && sizeMatch && priceMatch) ? "block" : "none";
-            });
-        }
-
-        // Áp dụng bộ lọc ban đầu khi tải trang
-        applyFilters();
     });
-
-
-
 </script>
+
 
 
 
@@ -361,7 +346,7 @@
         align-content: flex-start; /* Căn sản phẩm về phía trên */
         gap: 20px;
         min-height: 1650px;
-        padding:20px;
+        padding: 20px;
     }
 
     /* Filter Item */

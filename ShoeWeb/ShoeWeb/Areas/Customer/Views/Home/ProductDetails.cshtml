@@ -6,7 +6,7 @@
 
 @model ShoeWeb.Areas.Customer.CustomerVM.DetailProductVM
 
-@if (Model.Product == null)
+@if (Model.Product == null || Model == null)
 {
     <h2>Chưa chọn sản phẩm nào! Hãy <a href="@Url.Action("Product","Home")">chọn môt sản phẩm</a></h2>
 }
@@ -43,6 +43,11 @@ else
                 @if (Model.sizes.Count() == 0)
                 {
                     <button type="button" class="btn" disabled>Sản phẩm hết size</button>
+
+                }
+                else if (Model.Product.quantity <= 0)
+                {
+                    <button type="button" class="btn" disabled>Sản phẩm hết hàng</button>
 
                 }
                 else
