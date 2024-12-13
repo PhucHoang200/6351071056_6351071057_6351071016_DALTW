@@ -113,7 +113,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost] 
         public async Task<ActionResult> Add(string name, decimal price, int quantity, string description,
                                              int categoryId, int brandId, int sizeId, int originId,
                                              HttpPostedFileBase image)

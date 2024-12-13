@@ -176,7 +176,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                             CreatedDate = DateTime.Now,
                             isPayment = model.PaymentMethod == "VNPay" ? true : false, // Nếu là VNPay thì thanh toán, còn lại là COD -> chưa thanh toán
                             isAccept = false, // Chưa được xác nhận
-                            userId = userId
+                            userId = userId,
                         };
 
                         _db.Orders.Add(order);
@@ -304,12 +304,7 @@ namespace ShoeWeb.Areas.Customer.Controllers
                         return false;
                     }
                 }
-                else
-                {
-                    // Nếu không tìm thấy thông tin sizeOfProduct, thông báo lỗi
-                    Debug.WriteLine($"Không tìm thấy thông tin sản phẩm: {item.ProductId} (Size: {item.numberSize})");
-                    return false;
-                }
+               
 
                 // Thêm OrderDetail vào danh sách
                 orderDetailItems.Add(newOrderItem);

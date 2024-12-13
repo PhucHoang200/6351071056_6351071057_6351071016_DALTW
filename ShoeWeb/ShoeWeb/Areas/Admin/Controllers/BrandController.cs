@@ -97,16 +97,25 @@ namespace ShoeWeb.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> AddBrand(string name)
         {
-            Brand brand = new Brand()
-            {
-                brandName = name
-            };
-
             try
             {
+                // Kiểm tra xem thương hiệu đã tồn tại chưa
+                var existingBrand = await _db.brands.FirstOrDefaultAsync(b => b.brandName == name);
+                if (existingBrand != null)
+                {
+                    return Json(new { success = false, message = "Thương hiệu đã tồn tại!" });
+                }
+
+                // Nếu không tồn tại, thêm mới
+                Brand brand = new Brand()
+                {
+                    brandName = name
+                };
+
                 _db.brands.Add(brand);
                 await _db.SaveChangesAsync();
 
+                // Lấy danh sách thương hiệu mới
                 var brands = await GetBrandVM();
 
                 return Json(new { success = true, brands = brands.brands });
@@ -116,6 +125,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
+
 
 
 

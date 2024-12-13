@@ -61,7 +61,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
         {
             // Lấy danh sách đơn hàng trong khoảng thời gian
             var orders = _db.Orders
-                .Where(o => o.CreatedDate >= fromDate && o.CreatedDate <= toDate)
+                .Where(o => o.CreatedDate >= fromDate && o.CreatedDate <= toDate && o.isAccept == true && o.StatusShipping == 3)
                 .Select(o => new
                 {
                     o.Code,

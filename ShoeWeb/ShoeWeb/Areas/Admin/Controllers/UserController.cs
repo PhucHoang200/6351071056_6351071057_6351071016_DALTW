@@ -35,33 +35,45 @@ namespace ShoeWeb.Areas.Admin.Controllers
 
         public async Task<ActionResult> Index()
         {
-            // Lấy danh sách người dùng
-            var users = await _db.Users.ToListAsync();
+            // Lấy vai trò Customer
+            var roleCustomer = await _db.Roles.FirstOrDefaultAsync(rl => rl.Name == "Customer");
+            if (roleCustomer == null)
+            {
+                ViewBag.Roles = new List<IdentityRole>(); // Khởi tạo danh sách rỗng nếu không có vai trò
+                return View(new List<UserVM>()); // Trả về danh sách rỗng
+            }
 
-            // Lấy vai trò
-            var userRoles = await _db.UserRoles.ToListAsync();
+            // Lấy danh sách người dùng có vai trò Customer
+            var userRoles = await _db.UserRoles
+                .Where(ur => ur.RoleId == roleCustomer.Id)
+                .ToListAsync();
+
+            var userIds = userRoles.Select(ur => ur.UserId).ToList();
+
+            var users = await _db.Users
+                .Where(u => userIds.Contains(u.Id))
+                .ToListAsync();
+
+            // Lấy danh sách tất cả vai trò
             var roles = await _db.Roles.ToListAsync();
+            ViewBag.Roles = roles; // Gán danh sách vai trò cho ViewBag.Roles
 
-            var availableRoles = roles.Select(r => r.Name).ToList();
-
-            ViewBag.Roles = roles; // Gửi danh sách vai trò đến View
-
-            // Kết hợp dữ liệu để tạo danh sách UserVM
+            // Chuẩn bị danh sách UserVM
             var userVMList = users.Select(user => new UserVM
             {
                 Id = user.Id,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
                 UserName = user.UserName,
-                Status = user.Status, // Thêm trường này nếu tồn tại trong AspNetUsers
-                RoleName = userRoles
-                    .Where(ur => ur.UserId == user.Id)
-                    .Join(roles, ur => ur.RoleId, r => r.Id, (ur, r) => r.Name)
-                    .FirstOrDefault() // Lấy tên vai trò đầu tiên nếu có nhiều
+                Status = user.Status, // Nếu có trường Status
+                RoleName = "Customer" // Mặc định là Customer vì đã lọc
             }).ToList();
 
+            // Gửi danh sách UserVM đến View
             return View(userVMList);
         }
+
+
         [HttpPost]
         public async Task<ActionResult> ChangeStatus(string userId, bool status)
         {
@@ -87,7 +99,7 @@ namespace ShoeWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> UpdateUser(string userId, string roleName)
+        public async Task<ActionResult> UpdateUser(string userId, string roleId)
         {
             // Tìm người dùng trong bảng AspNetUsers
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
@@ -96,10 +108,10 @@ namespace ShoeWeb.Areas.Admin.Controllers
                 return Json(new { success = false, message = "Người dùng không tồn tại!" });
             }
 
-       
+
 
             // Tìm vai trò trong bảng AspNetRoles dựa trên tên vai trò
-            var role = await _db.Roles.FirstOrDefaultAsync(r => r.Id == roleName);
+            var role = await _db.Roles.FirstOrDefaultAsync(r => r.Id == roleId);
             if (role == null)
             {
                 return Json(new { success = false, message = "Vai trò không tồn tại!" });
